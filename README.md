@@ -34,12 +34,12 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 
 
 ### space object
-| Field                | Type               | Required               | Description                                                  |
-| -------------------- | -----------------  | ---------------------- | ------------------------------------------------------------ |
-| type                 | string             | conditionally required | Tenminste 1 veld van een space-object dient gegeven te zijn  |
-| level                | string             | conditionally required |                                                              |
-| ?                    | ?                  | conditionally required | Nieuw te definiëren plekeigenschappen                        |
-| ?                    | ?                  | conditionally required | Nieuw te definiëren plekeigenschappen                        |
+| Field                | Type                  | Required               | Description                                                  |
+| -------------------- | --------------------  | ---------------------- | ------------------------------------------------------------ |
+| type                 | Enum('nietje,rek,...) | conditionally required | Tenminste 1 veld van een space-object dient gegeven te zijn  |
+| level                | number                | conditionally required | Verdieping, komt voor in grote bewaakte stallingen           |
+| ?                    | ?                     | conditionally required | Nieuw te definiëren plekeigenschappen                        |
+| ?                    | ?                     | conditionally required | Nieuw te definiëren plekeigenschappen                        |
 
 
 ### occupation object
@@ -80,7 +80,7 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | 2  | Elektrische hulpmotor | bv e-fiets, speed pedelec                                                      |
 | 3  | Alleen elektrisch     | bv e-bromfiets                                                                 |
 | 4  | Brandstof hulpmotor   | bv Sparta-met                                                                  |
-| 5  | alleen brandstof      | traditionele bromfiets                                                         | 
+| 5  | alleen brandstof      | bv traditionele bromfiets                                                      | 
 
 #### vehicle.width
 | ID | Breedte               | Omschrijving                                                                   |
