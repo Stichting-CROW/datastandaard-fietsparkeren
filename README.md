@@ -12,42 +12,29 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | vacantSpaces        | number              | no                     | Aantal vrije plekken                                         |
 | sections            | Section[]           | no                     | Verzameling van section objecten                             |
 
-
-
-### section object
+### section object - een parkeervoorziening, bijvoorbeeld een verzameling nietjes
 | Field               | Type                | Required               | Description                                                  |
 | ------------        | ------------------- | ---------------------- | ----------------------------------------------------------   |
 | id                  | string              | no                     | Binnen locatie een unieke id                                 |
 | parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
 | vacantSpaces        | number              | no                     |                                                              |
-| subsections         | Subsection[]        | no                     | Verzameling van Subsection-objecten                          |
-
-
-### subsection object
-| Field               | Type                | Required               | Description                                                  |
-| ------------        | ------              | ---------------------- | ----------------------------------------------------------   |
-| id                  | string              | no                     | Binnen sectie een unieke id                                  |
-| parkingCapacity     | number              | yes                    | Totaal aantal plekken                                        |
-| vacantSpaces        | number              | no                     |                                                              |
 | space               | Space Object        | no                     |                                                              |
 | occupation          | Occupation[]        | no                     | Verzameling van Occupation-objecten                          |
+| sections            | Section[]           | no                     | Verzameling van Sections binnen Sections-objecten            |
 
-
-### space object
-| Field                | Type                  | Required               | Description                                                  |
-| -------------------- | --------------------  | ---------------------- | ------------------------------------------------------------ |
-| type                 | Enum('nietje,rek,...) | conditionally required | Tenminste 1 veld van een space-object dient gegeven te zijn  |
-| level                | number                | conditionally required | 0=laag, 1=hoog                                               |
-| ?                    | ?                     | conditionally required | Nieuw te definiëren plekeigenschappen                        |
-| ?                    | ?                     | conditionally required | Nieuw te definiëren plekeigenschappen                        |
-
+### space object - definiëring van een plek aan de hand van properties
+| Field                | Type              | Required               | Description                                                   |
+| -------------------- | ----------------- | ---------------------- | ------------------------------------------------------------- |
+| type                 | number            | conditionally required | SpaceTypeID (zie onder);Tenminste 1 veld dient gegeven te zijn|
+| level                | number            | conditionally required | 0=laag, 1=hoog                                                |
+| ?                    | ?                 | conditionally required | Nieuw te definiëren plekeigenschappen                         |
+| ?                    | ?                 | conditionally required | Nieuw te definiëren plekeigenschappen                         |
 
 ### occupation object
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
 | vehicle              | Vehicle object     | no                     | Leeg betekent dat het voertuigtype niet bekend is            |
 | n                    | number             | yes                    | Aantal gestalde voertuigen                                   |
-
 
 ### vehicle object
 | Field                | Type               | Required               | Description                                                  |
@@ -57,7 +44,6 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | width                | number             | conditionally required | breedtecategorie                                             |
 | ?                    | ?                  | conditionally required | Nieuw te definiëren plekeigenschappen                        |
 | ?                    | ?                  | conditionally required | Nieuw te definiëren plekeigenschappen                        |
-
 
 ### Voetuigeigenschappen volgens wettelijke voettuigcategorie, naar type aandrijving en naar breedte, zoals beschreven in 2019.09.24dataformaatfietstellingenv2.10_fietstypen.pdf pagina's 16 en 17
 
@@ -90,6 +76,19 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | 3  | > 1,50m               | bijvoorbeeld: personenauto                                                     |
 
 
+#### spaceTypeIDs - indeling volgens Trajan 'Whitepaper fietsparkeerdrukonderzoek 1.0.pdf' p. 10
+| ID | spaceType             |
+| -- | --------------------- |
+| 0  | Buiten voorziening    |
+| 1  | Rek                   |
+| 2  | Nietjes               |
+| 3  | Vak                   |
+| 4  | Gemengd vak           |
+| 5  | Bromfietsvak          |
+| 6  | Voor fietsenwinkel    |
+| 99 | Overig                |
+
+
 #### Example:
 
 ```json
@@ -103,12 +102,33 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 			"id": "begane_grond",
 			"parkingCapacity": 140,
 			"vacantSpaces": 110,
-			"subsections": [
+			"occupation": [
+				{
+					"vehicle": {
+						"type": 1,
+					},
+					"n": 70
+				},
+				{
+					"vehicle": {
+						"type": 1
+					},
+					"n": 18
+				},
+				{
+					"vehicle": {
+						"type": 2, 
+						"propulsion": 2
+					},
+					"n": 2
+				}
+			],
+			"sections": [
 				{
 					"parkingCapacity": 80,
 					"vacantSpaces": 10,
 					"space": {
-						"type": "nietje"
+						"type": 2
 					},
 					"occupation": [
 						{
@@ -123,7 +143,7 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 					"parkingCapacity": 60,
 					"vacantSpaces": 40,
 					"space": {
-						"type": "rek",
+						"type": 1,
 						"level": 0
 					},
 					"occupation": [
@@ -146,10 +166,33 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 		},
 		{
 			"id": "verdieping_1",
-			"subsections": [
+			"parkingCapacity": 86,
+			"vacantSpaces": 14,
+			"occupation": [
+				{
+					"vehicle": {
+						"type": 1
+					},
+					"n": 70
+				},
+				{
+					"vehicle": {
+						"type": 1
+					},
+					"n": 1
+				},
+				{
+					"vehicle": {
+						"type": 2,
+						"propulsion": 2
+					},
+					"n": 1
+				}
+			],
+			"sections": [
 				{
 					"space": {
-						"type": "nietje",
+						"type": 2,
 					},
 					"parkingCapacity": 80,
 					"vacantSpaces": 10,
@@ -164,7 +207,7 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 				},
 				{
 					"spaceType": {
-						"type": "rek",
+						"type": 1,
 						"level": 0
 					},
 					"parkingCapacity": 6,
