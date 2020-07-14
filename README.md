@@ -37,7 +37,7 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | Field                | Type                  | Required               | Description                                                  |
 | -------------------- | --------------------  | ---------------------- | ------------------------------------------------------------ |
 | type                 | Enum('nietje,rek,...) | conditionally required | Tenminste 1 veld van een space-object dient gegeven te zijn  |
-| level                | number                | conditionally required | Verdieping, komt voor in grote bewaakte stallingen           |
+| level                | number                | conditionally required | 0=laag, 1=hoog                                               |
 | ?                    | ?                     | conditionally required | Nieuw te definiëren plekeigenschappen                        |
 | ?                    | ?                     | conditionally required | Nieuw te definiëren plekeigenschappen                        |
 
@@ -124,7 +124,7 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 					"vacantSpaces": 40,
 					"space": {
 						"type": "rek",
-						"level": "low"
+						"level": 0
 					},
 					"occupation": [
 						{
@@ -165,7 +165,7 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 				{
 					"spaceType": {
 						"type": "rek",
-						"level": "low"
+						"level": 0
 					},
 					"parkingCapacity": 6,
 					"vacantSpaces": 4,
@@ -186,7 +186,7 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 					]
 				}
 			]
-		]
+		}
 	]
 }
 ```
