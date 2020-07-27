@@ -2,48 +2,101 @@
 
 Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De eerste versie is een ontwerp, gebaseerd op het SPDP-formaat, dat beoogt voor zowel bewaakte stallingen als straattellingen te kunnen worden gebruikt.
 
-
-### facility/location object
+### Metadata request
 | Field               | Type                | Required               | Description                                                  |
 | ------------------- | ------------------- | ---------------------- | ------------------------------------------------------------ |
-| id                  | string              | yes                    | Een uuid, random of eventueel samengesteld                   |
-| timestamp           | ISO8601 timestamp   | yes                    | UTC timestamp, bijvoorbeeld 2020-07-02T11:14:00Z             |
-| parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
-| vacantSpaces        | number              | no                     | Aantal vrije plekken                                         |
-| sections            | Section[]           | no                     | Verzameling van section objecten                             |
+| timestamp           | ISO8601 timestamp   | yes                    | UTC timestamp van request                                    |
+| surveyid            | string              | yes                    | Een uuid, random of eventueel samengesteld                   |
 
-### section object - een parkeervoorziening, bijvoorbeeld een verzameling nietjes
+vrije velden, al naar gelang beschikbaar is:
+| opdachtegever       | string              | no                     |                                                              |
+| uitvoerder          | string              | no                     |                                                              |
+| startdate           | ISO8601 timestamp   | no                     | Startdatum van het onderzoek                                 |
+| enddate             | ISO8601 timestamp   | no                     | Einddatum van het onderzoek                                  |
+
+### Area object
+| Field                   | Type                | Required               | Description                                              |
+| ----------------------- | ------------------- | ---------------------- | -------------------------------------------------------- |
+| id                      | string              | yes                    | Een uuid, random of eventueel samengesteld               |
+| timestamp               | ISO8601 timestamp   | yes                    | UTC timestamp, bijvoorbeeld 2020-07-02T11:14:00Z         |
+| parkingCapacity         | number              | no                     | Totaal aantal plekken                                    |
+| parkingCapacityTimestamp| ISO8601 timestamp   | no                     | Meetdatum aantal plekken                                 |
+| sections                | Section[]           | no                     | Verzameling van section objecten                         |
+| notes                   | Note object         | no                     | Notities over de meting in deze area                     |
+| metadata                | string              | no                     | Vrije tekst met extra info over de area                  |
+| vacantSpaces            | number              | no                     | Aantal vrije plekken                                     |
+| occupiedSpaces          | number              | no                     | Aantal bezette plekken                                   |
+| occupation              | Occupation[]        | no                     | Verzameling van Occupation-objecten                      |
+
+### Note object
+| Field               | Type                | Required               | Description                                                  |
+| ------------------- | ------------------- | ---------------------- | ------------------------------------------------------------ |
+| open                | boolean             | no                     | is deze area, bijv. een stalling geopend?                    |
+| holiday             | boolean             | no                     | Vakantie?                                                    |
+| event               | boolean             | no                     | Evenement (markt, kermis, ...)?                              |
+| underConstruction   | boolean             | no                     | Werkzaamheden?                                               |
+| remark              | string              | no                     | Vrij tekstveld                                               |
+| ?                   | ?                   | no                     | Nader te bepalen                                             |
+
+### Section object - een deelgebied van een area, bijvoorbeeld 'Dorpsstraat oneven-zijde stoep' of 'Stationsstalling 1e verdieping'
 | Field               | Type                | Required               | Description                                                  |
 | ------------        | ------------------- | ---------------------- | ----------------------------------------------------------   |
-| id                  | string              | no                     | Binnen locatie een unieke id                                 |
+| id                  | string              | yes                    | Binnen area een unieke id                                    |
+| space               | Space Object        | no                     |                                                              |
+| units               | Unit[]              | no                     | Verzameling van voorzieningen binnen Sections-objecten       |
 | parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
 | vacantSpaces        | number              | no                     |                                                              |
-| space               | Space Object        | no                     |                                                              |
+| occupiedSpaces      | number              | no                     | Aantal bezette plekken                                       |
 | occupation          | Occupation[]        | no                     | Verzameling van Occupation-objecten                          |
-| sections            | Section[]           | no                     | Verzameling van Sections binnen Sections-objecten            |
 
-### space object - definiëring van een plek aan de hand van properties
-| Field                | Type              | Required               | Description                                                   |
-| -------------------- | ----------------- | ---------------------- | ------------------------------------------------------------- |
-| type                 | number            | conditionally required | SpaceTypeID (zie onder);Tenminste 1 veld dient gegeven te zijn|
-| level                | number            | conditionally required | 0=laag, 1=hoog                                                |
-| ?                    | ?                 | conditionally required | Nieuw te definiëren plekeigenschappen                         |
-| ?                    | ?                 | conditionally required | Nieuw te definiëren plekeigenschappen                         |
+### Unit object - een parkeervoorziening, bijvoorbeeld een verzameling nietjes
+| Field               | Type                | Required               | Description                                                  |
+| ------------        | ------------------- | ---------------------- | ----------------------------------------------------------   |
+| id                  | string              | no                     | Binnen unit een unieke id                                    |
+| space               | Space Object        | no                     |                                                              |
+| subUnits            | SubUnit[]           | no                     | Verzameling van delen van een unit, bijv. onderrek / bovenrek|
+| parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
+| vacantSpaces        | number              | no                     |                                                              |
+| occupiedSpaces      | number              | no                     | Aantal bezette plekken                                       |
+| occupation          | Occupation[]        | no                     | Verzameling van Occupation-objecten                          |
 
-### occupation object
+### SubUnit object - een parkeervoorziening, bijvoorbeeld een verzameling nietjes
+| Field               | Type                | Required               | Description                                                  |
+| ------------        | ------------------- | ---------------------- | ----------------------------------------------------------   |
+| id                  | string              | no                     | Binnen unit een unieke id, bijv. 'bovenrek'                  |
+| space               | Space Object        | no                     |                                                              |
+| parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
+| vacantSpaces        | number              | no                     |                                                              |
+| occupiedSpaces      | number              | no                     | Aantal bezette plekken                                       |
+| occupation          | Occupation[]        | no                     | Verzameling van Occupation-objecten                          |
+
+### Space object - definiëring van een plek aan de hand van properties
+| Field                | Type               | Required                | Description                                                   |
+| -------------------- | ------------------ | ----------------------- | ------------------------------------------------------------- |
+| type                 | number             | no                      | SpaceTypeID (zie onder);Tenminste 1 veld dient gegeven te zijn|
+| level                | number             | no                      | 0=laag, 1=hoog                                                |
+| ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                         |
+| ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                         |
+
+### Occupation object
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
 | vehicle              | Vehicle object     | no                     | Leeg betekent dat het voertuigtype niet bekend is            |
-| n                    | number             | yes                    | Aantal gestalde voertuigen                                   |
+| numberOfVehicles     | number             | yes                    | Aantal gestalde voertuigen                                   |
 
-### vehicle object
+### Vehicle object
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
-| type                 | number             | conditionally required | Voertuigtype; Tenminste 1 veld dient gegeven te zijn         |
-| propulsion           | number             | conditionally required | Aandrijving                                                  |
-| width                | number             | conditionally required | breedtecategorie                                             |
-| ?                    | ?                  | conditionally required | Nieuw te definiëren plekeigenschappen                        |
-| ?                    | ?                  | conditionally required | Nieuw te definiëren plekeigenschappen                        |
+| type                 | number             | no                     | Voertuigtype; Tenminste 1 veld dient gegeven te zijn         |
+| propulsion           | number             | no                     | Aandrijving                                                  |
+| state                | string             | no                     | Bijv.  'wrak', 'puncture'                                    |
+| accessoires          | string[]           | no                     | Verzameling asseccoires, bijv: ['voorkrat', 'achterzitje', 'fietstassen'] |
+| parkstate            | string[]           | no                     | Verzameling parkeerdetails, bijv: ['naast rek', 'dubbel in nietje']       |
+| owner                | number             | no                     | Owner type            |
+| ?                    | ?                  | no                     | Nieuw te definiëren plekeigenschappen                        |
+| ?                    | ?                  | no                     | Nieuw te definiëren plekeigenschappen                        |
+
+---
 
 ### Voetuigeigenschappen volgens wettelijke voettuigcategorie, naar type aandrijving en naar breedte, zoals beschreven in 2019.09.24dataformaatfietstellingenv2.10_fietstypen.pdf pagina's 16 en 17
 
@@ -55,9 +108,15 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | 3  | Bromfiets             | kentekenplaat is geel, met een zwart kader, zwart opschrift en een hologram    |
 | 4  | Motor                 | NL geel of blauw, internationaal anders                                        |
 | 5  | Gehandicaptenvoertuig | geen kenteken, wel verzekeringsplaatje                                         |
-| 6  | Bijzondere bromfiets  | geen kenteken, wel verzekeringsplaatje                                         |
-| 7  | Landbouwvoertuig      | nog geen kenteken                                                              |
-| 8  | Voetganger            |                                                                                |
+| 99 | Overig                |                                                                                |
+
+
+#### vehicle.owner
+| ID | Voertuigtype          | Omschrijving                                                                   |
+| -- | --------------------- | ----------------- ------------------------------------------------------------ |
+| 1  | Private               | Privéfiets                                                                     |
+| 2  | Lease                 | Leasefiets, zoals Swap Bikes                                                   |
+| 3  | Rent                  | Huurfiets, zoals OV-fiets                                                      |
 
 #### vehicle.propulsion
 | ID | Aandrijving           | Omschrijving                                                                   |
@@ -88,6 +147,14 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | 6  | Voor fietsenwinkel    |
 | 99 | Overig                |
 
+---
+De velden vacantSpaces, occupiedSpaces en occupation zijn alleen aanwezig aan de bladeren van de boom, m.a.w.:  
+* Een Area-object heeft alleen vacantSpaces, occupiedSpaces en occupation als er geen Sections zijn
+* Een Section-object heeft alleen vacantSpaces, occupiedSpaces en occupation als er geen Units zijn
+* Een Unit-object heeft alleen vacantSpaces, occupiedSpaces en occupation als er geen SubUnits zijn
+
+De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces van onderliggende Section, Units en SubUnits op te tellen
+---
 
 #### Example:
 
