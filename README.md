@@ -127,14 +127,6 @@ vrije velden, al naar gelang beschikbaar is:
 | 4  | Brandstof hulpmotor   | bv Sparta-met                                                                  |
 | 5  | alleen brandstof      | bv traditionele bromfiets                                                      | 
 
-#### vehicle.width
-| ID | Breedte               | Omschrijving                                                                   |
-| -- | --------------------- | ----------------- ------------------------------------------------------------ |
-| 1  | 0 – 0,75m             | bijvoorbeeld: fiets op twee wielen                                             |
-| 2  | 0,75 – 1,5m           | bijvoorbeeld: bakfiets of bromfiets                                            |
-| 3  | > 1,50m               | bijvoorbeeld: personenauto                                                     |
-
-
 #### spaceTypeIDs - indeling volgens Trajan 'Whitepaper fietsparkeerdrukonderzoek 1.0.pdf' p. 10
 | ID | spaceType             |
 | -- | --------------------- |
