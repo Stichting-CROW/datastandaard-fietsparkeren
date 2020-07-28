@@ -140,15 +140,23 @@ vrije velden, al naar gelang beschikbaar is:
 | 99 | Overig                |
 
 ---
+
 De velden vacantSpaces, occupiedSpaces en occupation zijn alleen aanwezig aan de bladeren van de boom, m.a.w.:  
 * Een Area-object heeft alleen vacantSpaces, occupiedSpaces en occupation als er geen Sections zijn
 * Een Section-object heeft alleen vacantSpaces, occupiedSpaces en occupation als er geen Units zijn
 * Een Unit-object heeft alleen vacantSpaces, occupiedSpaces en occupation als er geen SubUnits zijn
 
 De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces van onderliggende Section, Units en SubUnits op te tellen
+
 ---
 
-#### Example:
+## Voorbeelden:
+###Voorbeeld 1: Alle data van een bepaald onderzoek
+/surveys/:surveyid [Response](./voorbeeld1.json)
+
+###Voorbeeld 2: Data van een bepaalde area
+/areas/:areaid/?params [Response](./voorbeeld2.json)
+
 
 ```json
 {
