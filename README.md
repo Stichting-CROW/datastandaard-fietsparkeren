@@ -8,7 +8,7 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | timestamp           | ISO8601 timestamp   | yes                    | UTC timestamp van request                                    |
 | surveyid            | string              | yes                    | Een uuid, random of eventueel samengesteld                   |
 
-vrije velden, al naar gelang beschikbaar is:
+vrije velden, al naar gelang beschikbaar is:  
 | opdachtegever       | string              | no                     |                                                              |
 | uitvoerder          | string              | no                     |                                                              |
 | startdate           | ISO8601 timestamp   | no                     | Startdatum van het onderzoek                                 |
@@ -47,7 +47,7 @@ vrije velden, al naar gelang beschikbaar is:
 | parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
 | vacantSpaces        | number              | no                     |                                                              |
 | occupiedSpaces      | number              | no                     | Aantal bezette plekken                                       |
-| occupation          | Occupation[]        | no                     | Verzameling van Occupation-objecten                          |
+| count		          | Count[]             | no                     | Verzameling van Occupation-objecten                          |
 
 ### Unit object - een parkeervoorziening, bijvoorbeeld een verzameling nietjes
 | Field               | Type                | Required               | Description                                                  |
@@ -58,7 +58,7 @@ vrije velden, al naar gelang beschikbaar is:
 | parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
 | vacantSpaces        | number              | no                     |                                                              |
 | occupiedSpaces      | number              | no                     | Aantal bezette plekken                                       |
-| occupation          | Occupation[]        | no                     | Verzameling van Occupation-objecten                          |
+| count		          | Count[]             | no                     | Verzameling van Occupation-objecten                          |
 
 ### SubUnit object - een parkeervoorziening, bijvoorbeeld een verzameling nietjes
 | Field               | Type                | Required               | Description                                                  |
@@ -68,17 +68,18 @@ vrije velden, al naar gelang beschikbaar is:
 | parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
 | vacantSpaces        | number              | no                     |                                                              |
 | occupiedSpaces      | number              | no                     | Aantal bezette plekken                                       |
-| occupation          | Occupation[]        | no                     | Verzameling van Occupation-objecten                          |
+| count		          | Count[]             | no                     | Verzameling van Occupation-objecten                          |
 
 ### Space object - definiëring van een plek aan de hand van properties
-| Field                | Type               | Required                | Description                                                   |
-| -------------------- | ------------------ | ----------------------- | ------------------------------------------------------------- |
-| type                 | number             | no                      | SpaceTypeID (zie onder);Tenminste 1 veld dient gegeven te zijn|
-| level                | number             | no                      | 0=laag, 1=hoog                                                |
-| ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                         |
-| ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                         |
+| Field                | Type               | Required                | Description                                                 |
+| -------------------- | ------------------ | ----------------------- | ------------------------------------------------------------|
+| type                 | number             | no                      | SpaceTypeID; tenminste 1 veld dient gegeven te zijn			|
+| level                | number             | no                      | 0=onder, 1=boven                                            |
+| vehicles             | Vehicle[]          | no                      | Uitsluitend geschikt voor deze voertuigen                   |
+| ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                       |
+| ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                       |
 
-### Occupation object
+### Count object
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
 | vehicle              | Vehicle object     | no                     | Leeg betekent dat het voertuigtype niet bekend is            |
@@ -112,11 +113,11 @@ vrije velden, al naar gelang beschikbaar is:
 
 
 #### vehicle.owner
-| ID | Voertuigtype          | Omschrijving                                                                   |
+| ID | Eigenaar              | Omschrijving                                                                   |
 | -- | --------------------- | ----------------- ------------------------------------------------------------ |
-| 1  | Private               | Privéfiets                                                                     |
+| 1  | Privé                 | Privéfiets                                                                     |
 | 2  | Lease                 | Leasefiets, zoals Swap Bikes                                                   |
-| 3  | Rent                  | Huurfiets, zoals OV-fiets                                                      |
+| 3  | Huur                  | Huurfiets, zoals OV-fiets                                                      |
 
 #### vehicle.propulsion
 | ID | Aandrijving           | Omschrijving                                                                   |
@@ -149,13 +150,52 @@ De velden vacantSpaces, occupiedSpaces en occupation zijn alleen aanwezig aan de
 De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces van onderliggende Section, Units en SubUnits op te tellen
 
 ---
+# API
+## query-parameters voor GET-requests
+| param     		| type		| values                                             	|
+| ----------------- |---------- | ----------------------------------------------------- |
+| depth 		    | number	| Aantal te bevragen lagen vanaf gegeven pad			|
+|					| 			| 1 = areas                           					|
+|					|		 	| 2 = areas en sections             				    |
+|					| 		 	| 3 = areas, section en units          					|
+|					| 		 	| 4 = areas, section, units en subunits 				|
+|					| 		 	| default = 1                           				|
+| vehicleType		| number	| Alleen data voor dit voertuigtype						|
+| vehiclePropulsion | number	| Alleen data voor dit voertuig met deze aandrijving	|
+| vehicleOwner	 	| number	| Alleen data voor dit voertuig met deze eigenaar		|
+|					|			| default = alle voertuigen 							|
+|					|			|														|
+| startdate			| UTC timestamp	| Selectie op timestamp. Area.timestamp >= startdate 	|
+| enddate			| UTC timestamp	| Selectie op timestamp. Area.timestamp < startdate		|
+| groupBY			| string	| Lijst van kenmerken waarop de data gegroepeerd wordt		|
+
 
 ## Voorbeelden:
-###Voorbeeld 1: Alle data van een bepaald onderzoek
-/surveys/:surveyid [Response](./voorbeeld1.json)
+### Nieuwe data opslaan (POST)
+Posten van data mag alleen op survey- of area-niveau  
+POST /surveys [Body](./POST_survey.json) - posten op survey-niveau geef de mogelijkheid meting te groeperen  
+POST /areas [Body](./POST_areas.json)
 
-###Voorbeeld 2: Data van een bepaalde area
-/areas/:areaid/?params [Response](./voorbeeld2.json)
+### Ophalen van alle data van een bepaald onderzoek
+GET /surveys/:surveyid?depth=5 [Response](./POST_survey.json)  
+
+### Ophalen van data van een bepaald onderzoek op area-niveau
+[GET /surveys/:surveyid [Response](./GET_survey.json) - de default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op area-niveau  
+
+### Opvragen van data van een bepaalde area
+/areas/ketelstraat_oneven/?startdate=2020-11-23T0:00:00&endate=2020-11-24T0:00:00 [Response](./GET_area.json)  
+
+### Opvragen van data van een bepaalde area, uitgesplitst op type voertuig
+/areas/ketelstraat_oneven/?startdate=2020-11-23T0:00:00&endate=2020-11-24T0:00:00&groupBy=vehicleType [Response](./GET_area_groupby.json)  
+
+### Opvragen van data van een bepaalde section binnen een area
+/areas/ketelstraat_oneven/sections/trottoir?depth=3&startdate=2020-11-23T0:00:00&endate=2020-11-24T0:00:00 [Response](./GET_section.json)  
+
+### Selectie op vehicle: alle data voor een area over gewone fietsen
+/areas/ketelstraat_oneven/?vehicleType=1&startdate=2020-11-23T0:00:00&endate=2020-11-24T0:00:00 [Response](./GET_area_fiets.json)  
+
+### Selectie op vehicle: alle data voor een area over elektrische fietsen
+/areas/ketelstraat_oneven/?vehicleType=1&vehiclePropulsion=2&startdate=2020-11-23T0:00:00&endate=2020-11-24T0:00:00 [Response](./GET_area_elekfiets.json)  
 
 
 ```json
@@ -174,23 +214,21 @@ De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces va
 					"vehicle": {
 						"type": 1,
 					},
-					"n": 70
+					"numberOfVehicles": 70
 				},
 				{
 					"vehicle": {
 						"type": 1
 					},
-					"n": 18
+					"numberOfVehicles": 18
 				},
 				{
 					"vehicle": {
 						"type": 2, 
 						"propulsion": 2
 					},
-					"n": 2
-				}
-			],
-			"sections": [
+					"numberOfVehicles": 2
+				},
 				{
 					"parkingCapacity": 80,
 					"vacantSpaces": 10,
@@ -202,7 +240,7 @@ De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces va
 							"vehicle": {
 								"type": 1,
 							},
-							"n": 70
+							"numberOfVehicles": 70
 						}
 					]
 				},
@@ -218,14 +256,14 @@ De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces va
 							"vehicle": {
 								"type": 1
 							},
-							"n": 18
+							"numberOfVehicles": 18
 						},
 						{
 							"vehicle": {
 								"type": 2, 
 								"propulsion": 2
 							},
-							"n": 2
+							"numberOfVehicles": 2
 						}
 					]
 				},
@@ -274,8 +312,7 @@ De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces va
 				},
 				{
 					"spaceType": {
-						"type": 1,
-						"level": 0
+						"type": 1
 					},
 					"parkingCapacity": 6,
 					"vacantSpaces": 4,
@@ -284,14 +321,14 @@ De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces va
 							"vehicle": {
 								"type": 1
 							},
-							"n": 1
+							"numberOfVehicles": 1
 						},
 						{
 							"vehicle": {
 								"type": 2,
 								"propulsion": 2
 							},
-							"n": 1
+							"numberOfVehicles": 1
 						}
 					]
 				}
