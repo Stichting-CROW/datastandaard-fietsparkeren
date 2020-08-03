@@ -1,4 +1,8 @@
 {
+    "query": {
+        "surveyid": "DeFietstellers_Arnhem_2020",
+        "depth": 3
+    },
     "surveyid": "DeFietstellers_Arnhem_2020",
     "opdrachtgever": "Gemeente Arnhem",
     "uitvoerder": "De Fietstellers BV",
@@ -7,7 +11,7 @@
     "data": {
         "areas": [
             {
-                "id": "ketelstraat_oneven",
+                "id": "arnhem_ketelstraat_oneven",
                 "name": "Ketelstraat oneven",
                 "timestamp": "2020-11-23T11:45:00",
                 "sections": [

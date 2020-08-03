@@ -1,11 +1,13 @@
 {
-    "startdate": "2020-11-23T0:00:00",
-    "enddate": "2020-11-24T0:00:00",
-    "area": "ketelstraat_oneven",
-    "depth": 1,
+    "query": {
+        "startdate": "2020-11-23T0:00:00",
+        "enddate": "2020-11-24T0:00:00",
+        "area": "arnhem_ketelstraat_oneven",
+        "depth": 1
+    },
     "data": [
         {
-            "id": "ketelstraat_oneven",
+            "id": "arnhem_ketelstraat_oneven",
             "name": "Ketelstraat oneven",
             "timestamp": "2020-11-23T11:45:00",
             "parkingCapacity": 145,

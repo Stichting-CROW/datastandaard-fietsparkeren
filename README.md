@@ -150,8 +150,15 @@ De velden vacantSpaces, occupiedSpaces en occupation zijn alleen aanwezig aan de
 De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces van onderliggende Section, Units en SubUnits op te tellen
 
 ---
-# API
-## query-parameters voor GET-requests
+# API - schrijf- en zoekopdrachten
+
+## Nieuwe data opslaan (POST)
+Posten van data mag alleen op survey- of area-niveau  
+POST /surveys [Body](./POST_survey.json) - posten op survey-niveau geef de mogelijkheid meting te groeperen  
+POST /areas [Body](./POST_areas.json)
+
+## zoekopdrachten (GET)
+### query-parameters voor GET-requests
 | param     		| type		| values                                             	|
 | ----------------- |---------- | ----------------------------------------------------- |
 | depth 		    | number	| Aantal te bevragen lagen vanaf gegeven pad			|
@@ -160,181 +167,33 @@ De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces va
 |					| 		 	| 3 = areas, section en units          					|
 |					| 		 	| 4 = areas, section, units en subunits 				|
 |					| 		 	| default = 1                           				|
+|					|			|														|
 | vehicleType		| number	| Alleen data voor dit voertuigtype						|
 | vehiclePropulsion | number	| Alleen data voor dit voertuig met deze aandrijving	|
 | vehicleOwner	 	| number	| Alleen data voor dit voertuig met deze eigenaar		|
 |					|			| default = alle voertuigen 							|
 |					|			|														|
-| startdate			| UTC timestamp	| Selectie op timestamp. Area.timestamp >= startdate 	|
-| enddate			| UTC timestamp	| Selectie op timestamp. Area.timestamp < startdate		|
+| startDate			| UTC timestamp	| Selectie op timestamp. Area.timestamp >= startdate 	|
+| endDate			| UTC timestamp	| Selectie op timestamp. Area.timestamp < startdate		|
 | groupBY			| string	| Lijst van kenmerken waarop de data gegroepeerd wordt		|
 
-
-## Voorbeelden:
-### Nieuwe data opslaan (POST)
-Posten van data mag alleen op survey- of area-niveau  
-POST /surveys [Body](./POST_survey.json) - posten op survey-niveau geef de mogelijkheid meting te groeperen  
-POST /areas [Body](./POST_areas.json)
-
 ### Ophalen van alle data van een bepaald onderzoek
-GET /surveys/:surveyid?depth=5 [Response](./POST_survey.json)  
+GET /surveys/:surveyid?depth=4 [Response](./GET_survey.json)  
 
 ### Ophalen van data van een bepaald onderzoek op area-niveau
-[GET /surveys/:surveyid [Response](./GET_survey.json) - de default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op area-niveau  
+GET /surveys/:surveyid [Response](./GET_survey.json) - de default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op area-niveau  
 
 ### Opvragen van data van een bepaalde area
-/areas/ketelstraat_oneven/?startdate=2020-11-23T0:00:00&endate=2020-11-24T0:00:00 [Response](./GET_area.json)  
+/areas/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_area.json)  
 
 ### Opvragen van data van een bepaalde area, uitgesplitst op type voertuig
-/areas/ketelstraat_oneven/?startdate=2020-11-23T0:00:00&endate=2020-11-24T0:00:00&groupBy=vehicleType [Response](./GET_area_groupby.json)  
+/areas/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00&groupBy=vehicleType [Response](./GET_area_groupby.json)  
 
 ### Opvragen van data van een bepaalde section binnen een area
-/areas/ketelstraat_oneven/sections/trottoir?depth=3&startdate=2020-11-23T0:00:00&endate=2020-11-24T0:00:00 [Response](./GET_section.json)  
+/areas/ketelstraat_oneven/sections/trottoir?depth=3&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_section.json)  
 
 ### Selectie op vehicle: alle data voor een area over gewone fietsen
-/areas/ketelstraat_oneven/?vehicleType=1&startdate=2020-11-23T0:00:00&endate=2020-11-24T0:00:00 [Response](./GET_area_fiets.json)  
+/areas/ketelstraat_oneven/?vehicleType=1&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_area_fiets.json)  
 
 ### Selectie op vehicle: alle data voor een area over elektrische fietsen
-/areas/ketelstraat_oneven/?vehicleType=1&vehiclePropulsion=2&startdate=2020-11-23T0:00:00&endate=2020-11-24T0:00:00 [Response](./GET_area_elekfiets.json)  
-
-
-```json
-{
-	"id": "990214A1-69FC-4B3F-8E5C7733F97CB8CF",
-	"timestamp": "2020-06-01T13:45:00",
-	"parkingCapacity": 140,
-	"vacantSpaces": 50,
-	"sections": [
-		{
-			"id": "begane_grond",
-			"parkingCapacity": 140,
-			"vacantSpaces": 110,
-			"occupation": [
-				{
-					"vehicle": {
-						"type": 1,
-					},
-					"numberOfVehicles": 70
-				},
-				{
-					"vehicle": {
-						"type": 1
-					},
-					"numberOfVehicles": 18
-				},
-				{
-					"vehicle": {
-						"type": 2, 
-						"propulsion": 2
-					},
-					"numberOfVehicles": 2
-				},
-				{
-					"parkingCapacity": 80,
-					"vacantSpaces": 10,
-					"space": {
-						"type": 2
-					},
-					"occupation": [
-						{
-							"vehicle": {
-								"type": 1,
-							},
-							"numberOfVehicles": 70
-						}
-					]
-				},
-				{
-					"parkingCapacity": 60,
-					"vacantSpaces": 40,
-					"space": {
-						"type": 1,
-						"level": 0
-					},
-					"occupation": [
-						{
-							"vehicle": {
-								"type": 1
-							},
-							"numberOfVehicles": 18
-						},
-						{
-							"vehicle": {
-								"type": 2, 
-								"propulsion": 2
-							},
-							"numberOfVehicles": 2
-						}
-					]
-				},
-			]
-		},
-		{
-			"id": "verdieping_1",
-			"parkingCapacity": 86,
-			"vacantSpaces": 14,
-			"occupation": [
-				{
-					"vehicle": {
-						"type": 1
-					},
-					"n": 70
-				},
-				{
-					"vehicle": {
-						"type": 1
-					},
-					"n": 1
-				},
-				{
-					"vehicle": {
-						"type": 2,
-						"propulsion": 2
-					},
-					"n": 1
-				}
-			],
-			"sections": [
-				{
-					"space": {
-						"type": 2,
-					},
-					"parkingCapacity": 80,
-					"vacantSpaces": 10,
-					"occupation": [
-						{
-							"vehicle": {
-								"type": 1
-							},
-							"n": 70
-						}
-					]
-				},
-				{
-					"spaceType": {
-						"type": 1
-					},
-					"parkingCapacity": 6,
-					"vacantSpaces": 4,
-					"occupation": [
-						{
-							"vehicle": {
-								"type": 1
-							},
-							"numberOfVehicles": 1
-						},
-						{
-							"vehicle": {
-								"type": 2,
-								"propulsion": 2
-							},
-							"numberOfVehicles": 1
-						}
-					]
-				}
-			]
-		}
-	]
-}
-```
-
+/areas/ketelstraat_oneven/?vehicleType=1&vehiclePropulsion=2&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_area_elekfiets.json)  
