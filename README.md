@@ -3,16 +3,16 @@
 Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De eerste versie is een ontwerp, gebaseerd op het SPDP-formaat, dat beoogt voor zowel bewaakte stallingen als straattellingen te kunnen worden gebruikt.
 
 ### Metadata request
-| Field               | Type                | Required               | Description                                                  |
-| ------------------- | ------------------- | ---------------------- | ------------------------------------------------------------ |
-| timestamp           | ISO8601 timestamp   | yes                    | UTC timestamp van request                                    |
-| surveyid            | string              | yes                    | Een uuid, random of eventueel samengesteld                   |
-
-vrije velden, al naar gelang beschikbaar is:  
-| opdachtegever       | string              | no                     |                                                              |
-| uitvoerder          | string              | no                     |                                                              |
-| startdate           | ISO8601 timestamp   | no                     | Startdatum van het onderzoek                                 |
-| enddate             | ISO8601 timestamp   | no                     | Einddatum van het onderzoek                                  |
+| Field				| Type				| Required	| Description													|
+| ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
+| query				| Object			| no		| In geval van GET-request: een object met de query parameters	|
+| timestamp			| ISO8601 timestamp	| yes		| UTC timestamp van request										|
+| surveyid			| string			| yes		| Een uuid, random of eventueel samengesteld					|
+| data				| Area[]			| yes		| De gevonden data												|
+| client			| string			| no		| Opdrachtgever													|
+| performedBy		| string			| no		| Uitvoerder													|
+| startDate			| ISO8601 timestamp	| no		| Startdatum van het onderzoek									|
+| endDate			| ISO8601 timestamp	| no		| Einddatum van het onderzoek									|
 
 ### Area object
 | Field                   | Type                | Required               | Description                                              |
