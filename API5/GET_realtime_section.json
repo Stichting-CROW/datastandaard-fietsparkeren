@@ -1,0 +1,42 @@
+{
+    "query": {
+        "startdate": "2020-11-23T0:00:00",
+        "enddate": "2020-11-24T0:00:00",
+        "sectionId": "arnhem_ketelstraat_oneven",
+        "depth": 1,
+        "limit": 1
+    },
+    "staticData": {
+        "timestamp": "2020-11-11T09:45:00",
+        "sections": [
+            {
+                "id": "arnhem_ketelstraat_oneven",
+                "name": "Arnhem Ketelstraat oneven zijde",
+                "geoLocation": {
+                    "type": "Polygon", 
+                    "coordinates":  [
+                        [
+                            [5.90802,51.98173],
+                            [5.90808,51.98171],
+                            [5.90924,51.98199],
+                            [5.90921,51.98202],
+                            [5.90802,51.98173]
+                        ]
+                    ]
+                }
+            }
+        ]
+    },
+    "dynamicData": {
+        "sections": [
+            {
+                "id": "arnhem_ketelstraat_oneven",
+                "source": "DeFietstellers",
+                "timestamp": "2020-11-23T11:45:00",
+                "parkingCapacity": 145,
+                "vacantSpaces": 54,
+                "occupiedSpaces": 91
+            }
+        ]
+    }
+}

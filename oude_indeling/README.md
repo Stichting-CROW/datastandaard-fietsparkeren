@@ -2,54 +2,32 @@
 
 Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De eerste versie is een ontwerp, gebaseerd op het SPDP-formaat, dat beoogt voor zowel bewaakte stallingen als straattellingen te kunnen worden gebruikt.
 
-### Body
+### Metadata
 | Field				| Type				| Required	| Description													|
 | ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
 | query				| Object			| no		| In geval van GET-request: een object met de query parameters	|
 | timestamp			| ISO8601 timestamp	| yes		| UTC timestamp van request										|
-| survey			| Survey			| yes		| 																|
-| staticData		| StaticData[]		| yes		| Statische data (sectienaam, adres, positie, ...)      		|
-| dynamicData   	| DynamicSection[]	| yes		| Dynamische data (bezettingsdata, fietstellingen, ...)			|
-
-### Survey Object
-| Field				| Type				| Required	| Description													|
-| ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
-| id				| string			| yes		| Een uuid, random of eventueel samengesteld					|
-| area				| GeoJSON			| no		| GIS polygonen die het volledige onderzoeksgebied afbakenen. Zie https://en.wikipedia.org/wiki/GeoJSON	|
+| surveyId			| string			| yes		| Een uuid, random of eventueel samengesteld					|
+| data				| Area[]			| yes		| De gevonden data												|
 | client			| string			| no		| Opdrachtgever													|
-| executor			| string			| no		| Uitvoerder													|
+| performedBy		| string			| no		| Uitvoerder													|
 | startDate			| ISO8601 timestamp	| no		| Startdatum van het onderzoek									|
 | endDate			| ISO8601 timestamp	| no		| Einddatum van het onderzoek									|
 
-### StaticData object
-| Field				| Type				| Required	| Description													|
-| ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
-| sections			| StaticSections[]  | yes		|                                                               |
-
-### StaticSection object
-| Field                     | Type                | Required    | Description                                                |
-| ------------------------- | ------------------- | ----------- | ---------------------------------------------------------- |
-| id                        | string              | yes         | Een uuid, random of eventueel samengesteld                 |
-| timestamp                 | ISO8601 timestamp   | conditional | Tijdstip van de meting. Alleen verplicht bij sectie type#1 (hoogste niveau) |
-| geolocation				| GeoJSON			  | no		    | Positie van deze sectie									 |
-
-### DynamicSection object
-| Field                     | Type                | Required    | Description                                                |
-| ------------------------- | ------------------- | ----------- | ---------------------------------------------------------- |
-| id                        | string              | yes         | Een uuid, random of eventueel samengesteld                 |
-| timestamp                 | ISO8601 timestamp   | conditional | Tijdstip van de meting. Alleen verplicht bij sectie type#1 (hoogste niveau) |
-| surveyId                  | string		      | yes         | Id van de survey waartoe deze meting behoort               |
-| source                    | string              | yes         | id van de instantie die deze data aangeleverd heeft		|
-| parkingCapacity           | number              | no        | Totaal aantal plekken                                    |
-| parkingCapacityTimestamp  | ISO8601 timestamp   | no        | Tijdstip van meting aantal plekken                       |
-| space		                | Space Object		| conditional | Alleen als de space homogeen is en als er geen sub |
-| sections                  | Section[]        | no        | Verzameling van subsecties		                       |
-|                           |                     |           |   Er zitten dus subsections in een subsection            |
-|                           |                     |           |   Dit mag maximaal 3 lagen diep                          |
-| notes                     | Note object         | no        | Notities over de meting in deze sectie                   |
-| vacantSpaces              | number              | no        | Aantal vrije plekken                                     |
-| occupiedSpaces            | number              | no        | Aantal bezette plekken                                   |
-| occupation                | Occupation[]        | no        | Verzameling van Occupation-objecten                      |
+### Area object
+| Field                     | Type                | Required               | Description                                              |
+| ------------------------- | ------------------- | ---------------------- | -------------------------------------------------------- |
+| id                        | string              | yes                    | Een uuid, random of eventueel samengesteld               |
+| source                    | string              | yes                    | Naam van de instantie die deze data aangeleverd heeft      |
+| timestamp                 | ISO8601 timestamp   | yes                    | Tijdstip van de meting                                     |
+| parkingCapacity           | number              | no                     | Totaal aantal plekken                                    |
+| parkingCapacityTimestamp  | ISO8601 timestamp   | no                     | Tijdstip van meting aantal plekken                       |
+| sections                  | Section[]           | no                     | Verzameling van section objecten                         |
+| notes                     | Note object         | no                     | Notities over de meting in deze area                     |
+| vacantSpaces              | number              | no                     | Aantal vrije plekken                                     |
+| occupiedSpaces            | number              | no                     | Aantal bezette plekken                                   |
+| occupation                | Occupation[]        | no                     | Verzameling van Occupation-objecten                      |
+| metadata                  | string              | no                     | Vrije tekst met extra info over de area                  |
 
 ### Note object
 | Field               | Type                | Required               | Description                                                  |
@@ -61,13 +39,45 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | remark              | string              | no                     | Vrij tekstveld                                               |
 | ?                   | ?                   | no                     | Nader te bepalen                                             |
 
+### Section object - een deelgebied van een area, bijvoorbeeld 'Dorpsstraat oneven-zijde stoep' of 'Stationsstalling 1e verdieping'
+| Field               | Type                | Required               | Description                                                  |
+| ------------        | ------------------- | ---------------------- | ----------------------------------------------------------   |
+| id                  | string              | yes                    | Binnen area een unieke id                                    |
+| space               | Space Object        | no                     |                                                              |
+| units               | Unit[]              | no                     | Verzameling van voorzieningen binnen Sections-objecten       |
+| parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
+| vacantSpaces        | number              | no                     |                                                              |
+| occupiedSpaces      | number              | no                     | Aantal bezette plekken                                       |
+| count		          | Count[]             | no                     | Verzameling van Occupation-objecten                          |
+
+### Unit object - een parkeervoorziening, bijvoorbeeld een verzameling nietjes
+| Field               | Type                | Required               | Description                                                  |
+| ------------        | ------------------- | ---------------------- | ----------------------------------------------------------   |
+| id                  | string              | no                     | Binnen unit een unieke id                                    |
+| space               | Space Object        | no                     |                                                              |
+| subUnits            | SubUnit[]           | no                     | Verzameling van delen van een unit, bijv. onderrek / bovenrek|
+| parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
+| vacantSpaces        | number              | no                     |                                                              |
+| occupiedSpaces      | number              | no                     | Aantal bezette plekken                                       |
+| count		          | Count[]             | no                     | Verzameling van Occupation-objecten                          |
+
+### SubUnit object - een parkeervoorziening, bijvoorbeeld een verzameling nietjes
+| Field               | Type                | Required               | Description                                                  |
+| ------------        | ------------------- | ---------------------- | ----------------------------------------------------------   |
+| id                  | string              | no                     | Binnen unit een unieke id, bijv. 'bovenrek'                  |
+| space               | Space Object        | no                     |                                                              |
+| parkingCapacity     | number              | no                     | Totaal aantal plekken                                        |
+| vacantSpaces        | number              | no                     |                                                              |
+| occupiedSpaces      | number              | no                     | Aantal bezette plekken                                       |
+| count		          | Count[]             | no                     | Verzameling van Occupation-objecten                          |
+
 ### Space object - definiëring van een plek aan de hand van properties
 | Field                | Type               | Required                | Description                                                 |
 | -------------------- | ------------------ | ----------------------- | ------------------------------------------------------------|
 | type                 | number             | no                      | SpaceTypeID; tenminste 1 veld dient gegeven te zijn			|
 | level                | number             | no                      | 0=onder, 1=boven                                            |
 | vehicles             | Vehicle[]          | no                      | Uitsluitend geschikt voor deze voertuigen                   |
-| ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                      	|
+| ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                       |
 | ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                       |
 
 ### Count object
@@ -90,26 +100,6 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 
 ---
 
-### sectionTypeIDs
-| ID | Naam              | Omschrijving                                                          |
-| -- | ----------------- | --------------------------------------------------------------------- |
-| 1  | Gebied            | Een straat of een straatzijde; een stalling                           |
-| 2  | Deelgebied        | Stoep, rijbaan, verdieping van stalling, ...                          |
-| 3  | Voorziening       | Een rek, een verzameling nietjes, bromfietsvakken, ...                |
-| 4  | Deelvoorziening   | Bovenrek, onderrek, ...                                               |
-
-### spaceTypeIDs - indeling volgens Trajan [Whitepaper fietsparkeerdrukonderzoek](./Whitepaper_fietsparkeerdrukonderzoek_1.0.pdf), p. 10
-| ID | spaceType             |
-| -- | --------------------- |
-| 0  | Buiten voorziening    |
-| 1  | Rek                   |
-| 2  | Nietjes               |
-| 3  | Vak                   |
-| 4  | Gemengd vak           |
-| 5  | Bromfietsvak          |
-| 6  | Voor fietsenwinkel    |
-| 99 | Overig                |
-
 ### Voetuigeigenschappen volgens wettelijke voettuigcategorie, naar type aandrijving en naar breedte, zoals beschreven in [2019.09.24dataformaatfietstellingenv2.10_fietstypen](./2019.09.24dataformaatfietstellingenv2.10_fietstypen.pdf) pagina's 16 en 17
 
 ### vehicle.type
@@ -123,14 +113,14 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | 99 | Overig                |                                                                                |
 
 ### vehicle.owner
-| ID | Eigenaar              | Omschrijving                                                                   |
+| ID | Eigenaar               | Omschrijving                                                                  |
 | -- | --------------------- | ------------------------------------------------------------------------------ |
 | 1  | Privé                 | Privéfiets                                                                     |
 | 2  | Lease                 | Leasefiets, zoals Swap Bikes                                                   |
 | 3  | Huur                  | Huurfiets, zoals OV-fiets                                                      |
 
 ### vehicle.propulsion
-| ID | Aandrijving           | Omschrijving                                                                   |
+| ID | Aandrijving               | Omschrijving                                                                  |
 | -- | --------------------- | ------------------------------------------------------------------------------ |
 | 1  | Spierkracht           | bv traditionele fiets of voetganger                                            |
 | 2  | Elektrische hulpmotor | bv e-fiets, speed pedelec                                                      |
@@ -138,51 +128,44 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | 4  | Brandstof hulpmotor   | bv Sparta-met                                                                  |
 | 5  | alleen brandstof      | bv traditionele bromfiets                                                      | 
 
+### spaceTypeIDs - indeling volgens Trajan [Whitepaper fietsparkeerdrukonderzoek](./Whitepaper_fietsparkeerdrukonderzoek_1.0.pdf), p. 10
+| ID | spaceType             |
+| -- | --------------------- |
+| 0  | Buiten voorziening    |
+| 1  | Rek                   |
+| 2  | Nietjes               |
+| 3  | Vak                   |
+| 4  | Gemengd vak           |
+| 5  | Bromfietsvak          |
+| 6  | Voor fietsenwinkel    |
+| 99 | Overig                |
+
 ---
 
-De velden vacantSpaces, occupiedSpaces en occupation zijn alleen aanwezig aan de bladeren van de sectieboom 
+De velden vacantSpaces, occupiedSpaces en occupation zijn alleen aanwezig aan de bladeren van de boom, m.a.w.:  
+* Een Area-object heeft alleen vacantSpaces, occupiedSpaces en occupation als er geen Sections zijn
+* Een Section-object heeft alleen vacantSpaces, occupiedSpaces en occupation als er geen Units zijn
+* Een Unit-object heeft alleen vacantSpaces, occupiedSpaces en occupation als er geen SubUnits zijn
 
-De vacantSpaces van een section kan bepaald worden door alle vacantSpaces van onderliggende sections op te tellen
+De vacantSpaces van een Area-object kan bepaald worden door alle vacantSpaces van onderliggende Section, Units en SubUnits op te tellen
 
 ---
-# API 3 - schrijfopdrachten van exploitant naar dataportal
+# API - schrijf- en zoekopdrachten
 
 ## Nieuwe data opslaan (POST)
-### Metingen groeperen in 1 onderzoek (= 'survey')  
-#### Stap 1: meld je onderzoek (survey) aan, eventueel voorzien van data  
-POST /surveys [Body](./1_POST_new_survey.json)  
-Een id van de survey mag door exploitant zelf gekozen worden. Suggestie: <postcode>_<source>_<date> => 1000_DeFietsTellers_2020.  
-Indien geen surveyId gegeven, dan maakt de server zelf een id en geeft deze terug in de response.  
-
-#### Stap 2: Stuur nieuwe data in op bestaande survey  
-POST /surveys/:surveyId [Body](./API3/2_POST_update_survey.json)
-als er nog geen onderzoek met gegeven surveyId bestaat, dan wordt deze aangemaakt  
-
-### Losse metingen, dus geen deel van een onderzoek
-POST /sections [Body](./API3/2_POST_sections.json)
-
-
-### Voorbeelden:
-Stuur  bezettingsdata voor een eenvoudige sectie: alleen capaciteit en bezetting zijn bekend
-
-
-Stuur realtime bezettingsdata voor een eenvoudige sectie: alleen capaciteit en bezetting zijn bekend
-POST /surveys/:surveyId [Body](./API3/2_POST_simple_sections.json)
-
-Stuur realtime bezettingsdata voor een eenvoudige sectie: alleen capaciteit en bezetting zijn bekend
-POST /surveys/:surveyId [Body](./API3/2_POST_simple_sections.json)
-
+Posten van data mag alleen op survey- of area-niveau  
+POST /surveys [Body](./POST_survey.json) - posten op survey-niveau geef de mogelijkheid meting te groeperen  
+POST /areas [Body](./POST_areas.json)
 
 ## zoekopdrachten (GET)
 ### query-parameters voor GET-requests
 | param     		| type		| values                                             	|
 | ----------------- |---------- | ----------------------------------------------------- |
-| depth 		    | number	| Aantal te bevragen sectie-lagen vanaf gegeven pad	    |
-|					| 			|  In geval van bevraging vanaf sectieType=1			|
-|					| 			| 1 = sectieType = 1                   					|
-|					|		 	| 2 = sectieType = 1 en 2             				    |
-|					| 		 	| 2 = sectieType = 1, 2 en 3           					|
-|					| 		 	| 4 = de volledige boom                      			|
+| depth 		    | number	| Aantal te bevragen lagen vanaf gegeven pad			|
+|					| 			| 1 = areas                           					|
+|					|		 	| 2 = areas en sections             				    |
+|					| 		 	| 3 = areas, section en units          					|
+|					| 		 	| 4 = areas, section, units en subunits 				|
 |					| 		 	| default = 1                           				|
 |					|			|														|
 | vehicleType		| number	| Alleen data voor dit voertuigtype						|
@@ -201,16 +184,16 @@ GET /surveys/:surveyId?depth=4 [Response](./GET_survey.json)
 GET /surveys/:surveyId [Response](./GET_survey.json) - de default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op area-niveau  
 
 ### Opvragen van data van een bepaalde area
-/sections/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_section.json)  
+/areas/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_area.json)  
 
 ### Opvragen van data van een bepaalde area, uitgesplitst op type voertuig
-/sections/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00&groupBy=vehicleType [Response](./GET_groupby.json)  
+/areas/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00&groupBy=vehicleType [Response](./GET_area_groupby.json)  
 
-### Opvragen van data van een section binnen een section (bijvoorbeeld de data van de op de stoep gestalde fietsen)
-/sections/ketelstraat_oneven/trottoir?depth=3&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_subsection.json)  
+### Opvragen van data van een bepaalde section binnen een area
+/areas/ketelstraat_oneven/sections/trottoir?depth=3&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_section.json)  
 
 ### Selectie op vehicle: alle data voor een area over gewone fietsen
-/sections/ketelstraat_oneven/?vehicleType=1&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_fiets.json)  
+/areas/ketelstraat_oneven/?vehicleType=1&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_area_fiets.json)  
 
 ### Selectie op vehicle: alle data voor een area over elektrische fietsen
-/sections/ketelstraat_oneven/?vehicleType=1&vehiclePropulsion=2&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_elekfiets.json)  
+/areas/ketelstraat_oneven/?vehicleType=1&vehiclePropulsion=2&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_area_elekfiets.json)  

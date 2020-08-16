@@ -1,0 +1,14 @@
+{
+    "surveyid": "DeFietstellers_Arnhem_2020",
+    "dynamicData": {
+        "sections": [
+            {
+                "id": "stationsstalling_goes",
+                "timestamp": "2020-11-23T11:45:00",
+                "parkingCapacity": 100,
+                "vacantSpaces": 4,
+                "occupiedSpaces": 96
+            }
+        ]
+    }
+}

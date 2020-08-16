@@ -1,0 +1,30 @@
+{
+    "query": {
+        "startdate": "2020-11-23T0:00:00",
+        "enddate": "2020-11-24T0:00:00",
+        "sectionType": 1,
+        "sectionId": "arnhem_ketelstraat_oneven",
+        "vehicleType": 1,
+        "depth": 1
+    },
+    "sections": [
+        {
+            "id": "arnhem_ketelstraat_oneven",
+            "name": "Ketelstraat oneven",
+            "data": [
+                {
+                    "timestamp": "2020-11-23T11:45:00",
+                    "parkingCapacity": 140,
+                    "vacantSpaces": 52,
+                    "occupiedSpaces": 88
+                },
+                {
+                    "timestamp": "2020-11-23T12:00:00",
+                    "parkingCapacity": 140,
+                    "vacantSpaces": 52,
+                    "occupiedSpaces": 88
+                }
+            ]
+        }
+    ]
+}
