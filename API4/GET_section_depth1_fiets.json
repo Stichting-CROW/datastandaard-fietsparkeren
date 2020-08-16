@@ -1,9 +1,9 @@
 {
     "query": {
-        "startdate": "2020-11-23T0:00:00",
-        "enddate": "2020-11-24T0:00:00",
         "sectionId": "arnhem_ketelstraat_oneven",
-        "depth": 1
+        "vehicleType": 1,
+        "depth": 1,
+        "limit": 1
     },
     "staticData": {
         "timestamp": "2020-11-11T09:45:00",
@@ -30,18 +30,13 @@
         "sections": [
             {
                 "id": "arnhem_ketelstraat_oneven",
+                "name": "Ketelstraat oneven",
                 "source": "DeFietstellers",
                 "timestamp": "2020-11-23T11:45:00",
-                "parkingCapacity": 145,
-                "vacantSpaces": 54,
-                "occupiedSpaces": 91,
+                "parkingCapacity": 140,
+                "vacantSpaces": 52,
+                "occupiedSpaces": 88,
                 "count": [
-                    {
-                        "vehicle": {
-                            "type": 2
-                        },
-                        "numberOfVehicles": 2
-                    },
                     {
                         "vehicle": {
                             "type": 1,
@@ -53,36 +48,7 @@
                         "vehicle": {
                             "type": 1
                         },
-                        "numberOfVehicles": 84
-                    }
-                ]
-            },
-            {
-                "id": "arnhem_ketelstraat_oneven",
-                "source": "DeFietstellers",
-                "timestamp": "2020-11-23T12:00:00",
-                "parkingCapacity": 145,
-                "vacantSpaces": 54,
-                "occupiedSpaces": 91,
-                "count": [
-                    {
-                        "vehicle": {
-                            "type": 2
-                        },
-                        "numberOfVehicles": 2
-                    },
-                    {
-                        "vehicle": {
-                            "type": 1,
-                            "propulsion": 2
-                        },
-                        "numberOfVehicles": 5
-                    },
-                    {
-                        "vehicle": {
-                            "type": 1
-                        },
-                        "numberOfVehicles": 84
+                        "numberOfVehicles": 83
                     }
                 ]
             }

@@ -145,12 +145,25 @@ De velden vacantSpaces, occupiedSpaces en occupation zijn alleen aanwezig aan de
 De vacantSpaces van een section kan bepaald worden door alle vacantSpaces van onderliggende sections op te tellen
 
 ---
-# API 3 - schrijfopdrachten van exploitant naar dataportal
 
+# Soorten API's: 
+[Schematisch overzicht van de API'in het fietsparkeren](./diagram_crow_api_overzicht.png)  
+
+| ID | Omschrijving |
+| -- | ------------------------------------------------------------------------------ |
+| 1  | Van stalling naar exploitant |
+| 2  | Van exploitant naar MaaS-provider |
+| 3  | Van exploitant / straatteller naar dataportal  |
+| 4  | Van dataporal naar analist |
+| 5  | Van dataportal naar webapplicaties | 
+| 5  | Van exploitant naar exploitatietools | 
+
+
+# API 3 - data van stallingsexploitant of fietsteller opslaan in dataportal
 ## Nieuwe data opslaan (POST)
 ### Metingen groeperen in 1 onderzoek (= 'survey')  
 #### Stap 1: meld je onderzoek (survey) aan, eventueel voorzien van data  
-POST /surveys [Body](./1_POST_new_survey.json)  
+POST /surveys [Body](./API3/1_POST_new_survey.json)  
 Een id van de survey mag door exploitant zelf gekozen worden. Suggestie: <postcode>_<source>_<date> => 1000_DeFietsTellers_2020.  
 Indien geen surveyId gegeven, dan maakt de server zelf een id en geeft deze terug in de response.  
 
@@ -161,22 +174,22 @@ als er nog geen onderzoek met gegeven surveyId bestaat, dan wordt deze aangemaak
 ### Losse metingen, dus geen deel van een onderzoek
 POST /sections [Body](./API3/2_POST_sections.json)
 
-
 ### Voorbeelden:
 Stuur  bezettingsdata voor een eenvoudige sectie: alleen capaciteit en bezetting zijn bekend
 
+Stuur realtime bezettingsdata voor een complexe sectie: in alle voorzieningen en subvoorzieningen zijn alle soorten fietsen geteld
+POST /surveys/:surveyId [Body](./API3/2_POST_complex_sections.json)
 
 Stuur realtime bezettingsdata voor een eenvoudige sectie: alleen capaciteit en bezetting zijn bekend
 POST /surveys/:surveyId [Body](./API3/2_POST_simple_sections.json)
-
-Stuur realtime bezettingsdata voor een eenvoudige sectie: alleen capaciteit en bezetting zijn bekend
-POST /surveys/:surveyId [Body](./API3/2_POST_simple_sections.json)
-
 
 ## zoekopdrachten (GET)
 ### query-parameters voor GET-requests
 | param     		| type		| values                                             	|
 | ----------------- |---------- | ----------------------------------------------------- |
+| source			| string	| Alleen data van deze bron     						|
+| survey			| string	| Alleen data van dit onderzoek    						|
+| data  			| string	| survey, staticData en/of dynamicData, default = alle data	|
 | depth 		    | number	| Aantal te bevragen sectie-lagen vanaf gegeven pad	    |
 |					| 			|  In geval van bevraging vanaf sectieType=1			|
 |					| 			| 1 = sectieType = 1                   					|
@@ -190,27 +203,43 @@ POST /surveys/:surveyId [Body](./API3/2_POST_simple_sections.json)
 | vehicleOwner	 	| number	| Alleen data voor dit voertuig met deze eigenaar		|
 |					|			| default = alle voertuigen 							|
 |					|			|														|
+| spaceType		    | number	| Alleen data voor dit type voorziening 				|
+| spaceLevel        | number	| Alleen data voor deze verdieping                      |
+|					|			| default = alle voorzieningen 							|
+|					|			|														|
 | startDate			| UTC timestamp	| Selectie op timestamp. Area.timestamp >= startdate 	|
 | endDate			| UTC timestamp	| Selectie op timestamp. Area.timestamp < startdate		|
 | groupBY			| string	| Lijst van kenmerken waarop de data gegroepeerd wordt		|
 
+# API 4 - data lezen vanuit dataportal voor analysedoeleinden
+
 ### Ophalen van alle data van een bepaald onderzoek
-GET /surveys/:surveyId?depth=4 [Response](./GET_survey.json)  
+GET /surveys/:surveyId?depth=4 [Response](./API4/GET_survey.json)  
 
-### Ophalen van data van een bepaald onderzoek op area-niveau
-GET /surveys/:surveyId [Response](./GET_survey.json) - de default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op area-niveau  
+### Ophalen van data van een bepaald onderzoek op straat- of stallingsniveau
+GET /surveys/:surveyId [Response](./API4/GET_survey_depth1.json) - de default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op area-niveau  
 
-### Opvragen van data van een bepaalde area
-/sections/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_section.json)  
+### Opvragen van data van een bepaalde onderzoek op straat- of stallingsniveau
+GET /sections/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./API4/GET_section.json)  
 
-### Opvragen van data van een bepaalde area, uitgesplitst op type voertuig
-/sections/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00&groupBy=vehicleType [Response](./GET_groupby.json)  
-
-### Opvragen van data van een section binnen een section (bijvoorbeeld de data van de op de stoep gestalde fietsen)
-/sections/ketelstraat_oneven/trottoir?depth=3&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_subsection.json)  
+### Opvragen van data van een bepaalde onderzoek op straat- of stallingsniveau, uitgesplitst op type voertuig
+/sections/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00&groupBy=vehicleType [Response](./API4/GET_groupby.json)  
 
 ### Selectie op vehicle: alle data voor een area over gewone fietsen
-/sections/ketelstraat_oneven/?vehicleType=1&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_fiets.json)  
+/sections/ketelstraat_oneven/?vehicleType=1&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./API4/GET_section_depth1_fiets.json)  
 
-### Selectie op vehicle: alle data voor een area over elektrische fietsen
-/sections/ketelstraat_oneven/?vehicleType=1&vehiclePropulsion=2&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./GET_elekfiets.json)  
+# API 5 - data lezen vanuit dataportal voor t.b.v. webapplicaties
+### Ophalen van de huidige bezettimg van een bepaalde sectie tot op voorzieningniveau
+GET /sections/ketelstraat_oneven/latest?depth=4 [Response](./API5/GET_section.json)  
+
+### Opvragen van data van een bepaalde onderzoek op straat- of stallingsniveau
+GET /sections/ketelstraat_oneven/latest [Response](./API5/GET_section_depth1.json)  
+
+### Opvragen van data in een bepaald gebied
+GET /sections/ketelstraat_oneven/latest?lat=5.107&long=52.08926&radius=5000 [Response](./API5/GET_realtime_sections_in_city.json)  
+
+### Opvragen van data in een bepaalde sectie uitgesplitst op fietstype
+GET /sections/ketelstraat_oneven/latest?lat=5.107&groupBy=vehicleType&long=52.08926&radius=5000 [Response](./API5/GET_realtime_section_groupby.json)  
+
+### Opvragen van data in een bepaalde sectie voor gewonen fietsen
+GET /sections/ketelstraat_oneven/latest?lat=5.107&vehicleType=1&long=52.08926&radius=5000 [Response](./API5/GET_realtime_section_depth1_fiets.json)  
