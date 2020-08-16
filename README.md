@@ -42,8 +42,8 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | source                    | string              | yes         | id van de instantie die deze data aangeleverd heeft		|
 | parkingCapacity           | number              | no        | Totaal aantal plekken                                    |
 | parkingCapacityTimestamp  | ISO8601 timestamp   | no        | Tijdstip van meting aantal plekken                       |
-| space		                | Space Object		| conditional | Alleen als de space homogeen is en als er geen sub |
-| sections                  | Section[]        | no        | Verzameling van subsecties		                       |
+| space		                | Space Object		  | conditional | Alleen als de space homogeen is en als er geen sub |
+| sections                  | DynamicSection[]    | no        | Verzameling van subsecties		                       |
 |                           |                     |           |   Er zitten dus subsections in een subsection            |
 |                           |                     |           |   Dit mag maximaal 3 lagen diep                          |
 | notes                     | Note object         | no        | Notities over de meting in deze sectie                   |
