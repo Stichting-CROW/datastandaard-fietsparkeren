@@ -156,7 +156,7 @@ De vacantSpaces van een section kan bepaald worden door alle vacantSpaces van on
 | 3  | Van exploitant / straatteller naar dataportal  |
 | 4  | Van dataporal naar analist |
 | 5  | Van dataportal naar webapplicaties | 
-| 5  | Van exploitant naar exploitatietools | 
+| 6  | Van exploitant naar exploitatietools | 
 
 
 # API 3 - data van stallingsexploitant of fietsteller opslaan in dataportal
