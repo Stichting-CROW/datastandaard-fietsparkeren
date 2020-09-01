@@ -6,7 +6,6 @@
         "limit": 1
     },
     "staticData": {
-        "timestamp": "2020-11-11T09:45:00",
         "sections": [
             {
                 "id": "arnhem_ketelstraat_oneven",
@@ -39,14 +38,14 @@
                 "count": [
                     {
                         "vehicle": {
-                            "type": 1,
-                            "propulsion": 2
+                            "type": "f",
+                            "propulsion": "e"
                         },
                         "numberOfVehicles": 5
                     },
                     {
                         "vehicle": {
-                            "type": 1
+                            "type": "f"
                         },
                         "numberOfVehicles": 83
                     }

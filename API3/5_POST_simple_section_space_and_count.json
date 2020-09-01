@@ -1,5 +1,5 @@
 {
-    "surveyid": "DeFietstellers_Arnhem_2020",
+    "surveyid": "DeFietstellers_Goes_2020",
     "dynamicData": {
         "sections": [
             {
@@ -9,17 +9,17 @@
                 "vacantSpaces": 4,
                 "occupiedSpaces": 96,
                 "space": {
-                    "type": 2,
+                    "type": "v",
                     "vehicles": [
                         {
-                            "type": 1
+                            "type": "b"
                         }
                     ]
                 },
                 "count": [
                     {
                         "vehicle": {
-                            "type": 1
+                            "type": "f"
                         },
                         "numberOfVehicles": 96
                     }

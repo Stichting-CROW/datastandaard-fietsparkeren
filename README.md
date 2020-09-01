@@ -16,10 +16,16 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
 | id				| string			| yes		| Een uuid, random of eventueel samengesteld					|
 | area				| GeoJSON			| no		| GIS polygonen die het volledige onderzoeksgebied afbakenen. Zie https://en.wikipedia.org/wiki/GeoJSON	|
-| client			| string			| no		| Opdrachtgever													|
+| client			| Client			| no		| Opdrachtgever													|
 | executor			| string			| no		| Uitvoerder													|
 | startDate			| ISO8601 timestamp	| no		| Startdatum van het onderzoek									|
 | endDate			| ISO8601 timestamp	| no		| Einddatum van het onderzoek									|
+
+### Client Object
+| Field				| Type				| Required	| Description													|
+| ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
+| id				| string			| yes		| Unieke id, bijv. postcode gemeente        					|
+| name				| string			| no		| Naam van de klant                                         	|
 
 ### StaticData object
 | Field				| Type				| Required	| Description													|
@@ -42,14 +48,14 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | source                    | string              | yes         | id van de instantie die deze data aangeleverd heeft		|
 | parkingCapacity           | number              | no        | Totaal aantal plekken                                    |
 | parkingCapacityTimestamp  | ISO8601 timestamp   | no        | Tijdstip van meting aantal plekken                       |
-| space		                | Space Object		  | conditional | Alleen als de space homogeen is en als er geen sub |
+| space		                | Space     		  | conditional | Alleen als de space homogeen is en als er geen sub |
 | sections                  | DynamicSection[]    | no        | Verzameling van subsecties		                       |
 |                           |                     |           |   Er zitten dus subsections in een subsection            |
 |                           |                     |           |   Dit mag maximaal 3 lagen diep                          |
-| notes                     | Note object         | no        | Notities over de meting in deze sectie                   |
+| notes                     | Note                | no        | Notities over de meting in deze sectie                   |
 | vacantSpaces              | number              | no        | Aantal vrije plekken                                     |
 | occupiedSpaces            | number              | no        | Aantal bezette plekken                                   |
-| occupation                | Occupation[]        | no        | Verzameling van Occupation-objecten                      |
+| occupation                | Count[]          | no        | Verzameling van Occupation-objecten                      |
 
 ### Note object
 | Field               | Type                | Required               | Description                                                  |
@@ -59,90 +65,79 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | event               | boolean             | no                     | Evenement (markt, kermis, ...)?                              |
 | underConstruction   | boolean             | no                     | Werkzaamheden?                                               |
 | remark              | string              | no                     | Vrij tekstveld                                               |
-| ?                   | ?                   | no                     | Nader te bepalen                                             |
 
 ### Space object - definiëring van een plek aan de hand van properties
 | Field                | Type               | Required                | Description                                                 |
 | -------------------- | ------------------ | ----------------------- | ------------------------------------------------------------|
-| type                 | number             | no                      | SpaceTypeID; tenminste 1 veld dient gegeven te zijn			|
+| type                 | string             | no                      | SpaceTypeID; tenminste 1 veld dient gegeven te zijn			|
 | level                | number             | no                      | 0=onder, 1=boven                                            |
 | vehicles             | Vehicle[]          | no                      | Uitsluitend geschikt voor deze voertuigen                   |
-| ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                      	|
-| ?                    | ?                  | no                      | Nieuw te definiëren plekeigenschappen                       |
 
 ### Count object
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
-| vehicle              | Vehicle object     | no                     | Leeg betekent dat het voertuigtype niet bekend is            |
+| vehicle              | Vehicle            | no                     | Leeg betekent dat het voertuigtype niet bekend is            |
 | numberOfVehicles     | number             | yes                    | Aantal gestalde voertuigen                                   |
 
 ### Vehicle object
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
-| type                 | number             | no                     | Voertuigtype; Tenminste 1 veld dient gegeven te zijn         |
-| propulsion           | number             | no                     | Aandrijving                                                  |
+| type                 | string             | no                     | Zie tabel vehicle.type                                       |
+| propulsion           | string             | no                     | Zie tabel vehicle.propulsion                                 |
 | state                | string             | no                     | Bijv.  'wrak', 'puncture'                                    |
-| accessoires          | string[]           | no                     | Verzameling asseccoires, bijv: ['voorkrat', 'achterzitje', 'fietstassen'] |
-| parkstate            | string[]           | no                     | Verzameling parkeerdetails, bijv: ['naast rek', 'dubbel in nietje']       |
-| owner                | number             | no                     | Owner type            |
-| ?                    | ?                  | no                     | Nieuw te definiëren plekeigenschappen                        |
-| ?                    | ?                  | no                     | Nieuw te definiëren plekeigenschappen                        |
+| accessoires          | string[]           | no                     | Verzameling vrije tekstlabels m.b.t. accessoires, bijv: ['voorkrat', 'achterzitje', 'fietstassen'] |
+| parkState            | string[]           | no                     | Verzameling vrije tekstlabels m.b.t. parkeerdetails, bijv: ['naast rek', 'dubbel in nietje']       |
+| owner                | string             | no                     | Zie tabel vehicle.owner                                      |
 
 ---
-
-### sectionTypeIDs
-| ID | Naam              | Omschrijving                                                          |
-| -- | ----------------- | --------------------------------------------------------------------- |
-| 1  | Gebied            | Een straat of een straatzijde; een stalling                           |
-| 2  | Deelgebied        | Stoep, rijbaan, verdieping van stalling, ...                          |
-| 3  | Voorziening       | Een rek, een verzameling nietjes, bromfietsvakken, ...                |
-| 4  | Deelvoorziening   | Bovenrek, onderrek, ...                                               |
 
 ### spaceTypeIDs - indeling volgens Trajan [Whitepaper fietsparkeerdrukonderzoek](./Whitepaper_fietsparkeerdrukonderzoek_1.0.pdf), p. 10
 | ID | spaceType             |
 | -- | --------------------- |
-| 0  | Buiten voorziening    |
-| 1  | Rek                   |
-| 2  | Nietjes               |
-| 3  | Vak                   |
-| 4  | Gemengd vak           |
-| 5  | Bromfietsvak          |
-| 6  | Voor fietsenwinkel    |
-| 99 | Overig                |
+| x  | Buiten voorziening    |
+| r  | Rek                   |
+| n  | Nietjes               |
+| v  | Vak                   |
+| vf | Fietsvak              |
+| vb | Bromfietsvak          |
+| vfb| Gemengd vak           |
+| w  | Voor fietsenwinkel    |
+| a  | Anders                |
 
 ### Voetuigeigenschappen volgens wettelijke voettuigcategorie, naar type aandrijving en naar breedte, zoals beschreven in [2019.09.24dataformaatfietstellingenv2.10_fietstypen](./2019.09.24dataformaatfietstellingenv2.10_fietstypen.pdf) pagina's 16 en 17
 
 ### vehicle.type
 | ID | Voertuigtype          | Omschrijving                                                                   |
 | -- | --------------------- | ------------------------------------------------------------------------------ |
-| 1  | Fiets                 | Geen kenteken en geen verzekeringsplaatje                                      |
-| 2  | Snorfiets             | kentekenplaat is blauw, met een wit kader, wit opschrift en een hologram       |
-| 3  | Bromfiets             | kentekenplaat is geel, met een zwart kader, zwart opschrift en een hologram    |
-| 4  | Motor                 | NL geel of blauw, internationaal anders                                        |
-| 5  | Gehandicaptenvoertuig | geen kenteken, wel verzekeringsplaatje                                         |
-| 99 | Overig                |                                                                                |
+| f  | Fiets                 | Geen kenteken en geen verzekeringsplaatje                                      |
+| bf | Bakfiets              | Fiets met bak                                                                  |
+| s  | Snorfiets             | kentekenplaat is blauw, met een wit kader, wit opschrift en een hologram       |
+| b  | Bromfiets             | kentekenplaat is geel, met een zwart kader, zwart opschrift en een hologram    |
+| m  | Motorfiets            | NL geel of blauw, internationaal anders                                        |
+| g  | Gehandicaptenvoertuig | driewieler, scootmobiel, rolstoel, etc                                         |
+| a  | Anders                |                                                                                |
+
+### vehicle.propulsion: s=spierkracht, b=brandstofmotor, e=elektrische motor
+| ID  | Aandrijving           | Omschrijving                                                                   |
+| --  | --------------------- | ------------------------------------------------------------------------------ |
+| s   | Spierkracht           | bv traditionele fiets of voetganger                                            |
+| se  | Elektrische hulpmotor | bv e-fiets, speed pedelec                                                      |
+| e  | Alleen elektrisch     | bv e-bromfiets                                                                 |
+| sb | Brandstof hulpmotor   | bv Sparta-met                                                                  |
+| b  | alleen brandstof      | bv traditionele bromfiets, motorfiets                                          | 
 
 ### vehicle.owner
 | ID | Eigenaar              | Omschrijving                                                                   |
 | -- | --------------------- | ------------------------------------------------------------------------------ |
-| 1  | Privé                 | Privéfiets                                                                     |
-| 2  | Lease                 | Leasefiets, zoals Swap Bikes                                                   |
-| 3  | Huur                  | Huurfiets, zoals OV-fiets                                                      |
-
-### vehicle.propulsion
-| ID | Aandrijving           | Omschrijving                                                                   |
-| -- | --------------------- | ------------------------------------------------------------------------------ |
-| 1  | Spierkracht           | bv traditionele fiets of voetganger                                            |
-| 2  | Elektrische hulpmotor | bv e-fiets, speed pedelec                                                      |
-| 3  | Alleen elektrisch     | bv e-bromfiets                                                                 |
-| 4  | Brandstof hulpmotor   | bv Sparta-met                                                                  |
-| 5  | alleen brandstof      | bv traditionele bromfiets                                                      | 
+| p  | Privé                 | Privéfiets                                                                     |
+| l  | Lease                 | Leasefiets, zoals Swap Bikes                                                   |
+| h  | Huur                  | Huurfiets, zoals OV-fiets                                                      |
 
 ---
 
 De velden vacantSpaces, occupiedSpaces en occupation zijn alleen aanwezig aan de bladeren van de sectieboom 
 
-De vacantSpaces van een section kan bepaald worden door alle vacantSpaces van onderliggende sections op te tellen
+De vacantSpaces, etc. van een section kunnen bepaald worden door alle vacantSpaces, etc. van onderliggende sections op te tellen
 
 ---
 
@@ -220,16 +215,16 @@ GET /surveys/:surveyId?depth=4 [Response](./API4/GET_survey.json)
 GET /surveys/:surveyId [Response](./API4/GET_survey_depth1.json) - de default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op area-niveau  
 
 ### Opvragen van data van een bepaalde onderzoek op straat- of stallingsniveau
-GET /sections/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./API4/GET_section.json)  
+GET /surveys/sections/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./API4/GET_section.json)  
 
 ### Opvragen van data van een bepaalde onderzoek op straat- of stallingsniveau, uitgesplitst op type voertuig
-/sections/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00&groupBy=vehicleType [Response](./API4/GET_groupby.json)  
+/surveys/sections/ketelstraat_oneven/?startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00&groupBy=vehicleType [Response](./API4/GET_groupby.json)  
 
 ### Selectie op vehicle: alle data voor een area over gewone fietsen
 /sections/ketelstraat_oneven/?vehicleType=1&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00 [Response](./API4/GET_section_depth1_fiets.json)  
 
 # API 5 - data lezen vanuit dataportal voor t.b.v. webapplicaties
-### Ophalen van de huidige bezettimg van een bepaalde sectie tot op voorzieningniveau
+### Ophalen van de huidige bezetting van een bepaalde sectie tot op voorzieningniveau
 GET /sections/ketelstraat_oneven/latest?depth=4 [Response](./API5/GET_section.json)  
 
 ### Opvragen van data van een bepaalde onderzoek op straat- of stallingsniveau

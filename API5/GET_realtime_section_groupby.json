@@ -38,7 +38,7 @@
                 "occupiedSpaces": 91,
                 "vehicles": [
                     {
-                        "type": 1
+                        "type": "f"
                     }
                 ]
             },
@@ -51,7 +51,7 @@
                 "occupiedSpaces": 2,
                 "vehicles": [
                     {
-                        "type": 2
+                        "type": "b"
                     }
                 ]
             }

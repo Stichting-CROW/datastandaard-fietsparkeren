@@ -2,35 +2,39 @@
     "survey": {
         "id": "DeFietstellers_Arnhem_2020",
         "client": {
-            "name": "Gemeente Arnhem"
+            "name": "Gemeente Arnhem",
+            "id": "6800"
         },
         "executor": {
             "name": "De Fietstellers BV"
         },
         "startdate": "2020-11-23T0:00:00Z",
         "enddate": "2020-12-15T0:00:00Z",
-        "area": {
-            "type": "Polygon", 
+        "geoLocation": {
+            "type": "MultiPolygon", 
             "coordinates":  [
                 [
-                    [5.90802,51.98173],
-                    [5.90808,51.98171],
-                    [5.90924,51.98199],
-                    [5.90921,51.98202],
-                    [5.90802,51.98173],
-                    [5.90802,51.98173]
+                    [
+                        [5.90802,51.98173],
+                        [5.90808,51.98171],
+                        [5.90924,51.98199],
+                        [5.90921,51.98202],
+                        [5.90802,51.98173]
+                    ]
                 ],
                 [
-                    [5.90924,51.98199],
-                    [5.90921,51.98202],
-                    [5.90802,51.98173],
-                    [5.90802,51.98173]
+                    [
+                        [5.90802,51.98173],
+                        [5.90808,51.98171],
+                        [5.90924,51.98199],
+                        [5.90921,51.98202],
+                        [5.90802,51.98173]
+                    ]
                 ]
             ]
         }
      },
      "staticData": {
-        "timestamp": "2020-11-11T09:45:00",
         "sections": [
             {
                 "id": "arnhem_ketelstraat_oneven",
@@ -77,7 +81,6 @@
                                         [
                                             [5.90912,51.98199],
                                             [5.90913,51.98199],
-                                            [5.90918,51.982],
                                             [5.90918,51.982],
                                             [5.90912,51.98199]
                                         ]
@@ -133,20 +136,20 @@
                                 "vacantSpaces": 4,
                                 "occupiedSpaces": 1,
                                 "space": {
-                                    "type": 2,
+                                    "type": "v",
                                     "vehicles": [
                                         {
-                                            "type": 2
+                                            "type": "b"
                                         },
                                         {
-                                            "type": 3
+                                            "type": "s"
                                         }
                                     ]
                                 },
                                 "count": [
                                     {
                                         "vehicle": {
-                                            "type": 2
+                                            "type": "b"
                                         },
                                         "numberOfVehicles": 1
                                     }
@@ -162,21 +165,21 @@
                                     "type": 2,
                                     "vehicles": [
                                         {
-                                            "type": 1
+                                            "type": "f"
                                         }
                                     ]
                                 },
                                 "count": [
                                     {
                                         "vehicle": {
-                                            "type": 1,
+                                            "type": "f",
                                             "propulsion": 2
                                         },
                                         "numberOfVehicles": 5
                                     },
                                     {
                                         "vehicle": {
-                                            "type": 1
+                                            "type": "f"
                                         },
                                         "numberOfVehicles": 65
                                     }
@@ -192,20 +195,20 @@
                                     "type": 1,
                                     "vehicles": [
                                         {
-                                            "type": 1
+                                            "type": "f"
                                         }
                                     ]
                                 },
                                 "count": [
                                     {
                                         "vehicle": {
-                                            "type": 1
+                                            "type": "f"
                                         },
                                         "numberOfVehicles": 19
                                     },
                                     {
                                         "vehicle": {
-                                            "type": 2
+                                            "type": "b"
                                         },
                                         "numberOfVehicles": 1
                                     }
@@ -228,20 +231,20 @@
                                 "vacantSpaces": 4,
                                 "occupiedSpaces": 1,
                                 "space": {
-                                    "type": 2,
+                                    "type": "r",
                                     "vehicles": [
                                         {
-                                            "type": 2
+                                            "type": "b"
                                         },
                                         {
-                                            "type": 3
+                                            "type": "s"
                                         }
                                     ]
                                 },
                                 "count": [
                                     {
                                         "vehicle": {
-                                            "type": 2
+                                            "type": "b"
                                         },
                                         "numberOfVehicles": 1
                                     }
@@ -253,24 +256,24 @@
                                 "vacantSpaces": 10,
                                 "occupiedSpaces": 70,
                                 "space": {
-                                    "type": 2,
+                                    "type": "r",
                                     "vehicles": [
                                         {
-                                            "type": 1
+                                            "type": "f"
                                         }
                                     ]
                                 },
                                 "count": [
                                     {
                                         "vehicle": {
-                                            "type": 1,
-                                            "propulsion": 2
+                                            "type": "f",
+                                            "propulsion": "e"
                                         },
                                         "numberOfVehicles": 5
                                     },
                                     {
                                         "vehicle": {
-                                            "type": 1
+                                            "type": "f"
                                         },
                                         "numberOfVehicles": 65
                                     }
@@ -282,23 +285,23 @@
                                 "vacantSpaces": 40,
                                 "occupiedSpaces": 20,
                                 "space": {
-                                    "type": 1,
+                                    "type": "r",
                                     "vehicles": [
                                         {
-                                            "type": 1
+                                            "type": "f"
                                         }
                                     ]
                                 },
                                 "count": [
                                     {
                                         "vehicle": {
-                                            "type": 1
+                                            "type": "f"
                                         },
                                         "numberOfVehicles": 19
                                     },
                                     {
                                         "vehicle": {
-                                            "type": 2
+                                            "type": "b"
                                         },
                                         "numberOfVehicles": 1
                                     }

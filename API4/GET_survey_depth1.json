@@ -17,7 +17,6 @@
         "source": "DeFietstellers"
     },
     "staticData": {
-        "timestamp": "2020-11-11T09:45:00",
         "sections": [
             {
                 "id": "arnhem_ketelstraat_oneven",
@@ -49,20 +48,20 @@
                 "count": [
                     {
                         "vehicle": {
-                            "type": 2
+                            "type": "b"
                         },
                         "numberOfVehicles": 2
                     },
                     {
                         "vehicle": {
-                            "type": 1,
-                            "propulsion": 2
+                            "type": "f",
+                            "propulsion": "e"
                         },
                         "numberOfVehicles": 5
                     },
                     {
                         "vehicle": {
-                            "type": 1
+                            "type": "f"
                         },
                         "numberOfVehicles": 84
                     }
@@ -78,20 +77,20 @@
                 "count": [
                     {
                         "vehicle": {
-                            "type": 2
+                            "type": "b"
                         },
                         "numberOfVehicles": 2
                     },
                     {
                         "vehicle": {
-                            "type": 1,
-                            "propulsion": 2
+                            "type": "f",
+                            "propulsion": "e"
                         },
                         "numberOfVehicles": 5
                     },
                     {
                         "vehicle": {
-                            "type": 1
+                            "type": "f"
                         },
                         "numberOfVehicles": 84
                     }
