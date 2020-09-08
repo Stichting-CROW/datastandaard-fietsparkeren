@@ -16,16 +16,18 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
 | id				| string			| yes		| Een uuid, random of eventueel samengesteld					|
 | area				| GeoJSON			| no		| GIS polygonen die het volledige onderzoeksgebied afbakenen. Zie https://en.wikipedia.org/wiki/GeoJSON	|
-| client			| Client			| no		| Opdrachtgever													|
-| executor			| string			| no		| Uitvoerder													|
+| client			| Company			| no		| Opdrachtgever													|
+| providers			| Company[]			| no		| Uitvoerders													|
 | startDate			| ISO8601 timestamp	| no		| Startdatum van het onderzoek									|
 | endDate			| ISO8601 timestamp	| no		| Einddatum van het onderzoek									|
 
-### Client Object
+### Company Object
 | Field				| Type				| Required	| Description													|
 | ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
 | id				| string			| yes		| Unieke id, bijv. postcode gemeente        					|
 | name				| string			| no		| Naam van de klant                                         	|
+| address	    	| string			| no		| Adres van de klant                                         	|
+| city  	    	| string			| no		| Plaats van de klant                                         	|
 
 ### StaticData object
 | Field				| Type				| Required	| Description													|
@@ -45,7 +47,7 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | id                        | string              | yes         | Een uuid, random of eventueel samengesteld                 |
 | timestamp                 | ISO8601 timestamp   | conditional | Tijdstip van de meting. Alleen verplicht bij sectie type#1 (hoogste niveau) |
 | surveyId                  | string		      | yes         | Id van de survey waartoe deze meting behoort               |
-| source                    | string              | yes         | id van de instantie die deze data aangeleverd heeft		|
+| providerId                | string              | yes         | id van de instantie die deze data aangeleverd heeft		|
 | parkingCapacity           | number              | no        | Totaal aantal plekken                                    |
 | parkingCapacityTimestamp  | ISO8601 timestamp   | no        | Tijdstip van meting aantal plekken                       |
 | space		                | Space     		  | conditional | Alleen als de space homogeen is en als er geen sub |

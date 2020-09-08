@@ -9,12 +9,14 @@
         "client": {
             "name": "Gemeente Arnhem"
         },
-        "executor": {
-            "name": "De Fietstellers BV"
-        },
-        "startdate": "2020-11-23T0:00:00Z",
-        "enddate": "2020-12-15T0:00:00Z",
-        "source": "DeFietstellers"
+        "startdate": "2020-11-23T0:00:00",
+        "enddate": "2020-12-15T0:00:00",
+        "providers": [
+            {
+                "id": "defietsenstellers",
+                "name": "De Fietstellers BV"
+            }
+        ]
     },
     "staticData": {
         "sections": [
@@ -40,7 +42,7 @@
         "sections": [
             {
                 "id": "arnhem_ketelstraat_oneven",
-                "source": "DeFietstellers",
+                "providerId": "DeFietstellers",
                 "timestamp": "2020-11-23T12:00:00",
                 "parkingCapacity": 145,
                 "vacantSpaces": 54,

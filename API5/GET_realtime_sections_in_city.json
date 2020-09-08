@@ -50,7 +50,7 @@
         "sections": [
             {
                 "id": "arnhem_ketelstraat_oneven",
-                "source": "DeFietstellers",
+                "providerId": "defietstellers",
                 "timestamp": "2020-11-23T11:45:00",
                 "parkingCapacity": 145,
                 "vacantSpaces": 54,
@@ -58,7 +58,7 @@
             },
             {
                 "id": "arnhem_ketelstraat_even",
-                "source": "DeFietstellers",
+                "providerId": "defietstellers",
                 "timestamp": "2020-11-23T11:45:00",
                 "parkingCapacity": 145,
                 "vacantSpaces": 54,

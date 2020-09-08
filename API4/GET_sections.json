@@ -3,7 +3,7 @@
         "startdate": "2020-11-23T0:00:00",
         "enddate": "2020-11-24T0:00:00",
         "sectionId": "arnhem_ketelstraat_oneven",
-        "source": "DeFietstellers"
+        "providerId": "defietstellers"
     },
     "staticData": {
         "sections": [
