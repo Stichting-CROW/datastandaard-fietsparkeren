@@ -86,9 +86,9 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
 | type                 | string             | no                     | Zie tabel vehicle.type                                       |
 | propulsion           | string             | no                     | Zie tabel vehicle.propulsion                                 |
-| state                | string             | no                     | Bijv.  'wrak', 'puncture'                                    |
-| accessoires          | string[]           | no                     | Verzameling vrije tekstlabels m.b.t. accessoires, bijv: ['voorkrat', 'achterzitje', 'fietstassen'] |
-| parkState            | string[]           | no                     | Verzameling vrije tekstlabels m.b.t. parkeerdetails, bijv: ['naast rek', 'dubbel in nietje']       |
+| state                | string[]           | no                     | Zie tabel vehicle.state                                        |
+| parkState            | string[]           | no                     | Zie tabel vehicle.parkState                                        |
+| accessoires          | string[]           | no                     | Zie tabel vehicle.accessoire                                        |
 | owner                | string             | no                     | Zie tabel vehicle.owner                                      |
 
 ---
@@ -105,6 +105,40 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 | vfb| Gemengd vak           |
 | w  | Voor fietsenwinkel    |
 | a  | Anders                |
+
+### vehicle.accessoires 
+| ID | Omschrijving          |
+| -- | --------------------- |
+| z  | zitje                 |
+| zv | voorzitje             |
+| za | achterzitje           |
+| t  | fietstas              |
+| tv | fietstas voor         |
+| ta | fietstas achter       |
+| r  | rek                   |
+| rv | rek voor              |
+| rv | rek achter            |
+| b  | bak / mand            |
+| bv | bak voor              |
+| ba | vak achter            |
+| ...| ...                   |
+
+### vehicle.state 
+| ID | Omschrijving          |
+| -- | --------------------- |
+| w  | wrak                  |
+| l  | lekke band            |
+| lv | lekke band voor       |
+| la | lekke band achter     |
+| z  | zonder zadel          |
+| ...| ...                   |
+
+### vehicle.parkState
+| ID | Omschrijving          |
+| -- | --------------------- |
+| n  | naast voorziening     |
+| d  | dubbel                |
+| ...| ...                   |
 
 ### Voetuigeigenschappen volgens wettelijke voettuigcategorie, naar type aandrijving en naar breedte, zoals beschreven in [2019.09.24dataformaatfietstellingenv2.10_fietstypen](./2019.09.24dataformaatfietstellingenv2.10_fietstypen.pdf) pagina's 16 en 17
 
@@ -137,9 +171,9 @@ Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De e
 
 ---
 
-De velden vacantSpaces, occupiedSpaces en occupation zijn alleen aanwezig aan de bladeren van de sectieboom 
+De velden vacantSpaces, occupiedSpaces en occupation zijn verplicht in de bladeren van de sectieboom  
 
-De vacantSpaces, etc. van een section kunnen bepaald worden door alle vacantSpaces, etc. van onderliggende sections op te tellen
+Indien ze in de takken niet gegeven zijn, kunnen vacantSpaces, occupiedSpaces en occupation berekend worden door alle vacantSpaces, etc. van onderliggende sections op te tellen
 
 ---
 
