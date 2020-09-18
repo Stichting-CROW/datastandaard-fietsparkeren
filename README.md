@@ -2,7 +2,7 @@
 
 Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De eerste versie is een ontwerp, gebaseerd op het SPDP-formaat, dat beoogt voor zowel bewaakte stallingen als straattellingen te kunnen worden gebruikt.
 
-Zie [Inleiding Datastandaard Fietsparkeren](https://github.com/Stichting-CROW/datastandaard-fietsparkeren/blob/master/Inleiding Datastandaard Fietsparkeerdata.pdf) voor een beknopte a-technische uitleg van de datastandaard  
+Zie [Inleiding Datastandaard Fietsparkeren](https://github.com/Stichting-CROW/datastandaard-fietsparkeren/blob/master/Inleiding_Datastandaard_Fietsparkeerdata.pdf) voor een beknopte a-technische uitleg van de datastandaard  
 
 ### Body
 | Field				| Type				| Required	| Description													|
