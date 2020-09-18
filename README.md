@@ -34,7 +34,7 @@ Zie [Inleiding Datastandaard Fietsparkeren](https://github.com/Stichting-CROW/da
 ### StaticData object
 | Field				| Type				| Required	| Description													|
 | ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
-| sections			| StaticSections[]  | yes		|                                                               |
+| sections			| StaticSection[]  | yes		|                                                               |
 
 ### StaticSection object
 | Field                     | Type                | Required    | Description                                                |
