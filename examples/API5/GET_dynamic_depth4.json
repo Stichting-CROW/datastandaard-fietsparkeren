@@ -1,6 +1,5 @@
 {
-    "surveyId": "DeFietstellers_Arnhem_2020",
-    "dynamicData": {
+     "dynamicData": {
         "sections": [
            {
                "id": "arnhem_ketelstraat_oneven",

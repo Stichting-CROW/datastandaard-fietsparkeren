@@ -1,0 +1,72 @@
+{
+    "dynamicData": {
+        "sections": [
+            {
+                "id": "arnhem_ketelstraat_oneven",
+                "providerId": "DeFietstellers",
+                "timestamp": "2020-11-23T12:00:00",
+                "parkingCapacity": 145,
+                "vacantSpaces": 54,
+                "occupiedSpaces": 91,
+                "count": [
+                    {
+                        "vehicle": {
+                            "type": "b"
+                        },
+                        "numberOfVehicles": 2
+                    },
+                    {
+                        "vehicle": {
+                            "type": "f",
+                            "propulsion": "e"
+                        },
+                        "numberOfVehicles": 5
+                    },
+                    {
+                        "vehicle": {
+                            "type": "f"
+                        },
+                        "numberOfVehicles": 84
+                    }
+                ]
+            },
+            {
+                "id": "arnhem_ketelstraat_oneven",
+                "source": "DeFietstellers",
+                "timestamp": "2020-11-23T12:00:00",
+                "parkingCapacity": 145,
+                "vacantSpaces": 54,
+                "occupiedSpaces": 91,
+                "count": [
+                    {
+                        "vehicle": {
+                            "type": "b"
+                        },
+                        "numberOfVehicles": 2
+                    },
+                    {
+                        "vehicle": {
+                            "type": "f",
+                            "propulsion": "e"
+                        },
+                        "numberOfVehicles": 5
+                    },
+                    {
+                        "vehicle": {
+                            "type": "f"
+                        },
+                        "numberOfVehicles": 84
+                    }
+                ]
+            },
+            {
+                "id": "arnhem_ketelstraat_even",
+                "timestamp": "2020-11-23T12:00:00",
+                "parkingCapacity": 5,
+                "vacantSpaces": 4,
+                "occupiedSpaces": 1
+            }
+        ]
+    }
+}
+    

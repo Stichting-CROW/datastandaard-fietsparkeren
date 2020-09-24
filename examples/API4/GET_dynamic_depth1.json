@@ -1,43 +1,4 @@
 {
-    "query": {
-        "surveyid": "DeFietstellers_Arnhem_2020",
-        "depth": 1,
-        "limit": 1
-    },
-    "survey": {
-        "id": "DeFietstellers_Arnhem_2020",
-        "client": {
-            "name": "Gemeente Arnhem"
-        },
-        "startdate": "2020-11-23T0:00:00",
-        "enddate": "2020-12-15T0:00:00",
-        "providers": [
-            {
-                "id": "defietsenstellers",
-                "name": "De Fietstellers BV"
-            }
-        ]
-    },
-    "staticData": {
-        "sections": [
-            {
-                "id": "arnhem_ketelstraat_oneven",
-                "name": "Arnhem Ketelstraat oneven zijde",
-                "geoLocation": {
-                    "type": "Polygon", 
-                    "coordinates":  [
-                        [
-                            [5.90802,51.98173],
-                            [5.90808,51.98171],
-                            [5.90924,51.98199],
-                            [5.90921,51.98202],
-                            [5.90802,51.98173]
-                        ]
-                    ]
-                }
-            }
-         ]
-     },
     "dynamicData": {
         "sections": [
             {
@@ -97,6 +58,13 @@
                         "numberOfVehicles": 84
                     }
                 ]
+            },
+            {
+                "id": "arnhem_ketelstraat_even",
+                "timestamp": "2020-11-23T12:00:00",
+                "parkingCapacity": 5,
+                "vacantSpaces": 4,
+                "occupiedSpaces": 1
             }
         ]
     }

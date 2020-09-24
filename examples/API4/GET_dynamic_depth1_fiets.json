@@ -1,30 +1,4 @@
 {
-    "query": {
-        "sectionId": "arnhem_ketelstraat_oneven",
-        "vehicleType": 1,
-        "depth": 1,
-        "limit": 1
-    },
-    "staticData": {
-        "sections": [
-            {
-                "id": "arnhem_ketelstraat_oneven",
-                "name": "Arnhem Ketelstraat oneven zijde",
-                "geoLocation": {
-                    "type": "Polygon", 
-                    "coordinates":  [
-                        [
-                            [5.90802,51.98173],
-                            [5.90808,51.98171],
-                            [5.90924,51.98199],
-                            [5.90921,51.98202],
-                            [5.90802,51.98173]
-                        ]
-                    ]
-                }
-            }
-        ]
-    },
     "dynamicData": {
         "sections": [
             {
