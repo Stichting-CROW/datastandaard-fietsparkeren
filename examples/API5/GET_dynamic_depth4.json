@@ -3,6 +3,8 @@
         "sections": [
            {
                "id": "arnhem_ketelstraat_oneven",
+               "contractorId": "DeFietstellers",
+               "surveyId": "0202_2020",
                "timestamp": "2020-11-23T11:45:00",
                "sections": [
                    {
@@ -98,8 +100,10 @@
                ]
            },
            {
-               "timestamp": "2020-11-23T12:00:00",
-               "sections": [
+                "id": "arnhem_ketelstraat_oneven",
+                "surveyId": "0202_2020",
+                "timestamp": "2020-11-23T12:00:00",
+                "sections": [
                    {
                        "id": "trottoir",
                        "sections": [

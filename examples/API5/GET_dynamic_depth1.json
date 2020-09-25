@@ -3,7 +3,8 @@
         "sections": [
             {
                 "id": "arnhem_ketelstraat_oneven",
-                "providerId": "DeFietstellers",
+                "surveyId": "0202_2020",
+                "contractorId": "DeFietstellers",
                 "timestamp": "2020-11-23T12:00:00",
                 "parkingCapacity": 145,
                 "vacantSpaces": 54,
@@ -31,8 +32,9 @@
                 ]
             },
             {
-                "id": "arnhem_ketelstraat_oneven",
-                "source": "DeFietstellers",
+                "sectionId": "arnhem_ketelstraat_oneven",
+                "surveyId": "0202_2020",
+                "contractorId": "DeFietstellers",
                 "timestamp": "2020-11-23T12:00:00",
                 "parkingCapacity": 145,
                 "vacantSpaces": 54,
@@ -61,6 +63,8 @@
             },
             {
                 "id": "arnhem_ketelstraat_even",
+                "surveyId": "0202_2020",
+                "contractorId": "DeFietstellers",
                 "timestamp": "2020-11-23T12:00:00",
                 "parkingCapacity": 5,
                 "vacantSpaces": 4,
