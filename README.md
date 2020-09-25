@@ -484,7 +484,8 @@ Als een analist alleen geïnteresseerd is in de bezetting van de totale stalling
 
 ![Stationsstalling beknopt](/images/Stationstalling_beknopt.png)  
 
-Als een stalling iedere 2 minuten data opslaat en een analist vraagt de data op van een hele maand, scheelt dat uiteraard enorm in de datastroom en daarmee in de performance van de API.
+Als een stalling iedere 2 minuten data opslaat en een analist vraagt de data op van een hele maand, scheelt dat uiteraard enorm in de datastroom en daarmee in de performance van de API.  
+
 ---
 
 ## 4. Beveiliging API
