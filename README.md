@@ -1,8 +1,9 @@
 # Datastandaard fietsparkeren
 
-Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De eerste versie is een ontwerp, gebaseerd op het SPDP-formaat, dat beoogt voor zowel geautomatiseerde tellingen in bewaakte stallingen als incidentele straattellingen te kunnen worden gebruikt.
+Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De eerste versie is een ontwerp, gebaseerd op het SPDP-formaat, dat beoogt voor zowel geautomatiseerde tellingen in bewaakte stallingen als incidentele straattellingen te kunnen worden gebruikt.  
 
-Het door CROW gepubliceerde [schematische overzicht van de verschillende datastromen](/diagram_crow_api_overzicht.png) in het fietsparkeren onderscheidt een zestal API's:
+In het fietsparkeerlandschap kunnen we globaal 6 datastromen onderscheiden:  
+![schematische overzicht van de verschillende datastromen](/images/diagram_crow_api_overzicht.png)  
 
 | ID | Omschrijving |
 | -- | ------------------------------------------------------------------------------ |
@@ -17,13 +18,17 @@ Onderstaand ontwerp is in eerste instantie bedoeld voor de API's 3, 4 en 5, maar
 
 ## Indeling
 
-* __1. Omschrijving datastandaard__: de datastandaard per object uitgeplozen en uitgelegd
-* __2. Beveiliging__: 
-* __3. API Requests__: geeft een aantal praktijkvoorbeelden voor de API's 3 (POST-requests), 4 en 5 (GET-requests). De objecten uit hoofstuk 1 worden hier in JSON-formaat gebruikt.
+* __1. Beschrijving datastandaard__: de datastandaard per object uitgeplozen en uitgelegd
+  - Surveys
+  - Statische data
+  - Dynamische data
+* __2. API Requests__: geeft een aantal praktijkvoorbeelden voor de API's 3 (POST-requests), 4 en 5 (GET-requests). De objecten uit hoofstuk 1 worden hier in JSON-formaat gebruikt.
+* __3. Praktijkvoorbeelden van dynamische data__  
+* __4. Beveiliging__: 
 
 ---
 
-## 1. Omschrijving datastandaard
+## 1. Beschrijving datastandaard
 De data in de datastandaard valt uiteen in drie hoofdblokken:
 1. data over het onderzoek (survey)
 2. statische data (static data): gegevens over de meetgebieden (sections): id, naam en geografische afbakening. Deze data verandert zelden of nooit. 
@@ -40,7 +45,7 @@ De velden en zoekfuncties die in deze datastandaard zijn opgenomen, __moeten__ w
 
 ---
 
-### 1.1 Survey
+### 1.1 Surveys
 Het datablok Survey bevat data over het onderzoek. Geïnitieerd door wie? Uitgevoerd door wie? Wanneer? Waar? Al deze informatie kan worden ingestuurd, maar is niet verplicht.
 
 Bij het insturen van een Survey kan de dataportal ervoor kiezen de gebruiker zijn eigen surveyId te laten kiezen. Inzender van de nieuwe Survey wordt eigenaar van deze inzending. Als dat het geval is, dient er een 400-error (Bad request) gegenereerd te worden als er een surveyId worden gekozen dat al bestaat. In geval de inzender de eigenaar is van de bestaande survey, vindt er een update plaats. Ondersteuning van deze functionalitet is door het dataportal zelf in te bepalen.
@@ -65,7 +70,7 @@ Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te
 
 ---
 
-### 1.2 Static Data
+### 1.2 Statische Data
 Statische data is die data van secties die niet of nauwelijks aan verandering onderhevig zijn. Dat is bijvoorbeeld het geval bij de geografische afbakening. 
 Mocht het zo zijn dat de geografische afbakening wijzigt, dan verdient het aanbeveling een nieuwe statische sectie aan te maken. Aanpassingen van bestaande secties gelden namelijk ook voor reeds inegstuurde data, wat kan leiden tot verwarring bij de interpretatie van historische data.
 Of en hoe een statische sectie gewijzigd kan worden, valt buiten het bestek van deze standaard en wordt overgelaten aan de dataportals.
@@ -85,7 +90,7 @@ De parkeercapaciteit van een sectie lijkt op het eerste gezicht statisch. Toch i
 | geoLocation				| GeoJSON		          | no		   | Positie van deze sectie. Kan gebruikt worden voor geo-zoekopdrachten |
 
 
-### 1.3 Dynamic Data
+### 1.3 Dynamische Data
 Dynamische data, oftewel: de tellingen, daar is uiteraard waar het in deze datastandaard om te doen is. Dynamische data is een verzameling secties/meetgebieden. In een meetgebied kunnen weer subsecties worden ondergebracht en in de subsecties weer nieuwe subsecties. Zo ontstaat er een boom aan secties, die in de onderstaande tabellen 'sectieboom' wordt genoemd. Secties zonder subsecties, dus de uiteinden van de sectieboom, hetem 'bladeren'. Zo kunnen een straat worden opgedeeld in linker- en rechterzijde met aan elke kant diverse parkeervoorzieningen. 
 
 Een sectieboom kan er als volgt uit zien:  
@@ -166,7 +171,7 @@ Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitg
 ---
 Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk zijn. Lijstjes die eindigen met ... zijn voor uitbreiding vatbaar.
 
-### spaceTypeIDs - indeling volgens Trajan [Whitepaper fietsparkeerdrukonderzoek](https://github.com/Stichting-CROW/datastandaard-fietsparkeren/blob/master/20190924-dataformaat-fietstellingen-v2-10.pdf), p. 10
+### spaceTypeIDs
 | ID | spaceType             |
 | -- | --------------------- |
 | x  | buiten voorziening    |
@@ -241,22 +246,13 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | h  | Huur                  | Huurfiets, zoals OV-fiets                                                      |
 
 ---
-
 De velden parkingCapacity, vacantSpaces en occupiedSpaces en count zijn verplicht in de bladeren van de sectieboom  
 
 Indien ze in de takken niet gegeven zijn, kunnen vacantSpaces, occupiedSpaces en occupation berekend worden door alle vacantSpaces, etc. van onderliggende sections op te tellen
 
 ---
 
-## 2. Beveiliging API
-Waarschijnlijk wil een dataportal het gebruik van de API beveiligen, zeker als het gaat om het insturen van data (de POST-requests van API 3).
-Om discussies over de voor- en nadelen van diverse authenticatie-protocollen te voorkomen, schrijft de datastandaard niet voor op welke manier deze beveiliging uitgevoerd dient te worden.  
-
-Het is aan te raden om authorityId en contractorId te gebruiken als authenticatie. Deze id's kunnen dan dienen om de ingestuurde data te labellen en daar zoekopdrachten aan te koppelen. Als bijvoorbeelde contractor met id 'de_fietstellers_bv' dynamische data instuurt, kan elke sectie uitgebreid worden met een veld 'contractorId' met de waarde 'de_fietstellers_bv'.
-
----
-
-## 3. API- requests
+## 2. API- requests
 
 ### API 3 - data van stallingsexploitant of fietsteller opslaan in dataportal
 API 3 is de ontvangde zijde van de dataportal API. Straattellers of stallingssoftware kunnen met POST-requests hun data opsturen naar het dataportal.
@@ -435,3 +431,66 @@ Gebruikers van API 5 - de datastroom tussen het dataportal en de webapplicaties 
 `GET /latest?geopoint=5.90802,51.98173,200&data=static`  
 [Response](./examples/API5/GET_dynamic_depth1.json)  
 
+## 3. Praktijkvoorbeelden van dynamische data  
+
+Afbeeldingen zeggen vaak meer dan woorden. Daarom een tweetal voorbeelden met afbeeldingen, die de essentie van de datastandaard direct duidelijk maken.
+__Voorbeeld 1: een straattelling in een doorsnee straat: Dorpsstraat, Ons Dorp__  
+Een straattelling van een straat met een fietsenrek met 8 plekken, waarin 3 fietsen staan. 1 fiets staat naast het rek en twee fietsen staan tegen de gevel van een gebouw.  
+
+![Dorpsstraat](/images/Dorpsstraat_waarneming.png)  
+
+De straat is een sectie. Deze exacte locatie daarvan wordt vastgelegd in de statische data, bijvoorbeeld:  
+ID: Dorpsstraat_OnsDorp  
+Naam: Dorpsstraat  
+Geo-locatie: Polygon[ hier een reeks coördinaten ]  
+De dynamische data kan er visueel zo uit zien, als de tellers zeer gedetailleerd te werk gaan. Zo kan bijvoorbeeld zelfs worden aangegeven dat één van de fietsen in het rek een lekke band heeft.  
+
+![Dorpsstraat volledig](/images/Dorpsstraat_volledig.png)  
+
+Echter, in de praktijk zal een telling er misschien eerder zo uit zien:  
+
+![Dorpsstraat telling op fietstype](/images/Dorpsstraat_fietstype.png)  
+
+Of zelfs nog eenvoudiger, in geval van een weinig gedetailleerde telling:  
+
+![Dorpsstraat sectie](/images/Dorpsstraat_sectie.png)  
+
+Voor bepaalde analysedoeleinden is het grijze blokje telling zelfs niet eens zo interessant. Met de juiste zoekopdrachten in de API kan een respons als deze volstaan, zelfs als de meest gedetailleerde telling is opgeslagen:  
+
+![Dorpsstraat beknopt](/images/Dorpsstraat_beknopt.png)  
+
+__Voorbeeld 2: een doorsnee stationsstalling__  
+Prorail beheert een groot aantal stationsstallingen in Nederland en laat deze automatisch tellen door sensoren in de rekken. Een typische Prorailstalling is opgedeeld in rijen. Iedere rij heeft een aantal voorzieningen met lage en hoge rekken. In dit voorbeeld heb ik er een sectie met bromfietsvlakken bijgetekend, iets wat Prorail-stallingen ongetwijfeld zullen hebben, maar waarop vooralsnog geen geautomatiseerde tellingen op plaatsvinden.  
+
+![Stationsstalling](/images/Stationstalling_waarneming.png)  
+
+Dit ziet er in de datastandaard zo uit:  
+
+![Stationsstalling volledig](/images/Stationstalling_volledig.png)  
+
+__Data opvragen__
+Je kunt talloze manieren bedenken waarop een analist de data wil doorzoeken. De vraag daarbij is in hoeverre deze functionaliteit de dataportal moet worden ondersteund. De analist kan na opvraag van de complete dataset uiteraard ook zelf de data uitpluizen. 
+Als er in de dataportal metingen tot op het grootste detailniveau zijn opgeslagen, zoals bovenstaande voorbeeld, dan kunnen datasets door de tijd heen en enorm groot worden. Dat is zeker het geval als het gaat om automatische tellingen die meerdere keren per uur worden ingestuurd, Enige filtermogelijkheden in de dataportal is dan geen slechte benadering. 
+Daarom stelt de dataportal enkele zoekfunctionaliteiten verplicht voor de dataportals.
+
+__Filter op diepte__
+Gedetailleerde informatie over de bezetting geeft behoorlijk grote bomen, die niet voor iedere analist van deze data even interessant is. Als deze analist de waarnemingen van een stationsstalling door de tijd opvraagt, kunnen de responsen enorm groot worden. Als 90% van de data voor de analist niet relevant is, is dit natuurlijk onzinnig.
+Daarom stelt de datastandaard een beperkt aantal zoekfunctionaliteiten verplicht. De belangrijkste van deze is dat je de mate van detail, de diepte (depth), bij een zoekopdracht kunt  aangeven aan de API. 
+Stel dat in het dataportal de meest gedetailleerde boom is opgeslagen:
+
+![Stationsstalling volledig](/images/Stationstalling_volledig.png)  
+
+Als een analist alleen geïnteresseerd is in de bezetting van de totale stalling, vraagt hij data op op diepte 1. De API geeft hem dan dit resultaat:  
+
+![Stationsstalling beknopt](/images/Stationstalling_beknopt.png)  
+
+Als een stalling iedere 2 minuten data opslaat en een analist vraagt de data op van een hele maand, scheelt dat uiteraard enorm in de datastroom en daarmee in de performance van de API.
+---
+
+## 4. Beveiliging API
+Waarschijnlijk wil een dataportal het gebruik van de API beveiligen, zeker als het gaat om het insturen van data (de POST-requests van API 3).
+Om discussies over de voor- en nadelen van diverse authenticatie-protocollen te voorkomen, schrijft de datastandaard niet voor op welke manier deze beveiliging uitgevoerd dient te worden.  
+
+Het is aan te raden om authorityId en contractorId te gebruiken als authenticatie. Deze id's kunnen dan dienen om de ingestuurde data te labellen en daar zoekopdrachten aan te koppelen. Als bijvoorbeelde contractor met id 'de_fietstellers_bv' dynamische data instuurt, kan elke sectie uitgebreid worden met een veld 'contractorId' met de waarde 'de_fietstellers_bv'.
+
+---
