@@ -1,30 +1,28 @@
 {
-    "dynamicData": {
-        "sections": [
-            {
-                "id": "arnhem_ketelstraat_oneven",
-                "surveyId": "0202_2020",
-                "contractorId": "DeFietstellers",
-                "timestamp": "2020-11-23T11:45:00",
-                "parkingCapacity": 140,
-                "vacantSpaces": 52,
-                "occupiedSpaces": 88,
-                "count": [
-                    {
-                        "vehicle": {
-                            "type": "f",
-                            "propulsion": "e"
-                        },
-                        "numberOfVehicles": 5
+    "sections": [
+        {
+            "id": "arnhem_ketelstraat_oneven",
+            "surveyId": "0202_2020",
+            "contractorId": "DeFietstellers",
+            "timestamp": "2020-11-23T11:45:00",
+            "parkingCapacity": 140,
+            "vacantSpaces": 52,
+            "occupiedSpaces": 88,
+            "count": [
+                {
+                    "vehicle": {
+                        "type": "f",
+                        "propulsion": "e"
                     },
-                    {
-                        "vehicle": {
-                            "type": "f"
-                        },
-                        "numberOfVehicles": 83
-                    }
-                ]
-            }
-        ]
-    }
+                    "numberOfVehicles": 5
+                },
+                {
+                    "vehicle": {
+                        "type": "f"
+                    },
+                    "numberOfVehicles": 83
+                }
+            ]
+        }
+    ]
 }

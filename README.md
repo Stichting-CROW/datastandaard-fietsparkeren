@@ -294,9 +294,15 @@ Zonder het veld surveyId worden de statische secties niet gekoppeld aan een onde
 Je kunt dus zowel dynamische als statische data afzonderlijk koppelen aan een onderzoek.   
    
 Dynamische data kan sterk gecomprimeerd worden door alleen de totalen op te slaan. Dit zal in de praktijk vaak voorkomen.  
-POST /dynamicdata [Body met een alleen totalen](./examples/API3/requests/POST_compressed_dynamic_section.json)  
+`POST /dynamicdata` [Body met een alleen totalen](./examples/API3/requests/POST_compressed_dynamic_section.json)  
 
 ### API 4 - data opvragen
+Op dezelfde manier het insturen van data kan de data ook weer worden opgevraad. De POST-requests verandere in GET-requests:  
+`GET /surveys?query_params`
+`GET /staticdata?query_params`
+`GET /dynamicdata?query_params`
+
+De `query_params` dienen als zoekopdrachten, zodat heel specifiek naar data gezocht kan worden. Dat kan op diverse manieren. De datastandaard stelt een minimaal aantal zoekopties verplicht:
 
 __Filter op diepte__  
 Gedetailleerde informatie over de bezetting geeft behoorlijk grote bomen, die niet voor iedere analist van deze data even interessant is. Als deze analist de waarnemingen van een stationsstalling door de tijd opvraagt, kunnen de responsen enorm groot worden. Als 90% van de data voor de analist niet relevant is, is dit natuurlijk onzinnig.
@@ -359,27 +365,18 @@ Er zijn twee manieren voor deze query:
 * zoek secties die geheel binnen de gegeven polygoon vallen: relation=within.  
 `?geopolygon=52.370216,4.895168,53.370216,4.895168,53.370216,5.895168,52.370216,4.895168&relation=within`  
 
-__Filter op soort data__  
-Data moet gesplitst kunnen worden op het soort data: Survey, Statische Data en Dynamische Data. 
-`data=dynamic` (default): zoek alleen dynamische data  
-`data=static` : zoek alleen statisch data  
-`data=survey` : zoek alleen data over het onderzoek  
-`data=dynamic,static`: zoek dynamische en statische data  
-etc.
-
 ### Een overzicht van alle query parameters
 | param     		| type		| values                                             	|
 | ----------------- |---------- | ----------------------------------------------------- |
 | surveyId			| string	| Alleen data van dit onderzoek    						|
 | authorityId      	| string	| Alleen data van deze opdrachtgever         			|
 | contarctorId  	| string	| Alleen data van deze dataleverancier      			|
-| data  			| string	| survey, static en/of dynamic (default)               	|
 | depth 		    | number	| Aantal te bevragen sectie-lagen vanaf gegeven pad  default = 1                           				|
 | startDate			| UTC timestamp	| Selectie op timestamp. Section.timestamp >= startDate 	|
 | endDate			| UTC timestamp	| Selectie op timestamp. Section.timestamp <= endDate    	|
 |					|			|														|
-| geopoint  	    | list met coördinaten en straal | lat, lng, radius (in meters)	|
-| geopolygon		| list met coördinaten | lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1	|
+| geoPoint  	    | list met coördinaten en straal | lat, lng, radius (in meters)	|
+| geoPolygon		| list met coördinaten | lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1	|
 | relation        	| string    | 'intersect' (default) of 'within'	|
 
 ----
@@ -387,37 +384,38 @@ etc.
 ### Enkele voorbeelden
 
 #### Ophalen van alle data van een bepaald onderzoek
-`GET ?surveyId=0202_2020&depth=4&data=survey,static,dynamic`  
-[Response](./examples/API4/GET_survey_static_dynamic.json)  
+`GET /surveys?surveyId=0202_2020`  
+[Response](./examples/API4/GET_survey.json)  
 
 #### Ophalen van de statische data van een bepaald onderzoek
-`GET ?surveyId=0202_2020&data=static`  
+`GET /staticdata?surveyId=0202_2020`  
 [Response](./examples/API4/GET_static.json)    
 
 #### Ophalen van de volledige dynamische data van een bepaald onderzoek
-`GET ?surveyId=0202_2020&depth=4`  
+`GET /dynamicdata?surveyId=0202_2020&depth=4`  
 [Response](./examples/API4/GET_dynamic_depth4.json)  
 
 #### Ophalen van de beknopte dynamische data van een bepaald onderzoek
-`GET ?surveyId=0202_2020`  
+`GET /dynamicdata?surveyId=0202_2020`  
 [Response](./examples/API4/GET_dynamic_depth1.json) - de default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op de wortel van de sectieboom.  
 Alleen dynamische data, want de parameter *data* is niet gegeven en de defaultwaarde is 'dynamic'.  
 
 #### Opvragen van data van een bepaalde sectie in een gegeven periode
-`GET ?sectionId=arnhem_ketelstraat_oneven&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00`   
+`GET /dynamicdata?sectionId=arnhem_ketelstraat_oneven&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00`   
 [Response](./examples/API4/GET_dynamic_depth1_single_section.json)  
 
 #### Opvragen van statische data in een bepaald gebied, in een cirkel met straat 1km vanaf een gegeven punt
-`GET ?geopoint=5.90802,51.98173,1000&data=static`  
+`GET /dynamicdata?geoPoint=5.90802,51.98173,1000`  
 [Response](./examples/API4/GET_static.json)  
 
 #### Opvragen van statische data in een bepaald gebied
-`GET ?geopolygon=52.370216,4.895168,53.370216,4.895168,53.370216,5.895168,52.370216,4.895168&relation=within&data=static`  
+`GET /dynamicdata?geoPolygon=52.370216,4.895168,53.370216,4.895168,53.370216,5.895168,52.370216,4.895168&relation=within`  
 [Response](./examples/API4/GET_dynamic_depth1.json)  
 *relation=within* geeft aan dat de gevonden secties zich volledig in de polygoon moeten bevinden  
 
 ### API 5 - realtime data lezen vanuit dataportal voor t.b.v. webapplicaties
 Gebruikers van API 5 - de datastroom tussen het dataportal en de webapplicaties - zijn vooral geïnteresseerd in realtime data. Per secties dus slechts één resultaat. Door *latest* op te nemen in de url weet de API dat het om een dergelijk request gaat.  
+Het gaat in de *latest*-requests altijd om dynamicdata, dus die kan worden weggelaten uit het pad
 
 #### Ophalen van de huidige bezetting van een bepaalde sectie tot op voorzieningsnivea
 `GET /latest?sectionId=arnhem_ketelstraat_oneven&depth=4`  
@@ -428,7 +426,7 @@ Gebruikers van API 5 - de datastroom tussen het dataportal en de webapplicaties 
 [Response](./examples/API5/GET_dynamic_depth1_single_section.json)  
 
 #### Opvragen van data in een bepaald gebied, in een cirkel met straal 200m vanaf een gegeven punt
-`GET /latest?geopoint=5.90802,51.98173,200&data=static`  
+`GET /latest?geopoint=5.90802,51.98173,200`  
 [Response](./examples/API5/GET_dynamic_depth1.json)  
 
 ## 3. Praktijkvoorbeelden van dynamische data  
