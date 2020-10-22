@@ -1,5 +1,7 @@
 # Datastandaard fietsparkeren
 
+*Reageren op dit document? Klik [hier](https://docs.google.com/document/d/1SANKIH4Gam9CH1N8NPgtB1efg2LEEWSmGNnR8AbH2zU/edit?usp=sharing)*
+
 Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De eerste versie is een ontwerp, gebaseerd op het SPDP-formaat, dat beoogt voor zowel geautomatiseerde tellingen in bewaakte stallingen als incidentele straattellingen te kunnen worden gebruikt.  
 
 In het fietsparkeerlandschap kunnen we globaal 6 datastromen onderscheiden:  
@@ -56,7 +58,7 @@ Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te
 | Field				| Type				| Required	| Description													|
 | ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
 | id				| string			| no		| Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
-| area				| GeoJSON			| no		| GIS polygonen die het volledige onderzoeksgebied afbakenen. Zie https://en.wikipedia.org/wiki/GeoJSON	|
+| geoLocation		| GeoJSON			| no		| Geografische afbakening van het gehele onderzoeksgebied. Zie https://en.wikipedia.org/wiki/GeoJSON	|
 | authority			| Organization		| no		| Opdrachtgever													|
 | contractors		| Organization[]	| no		| __Open voor discussie: zijn 'authority' en 'contractor' de juiste termen voor deze rollen?__ |
 | startDate			| ISO8601 timestamp	| no		| Startdatum van het onderzoek									|
@@ -87,7 +89,7 @@ De parkeercapaciteit van een sectie lijkt op het eerste gezicht statisch. Toch i
 | ----------------- | ------------------- | -------- | ---------------------------------------------------------- |
 | id                | string              | yes      | Een uuid, random of eventueel samengesteld                 |
 | timestamp         | ISO8601 timestamp   | no       | Tijdstip van de vaststelling sectie                        |
-| geoLocation				| GeoJSON		          | no		   | Positie van deze sectie. Kan gebruikt worden voor geo-zoekopdrachten |
+| geoLocation				| GeoJSON		          | no		   | Geografische afbakening van deze sectie. Kan gebruikt worden voor geo-zoekopdrachten. Zie https://en.wikipedia.org/wiki/GeoJSON |
 
 
 ### 1.3 Dynamische Data
@@ -297,7 +299,7 @@ Dynamische data kan sterk gecomprimeerd worden door alleen de totalen op te slaa
 `POST /dynamicdata` [Body met een alleen totalen](./examples/API3/requests/POST_compressed_dynamic_section.json)  
 
 ### API 4 - data opvragen
-Op dezelfde manier het insturen van data kan de data ook weer worden opgevraad. De POST-requests verandere in GET-requests:  
+Op dezelfde manier het insturen van data kan de data ook weer worden opgevraad. De POST-requests veranderen in GET-requests:  
 `GET /surveys?query_params`
 `GET /staticdata?query_params`
 `GET /dynamicdata?query_params`
@@ -349,36 +351,31 @@ __Filter op dataleverancier__
 De dataportal kan de data die wordt ingestuurd voorzien van de ID van de leverancier van deze data. Als dat gebeurt, kan er uiteraard gezocht worden op dit ID:  
 `?contractorID=:contractorId`  
 
-__Filter op geo-data: cirkel__  
+__Geo zoekopdrachten__
 Als de statische data van secties is voorzien van exacte geo-coördinaten, moeten deze secties gevonden kunnen worden aan de van een geo-zoekopdracht.  
-Zoek op een punt + straal van dit punt in meters:  
-* zoeken op secties die de gegeven cirkel overlappen: relation=intersect. Dit is de default.  
-`?geopoint=52.370216,4.895168,1000&relation=intersect`  
-* zoeken op secties die geheel binnen de gegeven cirkel overlappen: relation=within.  
-`?geopoint=52.370216,4.895168,1000&relation=within`  
 
 __Filter op geo-data: polygoon__  
 Geef een polygoon mee in de query, aan de hand waarvan de corresponderende secties worden gezocht.  
 Er zijn twee manieren voor deze query:  
-* zoek secties die de gegeven polygoon overlappen: relation=intersect. Dit is de default.  
-`?geopolygon=52.370216,4.895168,53.370216,4.895168,53.370216,5.895168,52.370216,4.895168&relation=intersect`  
+* zoek secties die de gegeven polygoon overlappen: relation=intersects. Dit is de default.  
+`?geopolygon=4.895168,52.370216,4.895168,53.370216,5.895168,53.370216,4.895168,52.370216&relation=intersects`  
 * zoek secties die geheel binnen de gegeven polygoon vallen: relation=within.  
-`?geopolygon=52.370216,4.895168,53.370216,4.895168,53.370216,5.895168,52.370216,4.895168&relation=within`  
+`?geopolygon=4.895168,52.370216,4.895168,53.370216,5.895168,53.370216,4.895168,52.370216&relation=within`  
 
 ### Een overzicht van alle query parameters
 | param     		| type		| values                                             	|
 | ----------------- |---------- | ----------------------------------------------------- |
-| surveyId			| string	| Alleen data van dit onderzoek    						|
-| authorityId      	| string	| Alleen data van deze opdrachtgever         			|
-| contarctorId  	| string	| Alleen data van deze dataleverancier      			|
+| surveyid			| string	| Alleen data van dit onderzoek    						|
+| authorityid   | string	| Alleen data van deze opdrachtgever         			|
+| contarctorid  | string	| Alleen data van deze dataleverancier      			|
 | depth 		    | number	| Aantal te bevragen sectie-lagen vanaf gegeven pad  default = 1                           				|
-| startDate			| UTC timestamp	| Selectie op timestamp. Section.timestamp >= startDate 	|
-| endDate			| UTC timestamp	| Selectie op timestamp. Section.timestamp <= endDate    	|
-|					|			|														|
-| geoPoint  	    | list met coördinaten en straal | lat, lng, radius (in meters)	|
-| geoPolygon		| list met coördinaten | lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1	|
-| relation        	| string    | 'intersect' (default) of 'within'	|
+| startdate			| UTC timestamp	| Selectie op timestamp. Section.timestamp >= startDate 	|
+| enddate			  | UTC timestamp	| Selectie op timestamp. Section.timestamp <= endDate    	|
+|					      |			|														|
+| geopolygon		| list met coördinaten | lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1	|
+| georelation  	| string    | 'intersects' (default) of 'within'	|
 
+Query-params dienen hoofdletterongevoelig te zijn, dus authorityid=abc is hetzelfde als authorityID=abc
 ----
 
 ### Enkele voorbeelden
@@ -428,6 +425,13 @@ Het gaat in de *latest*-requests altijd om dynamicdata, dus die kan worden wegge
 #### Opvragen van data in een bepaald gebied, in een cirkel met straal 200m vanaf een gegeven punt
 `GET /latest?geopoint=5.90802,51.98173,200`  
 [Response](./examples/API5/GET_dynamic_depth1.json)  
+
+__Enige algemene endpoints ten behoeve van ontwikkeling GUI's__
+Een overzicht van alle organisaties die tellingen hebben laten uitvoeren  
+`/authorities`
+
+Een overzicht van alle organisaties die tellingen hebben uitgevoerd  
+`/contractors`
 
 ## 3. Praktijkvoorbeelden van dynamische data  
 
