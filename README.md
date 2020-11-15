@@ -62,7 +62,7 @@ Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te
 | authority			| Organization		| no		| Opdrachtgever													|
 | contractors		| Organization[]	| no		| __Open voor discussie: zijn 'authority' en 'contractor' de juiste termen voor deze rollen?__ |
 
-#### Organization - gegevens over een opdrachtgever of een uitvoerende instatie
+#### Organization - gegevens over een opdrachtgever of een uitvoerende instantie
 | Field				| Type				| Required	| Description													|
 | ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
 | id				| string			| yes		| Unieke id, bijv. CBS-code gemeente of provincie. |
