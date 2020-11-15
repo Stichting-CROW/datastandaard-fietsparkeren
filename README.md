@@ -61,8 +61,6 @@ Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te
 | geoLocation		| GeoJSON			| no		| Geografische afbakening van het gehele onderzoeksgebied. Zie https://en.wikipedia.org/wiki/GeoJSON	|
 | authority			| Organization		| no		| Opdrachtgever													|
 | contractors		| Organization[]	| no		| __Open voor discussie: zijn 'authority' en 'contractor' de juiste termen voor deze rollen?__ |
-| startDate			| ISO8601 timestamp	| no		| Startdatum van het onderzoek									|
-| endDate			| ISO8601 timestamp	| no		| Einddatum van het onderzoek									|
 
 #### Organization - gegevens over een opdrachtgever of een uitvoerende instatie
 | Field				| Type				| Required	| Description													|

@@ -11,8 +11,6 @@
                     "name": "De Fietstellers BV"
                 }
             ],
-            "startDate": "2020-11-23T0:00:00",
-            "endDate": "2020-12-15T0:00:00",
             "geoLocation": {
                 "type": "multipolygon", 
                 "coordinates":  [
