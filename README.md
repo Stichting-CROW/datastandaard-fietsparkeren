@@ -162,10 +162,10 @@ Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitg
 ### Note
 | Field               | Type                | Required               | Description                                                  |
 | ------------------- | ------------------- | ---------------------- | ------------------------------------------------------------ |
-| open                | boolean             | no                     | is deze area, bijv. een stalling geopend?                    |
-| holiday             | boolean             | no                     | Vakantie?                                                    |
-| event               | boolean             | no                     | Evenement (markt, kermis, ...)?                              |
-| underConstruction   | boolean             | no                     | Werkzaamheden?                                               |
+| isOpen              | boolean             | no                     | is deze area, bijv. een stalling geopend?                    |
+| isHliday            | boolean             | no                     | Vakantie?                                                    |
+| isEvent             | boolean             | no                     | Evenement (markt, kermis, ...)?                              |
+| isUnderConstruction | boolean             | no                     | Werkzaamheden?                                               |
 | remark              | string              | no                     | Vrij tekstveld                                               |
 
 ---
@@ -195,7 +195,7 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | ta | fietstas achter       |
 | r  | rek                   |
 | rv | rek voor              |
-| rv | rek achter            |
+| ra | rek achter            |
 | b  | bak / mand            |
 | bv | bak voor              |
 | ba | vak achter            |
@@ -343,7 +343,7 @@ Data die ingestuurd wordt door een dataleverancier kan worden voorzien van een o
 
 __Filter op opdrachtgever__  
 Hetzelfde idee al filteren op onderzoek: als de data voorzien is van de ID van een opdrachtgever, kan hierop gefilterd worden:  
-`?authorityID=: surveyID`  
+`?authorityID=:authorityID`  
 
 __Filter op dataleverancier__  
 De dataportal kan de data die wordt ingestuurd voorzien van de ID van de leverancier van deze data. Als dat gebeurt, kan er uiteraard gezocht worden op dit ID:  
