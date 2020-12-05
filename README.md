@@ -12,7 +12,7 @@ In het fietsparkeerlandschap kunnen we globaal 6 datastromen onderscheiden:
 | 1  | Van stalling naar exploitant |
 | 2  | Van exploitant naar MaaS-provider |
 | 3  | Van exploitant / straatteller naar dataportal  |
-| 4  | Van dataporal naar analist |
+| 4  | Van dataportal naar analist |
 | 5  | Van dataportal naar webapplicaties | 
 | 6  | Van exploitant naar exploitatietools | 
 
@@ -147,11 +147,24 @@ Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitg
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
 | type                 | string             | no                     | Zie tabel vehicle.type                                       |
-| propulsion           | string             | no                     | Zie tabel vehicle.propulsion                                 |
-| state                | string[]           | no                     | Zie tabel vehicle.state                                      |
+| propulsion           | string[]           | no                     | Zie tabel vehicle.propulsion                                 |
+| state                | VehicleState[]     | no                     | Zie tabel VehicleState                                      |
 | parkState            | string[]           | no                     | Zie tabel vehicle.parkState                                  |
-| accessoires          | string[]           | no                     | Zie tabel vehicle.accessoire                                 |
+| accessoires          | Accessoire[]       | no                     | Zie tabel Accessoire                                |
 | owner                | string             | no                     | Zie tabel vehicle.owner                                      |
+
+### Accessoire  
+| Field                | Type               | Required               | Description                                                  |
+| -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
+| type                 | string             | no                     | Zie tabel vehicle.accessoire.typen                          |
+| position             | string             | no                     | Zie tabel vehicle.accessoire.positions                      |
+
+
+### VehicleState  
+| Field                | Type               | Required               | Description                                                  |
+| -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
+| type                 | string             | no                     | Zie tabel vehicle.state.typen                          |
+| position             | string             | no                     | Zie tabel vehicle.state.positions                      |
 
 ### Count 
 | Field                | Type               | Required               | Description                                                  |
@@ -178,38 +191,37 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | r  | rek                   |
 | n  | nietjes               |
 | v  | vak                   |
-| vf | fietsvak              |
-| vb | bromfietsvak          |
-| vfb| gemengd vak           |
 | w  | voor fietsenwinkel    |
 | a  | anders                |
 
-### vehicle.accessoires 
+]
+### vehicle.accessoire.typen 
 | ID | Omschrijving          |
 | -- | --------------------- |
 | z  | zitje                 |
-| zv | voorzitje             |
-| za | achterzitje           |
 | t  | fietstas              |
-| tv | fietstas voor         |
-| ta | fietstas achter       |
 | r  | rek                   |
-| rv | rek voor              |
-| ra | rek achter            |
 | b  | bak / mand            |
-| bv | bak voor              |
-| ba | vak achter            |
-| ...| ...                   |
 
-### vehicle.state 
+### vehicle.accessoire.positions 
+| ID | Omschrijving          |
+| -- | --------------------- |
+| v  | voor                  |
+| a  | achter                |
+
+### vehicle.state.type 
 | ID | Omschrijving          |
 | -- | --------------------- |
 | w  | wrak                  |
 | l  | lekke band            |
-| lv | lekke band voor       |
-| la | lekke band achter     |
 | z  | zonder zadel          |
 | ...| ...                   |
+
+### vehicle.state.position
+| ID | Omschrijving          |
+| -- | --------------------- |
+| v  | voor                  |
+| a  | achter                |
 
 ### vehicle.parkState
 | ID | Omschrijving          |
@@ -230,13 +242,11 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | a  | anders                |                                                                                |
 
 ### vehicle.propulsion: s=spierkracht, b=brandstofmotor, e=elektrische motor
-| ID | Aandrijving            | Omschrijving                                                                   |
-| -- | ---------------------- | ------------------------------------------------------------------------------ |
-| s  | Spierkracht            | bv traditionele fiets of voetganger                                            |
-| se | Elektrische hulpmotor  | bv e-fiets, speed pedelec                                                      |
-| e  | Alleen elektrisch      | bv e-bromfiets                                                                 |
-| sb | Brandstof hulpmotor    | bv Sparta-met                                                                  |
-| b  | alleen brandstof       | bv traditionele bromfiets, motorfiets                                          | 
+| ID | Aandrijving     | Omschrijving                                                                   |
+| -- | --------------- | ------------------------------------------------------------------------------ |
+| s  | Spierkracht     | bv traditionele fiets of voetganger                                            |
+| e  | Elektrisch      | bv e-bike                                                                      |
+| b  | Brandstof       | bv traditionele bromfiets, motorfiets                                          | 
 
 ### vehicle.owner
 | ID | Eigenaar              | Omschrijving                                                                   |
