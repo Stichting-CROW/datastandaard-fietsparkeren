@@ -385,6 +385,11 @@ Er zijn twee manieren voor deze query:
 * zoek secties die geheel binnen de gegeven polygoon vallen: relation=within.  
 `?geopolygon=4.895168,52.370216,4.895168,53.370216,5.895168,53.370216,4.895168,52.370216&relation=within`  
 
+__Sorteren__
+Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de parameters `orderby` en `direction`:  
+`dynamicdata?orderby=timestamp&direction=ASC` - sorteert op timestamp van oudste naar nieuwste  
+`dynamicdata?orderby=count.numberOfVehicles&direction=DESC` - sorteert op aantal voertuigen van hoog naar laag  
+
 ### Een overzicht van alle query parameters
 | param     		| type		| values                                             	|
 | ----------------- |---------- | ----------------------------------------------------- |
@@ -394,9 +399,12 @@ Er zijn twee manieren voor deze query:
 | depth 		    | number	| Aantal te bevragen sectie-lagen vanaf gegeven pad  default = 1                           				|
 | startdate			| UTC timestamp	| Selectie op timestamp. Section.timestamp >= startDate 	|
 | enddate			  | UTC timestamp	| Selectie op timestamp. Section.timestamp <= endDate    	|
-|					      |			|														|
+|					      |			      |	        													|
 | geopolygon		| list met coördinaten | lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1	|
 | georelation  	| string    | 'intersects' (default) of 'within'	|
+|					      |			      |	        													|
+| orderby     	| string    | veldnaam waarop gesorteerd wordt	|
+| direction    	| string    | ASC (default) of DESC, in combinatie met orderby	|
 
 Query-params dienen hoofdletterongevoelig te zijn, dus authorityid=abc is hetzelfde als authorityID=abc
 ----
