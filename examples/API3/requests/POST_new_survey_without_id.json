@@ -1,14 +1,6 @@
 {
-    "authority": {
-        "name": "Gemeente Arnhem",
-        "id": "0202"
-    },
-    "contractors": [
-        {
-            "id": "defietsenstellers",
-            "name": "De Fietstellers BV"
-        }
-    ],
+    "authorityId": "0202",
+    "contractorIds": ["defietsenstellers"],
     "geoLocation": {
         "type": "MultiPolygon", 
         "coordinates":  [

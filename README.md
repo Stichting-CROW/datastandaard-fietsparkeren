@@ -55,18 +55,24 @@ Bij het insturen van een Survey kan de dataportal ervoor kiezen de gebruiker zij
 Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te groeperen door dynamische data te labelen met het veld surveyId. Zie voor meer details het kopje Dynamic Data
 
 #### Survey - gegevens over een onderzoek
-| Field				| Type				| Required	| Description													|
-| ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
-| id				| string			| no		| Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
-| geoLocation		| GeoJSON			| no		| Geografische afbakening van het gehele onderzoeksgebied. Zie https://en.wikipedia.org/wiki/GeoJSON	|
-| authority			| Organization		| no		| Opdrachtgever													|
-| contractors		| Organization[]	| no		| __Open voor discussie: zijn 'authority' en 'contractor' de juiste termen voor deze rollen?__ |
+| Field				  | Type				    | Required| Description											                          		|
+| --------------| --------------- | --------| ------------------------------------------------------------- |
+| id				    | string			    | no	  	| Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
+| geoLocation		| GeoJSON			    | no		  | Geografische afbakening van het gehele onderzoeksgebied. Zie https://en.wikipedia.org/wiki/GeoJSON	|
+| authorityId		| string		      | no		  | Id van de Opdrachtgever - Alleen te gebruiken voor insturen van data (API3)													|
+| authority			| Organization		| no		  | Opdrachtgever	- Alleen te gebruiken voor ontvangen van data (API4)	            										|
+| contractorIds	| string[]	      | no		  | Id's van de contractors - Alleen te gebruiken voor insturen van data (API3)                         |
+| contractors		| Organization[]	| no		  | Alleen te gebruiken voor ontvangen van data (API4)                                                  |
+| license   		| String        	| no		  | Licentie van het gebruik van de data                                                                |
+
 
 #### Organization - gegevens over een opdrachtgever of een uitvoerende instantie
 | Field				| Type				| Required	| Description													|
-| ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
-| id				| string			| yes		| Unieke id, bijv. CBS-code gemeente of provincie. |
-| name				| string			| no		| Naam van de instantie                                             	|
+| ----------- | ----------- | --------- | ------------------------------------------------------------- |
+| id	  			| string			| yes	    	| Unieke id, bijv. CBS-code gemeente of provincie. |
+| name				| string			| yes	    	| Naam van de instantie                                 
+            	|
+(Hier zijn optioneel extra velden op te nemen, maar deze zijn geen onderdeel van de datastandaard)
 
 ---
 
@@ -121,8 +127,8 @@ Bijvoorbeeld: Count[] betekent dat er meerdere telblokken in dit veld kunnen zit
 | id                        | string              | yes         | id van deze dynamische sectie, indien niet meegestuurd bij schrijven, wordt deze gegenereerd door de API      |
 | staticSectionId           | string              | yes         | id van de statische sectie waartoe deze dynamische data behoort       |
 | timestamp                 | ISO8601 timestamp   | conditional | Tijdstip van de meting. Alleen verplicht in de stam van de sectieboom |
-| surveyId                  | string		      | conditional | Id van de survey waartoe deze meting behoort |
-| authorityId               | string		      | conditional | Id van de opdrachtgever van deze meting |
+| surveyId                  | string		          | conditional | Id van de survey waartoe deze meting behoort |
+| authorityId               | string		          | conditional | Id van de opdrachtgever van deze meting |
 | contractorId              | string              | conditional | Id van de instantie die deze data aangeleverd heeft. Bij een POST-request dient dit door het dataportal gevuld te worden met de username van de inzender |
 | parkingCapacity           | number              | conditional | Totaal aantal plekken, verplicht in de bladeren van de sectieboom           |
 | parkingCapacityTimestamp  | ISO8601 timestamp   | no          | Tijdstip van meting aantal plekken                       |
@@ -130,8 +136,8 @@ Bijvoorbeeld: Count[] betekent dat er meerdere telblokken in dit veld kunnen zit
 | occupiedSpaces            | number              | conditional | Aantal bezette plekken, verplicht in de bladeren van de sectieboom  |
 | count                     | Count[]             | no          | Verzameling van Count-objecten                      |
 | space		                  | Space         		  | no          | Alleen toegestaan in de bladeren van de sectieboom  |
-| sections                  | DynamicSection[]    | no        | Verzameling van subsecties. Er zitten dus subsections in een subsection. Dit mag maximaal 3 lagen diep                          |
-| notes                     | Note                | no        | Notities over de meting in deze sectie                   |
+| sections                  | DynamicSection[]    | no          | Verzameling van subsecties. Er zitten dus subsections in een subsection. Dit mag maximaal 3 lagen diep                          |
+| notes                     | Note                | no          | Notities over de meting in deze sectie                   |
 
 De velden surveyId, authorityId en contractorId kunnen gebruikt worden bij het filteren van data bij de zoekopdrachten van de API's 4 en 5.
 Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitgevoerd door een bepaalde contractor kunnen opvragen. Zie *API Requests* voor meer details over zoekopdrachten.
@@ -195,7 +201,6 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | w  | voor fietsenwinkel    |
 | a  | anders                |
 
-]
 ### vehicle.accessoire.typen 
 | ID | Omschrijving          |
 | -- | --------------------- |
@@ -274,7 +279,16 @@ De datastandaard schrijft voor dat data in elk geval in afzonderlijke blokken Su
 Alle genoemde requests beginnen met een /. Voor deze schuine streep komt uiteraard de base-url van de API. In het geval van de pilot in VeiligStallen is de base-url https://remote.veiligstallen2.nl/rest/api
 
 ### Metingen groeperen in 1 onderzoek (= 'survey')  
-#### Stap 1: meld je onderzoek (survey) aan
+#### Stap 1: zorg dat alle betrokken partijen (opdrachtgevers/authorities, tellers/contractors) bekend zijn bij de dataportal
+Check met 
+`GET /organisations` welke instanties er al bekend zijn.  
+[Response](./examples/API3/responses/GET_organisations.json)  
+  
+Mis je instanties, voeg ze toe met:  
+`POST /organisations` [Body zonder surveyId](./examples/API3/requests/POST_new_organisation.json)  
+[Response](./examples/API3/responses/POST_new_organisation.json)  
+  
+#### Stap 2: meld je onderzoek (survey) aan
 `POST /surveys` [Body met surveyId](./examples/API3/requests/POST_new_survey_with_id.json)  
 Een id van de survey mag door exploitant zelf gekozen worden. Suggestie gebruik [CBS codes](https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2020) en unieke gegevens uit het onderzoek, bijv. < CBS_nr_gemeente >_< jaartal > => 0202_2020.  
 
@@ -288,7 +302,7 @@ Indien geen surveyId is gegeven, maakt de server zelf een id en geeft deze terug
 
 [Response](./examples/API3/responses/POST_new_survey.json)  
 
-#### Stap 2: koppel statische data aan bestaand onderzoek
+#### Stap 3: koppel statische data aan bestaand onderzoek
 `POST /staticdata` [Body](./examples/API3/requests/POST_static_data.json)  
 
 Door het veld surveyId mee te geven aan de secties, worden de secties gekoppeld aan een onderzoek.  
@@ -437,10 +451,12 @@ Het gaat in de *latest*-requests altijd om dynamicdata, dus die kan worden wegge
 
 __Enige algemene endpoints ten behoeve van ontwikkeling GUI's__
 Een overzicht van alle organisaties die tellingen hebben laten uitvoeren  
-`/authorities`
+`GET /authorities`
 
 Een overzicht van alle organisaties die tellingen hebben uitgevoerd  
-`/contractors`
+`GET /contractors`
+
+
 
 ## 3. Praktijkvoorbeelden van dynamische data  
 
