@@ -92,10 +92,10 @@ De parkeercapaciteit van een sectie lijkt op het eerste gezicht statisch. Toch i
 | Field             | Type                | Required | Description                                                |
 | ----------------- | ------------------- | -------- | ---------------------------------------------------------- |
 | id                | string              | yes      | Een uuid, random of eventueel samengesteld                 |
-| timestamp         | ISO8601 timestamp   | no       | Tijdstip van de vaststelling sectie                        |
 | geoLocation				| GeoJSON		          | no		   | Geografische afbakening van deze sectie. Kan gebruikt worden voor geo-zoekopdrachten. Zie https://en.wikipedia.org/wiki/GeoJSON |
-
-
+| validFrom         | ISO8601 timestamp   | no       | Vanaf dit tijdstip mag er dynamische data in deze sectie worden geschreven |
+| validUntil        | ISO8601 timestamp   | no       | Tot dit tijdstip mag er dynamische data in deze sectie worden geschreven |
+  
 ### 1.3 Dynamische Data
 Dynamische data, oftewel: de tellingen, daar is uiteraard waar het in deze datastandaard om te doen is. Dynamische data is een verzameling secties/meetgebieden. In een meetgebied kunnen weer subsecties worden ondergebracht en in de subsecties weer nieuwe subsecties. Zo ontstaat er een boom aan secties, die in de onderstaande tabellen 'sectieboom' wordt genoemd. Secties zonder subsecties, dus de uiteinden van de sectieboom, hetem 'bladeren'. Zo kunnen een straat worden opgedeeld in linker- en rechterzijde met aan elke kant diverse parkeervoorzieningen. 
 
@@ -456,6 +456,8 @@ Het gaat in de *latest*-requests altijd om dynamicdata, dus die kan worden wegge
 #### Opvragen van data in een bepaald gebied, in een cirkel met straal 200m vanaf een gegeven punt
 `GET /latest?geopoint=5.90802,51.98173,200`  
 [Response](./examples/API5/GET_dynamic_depth1.json)  
+
+
 
 __Enige algemene endpoints ten behoeve van ontwikkeling GUI's__
 Een overzicht van alle organisaties die tellingen hebben laten uitvoeren  
