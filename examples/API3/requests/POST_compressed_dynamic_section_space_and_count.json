@@ -1,29 +1,28 @@
-{
-    "sections": [
-        {
-            "id": "stationsstalling_goes",
-            "surveyId": "DeFietstellers_Goes_2020",
-            "timestamp": "2020-11-23T11:45:00",
-            "parkingCapacity": 100,
-            "vacantSpaces": 4,
-            "occupiedSpaces": 96,
-            "space": {
-                "type": "v",
-                "vehicles": [
-                    {
-                        "type": "b"
-                    }
-                ]
-            },
-            "count": [
+[
+    {
+        "id": "stationsstalling_goes",
+        "surveyId": "DeFietstellers_Goes_2020",
+        "timestamp": "2020-11-23T11:45:00",
+        "parkingCapacity": 100,
+        "vacantSpaces": 4,
+        "occupiedSpaces": 96,
+        "space": {
+            "type": "v",
+            "vehicles": [
                 {
-                    "vehicle": {
-                        "type": "f"
-                    },
-                    "numberOfVehicles": 96
+                    "type": "b"
                 }
             ]
-        }
-    ]
-}
+        },
+        "count": [
+            {
+                "vehicle": {
+                    "type": "f"
+                },
+                "numberOfVehicles": 96
+            }
+        ]
+    }
+]
+
 
