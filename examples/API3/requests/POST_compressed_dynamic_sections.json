@@ -1,12 +1,10 @@
-{
-    "sections": [
-        {
-            "id": "arnhem_ketelstraat_oneven",
-            "surveyId": "0202_2020",
-            "timestamp": "2020-11-23T11:45:00",
-            "parkingCapacity": 100,
-            "vacantSpaces": 4,
-            "occupiedSpaces": 96
-        }
-    ]
-}
+[
+    {
+        "id": "arnhem_ketelstraat_oneven",
+        "surveyId": "0202_2020",
+        "timestamp": "2020-11-23T11:45:00",
+        "parkingCapacity": 100,
+        "vacantSpaces": 4,
+        "occupiedSpaces": 96
+    }
+]

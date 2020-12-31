@@ -59,10 +59,8 @@ Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te
 | --------------| --------------- | --------| ------------------------------------------------------------- |
 | id				    | string			    | no	  	| Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
 | geoLocation		| GeoJSON			    | no		  | Geografische afbakening van het gehele onderzoeksgebied. Zie https://en.wikipedia.org/wiki/GeoJSON	|
-| authorityId		| string		      | no		  | Id van de Opdrachtgever - Alleen te gebruiken voor insturen van data (API3)													|
-| authority			| Organization		| no		  | Opdrachtgever	- Alleen te gebruiken voor ontvangen van data (API4)	            										|
-| contractorIds	| string[]	      | no		  | Id's van de contractors - Alleen te gebruiken voor insturen van data (API3)                         |
-| contractors		| Organization[]	| no		  | Alleen te gebruiken voor ontvangen van data (API4)                                                  |
+| authorityId		| string		      | no		  | Id van de Opdrachtgever - Alleen te gebruiken voor insturen van data													|
+| contractorIds	| string[]	      | no		  | Id's van de contractors - Alleen te gebruiken voor insturen van data                         |
 | license   		| String        	| no		  | Licentie van het gebruik van de data                                                                |
 
 
@@ -86,7 +84,7 @@ De parkeercapaciteit van een sectie lijkt op het eerste gezicht statisch. Toch i
 #### StaticData
 | Field				| Type				      | Required	| Description											        		|
 | ----------- | ----------------- | --------- | ------------------------------------------- |
-| sections		| StaticSection[]   | yes		    | Verzameling van statische secties           |
+| result  		| StaticSection[]   | yes		    | Verzameling van statische secties           |
 
 #### StaticSection
 | Field             | Type                | Required | Description                                                |
@@ -95,6 +93,7 @@ De parkeercapaciteit van een sectie lijkt op het eerste gezicht statisch. Toch i
 | geoLocation				| GeoJSON		          | no		   | Geografische afbakening van deze sectie. Kan gebruikt worden voor geo-zoekopdrachten. Zie https://en.wikipedia.org/wiki/GeoJSON |
 | validFrom         | ISO8601 timestamp   | no       | Vanaf dit tijdstip mag er dynamische data in deze sectie worden geschreven |
 | validUntil        | ISO8601 timestamp   | no       | Tot dit tijdstip mag er dynamische data in deze sectie worden geschreven |
+| owner             | string              | no       | organisationId: Eigenaar van deze sectie. Alleen deze organistatie mag wijzigingen aanbrengen aan deze sectie |
   
 ### 1.3 Dynamische Data
 Dynamische data, oftewel: de tellingen, daar is uiteraard waar het in deze datastandaard om te doen is. Dynamische data is een verzameling secties/meetgebieden. In een meetgebied kunnen weer subsecties worden ondergebracht en in de subsecties weer nieuwe subsecties. Zo ontstaat er een boom aan secties, die in de onderstaande tabellen 'sectieboom' wordt genoemd. Secties zonder subsecties, dus de uiteinden van de sectieboom, hetem 'bladeren'. Zo kunnen een straat worden opgedeeld in linker- en rechterzijde met aan elke kant diverse parkeervoorzieningen. 
@@ -117,9 +116,9 @@ Hieronder volgt een opsomming van de te gebruiken datablokken. Voor de niet tech
 Bijvoorbeeld: Count[] betekent dat er meerdere telblokken in dit veld kunnen zitten.
 
 #### DynamicData
-| Field				| Type				| Required	| Description													|
-| ----------------- | ----------------- | --------- | ------------------------------------------------------------- |
-| sections			| DynamicSection[]   | yes		| Verzameling secties met stallingsdata                         |
+| Field				| Type		      		| Required	| Description													|
+| ----------- | ----------------- | --------- | ------------------------------------------------------------- |
+| result  		| DynamicSection[]  | yes		| Verzameling secties met stallingsdata                         |
 
 #### DynamicSection
 | Field                     | Type                | Required    | Description                                                |
@@ -269,6 +268,29 @@ Indien ze in de takken niet gegeven zijn, kunnen vacantSpaces, occupiedSpaces en
 ---
 
 ## 2. API- requests
+### algemene regels
+Alle GET-requests moeten in een wrapper-object gestoken worden met het resultaat in een property 'result'.  
+Dus `GET /staticdata`:  
+Respons:  
+```
+{  
+  "result": [  
+    StaticSection,  
+    ...  
+  ]  
+}  
+```
+Dit is bedoeld om de API de mogelijkheid te geven metadata over de zoekresultaten mee te geven, bijvoorbeeld data over paginering, zoekfilters, errors, etc.  
+Uitgezonderd van deze regel zijn responses die expliciet om 1 object vragen, zoals:  
+`/organiations/defietsentellers`  
+Respons:  
+
+```
+{  
+  "id": "defietsentellers,  
+  "name: "De Fietsentellers BV"  
+}  
+```
 
 ### API 3 - data van stallingsexploitant of fietsteller opslaan in dataportal
 API 3 is de ontvangde zijde van de dataportal API. Straattellers of stallingssoftware kunnen met POST-requests hun data opsturen naar het dataportal.
@@ -386,9 +408,9 @@ Er zijn twee manieren voor deze query:
 `?geopolygon=4.895168,52.370216,4.895168,53.370216,5.895168,53.370216,4.895168,52.370216&relation=within`  
 
 __Sorteren__
-Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de parameters `orderby` en `direction`:  
-`dynamicdata?orderby=timestamp&direction=ASC` - sorteert op timestamp van oudste naar nieuwste  
-`dynamicdata?orderby=count.numberOfVehicles&direction=DESC` - sorteert op aantal voertuigen van hoog naar laag  
+Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de parameters `orderBy` en `orderDirection`:  
+`dynamicdata?orderBy=timestamp&orderDirection=ASC` - sorteert op timestamp van oudste naar nieuwste  
+`dynamicdata?orderBy=count.numberOfVehicles&orderDirection=DESC` - sorteert op aantal voertuigen van hoog naar laag  
 
 ### Een overzicht van alle query parameters
 | param     		| type		| values                                             	|
@@ -403,8 +425,8 @@ Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de paramet
 | geopolygon		| list met coördinaten | lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1	|
 | georelation  	| string    | 'intersects' (default) of 'within'	|
 |					      |			      |	        													|
-| orderby     	| string    | veldnaam waarop gesorteerd wordt	|
-| direction    	| string    | ASC (default) of DESC, in combinatie met orderby	|
+| orderBy     	| string    | veldnaam waarop gesorteerd wordt	|
+| orderDirection    	| string    | ASC (default) of DESC, in combinatie met orderBy	|
 
 Query-params dienen hoofdletterongevoelig te zijn, dus authorityid=abc is hetzelfde als authorityID=abc
 ----
@@ -460,6 +482,12 @@ Het gaat in de *latest*-requests altijd om dynamicdata, dus die kan worden wegge
 
 
 __Enige algemene endpoints ten behoeve van ontwikkeling GUI's__
+Een overzicht van alle organisaties  
+`GET /organisations`
+
+Eén organisatie  
+`GET /organisations/defietsentellers`
+
 Een overzicht van alle organisaties die tellingen hebben laten uitvoeren  
 `GET /authorities`
 
