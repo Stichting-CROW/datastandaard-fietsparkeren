@@ -420,7 +420,14 @@ De paginering dient te beginnen op pagina 1 en niet op pagina 0!
 
 Een voorbeeld van een request met paginering:  
 `dynamicdata?page=3&pageSize=100` - geeft de resultaten 201 t/m 300
-  
+
+__Groeperen__  
+De mogelijkheid van het groeperen van data op basis van statische sectie is eveneens een optionele service van de API.  
+Overige parameters gelden voor *alle* groepen binnen het resultaat. Dus `pageSize=1&orderBy=occupiedSpaces&orderDirection=DESC` geeft voor ieder groep 1 resultaat, namelijk de hoogste bezetting van deze sectie. 
+`dynamicdata?pageSize=2&orderBy=timestamp&orderDirection=DESC` - geeft de laatste twee resulaten van alle statische secties
+
+De [Respons](./examples/API4/GET_dynamic_groupby.json) dient er zo uit te zien
+
 ### Een overzicht van alle query parameters
 | param     		| type		| values                                             	|
 | ----------------- |---------- | ----------------------------------------------------- |
@@ -439,6 +446,8 @@ Een voorbeeld van een request met paginering:
 |					      |			      |	        													                |
 | page       	  | number    | paginanummer 	                                    |
 | pageSize    	| number    | resultaten per pagina	                            |
+|					      |			      |	        													                |
+| groupBy    	  | string    | veld waarop het resultaat uitgesplitst wordt. Vooralsnog is hier alleen de waarde `staticSectionId` mogelijk |
 
 Query-params dienen hoofdletterongevoelig te zijn, dus authorityid=abc is hetzelfde als authorityID=abc
 ----
