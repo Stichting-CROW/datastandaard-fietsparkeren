@@ -407,11 +407,21 @@ Er zijn twee manieren voor deze query:
 * zoek secties die geheel binnen de gegeven polygoon vallen: relation=within.  
 `?geopolygon=4.895168,52.370216,4.895168,53.370216,5.895168,53.370216,4.895168,52.370216&relation=within`  
 
-__Sorteren__
+__Sorteren__  
 Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de parameters `orderBy` en `orderDirection`:  
 `dynamicdata?orderBy=timestamp&orderDirection=ASC` - sorteert op timestamp van oudste naar nieuwste  
 `dynamicdata?orderBy=count.numberOfVehicles&orderDirection=DESC` - sorteert op aantal voertuigen van hoog naar laag  
 
+__Paginering__  
+Een API is niet verplicht paginering aan te bieden. Maar als de API deze service wel biedt, is het veplicht hierin de datastandaard te volgen:  
+Gebruik de parameters:  
+`pageSize`
+`page`
+De paginering dient te beginnen op pagina 1 en niet op pagina 0!  
+
+Een voorbeeld van een request met paginering:  
+`dynamicdata?page=3&pageSize=100` - geeft de resultaten 201 t/m 300
+  
 ### Een overzicht van alle query parameters
 | param     		| type		| values                                             	|
 | ----------------- |---------- | ----------------------------------------------------- |
@@ -426,7 +436,10 @@ Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de paramet
 | georelation  	| string    | 'intersects' (default) of 'within'	|
 |					      |			      |	        													|
 | orderBy     	| string    | veldnaam waarop gesorteerd wordt	|
-| orderDirection    	| string    | ASC (default) of DESC, in combinatie met orderBy	|
+| orderDirection| string    | ASC (default) of DESC, in combinatie met orderBy	|
+|					      |			      |	        													                |
+| page       	  | number    | paginanummer 	                                    |
+| pageSize    	| number    | resultaten per pagina	                            |
 
 Query-params dienen hoofdletterongevoelig te zijn, dus authorityid=abc is hetzelfde als authorityID=abc
 ----
