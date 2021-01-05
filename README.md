@@ -123,7 +123,6 @@ Bijvoorbeeld: Count[] betekent dat er meerdere telblokken in dit veld kunnen zit
 #### DynamicSection
 | Field                     | Type                | Required    | Description                                                |
 | ------------------------- | ------------------- | ----------- | ---------------------------------------------------------- |
-| id                        | string              | yes         | id van deze dynamische sectie, indien niet meegestuurd bij schrijven, wordt deze gegenereerd door de API      |
 | staticSectionId           | string              | yes         | id van de statische sectie waartoe deze dynamische data behoort       |
 | timestamp                 | ISO8601 timestamp   | conditional | Tijdstip van de meting. Alleen verplicht in de stam van de sectieboom |
 | surveyId                  | string		          | conditional | Id van de survey waartoe deze meting behoort |
