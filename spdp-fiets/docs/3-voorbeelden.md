@@ -3,31 +3,50 @@
 #### Ophalen van alle data van een bepaald onderzoek
 `GET /surveys?surveyId=0202_2020`  
 [Response](./examples/API4/GET_survey.json)  
+<pre class='example json' data-include='../examples/API4/GET_survey.json' data-include-format='text'></pre>
 
 #### Ophalen van de statische data van een bepaald onderzoek
 `GET /staticdata?surveyId=0202_2020`  
 [Response](./examples/API4/GET_static.json)    
 
+<pre class='example json' data-include='../examples/API4/GET_static.json' data-include-format='text'></pre>
+
+
 #### Ophalen van de volledige dynamische data van een bepaald onderzoek
 `GET /dynamicdata?surveyId=0202_2020&depth=4`  
 [Response](./examples/API4/GET_dynamic_depth4.json)  
 
+<pre class='example json' data-include='../examples/API4/GET_dynamic_depth4.json' data-include-format='text'></pre>
+
+
 #### Ophalen van de beknopte dynamische data van een bepaald onderzoek
 `GET /dynamicdata?surveyId=0202_2020`  
-[Response](./examples/API4/GET_dynamic_depth1.json) - de default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op de wortel van de sectieboom.  
+<pre class='example json' data-include='../examples/API4/GET_dynamic_depth1.json' data-include-format='text'></pre>
+
+
+De default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op de wortel van de sectieboom.  
 Alleen dynamische data, want de parameter *data* is niet gegeven en de defaultwaarde is 'dynamic'.  
 
 #### Opvragen van data van een bepaalde sectie in een gegeven periode
 `GET /dynamicdata?sectionId=arnhem_ketelstraat_oneven&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00`   
 [Response](./examples/API4/GET_dynamic_depth1_single_section.json)  
 
+<pre class='example json' data-include='../examples/API4/GET_dynamic_depth1_single_section.json' data-include-format='text'></pre>
+
+
 #### Opvragen van statische data in een bepaald gebied, in een cirkel met straat 1km vanaf een gegeven punt
 `GET /dynamicdata?geoPoint=5.90802,51.98173,1000`  
 [Response](./examples/API4/GET_static.json)  
 
+<pre class='example json' data-include='../examples/API4/GET_static.json' data-include-format='text'></pre>
+
+
 #### Opvragen van statische data in een bepaald gebied
 `GET /dynamicdata?geoPolygon=52.370216,4.895168,53.370216,4.895168,53.370216,5.895168,52.370216,4.895168&relation=within`  
 [Response](./examples/API4/GET_dynamic_depth1.json)  
+
+<pre class='example json' data-include='../examples/API4/GET_dynamic_depth1.json' data-include-format='text'></pre>
+
 *relation=within* geeft aan dat de gevonden secties zich volledig in de polygoon moeten bevinden  
 
 ### API 5 - realtime data lezen vanuit dataportal voor t.b.v. webapplicaties
@@ -38,13 +57,22 @@ Het gaat in de *latest*-requests altijd om dynamicdata, dus die kan worden wegge
 `GET /latest?sectionId=arnhem_ketelstraat_oneven&depth=4`  
 [Response](./examples/API5/GET_dynamic_depth4.json)  
 
+<pre class='example json' data-include='../examples/API5/GET_dynamic_depth4.json' data-include-format='text'></pre>
+
+
 #### Opvragen van beknopte data (depth=1) van een bepaalde sectie
 `GET /latest?sectionId=arnhem_ketelstraat_oneven`  
 [Response](./examples/API5/GET_dynamic_depth1_single_section.json)  
 
+<pre class='example json' data-include='../examples/API5/GET_dynamic_depth1_single_section.json' data-include-format='text'></pre>
+
+
 #### Opvragen van data in een bepaald gebied, in een cirkel met straal 200m vanaf een gegeven punt
 `GET /latest?geopoint=5.90802,51.98173,200`  
 [Response](./examples/API5/GET_dynamic_depth1.json)  
+
+<pre class='example json' data-include='../examples/API5/GET_dynamic_depth1.json' data-include-format='text'></pre>
+
 
 
 
