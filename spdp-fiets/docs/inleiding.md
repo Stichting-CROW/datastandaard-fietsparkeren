@@ -1,7 +1,7 @@
 ## Overzicht
 
 In het fietsparkeerlandschap kunnen we globaal 6 datastromen onderscheiden:  
-![schematische overzicht van de verschillende datastromen](/images/diagram_crow_api_overzicht.png)  
+![schematische overzicht van de verschillende datastromen](../images/diagram_crow_api_overzicht.png)  
 
 <table class='index'>
 

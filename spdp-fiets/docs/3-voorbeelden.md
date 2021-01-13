@@ -67,7 +67,7 @@ Afbeeldingen zeggen vaak meer dan woorden. Daarom een tweetal voorbeelden met af
 __Voorbeeld 1: een straattelling in een doorsnee straat: Dorpsstraat, Ons Dorp__  
 Een straattelling van een straat met een fietsenrek met 8 plekken, waarin 3 fietsen staan. 1 fiets staat naast het rek en twee fietsen staan tegen de gevel van een gebouw.  
 
-![Dorpsstraat](/images/Dorpsstraat_waarneming.png)  
+![Dorpsstraat](../images/Dorpsstraat_waarneming.png)  
 
 De straat is een sectie. Deze exacte locatie daarvan wordt vastgelegd in de statische data, bijvoorbeeld:  
 ID: Dorpsstraat_OnsDorp  
@@ -75,28 +75,28 @@ Naam: Dorpsstraat
 Geo-locatie: Polygon[ hier een reeks coördinaten ]  
 De dynamische data kan er visueel zo uit zien, als de tellers zeer gedetailleerd te werk gaan. Zo kan bijvoorbeeld zelfs worden aangegeven dat één van de fietsen in het rek een lekke band heeft.  
 
-![Dorpsstraat volledig](/images/Dorpsstraat_volledig.png)  
+![Dorpsstraat volledig](../images/Dorpsstraat_volledig.png)  
 
 Echter, in de praktijk zal een telling er misschien eerder zo uit zien:  
 
-![Dorpsstraat telling op fietstype](/images/Dorpsstraat_fietstype.png)  
+![Dorpsstraat telling op fietstype](../images/Dorpsstraat_fietstype.png)  
 
 Of zelfs nog eenvoudiger, in geval van een weinig gedetailleerde telling:  
 
-![Dorpsstraat sectie](/images/Dorpsstraat_sectie.png)  
+![Dorpsstraat sectie](../images/Dorpsstraat_sectie.png)  
 
 Voor bepaalde analysedoeleinden is het grijze blokje telling zelfs niet eens zo interessant. Met de juiste zoekopdrachten in de API kan een respons als deze volstaan, zelfs als de meest gedetailleerde telling is opgeslagen:  
 
-![Dorpsstraat beknopt](/images/Dorpsstraat_beknopt.png)  
+![Dorpsstraat beknopt](../images/Dorpsstraat_beknopt.png)  
 
 __Voorbeeld 2: een doorsnee stationsstalling__  
 Prorail beheert een groot aantal stationsstallingen in Nederland en laat deze automatisch tellen door sensoren in de rekken. Een typische Prorailstalling is opgedeeld in rijen. Iedere rij heeft een aantal voorzieningen met lage en hoge rekken. In dit voorbeeld heb ik er een sectie met bromfietsvlakken bijgetekend, iets wat Prorail-stallingen ongetwijfeld zullen hebben, maar waarop vooralsnog geen geautomatiseerde tellingen op plaatsvinden.  
 
-![Stationsstalling](/images/Stationstalling_waarneming.png)  
+![Stationsstalling](../images/Stationstalling_waarneming.png)  
 
 Dit ziet er in de datastandaard zo uit:  
 
-![Stationsstalling volledig](/images/Stationstalling_volledig.png)  
+![Stationsstalling volledig](../images/Stationstalling_volledig.png)  
 
 __Data opvragen__
 Je kunt talloze manieren bedenken waarop een analist de data wil doorzoeken. De vraag daarbij is in hoeverre deze functionaliteit de dataportal moet worden ondersteund. De analist kan na opvraag van de complete dataset uiteraard ook zelf de data uitpluizen. 
@@ -108,10 +108,10 @@ Gedetailleerde informatie over de bezetting geeft behoorlijk grote bomen, die ni
 Daarom stelt de datastandaard een beperkt aantal zoekfunctionaliteiten verplicht. De belangrijkste van deze is dat je de mate van detail, de diepte (depth), bij een zoekopdracht kunt  aangeven aan de API. 
 Stel dat in het dataportal de meest gedetailleerde boom is opgeslagen:
 
-![Stationsstalling volledig](/images/Stationstalling_volledig.png)  
+![Stationsstalling volledig](../images/Stationstalling_volledig.png)  
 
 Als een analist alleen geïnteresseerd is in de bezetting van de totale stalling, vraagt hij data op op diepte 1. De API geeft hem dan dit resultaat:  
 
-![Stationsstalling beknopt](/images/Stationstalling_beknopt.png)  
+![Stationsstalling beknopt](../images/Stationstalling_beknopt.png)  
 
 Als een stalling iedere 2 minuten data opslaat en een analist vraagt de data op van een hele maand, scheelt dat uiteraard enorm in de datastroom en daarmee in de performance van de API.  
