@@ -1,0 +1,44 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="891px" height="71px" viewBox="-0.5 -0.5 891 71" content="&lt;mxfile host=&quot;27ac2fce-e8df-44ae-ad99-f523c939478a&quot; modified=&quot;2021-01-18T17:51:33.999Z&quot; agent=&quot;5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36&quot; etag=&quot;lvIfvP27nsCFEQNp0jQt&quot; version=&quot;13.10.0&quot; type=&quot;embed&quot;&gt;&lt;diagram id=&quot;OBgAB6sdIr1DBUlJaf3t&quot; name=&quot;Page-1&quot;&gt;7VfBjtowEP2aSLsHpOCELBwXlm57qHpAas8mmSTuOnZqGwL79R0nTohh0fawpy4IKeP3POPxmwkagmhVHZ4VrcvvMgMekDA7BNFTQMg0ITN8WOTYIYvkoQMKxTK36QRs2Cs4MHTojmWgvY1GSm5Y7YOpFAJS42FUKdn423LJ/VNrWsAFsEkpv0R/scyUHTqfhSf8K7Ci7E+eho6paL/ZAbqkmWxGULQOopWS0nRWdVgBt+L1unR+X66wQ2IKhPknB5J0LnvKd+52LjNz7K+r5E5kYD3CIFo2JTOwqWlq2QYLjFhpKo6rKZqUs0KgzSHHDJY543wluVRtqCjPc5KmiGuj5AuMmCzZJrMEmcsruFvtQRk4jCB3pWeQFRh1xC2O7dU9+stmVKuFw8pRnR4cRl17FEPgk4JoOBGvCDp9Q8+EWykytvd0Tf7sbJmXaSfCI5Kq2N5hEvjFg8KRdW9Nqw02qzCTnFaMHzsfDESruiWjKLbFAL4Hw1J6wfhBdPte2RBTUh/OuC5LSwqpKsp9unGqWT7u8mxJDsaAmmjsDiaKN/2xhGbimuSxdcE+8UiGzSZc8HCUWEsaRYXOMWQfXMCwoZEq888eu29p+lK0rTw5U5zE80FpEi9O9szq3pcJrcI923Jue2BjqGFSaG0o5/ZoEv4Q+kmqGq07jT9AyH7L7ntHbKHteTDE2vbw0VvH/Bcds6L2BAPMBGsSzMNgEc+TW+U/QeWX8ApD0aOI3Ir+CYr+U7Hfw4s+i6/V/GzIssm/P11ZcUdDU/dBvOBUazegDTNlu3gBk5Zu8QGjVfTuaEXmHzNa4fI0B7fc6N9EtP4L&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="0" y="0" width="890" height="70" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
+        <rect x="10" y="0" width="280" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 278px; height: 1px; padding-top: 7px; margin-left: 12px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #333333; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Stationsstalling OnsDorp (sectionId)
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Capaciteit—86
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Bezet–32
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Vrij—54
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="12" y="19" fill="#333333" font-family="Helvetica" font-size="12px">
+                    Stationsstalling OnsDorp (sectionId)...
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://desk.draw.io/support/solutions/articles/16000042487" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>

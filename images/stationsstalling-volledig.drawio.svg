@@ -1,0 +1,664 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="891px" height="421px" viewBox="-0.5 -0.5 891 421" content="&lt;mxfile host=&quot;f4e0936d-afdb-400d-8574-6d491c7ab9ee&quot; modified=&quot;2021-01-18T17:42:38.547Z&quot; agent=&quot;5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36&quot; etag=&quot;PEgtjC_f0X6c92f3WHjK&quot; version=&quot;13.10.0&quot; type=&quot;embed&quot;&gt;&lt;diagram id=&quot;OBgAB6sdIr1DBUlJaf3t&quot; name=&quot;Page-1&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="0" y="0" width="890" height="420" fill="#fff2cc" stroke="#d6b656" pointer-events="all"/>
+        <rect x="10" y="0" width="280" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 278px; height: 1px; padding-top: 7px; margin-left: 12px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #333333; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Stationsstalling OnsDorp (sectionId)
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Capaciteit—86
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Bezet–32
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Vrij—54
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="12" y="19" fill="#333333" font-family="Helvetica" font-size="12px">
+                    Stationsstalling OnsDorp (sectionId)...
+                </text>
+            </switch>
+        </g>
+        <rect x="450" y="80" width="430" height="330" fill="#ffe6cc" stroke="#d79b00" pointer-events="all"/>
+        <rect x="460" y="90" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 97px; margin-left: 462px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Rij 2
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Capaciteit—48
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Bezet–18
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Vrij—30
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="462" y="109" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Rij 2...
+                </text>
+            </switch>
+        </g>
+        <rect x="600" y="170" width="130" height="230" fill="#f8cecc" stroke="#b85450" pointer-events="all"/>
+        <rect x="610" y="170" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 177px; margin-left: 612px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Rek 2
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Capaciteit—16
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Bezet–8
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Vrij—8
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="612" y="189" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Rek 2...
+                </text>
+            </switch>
+        </g>
+        <rect x="610" y="320" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="620" y="320" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 327px; margin-left: 622px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Laag
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Capaciteit—8
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Bezet—5
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Vrij—3
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="622" y="339" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Laag...
+                </text>
+            </switch>
+        </g>
+        <rect x="610" y="240" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="620" y="240" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 247px; margin-left: 622px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Hoog
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Capaciteit—8
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Bezet—3
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Vrij—5
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="622" y="259" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Hoog...
+                </text>
+            </switch>
+        </g>
+        <rect x="460" y="170" width="130" height="230" fill="#f8cecc" stroke="#b85450" pointer-events="all"/>
+        <rect x="470" y="170" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 177px; margin-left: 472px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Rek 1
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Capaciteit—16
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Bezet–5
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Vrij—11
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="472" y="189" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Rek 1...
+                </text>
+            </switch>
+        </g>
+        <rect x="470" y="240" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="480" y="240" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 247px; margin-left: 482px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Hoog
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Capaciteit—8
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Bezet—1
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Vrij—7
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="482" y="259" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Hoog...
+                </text>
+            </switch>
+        </g>
+        <rect x="470" y="320" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="480" y="320" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 327px; margin-left: 482px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Laag
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Capaciteit—8
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Bezet—4
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Vrij—4
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="482" y="339" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Laag...
+                </text>
+            </switch>
+        </g>
+        <rect x="740" y="170" width="130" height="230" fill="#f8cecc" stroke="#b85450" pointer-events="all"/>
+        <rect x="745" y="170" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 177px; margin-left: 747px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Rek 3
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Capaciteit—16
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Bezet–5
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Vrij—11
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="747" y="189" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Rek 3...
+                </text>
+            </switch>
+        </g>
+        <rect x="750" y="320" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="750" y="320" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="760" y="320" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 327px; margin-left: 762px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Laag
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Capaciteit—8
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Bezet—5
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Vrij—3
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="762" y="339" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Laag...
+                </text>
+            </switch>
+        </g>
+        <rect x="750" y="240" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="750" y="240" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="760" y="240" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 247px; margin-left: 762px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Hoog
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Capaciteit—8
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Bezet—0
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Vrij—8
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="762" y="259" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Hoog...
+                </text>
+            </switch>
+        </g>
+        <rect x="10" y="80" width="430" height="330" fill="#ffe6cc" stroke="#d79b00" pointer-events="all"/>
+        <rect x="20" y="90" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 97px; margin-left: 22px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Rij 1
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Capaciteit—38
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Bezet–14
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Vrij—24
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="22" y="109" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Rij 1...
+                </text>
+            </switch>
+        </g>
+        <rect x="160" y="170" width="130" height="230" fill="#f8cecc" stroke="#b85450" pointer-events="all"/>
+        <rect x="170" y="170" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 177px; margin-left: 172px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Rek 2
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Capaciteit—16
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Bezet–6
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Vrij—10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="172" y="189" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Rek 2...
+                </text>
+            </switch>
+        </g>
+        <rect x="170" y="320" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="180" y="320" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 327px; margin-left: 182px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Laag
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Capaciteit—8
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Bezet—4
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Vrij—4
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="182" y="339" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Laag...
+                </text>
+            </switch>
+        </g>
+        <rect x="170" y="240" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="180" y="240" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 247px; margin-left: 182px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Hoog
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Capaciteit—8
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Bezet—2
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Vrij—6
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="182" y="259" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Hoog...
+                </text>
+            </switch>
+        </g>
+        <rect x="20" y="170" width="130" height="230" fill="#f8cecc" stroke="#b85450" pointer-events="all"/>
+        <rect x="30" y="170" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 177px; margin-left: 32px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Rek 1
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Capaciteit—16
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Bezet–6
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Vrij—10
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="32" y="189" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Rek 1...
+                </text>
+            </switch>
+        </g>
+        <rect x="30" y="240" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="40" y="240" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 247px; margin-left: 42px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Hoog
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Capaciteit—8
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Bezet—2
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Vrij—6
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="42" y="259" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Hoog...
+                </text>
+            </switch>
+        </g>
+        <rect x="30" y="320" width="110" height="70" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="40" y="320" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 327px; margin-left: 42px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Laag
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Capaciteit—8
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Bezet—4
+                                    </span>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <span>
+                                        Vrij—4
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="42" y="339" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Laag...
+                </text>
+            </switch>
+        </g>
+        <rect x="300" y="170" width="130" height="230" fill="#e1d5e7" stroke="#9673a6" pointer-events="all"/>
+        <rect x="305" y="170" width="100" height="70" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 98px; height: 1px; padding-top: 177px; margin-left: 307px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    <b>
+                                        Bromfietsvakken
+                                    </b>
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Capaciteit—6
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Bezet–2
+                                </div>
+                                <div style="color: rgb(0 , 0 , 0) ; font-family: &quot;helvetica&quot; ; font-size: 12px ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: left ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250)">
+                                    Vrij—4
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="307" y="189" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Bromfietsvakken...
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://desk.draw.io/support/solutions/articles/16000042487" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>
