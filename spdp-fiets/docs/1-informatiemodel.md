@@ -16,7 +16,7 @@ De velden en zoekfuncties die in deze datastandaard zijn opgenomen, __moeten__ w
 | `dynamicData` | DynamicData       | no        | Dynamische data (bezettingsdata, fietstellingen, ...)         |
 |{.data}
 
-### 1.1 Surveys
+### Surveys
 
 Het datablok Survey bevat data over het onderzoek. Geïnitieerd door wie? Uitgevoerd door wie? Wanneer? Waar? Al deze informatie kan worden ingestuurd, maar is niet verplicht.
 
@@ -29,7 +29,7 @@ Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te
 | Field                  | Type                    | Required| Description                                                                              |
 | --------------| --------------- | --------| ------------------------------------------------------------- |
 | `id`                    | string                | no          | Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
-| `geoLocation`        | GeoJSON                | no          | Geografische afbakening van het gehele onderzoeksgebied. Zie https://en.wikipedia.org/wiki/GeoJSON    |
+| `geoLocation`        | GeoJSON                | no          | Geografische afbakening van het gehele onderzoeksgebied, [[rfc7946]] |
 | `authorityId`        | string              | no          | Id van de Opdrachtgever - Alleen te gebruiken voor insturen van data                                                    |
 | `contractorIds`    | string[]          | no          | Id's van de contractors - Alleen te gebruiken voor insturen van data                         |
 | `license`           | String            | no          | Licentie van het gebruik van de data                                                                |
@@ -45,7 +45,7 @@ Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te
 
 (Hier zijn optioneel extra velden op te nemen, maar deze zijn geen onderdeel van de datastandaard)
 
-### 1.2 Statische Data
+### Statische Data
 
 Statische data is die data van secties die niet of nauwelijks aan verandering onderhevig zijn. Dat is bijvoorbeeld het geval bij de geografische afbakening. 
 Mocht het zo zijn dat de geografische afbakening wijzigt, dan verdient het aanbeveling een nieuwe statische sectie aan te maken. Aanpassingen van bestaande secties gelden namelijk ook voor reeds inegstuurde data, wat kan leiden tot verwarring bij de interpretatie van historische data.
@@ -65,13 +65,13 @@ De parkeercapaciteit van een sectie lijkt op het eerste gezicht statisch. Toch i
 | Field             | Type                | Required | Description                                                |
 | ----------------- | ------------------- | -------- | ---------------------------------------------------------- |
 | `id`                | string              | yes      | Een uuid, random of eventueel samengesteld                 |
-| `geoLocation`                | GeoJSON                  | no           | Geografische afbakening van deze sectie. Kan gebruikt worden voor geo-zoekopdrachten. Zie https://en.wikipedia.org/wiki/GeoJSON |
-| `validFrom`         | ISO8601 timestamp   | no       | Vanaf dit tijdstip mag er dynamische data in deze sectie worden geschreven |
-| `validUntil`        | ISO8601 timestamp   | no       | Tot dit tijdstip mag er dynamische data in deze sectie worden geschreven |
+| `geoLocation`                | GeoJSON                  | no           | Geografische afbakening van deze sectie. Kan gebruikt worden voor geo-zoekopdrachten. [[rfc7946]] |
+| `validFrom`         | [[ISO8601]] timestamp   | no       | Vanaf dit tijdstip mag er dynamische data in deze sectie worden geschreven |
+| `validUntil`        | [[ISO8601]] timestamp   | no       | Tot dit tijdstip mag er dynamische data in deze sectie worden geschreven |
 | `owner`             | string              | no       | organisationId: Eigenaar van deze sectie. Alleen deze organistatie mag wijzigingen aanbrengen aan deze sectie |
 |{.data}
   
-### 1.3 Dynamische Data
+### Dynamische data
 
 Dynamische data, oftewel: de tellingen, daar is uiteraard waar het in deze datastandaard om te doen is. Dynamische data is een verzameling secties/meetgebieden. In een meetgebied kunnen weer subsecties worden ondergebracht en in de subsecties weer nieuwe subsecties. Zo ontstaat er een boom aan secties, die in de onderstaande tabellen 'sectieboom' wordt genoemd. Secties zonder subsecties, dus de uiteinden van de sectieboom, hetem 'bladeren'. Zo kunnen een straat worden opgedeeld in linker- en rechterzijde met aan elke kant diverse parkeervoorzieningen. 
 
@@ -112,12 +112,12 @@ Bijvoorbeeld: Count[] betekent dat er meerdere telblokken in dit veld kunnen zit
 | ------------------------- | ------------------- | ----------- | ---------------------------------------------------------- |
 | `id`                      | string              | yes         | id van deze dynamische sectie, indien niet meegestuurd bij schrijven, wordt deze gegenereerd door de API      |
 | `staticSectionId`         | string              | yes         | id van de statische sectie waartoe deze dynamische data behoort       |
-| `timestamp`               | ISO8601 timestamp   | conditional | Tijdstip van de meting. Alleen verplicht in de stam van de sectieboom |
+| `timestamp`               | [[ISO8601]] timestamp   | conditional | Tijdstip van de meting. Alleen verplicht in de stam van de sectieboom |
 | `surveyId`                | string                  | conditional | Id van de survey waartoe deze meting behoort |
 | `authorityId`             | string                  | conditional | Id van de opdrachtgever van deze meting |
 | `contractorId`            | string              | conditional | Id van de instantie die deze data aangeleverd heeft. Bij een POST-request dient dit door het dataportal gevuld te worden met de username van de inzender |
 | `parkingCapacity`         | number              | conditional | Totaal aantal plekken, verplicht in de bladeren van de sectieboom           |
-| `parkingCapacityTimestamp`| ISO8601 timestamp   | no          | Tijdstip van meting aantal plekken                       |
+| `parkingCapacityTimestamp`| [[ISO8601]] timestamp   | no          | Tijdstip van meting aantal plekken                       |
 | `vacantSpaces`            | number              | conditional | Aantal vrije plekken, verplicht in de bladeren van de sectieboom    |
 | `occupiedSpaces`          | number              | conditional | Aantal bezette plekken, verplicht in de bladeren van de sectieboom  |
 | `count`                   | Count[]             | no          | Verzameling van Count-objecten                      |
@@ -259,7 +259,7 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | `a`  | anders                |                                                                                |
 |{.data}
 
-### vehicle.propulsion: s=spierkracht, b=brandstofmotor, e=elektrische motor
+### vehicle.propulsion
 
 | ID | Aandrijving     | Omschrijving                                                                   |
 | -- | --------------- | ------------------------------------------------------------------------------ |

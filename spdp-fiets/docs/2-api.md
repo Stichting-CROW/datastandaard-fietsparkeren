@@ -1,4 +1,4 @@
-## 2. API- requests
+## API- requests
 ### algemene regels
 Alle GET-requests moeten in een wrapper-object gestoken worden met het resultaat in een property 'result'.  
 Dus `GET /staticdata`:  
@@ -123,7 +123,7 @@ Deze filters moeten met elkaar gecombineerd kunnen worden.
 De praktijk moet uitwijzen of deze lijst voldoende is om aan alle wensen van de data-analisten te voldoen. Indien nodig zullen er meer zoekfuncties aan deze lijst worden toegevoegd.  
 
 __Filter op tijdspanne__  
-Gebruik bij het zoeken de url-parameters startDate en endData. Tijdstippen worden altijd doorgegeven in ISO8601 timestamp formaat.  
+Gebruik bij het zoeken de url-parameters startDate en endData. Tijdstippen worden altijd doorgegeven in [[ISO8601]] timestamp formaat.  
 Dus:  
 `?startDate=2020-01-01T0:00:00&endDate=2020-02-01T0:00:00`  
 
@@ -179,3 +179,8 @@ Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de paramet
 {.data}
 
 Query-params dienen hoofdletterongevoelig te zijn, dus authorityid=abc is hetzelfde als authorityID=abc
+
+### API 5 - realtime data lezen vanuit dataportal voor t.b.v. webapplicaties
+Gebruikers van API 5 - de datastroom tussen het dataportal en de webapplicaties - zijn vooral geïnteresseerd in realtime data. Per secties dus slechts één resultaat. Door *latest* op te nemen in de url weet de API dat het om een dergelijk request gaat.  
+Het gaat in de *latest*-requests altijd om dynamicdata, dus die kan worden weggelaten uit het pad
+
