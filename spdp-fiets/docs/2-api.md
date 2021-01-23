@@ -1,9 +1,9 @@
-## 2. API- requests
+## API- requests
 ### algemene regels
 Alle GET-requests moeten in een wrapper-object gestoken worden met het resultaat in een property 'result'.  
 Dus `GET /staticdata`:  
 Respons:  
-```
+```json
 {  
   "result": [  
     StaticSection,  
@@ -16,7 +16,7 @@ Uitgezonderd van deze regel zijn responses die expliciet om 1 object vragen, zoa
 `/organiations/defietsentellers`  
 Respons:  
 
-```
+```json
 {  
   "id": "defietsentellers,  
   "name: "De Fietsentellers BV"  
@@ -37,34 +37,49 @@ Check met
 `GET /organisations` welke instanties er al bekend zijn.  
 [Response](./examples/API3/responses/GET_organisations.json)  
   
+<pre class='example json' data-include='../examples/API3/responses/GET_organisations.json' data-include-format='text'></pre>
+
 Mis je instanties, voeg ze toe met:  
 `POST /organisations` [Body zonder surveyId](./examples/API3/requests/POST_new_organisation.json)  
 [Response](./examples/API3/responses/POST_new_organisation.json)  
-  
+
+<pre class='example json' title="Body (zonder surveyId)" data-include='../examples/API3/requests/POST_new_organisation.json' data-include-format='text'></pre>
+<pre class='example json' title="Response" data-include='../examples/API3/responses/POST_new_organisation.json' data-include-format='text'></pre>
+
 #### Stap 2: meld je onderzoek (survey) aan
 `POST /surveys` [Body met surveyId](./examples/API3/requests/POST_new_survey_with_id.json)  
 Een id van de survey mag door exploitant zelf gekozen worden. Suggestie gebruik [CBS codes](https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2020) en unieke gegevens uit het onderzoek, bijv. < CBS_nr_gemeente >_< jaartal > => 0202_2020.  
 
 `POST /surveys` [Body zonder surveyId](./examples/API3/requests/POST_new_survey_without_id.json)  
 
+<pre class='example json' title='Body zonder surveyId' data-include='../examples/API3/requests/POST_new_survey_without_id.json' data-include-format='text'></pre>
+
 De instantie die de survey instuurt, wordt 'eigenaar' van dit onderzoek. 
 
-Een Survey met een id dat al bestaat, zal resulteren in een 400-error. Behalve als deze POST wordt gedaan door de eigenaar van het onderzoek. In dat geval wordt er een update van het onderzoek uitgevoerd.
+Een Survey met een `surveyId` dat al bestaat, zal resulteren in een 400-error. Behalve als deze POST wordt gedaan door de eigenaar van het onderzoek. In dat geval wordt er een update van het onderzoek uitgevoerd.
 
-Indien geen surveyId is gegeven, maakt de server zelf een id en geeft deze terug in de response.  
+Indien geen `surveyId` is gegeven, maakt de server zelf een id en geeft deze terug in de response.  
 
 [Response](./examples/API3/responses/POST_new_survey.json)  
+
+<pre class='example json' title="Response" data-include='../examples/API3/responses/POST_new_survey.json' data-include-format='text'></pre>
+
 
 #### Stap 3: koppel statische data aan bestaand onderzoek
 `POST /staticdata` [Body](./examples/API3/requests/POST_static_data.json)  
 
-Door het veld surveyId mee te geven aan de secties, worden de secties gekoppeld aan een onderzoek.  
-Zonder het veld surveyId worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een surveyId.
+<pre class='example json' title="Body" data-include='../examples/API3/requests/POST_static_data.json' data-include-format='text'></pre>
 
-Het Id van een statische sectie is, net als het surveyID, door de opsturende instantie zelf samen te stellen. Suggestie: prefix het sectionId met het surveyId om een unieke id te garanderen, bijvoorbeeld: < surveyId >_< straatnaam >
+
+Door het veld `surveyId` mee te geven aan de secties, worden de secties gekoppeld aan een onderzoek.  
+Zonder het veld `surveyId` worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een `surveyId`.
+
+Het Id van een statische sectie is, net als het `surveyID`, door de opsturende instantie zelf samen te stellen. Suggestie: prefix het sectionId met het surveyId om een unieke id te garanderen, bijvoorbeeld: `< surveyId >_< straatnaam >`
 
 ### Stap 3: Sla losse metingen op
 `POST /dynamicdata` [Body](./examples/API3/requests/POST_dynamic_data.json)
+
+<pre class='example json' title="Body" data-include='../examples/API3/requests/POST_dynamic_data.json' data-include-format='text'></pre>
 
 Door het veld surveyId mee te geven aan de secties, worden de metingen gekoppeld aan een onderzoek.  
 Zonder het veld surveyId worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een surveyId.
@@ -73,6 +88,9 @@ Je kunt dus zowel dynamische als statische data afzonderlijk koppelen aan een on
    
 Dynamische data kan sterk gecomprimeerd worden door alleen de totalen op te slaan. Dit zal in de praktijk vaak voorkomen.  
 `POST /dynamicdata` [Body met een alleen totalen](./examples/API3/requests/POST_compressed_dynamic_section.json)  
+
+<pre class='example json' title="Body met een alleen totalen" data-include='../examples/API3/requests/POST_compressed_dynamic_section.json' data-include-format='text'></pre>
+
 
 ### API 4 - data opvragen
 Op dezelfde manier het insturen van data kan de data ook weer worden opgevraad. De POST-requests veranderen in GET-requests:  
@@ -105,7 +123,7 @@ Deze filters moeten met elkaar gecombineerd kunnen worden.
 De praktijk moet uitwijzen of deze lijst voldoende is om aan alle wensen van de data-analisten te voldoen. Indien nodig zullen er meer zoekfuncties aan deze lijst worden toegevoegd.  
 
 __Filter op tijdspanne__  
-Gebruik bij het zoeken de url-parameters startDate en endData. Tijdstippen worden altijd doorgegeven in ISO8601 timestamp formaat.  
+Gebruik bij het zoeken de url-parameters startDate en endData. Tijdstippen worden altijd doorgegeven in [[ISO8601]] timestamp formaat.  
 Dus:  
 `?startDate=2020-01-01T0:00:00&endDate=2020-02-01T0:00:00`  
 
@@ -144,19 +162,25 @@ Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de paramet
 `dynamicdata?orderBy=count.numberOfVehicles&orderDirection=DESC` - sorteert op aantal voertuigen van hoog naar laag  
 
 ### Een overzicht van alle query parameters
-| param     		| type		| values                                             	|
+| param             | type        | values                                                 |
 | ----------------- |---------- | ----------------------------------------------------- |
-| surveyid			| string	| Alleen data van dit onderzoek    						|
-| authorityid   | string	| Alleen data van deze opdrachtgever         			|
-| contarctorid  | string	| Alleen data van deze dataleverancier      			|
-| depth 		    | number	| Aantal te bevragen sectie-lagen vanaf gegeven pad  default = 1                           				|
-| startdate			| UTC timestamp	| Selectie op timestamp. Section.timestamp >= startDate 	|
-| enddate			  | UTC timestamp	| Selectie op timestamp. Section.timestamp <= endDate    	|
-|					      |			      |	        													|
-| geopolygon		| list met coördinaten | lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1	|
-| georelation  	| string    | 'intersects' (default) of 'within'	|
-|					      |			      |	        													|
-| orderBy     	| string    | veldnaam waarop gesorteerd wordt	|
-| orderDirection    	| string    | ASC (default) of DESC, in combinatie met orderBy	|
+| `surveyid`            | string    | Alleen data van dit onderzoek                            |
+| `authorityid`   | string    | Alleen data van deze opdrachtgever                     |
+| `contarctorid`  | string    | Alleen data van deze dataleverancier                  |
+| `depth`             | number    | Aantal te bevragen sectie-lagen vanaf gegeven pad  default = 1                                           |
+| `startdate`            | UTC timestamp    | Selectie op timestamp. Section.timestamp >= startDate     |
+| `enddate`              | UTC timestamp    | Selectie op timestamp. Section.timestamp <= endDate        |
+|                          |                  |                                                                |
+| `geopolygon`        | list met coördinaten | lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1    |
+| `georelation`      | string    | 'intersects' (default) of 'within'    |
+|                          |                  |                                                                |
+| `orderBy`         | string    | veldnaam waarop gesorteerd wordt    |
+| `orderDirection`        | string    | ASC (default) of DESC, in combinatie met orderBy    |
+{.data}
 
 Query-params dienen hoofdletterongevoelig te zijn, dus authorityid=abc is hetzelfde als authorityID=abc
+
+### API 5 - realtime data lezen vanuit dataportal voor t.b.v. webapplicaties
+Gebruikers van API 5 - de datastroom tussen het dataportal en de webapplicaties - zijn vooral geïnteresseerd in realtime data. Per secties dus slechts één resultaat. Door *latest* op te nemen in de url weet de API dat het om een dergelijk request gaat.  
+Het gaat in de *latest*-requests altijd om dynamicdata, dus die kan worden weggelaten uit het pad
+
