@@ -1,0 +1,2553 @@
+<!DOCTYPE html><html lang="nl"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 25.18.4">
+<style>
+span.example-title{text-transform:none}
+aside.example,div.example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+div.illegal-example{color:red}
+div.illegal-example p{color:#000}
+aside.example,div.example{padding:.5em;border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
+aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
+aside.example div.example span.example-title{color:#999}
+</style>
+<style>
+.issue-label{text-transform:initial}
+.warning>p:first-child{margin-top:0}
+.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+span.warning{padding:.1em .5em .15em}
+.issue.closed span.issue-number{text-decoration:line-through}
+.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+li.task-list-item{list-style:none}
+input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+<link rel="shortcut icon" type="image/x-icon" href="https://stichting-crow.github.io/respec-design/logos/crow.ico">
+  
+  
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+  
+  
+  
+<title>Datastandaard fietsparkeren</title>
+  
+  
+
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+.hljs{background:0 0!important}
+a abbr,h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+code{color:#c63501}
+th code{color:inherit}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+h2,h3,h4,h5,h6{position:relative}
+aside.example .marker>a.self-link{color:inherit}
+h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+h2>a.self-link::before,h3>a.self-link::before,h4>a.self-link::before,h5>a.self-link::before,h6>a.self-link::before{content:"§";display:block}
+@media (max-width:767px){
+dd{margin-left:0}
+h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:auto;top:auto}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<meta name="description" content="Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De eerste versie is een ontwerp, gebaseerd op het SPDP-formaat, dat beoogt voor zowel geautomatiseerde tellingen in bewaakte stallingen als incidentele straattellingen te kunnen worden gebruikt.">
+<link rel="canonical" href="https://www.w3.org/TR/spdp-fiets/">
+<script type="application/ld+json">{
+  "@context": [
+    "http://schema.org",
+    {
+      "@vocab": "http://schema.org/",
+      "@language": "nl",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "datePublished": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "inLanguage": {
+        "@language": null
+      },
+      "isBasedOn": {
+        "@type": "@id"
+      },
+      "license": {
+        "@type": "@id"
+      }
+    }
+  ],
+  "id": "https://www.w3.org/TR/spdp-fiets/",
+  "type": [
+    "TechArticle",
+    "crow:APISpecificatie"
+  ],
+  "name": "Datastandaard fietsparkeren",
+  "inLanguage": "nl",
+  "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+  "datePublished": "2021-02-24",
+  "copyrightHolder": {
+    "name": "Stichting CROW",
+    "url": "https://crow.nl/"
+  },
+  "discussionUrl": "https://github.com/Stichting-CROW/datastandaard-fietsparkeren/issues/",
+  "alternativeHeadline": "",
+  "description": "Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De eerste versie is een ontwerp, gebaseerd op het SPDP-formaat, dat beoogt voor zowel geautomatiseerde tellingen in bewaakte stallingen als incidentele straattellingen te kunnen worden gebruikt.",
+  "editor": [
+    {
+      "type": "Person",
+      "name": "Hans Versluis",
+      "worksFor": {
+        "name": "CROW"
+      }
+    }
+  ],
+  "citation": [
+    {
+      "id": "https://tools.ietf.org/html/rfc7946",
+      "type": "TechArticle",
+      "name": "The GeoJSON Format",
+      "url": "https://tools.ietf.org/html/rfc7946",
+      "creator": [
+        {
+          "name": "H. Butler"
+        },
+        {
+          "name": "M. Daly"
+        },
+        {
+          "name": "A. Doyle"
+        },
+        {
+          "name": "S. Gillies"
+        },
+        {
+          "name": "S. Hagen"
+        },
+        {
+          "name": "T. Schaub"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "http://www.iso.org/iso/catalogue_detail?csnumber=40874",
+      "type": "TechArticle",
+      "name": "Representation of dates and times. ISO 8601:2004.",
+      "url": "http://www.iso.org/iso/catalogue_detail?csnumber=40874",
+      "publisher": {
+        "name": "International Organization for Standardization (ISO)"
+      }
+    }
+  ]
+}</script>
+<style>
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
+.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
+.hljs-literal{color:#0b76c5}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "specType": "API",
+  "specStatus": "WD",
+  "edDraftURI": "https://docs.google.com/document/d/1SANKIH4Gam9CH1N8NPgtB1efg2LEEWSmGNnR8AbH2zU/edit?usp=sharing",
+  "github": "https://github.com/Stichting-CROW/datastandaard-fietsparkeren",
+  "pubDomain": "datastandaard-fietsparkeren",
+  "shortName": "spdp-fiets",
+  "lint": {
+    "no-http-props": false
+  },
+  "editors": [
+    {
+      "name": "Hans Versluis",
+      "company": "CROW"
+    }
+  ],
+  "publishISODate": "2021-02-24T00:00:00.000Z",
+  "generatedSubtitle": "Werkdocument van 24 februari 2021"
+}</script>
+<link rel="stylesheet" href="https://stichting-crow.github.io/respec-design/crow-specStatus-wd.css"></head>
+
+<body class="h-entry"><div class="head">
+    <a class="logo" href="https://crow.nl/"><img alt="Kennisplatform CROW" width="132" height="40" src="https://www.crow.nl/medialibrary/CROW/img/CROW-logo.svg"></a> <h1 id="title" class="title">Datastandaard fietsparkeren</h1>
+    
+    <h2>
+      CROW 
+      API-specificatie<br>
+      Werkdocument van
+      <time class="dt-published" datetime="2021-02-24">24 februari 2021</time>
+    </h2>
+    <dl>
+      
+      <dt>Laatste werkversie:</dt><dd><a href="https://stichting-crow.github.io/datastandaard-fietsparkeren/spdp-fiets/">https://stichting-crow.github.io/datastandaard-fietsparkeren/spdp-fiets/</a></dd>
+      
+      
+      
+      
+      
+      <dt>Redacteur:</dt>
+      <dd class="p-author h-card vcard"><span class="p-name fn">Hans Versluis</span> (CROW) </dd>
+      
+      
+      <dt>Doe mee:</dt><dd>
+    <a href="https://github.com/Stichting-CROW/datastandaard-fietsparkeren/">GitHub Stichting-CROW/datastandaard-fietsparkeren</a>
+  </dd><dd>
+    <a href="https://github.com/Stichting-CROW/datastandaard-fietsparkeren/issues/">Dien een melding in</a>
+  </dd><dd>
+    <a href="https://github.com/Stichting-CROW/datastandaard-fietsparkeren/commits/gh-pages">Revisiehistorie</a>
+  </dd><dd>
+    <a href="https://github.com/Stichting-CROW/datastandaard-fietsparkeren/pulls/">Pull requests</a>
+  </dd>
+    </dl>
+    
+    
+    
+    <p class="copyright">
+    Copyright ©
+    2021
+    
+    <a href="https://crow.nl/">Stichting CROW, Ede</a>.
+    Gedistribueerd onder 
+    <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot">Creative Commons Naamsvermelding 4.0 Internationaal</a>.
+    </p>
+    <hr title="Separator for header">
+  </div><section id="abstract" data-format="markdown" class="introductory"><h2>Samenvatting</h2><p>Dit document beschrijft het dataformaat van de Datastandaard Fietsparkeren. De eerste versie is een ontwerp, gebaseerd op het SPDP-formaat, dat beoogt voor zowel geautomatiseerde tellingen in bewaakte stallingen als incidentele straattellingen te kunnen worden gebruikt.</p></section>
+<section id="sotd" class="introductory">
+<h2>Status van dit document</h2>
+<p>Dit document is een werkversie van een API- en datastandaard.
+Het is niet vastgesteld en representeert geen consensus of instemming van CROW of deelnemende paritjen.
+</p><p>Deze specificatie wordt gepubliceerd door de werkgroep datastandaard fietsparkeren.
+</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#overzicht"><bdi class="secno">1. </bdi>Overzicht</a></li><li class="tocline"><a class="tocxref" href="#beschrijving-datastandaard"><bdi class="secno">2. </bdi>Beschrijving datastandaard</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#surveys"><bdi class="secno">2.1 </bdi>Surveys</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#survey-gegevens-over-een-onderzoek"><bdi class="secno">2.1.1 </bdi>Survey - gegevens over een onderzoek</a></li><li class="tocline"><a class="tocxref" href="#organization-gegevens-over-een-opdrachtgever-of-een-uitvoerende-instantie"><bdi class="secno">2.1.2 </bdi>Organization - gegevens over een opdrachtgever of een uitvoerende instantie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#statische-data"><bdi class="secno">2.2 </bdi>Statische Data</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#staticdata"><bdi class="secno">2.2.1 </bdi>StaticData</a></li><li class="tocline"><a class="tocxref" href="#staticsection"><bdi class="secno">2.2.2 </bdi>StaticSection</a></li></ol></li><li class="tocline"><a class="tocxref" href="#dynamische-data"><bdi class="secno">2.3 </bdi>Dynamische data</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#dynamicdata"><bdi class="secno">2.3.1 </bdi>DynamicData</a></li><li class="tocline"><a class="tocxref" href="#dynamicsection"><bdi class="secno">2.3.2 </bdi>DynamicSection</a></li></ol></li><li class="tocline"><a class="tocxref" href="#space-definiering-van-een-plek-aan-de-hand-van-properties"><bdi class="secno">2.4 </bdi>Space - definiëring van een plek aan de hand van properties</a></li><li class="tocline"><a class="tocxref" href="#vehicle"><bdi class="secno">2.5 </bdi>Vehicle</a></li><li class="tocline"><a class="tocxref" href="#accessoire"><bdi class="secno">2.6 </bdi>Accessoire</a></li><li class="tocline"><a class="tocxref" href="#vehiclestate"><bdi class="secno">2.7 </bdi>VehicleState</a></li><li class="tocline"><a class="tocxref" href="#count"><bdi class="secno">2.8 </bdi>Count</a></li><li class="tocline"><a class="tocxref" href="#note"><bdi class="secno">2.9 </bdi>Note</a></li><li class="tocline"><a class="tocxref" href="#spacetypeids"><bdi class="secno">2.10 </bdi>spaceTypeIDs</a></li><li class="tocline"><a class="tocxref" href="#vehicle-accessoire-typen"><bdi class="secno">2.11 </bdi>vehicle.accessoire.typen</a></li><li class="tocline"><a class="tocxref" href="#vehicle-accessoire-positions"><bdi class="secno">2.12 </bdi>vehicle.accessoire.positions</a></li><li class="tocline"><a class="tocxref" href="#vehicle-state-type"><bdi class="secno">2.13 </bdi>vehicle.state.type</a></li><li class="tocline"><a class="tocxref" href="#vehicle-state-position"><bdi class="secno">2.14 </bdi>vehicle.state.position</a></li><li class="tocline"><a class="tocxref" href="#vehicle-parkstate"><bdi class="secno">2.15 </bdi>vehicle.parkState</a></li><li class="tocline"><a class="tocxref" href="#vehicle-type"><bdi class="secno">2.16 </bdi>vehicle.type</a></li><li class="tocline"><a class="tocxref" href="#vehicle-propulsion"><bdi class="secno">2.17 </bdi>vehicle.propulsion</a></li><li class="tocline"><a class="tocxref" href="#vehicle-owner"><bdi class="secno">2.18 </bdi>vehicle.owner</a></li></ol></li><li class="tocline"><a class="tocxref" href="#api-requests"><bdi class="secno">3. </bdi>API- requests</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#algemene-regels"><bdi class="secno">3.1 </bdi>algemene regels</a></li><li class="tocline"><a class="tocxref" href="#api-3-data-van-stallingsexploitant-of-fietsteller-opslaan-in-dataportal"><bdi class="secno">3.2 </bdi>API 3 - data van stallingsexploitant of fietsteller opslaan in dataportal</a></li><li class="tocline"><a class="tocxref" href="#metingen-groeperen-in-1-onderzoek-survey"><bdi class="secno">3.3 </bdi>Metingen groeperen in 1 onderzoek (= 'survey')</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#stap-1-zorg-dat-alle-betrokken-partijen-opdrachtgevers-authorities-tellers-contractors-bekend-zijn-bij-de-dataportal"><bdi class="secno">3.3.1 </bdi>Stap 1: zorg dat alle betrokken partijen (opdrachtgevers/authorities, tellers/contractors) bekend zijn bij de dataportal</a></li><li class="tocline"><a class="tocxref" href="#stap-2-meld-je-onderzoek-survey-aan"><bdi class="secno">3.3.2 </bdi>Stap 2: meld je onderzoek (survey) aan</a></li><li class="tocline"><a class="tocxref" href="#stap-3-koppel-statische-data-aan-bestaand-onderzoek"><bdi class="secno">3.3.3 </bdi>Stap 3: koppel statische data aan bestaand onderzoek</a></li></ol></li><li class="tocline"><a class="tocxref" href="#stap-3-sla-losse-metingen-op"><bdi class="secno">3.4 </bdi>Stap 3: Sla losse metingen op</a></li><li class="tocline"><a class="tocxref" href="#api-4-data-opvragen"><bdi class="secno">3.5 </bdi>API 4 - data opvragen</a></li><li class="tocline"><a class="tocxref" href="#een-overzicht-van-alle-query-parameters"><bdi class="secno">3.6 </bdi>Een overzicht van alle query parameters</a></li><li class="tocline"><a class="tocxref" href="#api-5-realtime-data-lezen-vanuit-dataportal-voor-t-b-v-webapplicaties"><bdi class="secno">3.7 </bdi>API 5 - realtime data lezen vanuit dataportal voor t.b.v. webapplicaties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#voorbeelden"><bdi class="secno">4. </bdi>Voorbeelden</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ophalen-van-alle-data-van-een-bepaald-onderzoek"><bdi class="secno">4.1 </bdi>Ophalen van alle data van een bepaald onderzoek</a></li><li class="tocline"><a class="tocxref" href="#ophalen-van-de-statische-data-van-een-bepaald-onderzoek"><bdi class="secno">4.2 </bdi>Ophalen van de statische data van een bepaald onderzoek</a></li><li class="tocline"><a class="tocxref" href="#ophalen-van-de-volledige-dynamische-data-van-een-bepaald-onderzoek"><bdi class="secno">4.3 </bdi>Ophalen van de volledige dynamische data van een bepaald onderzoek</a></li><li class="tocline"><a class="tocxref" href="#ophalen-van-de-beknopte-dynamische-data-van-een-bepaald-onderzoek"><bdi class="secno">4.4 </bdi>Ophalen van de beknopte dynamische data van een bepaald onderzoek</a></li><li class="tocline"><a class="tocxref" href="#opvragen-van-data-van-een-bepaalde-sectie-in-een-gegeven-periode"><bdi class="secno">4.5 </bdi>Opvragen van data van een bepaalde sectie in een gegeven periode</a></li><li class="tocline"><a class="tocxref" href="#opvragen-van-statische-data-in-een-bepaald-gebied-in-een-cirkel-met-straat-1km-vanaf-een-gegeven-punt"><bdi class="secno">4.6 </bdi>Opvragen van statische data in een bepaald gebied, in een cirkel met straat 1km vanaf een gegeven punt</a></li><li class="tocline"><a class="tocxref" href="#opvragen-van-statische-data-in-een-bepaald-gebied"><bdi class="secno">4.7 </bdi>Opvragen van statische data in een bepaald gebied</a></li><li class="tocline"><a class="tocxref" href="#api-5-realtime-data-lezen-vanuit-dataportal-voor-t-b-v-webapplicaties-0"><bdi class="secno">4.8 </bdi>API 5 - realtime data lezen vanuit dataportal voor t.b.v. webapplicaties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#ophalen-van-de-huidige-bezetting-van-een-bepaalde-sectie-tot-op-voorzieningsnivea"><bdi class="secno">4.8.1 </bdi>Ophalen van de huidige bezetting van een bepaalde sectie tot op voorzieningsnivea</a></li><li class="tocline"><a class="tocxref" href="#opvragen-van-beknopte-data-depth-1-van-een-bepaalde-sectie"><bdi class="secno">4.8.2 </bdi>Opvragen van beknopte data (depth=1) van een bepaalde sectie</a></li><li class="tocline"><a class="tocxref" href="#opvragen-van-data-in-een-bepaald-gebied-in-een-cirkel-met-straal-200m-vanaf-een-gegeven-punt"><bdi class="secno">4.8.3 </bdi>Opvragen van data in een bepaald gebied, in een cirkel met straal 200m vanaf een gegeven punt</a></li></ol></li><li class="tocline"><a class="tocxref" href="#praktijkvoorbeelden-van-dynamische-data"><bdi class="secno">4.9 </bdi>Praktijkvoorbeelden van dynamische data</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#straattelling"><bdi class="secno">4.9.1 </bdi>Straattelling</a></li><li class="tocline"><a class="tocxref" href="#stationsstalling"><bdi class="secno">4.9.2 </bdi>Stationsstalling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#data-opvragen"><bdi class="secno">4.9.2.1 </bdi>Data opvragen</a></li><li class="tocline"><a class="tocxref" href="#filter-op-diepte"><bdi class="secno">4.9.2.2 </bdi>Filter op diepte</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#beveiliging"><bdi class="secno">5. </bdi>Beveiliging</a></li><li class="tocline"><a class="tocxref" href="#issue-summary"><bdi class="secno">A. </bdi>Gerefereerde GitHub issues</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
+<section id="conformance" class="introductory"><h2>Conformiteit</h2><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
+<section class="informative" data-format="markdown" id="overzicht"><h2 id="x1-overzicht"><bdi class="secno">1. </bdi>Overzicht<a class="self-link" aria-label="§" href="#overzicht"></a></h2><p><em>Dit onderdeel is niet normatief.</em></p><p>In het fietsparkeerlandschap kunnen we globaal 6 datastromen onderscheiden:</p><figure id="fig-schematisch-overzicht-van-de-verschillende-datastromen">
+
+<p><img src="../images/diagram_crow_api_overzicht.drawio.svg" alt="Schematisch overzicht van de verschillende datastromen"></p>
+<figcaption>Figuur <bdi class="figno">1</bdi> <span class="fig-title">Schematisch overzicht van de verschillende datastromen</span></figcaption>
+</figure><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>ID</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>API 1</td>
+<td>Van stalling naar exploitant</td>
+</tr>
+<tr>
+<td>API 2</td>
+<td>Van exploitant naar MaaS-provider</td>
+</tr>
+<tr>
+<td>API 3</td>
+<td>Van exploitant / straatteller naar dataportal</td>
+</tr>
+<tr>
+<td>API 4</td>
+<td>Van dataportal naar analist</td>
+</tr>
+<tr>
+<td>API 5</td>
+<td>Van dataportal naar webapplicaties</td>
+</tr>
+<tr>
+<td>API 6</td>
+<td>Van exploitant naar exploitatietools</td>
+</tr>
+
+</tbody></table></div><p>Onderstaand ontwerp is in eerste instantie bedoeld voor de API's 3, 4 en 5, maar kan ook als leidraad dienen voor de overige datastromen.</p></section>
+<section data-format="markdown" id="beschrijving-datastandaard"><h2 id="x2-beschrijving-datastandaard"><bdi class="secno">2. </bdi>Beschrijving datastandaard<a class="self-link" aria-label="§" href="#beschrijving-datastandaard"></a></h2><p>De data in de datastandaard valt uiteen in drie hoofdblokken:</p><ol>
+<li>data over het onderzoek (survey)</li>
+<li>statische data (static data): gegevens over de meetgebieden (sections): id, naam en geografische afbakening. Deze data verandert zelden of nooit. </li>
+<li>dynamische data (dynamische data): tellingen en metingen in de meetgebieden</li>
+</ol><p>De velden en zoekfuncties die in deze datastandaard zijn opgenomen, <strong>moeten</strong> worden ondersteund door de dataportal. Het staat de dataportals vrij om zelf extra datavelden en extra functionaliteit te bieden.</p><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>survey</code></td>
+<td>Survey</td>
+<td>no</td>
+<td>Gegevens over het onderzoek</td>
+</tr>
+<tr>
+<td><code>staticData</code></td>
+<td>StaticData</td>
+<td>no</td>
+<td>Statische data (sectienaam, adres, positie, ...)</td>
+</tr>
+<tr>
+<td><code>dynamicData</code></td>
+<td>DynamicData</td>
+<td>no</td>
+<td>Dynamische data (bezettingsdata, fietstellingen, ...)</td>
+</tr>
+
+</tbody></table></div><section id="surveys"><h3 id="x2-1-surveys"><bdi class="secno">2.1 </bdi>Surveys<a class="self-link" aria-label="§" href="#surveys"></a></h3><p>Het datablok Survey bevat data over het onderzoek. Geïnitieerd door wie? Uitgevoerd door wie? Wanneer? Waar? Al deze informatie kan worden ingestuurd, maar is niet verplicht.</p><p>Bij het insturen van een Survey kan de dataportal ervoor kiezen de gebruiker zijn eigen surveyId te laten kiezen. Inzender van de nieuwe Survey wordt eigenaar van deze inzending. Als dat het geval is, dient er een 400-error (Bad request) gegenereerd te worden als er een surveyId worden gekozen dat al bestaat. In geval de inzender de eigenaar is van de bestaande survey, vindt er een update plaats. Ondersteuning van deze functionalitet is door het dataportal zelf in te bepalen.</p><p>Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te groeperen door dynamische data te labelen met het veld surveyId. Zie voor meer details het kopje Dynamic Data</p><section id="survey-gegevens-over-een-onderzoek"><h4 id="x2-1-1-survey-gegevens-over-een-onderzoek"><bdi class="secno">2.1.1 </bdi>Survey - gegevens over een onderzoek<a class="self-link" aria-label="§" href="#survey-gegevens-over-een-onderzoek"></a></h4><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>no</td>
+<td>Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons</td>
+</tr>
+<tr>
+<td><code>geoLocation</code></td>
+<td>GeoJSON</td>
+<td>no</td>
+<td>Geografische afbakening van het gehele onderzoeksgebied, [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7946" title="The GeoJSON Format">rfc7946</a></cite>]</td>
+</tr>
+<tr>
+<td><code>authorityId</code></td>
+<td>string</td>
+<td>no</td>
+<td>Id van de Opdrachtgever - Alleen te gebruiken voor insturen van data</td>
+</tr>
+<tr>
+<td><code>contractorIds</code></td>
+<td>string[]</td>
+<td>no</td>
+<td>Id's van de contractors - Alleen te gebruiken voor insturen van data</td>
+</tr>
+<tr>
+<td><code>license</code></td>
+<td>String</td>
+<td>no</td>
+<td>Licentie van het gebruik van de data</td>
+</tr>
+
+</tbody></table></div></section><section id="organization-gegevens-over-een-opdrachtgever-of-een-uitvoerende-instantie"><h4 id="x2-1-2-organization-gegevens-over-een-opdrachtgever-of-een-uitvoerende-instantie"><bdi class="secno">2.1.2 </bdi>Organization - gegevens over een opdrachtgever of een uitvoerende instantie<a class="self-link" aria-label="§" href="#organization-gegevens-over-een-opdrachtgever-of-een-uitvoerende-instantie"></a></h4><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>yes</td>
+<td>Unieke id, bijv. CBS-code gemeente of provincie.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>yes</td>
+<td>Naam van de instantie</td>
+</tr>
+
+</tbody></table></div><p>(Hier zijn optioneel extra velden op te nemen, maar deze zijn geen onderdeel van de datastandaard)</p></section></section><section id="statische-data"><h3 id="x2-2-statische-data"><bdi class="secno">2.2 </bdi>Statische Data<a class="self-link" aria-label="§" href="#statische-data"></a></h3><p>Statische data is die data van secties die niet of nauwelijks aan verandering onderhevig zijn. Dat is bijvoorbeeld het geval bij de geografische afbakening. 
+Mocht het zo zijn dat de geografische afbakening wijzigt, dan verdient het aanbeveling een nieuwe statische sectie aan te maken. Aanpassingen van bestaande secties gelden namelijk ook voor reeds inegstuurde data, wat kan leiden tot verwarring bij de interpretatie van historische data.
+Of en hoe een statische sectie gewijzigd kan worden, valt buiten het bestek van deze standaard en wordt overgelaten aan de dataportals.</p><p>De parkeercapaciteit van een sectie lijkt op het eerste gezicht statisch. Toch is deze op advies van telinstanties niet opgenomen in de statische data. Wegwerkzaamheden en  herindelingen van straten hebben te vaak invloed op de parkeercapaceit van straatsecties. In bewaakte stallingen kan het voorkomen dat bepaalde secties gedurende bepaalde periodes gereserveerd zijn.</p><section id="staticdata"><h4 id="x2-2-1-staticdata"><bdi class="secno">2.2.1 </bdi>StaticData<a class="self-link" aria-label="§" href="#staticdata"></a></h4><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>result</code></td>
+<td>StaticSection[]</td>
+<td>yes</td>
+<td>Verzameling van statische secties</td>
+</tr>
+
+</tbody></table></div></section><section id="staticsection"><h4 id="x2-2-2-staticsection"><bdi class="secno">2.2.2 </bdi>StaticSection<a class="self-link" aria-label="§" href="#staticsection"></a></h4><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>yes</td>
+<td>Een uuid, random of eventueel samengesteld</td>
+</tr>
+<tr>
+<td><code>geoLocation</code></td>
+<td>GeoJSON</td>
+<td>no</td>
+<td>Geografische afbakening van deze sectie. Kan gebruikt worden voor geo-zoekopdrachten. [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7946" title="The GeoJSON Format">rfc7946</a></cite>]</td>
+</tr>
+<tr>
+<td><code>validFrom</code></td>
+<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-iso8601" title="Representation of dates and times. ISO 8601:2004.">ISO8601</a></cite>] timestamp</td>
+<td>no</td>
+<td>Vanaf dit tijdstip mag er dynamische data in deze sectie worden geschreven</td>
+</tr>
+<tr>
+<td><code>validUntil</code></td>
+<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-iso8601" title="Representation of dates and times. ISO 8601:2004.">ISO8601</a></cite>] timestamp</td>
+<td>no</td>
+<td>Tot dit tijdstip mag er dynamische data in deze sectie worden geschreven</td>
+</tr>
+<tr>
+<td><code>owner</code></td>
+<td>string</td>
+<td>no</td>
+<td>organisationId: Eigenaar van deze sectie. Alleen deze organistatie mag wijzigingen aanbrengen aan deze sectie</td>
+</tr>
+
+</tbody></table></div></section></section><section id="dynamische-data"><h3 id="x2-3-dynamische-data"><bdi class="secno">2.3 </bdi>Dynamische data<a class="self-link" aria-label="§" href="#dynamische-data"></a></h3><p>Dynamische data, oftewel: de tellingen, daar is uiteraard waar het in deze datastandaard om te doen is. Dynamische data is een verzameling secties/meetgebieden. In een meetgebied kunnen weer subsecties worden ondergebracht en in de subsecties weer nieuwe subsecties. Zo ontstaat er een boom aan secties, die in de onderstaande tabellen 'sectieboom' wordt genoemd. Secties zonder subsecties, dus de uiteinden van de sectieboom, hetem 'bladeren'. Zo kunnen een straat worden opgedeeld in linker- en rechterzijde met aan elke kant diverse parkeervoorzieningen. </p><p>Een sectieboom kan er als volgt uit zien:  </p><pre><code aria-busy="false" class="hljs">Sectie (Dorpsstraat)  
+  Subsectie (Even zijde)  
+    Subsubsectie (Rek) =&gt; dit is een blad  
+    Subsubsectie (Verzameling nietjes) =&gt; dit is een blad  
+  Subsectie (Oneven zijde)  
+    Subsubsectie (gevel) =&gt; dit is een blad  </code></pre><p>Om de ontwikkeling van een dataportal niet te complex te maken, is het aantal secties in secties voorlopig begrensd op 3 lagen.  </p><div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Noot</span></div><div class="">
+
+<p><strong>Belangrijk: Er mag alleen gedetailleerde teldata, verpakt in zogenaamde 'Count'-objecten, worden doorgegeven in de bladeren van de sectieboom!!!</strong> </p>
+</div></div><p>Zie document <a href="https://github.com/Stichting-CROW/datastandaard-fietsparkeren/blob/master/Dynamische_data_in_de_fietsparkeerstandaard.pdf">Dynamische data in de fietsparkeerstandaard</a> voor een beknopte a-technische uitleg van het telprincipes in de datastandaard  </p><p>Hieronder volgt een opsomming van de te gebruiken datablokken. Voor de niet technici: een setje dubbele haken [ ] betekent dat het gaat om een verzameling van meerdere objecten.
+Bijvoorbeeld: Count[] betekent dat er meerdere telblokken in dit veld kunnen zitten.</p><section id="dynamicdata"><h4 id="x2-3-1-dynamicdata"><bdi class="secno">2.3.1 </bdi>DynamicData<a class="self-link" aria-label="§" href="#dynamicdata"></a></h4><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>result</code></td>
+<td>DynamicSection[]</td>
+<td>yes</td>
+<td>Verzameling secties met stallingsdata</td>
+</tr>
+
+</tbody></table></div></section><section id="dynamicsection"><h4 id="x2-3-2-dynamicsection"><bdi class="secno">2.3.2 </bdi>DynamicSection<a class="self-link" aria-label="§" href="#dynamicsection"></a></h4><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>yes</td>
+<td>id van deze dynamische sectie, indien niet meegestuurd bij schrijven, wordt deze gegenereerd door de API</td>
+</tr>
+<tr>
+<td><code>staticSectionId</code></td>
+<td>string</td>
+<td>yes</td>
+<td>id van de statische sectie waartoe deze dynamische data behoort</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-iso8601" title="Representation of dates and times. ISO 8601:2004.">ISO8601</a></cite>] timestamp</td>
+<td>conditional</td>
+<td>Tijdstip van de meting. Alleen verplicht in de stam van de sectieboom</td>
+</tr>
+<tr>
+<td><code>surveyId</code></td>
+<td>string</td>
+<td>conditional</td>
+<td>Id van de survey waartoe deze meting behoort</td>
+</tr>
+<tr>
+<td><code>authorityId</code></td>
+<td>string</td>
+<td>conditional</td>
+<td>Id van de opdrachtgever van deze meting</td>
+</tr>
+<tr>
+<td><code>contractorId</code></td>
+<td>string</td>
+<td>conditional</td>
+<td>Id van de instantie die deze data aangeleverd heeft. Bij een POST-request dient dit door het dataportal gevuld te worden met de username van de inzender</td>
+</tr>
+<tr>
+<td><code>parkingCapacity</code></td>
+<td>number</td>
+<td>conditional</td>
+<td>Totaal aantal plekken, verplicht in de bladeren van de sectieboom</td>
+</tr>
+<tr>
+<td><code>parkingCapacityTimestamp</code></td>
+<td>[<cite><a class="bibref" data-link-type="biblio" href="#bib-iso8601" title="Representation of dates and times. ISO 8601:2004.">ISO8601</a></cite>] timestamp</td>
+<td>no</td>
+<td>Tijdstip van meting aantal plekken</td>
+</tr>
+<tr>
+<td><code>vacantSpaces</code></td>
+<td>number</td>
+<td>conditional</td>
+<td>Aantal vrije plekken, verplicht in de bladeren van de sectieboom</td>
+</tr>
+<tr>
+<td><code>occupiedSpaces</code></td>
+<td>number</td>
+<td>conditional</td>
+<td>Aantal bezette plekken, verplicht in de bladeren van de sectieboom</td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td>Count[]</td>
+<td>no</td>
+<td>Verzameling van Count-objecten</td>
+</tr>
+<tr>
+<td><code>space</code></td>
+<td>Space</td>
+<td>no</td>
+<td>Alleen toegestaan in de bladeren van de sectieboom</td>
+</tr>
+<tr>
+<td><code>sections</code></td>
+<td>DynamicSection[]</td>
+<td>no</td>
+<td>Verzameling van subsecties. Er zitten dus subsections in een subsection. Dit mag maximaal 3 lagen diep</td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>Note</td>
+<td>no</td>
+<td>Notities over de meting in deze sectie</td>
+</tr>
+
+</tbody></table></div><p>De velden surveyId, authorityId en contractorId kunnen gebruikt worden bij het filteren van data bij de zoekopdrachten van de API's 4 en 5.
+Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitgevoerd door een bepaalde contractor kunnen opvragen. Zie <em>API Requests</em> voor meer details over zoekopdrachten.</p></section></section><section id="space-definiering-van-een-plek-aan-de-hand-van-properties"><h3 id="x2-4-space-definiering-van-een-plek-aan-de-hand-van-properties"><bdi class="secno">2.4 </bdi>Space - definiëring van een plek aan de hand van properties<a class="self-link" aria-label="§" href="#space-definiering-van-een-plek-aan-de-hand-van-properties"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>no</td>
+<td>SpaceTypeID; tenminste 1 veld dient gegeven te zijn</td>
+</tr>
+<tr>
+<td><code>level</code></td>
+<td>number</td>
+<td>no</td>
+<td>0=onder, 1=boven</td>
+</tr>
+<tr>
+<td><code>vehicles</code></td>
+<td>Vehicle[]</td>
+<td>no</td>
+<td>Deze space is uitsluitend geschikt voor genoemde voertuigen</td>
+</tr>
+
+</tbody></table></div></section><section id="vehicle"><h3 id="x2-5-vehicle"><bdi class="secno">2.5 </bdi>Vehicle<a class="self-link" aria-label="§" href="#vehicle"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>no</td>
+<td>Zie tabel vehicle.type</td>
+</tr>
+<tr>
+<td><code>propulsion</code></td>
+<td>string[]</td>
+<td>no</td>
+<td>Zie tabel vehicle.propulsion</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td>VehicleState[]</td>
+<td>no</td>
+<td>Zie tabel VehicleState</td>
+</tr>
+<tr>
+<td><code>parkState</code></td>
+<td>string[]</td>
+<td>no</td>
+<td>Zie tabel vehicle.parkState</td>
+</tr>
+<tr>
+<td><code>accessoires</code></td>
+<td>Accessoire[]</td>
+<td>no</td>
+<td>Zie tabel Accessoire</td>
+</tr>
+<tr>
+<td><code>owner</code></td>
+<td>string</td>
+<td>no</td>
+<td>Zie tabel vehicle.owner</td>
+</tr>
+
+</tbody></table></div></section><section id="accessoire"><h3 id="x2-6-accessoire"><bdi class="secno">2.6 </bdi>Accessoire<a class="self-link" aria-label="§" href="#accessoire"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>no</td>
+<td>Zie tabel vehicle.accessoire.typen</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td>string</td>
+<td>no</td>
+<td>Zie tabel vehicle.accessoire.positions</td>
+</tr>
+
+</tbody></table></div></section><section id="vehiclestate"><h3 id="x2-7-vehiclestate"><bdi class="secno">2.7 </bdi>VehicleState<a class="self-link" aria-label="§" href="#vehiclestate"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>no</td>
+<td>Zie tabel vehicle.state.typen</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td>string</td>
+<td>no</td>
+<td>Zie tabel vehicle.state.positions</td>
+</tr>
+
+</tbody></table></div></section><section id="count"><h3 id="x2-8-count"><bdi class="secno">2.8 </bdi>Count<a class="self-link" aria-label="§" href="#count"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>vehicle</code></td>
+<td>Vehicle</td>
+<td>no</td>
+<td>Niet gegeven betekent dat het voertuigtype niet bekend is</td>
+</tr>
+<tr>
+<td><code>numberOfVehicles</code></td>
+<td>number</td>
+<td>yes</td>
+<td>Aantal gestalde voertuigen</td>
+</tr>
+
+</tbody></table></div></section><section id="note"><h3 id="x2-9-note"><bdi class="secno">2.9 </bdi>Note<a class="self-link" aria-label="§" href="#note"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>isOpen</code></td>
+<td>boolean</td>
+<td>no</td>
+<td>is deze area, bijv. een stalling geopend?</td>
+</tr>
+<tr>
+<td><code>isHliday</code></td>
+<td>boolean</td>
+<td>no</td>
+<td>Vakantie?</td>
+</tr>
+<tr>
+<td><code>isEvent</code></td>
+<td>boolean</td>
+<td>no</td>
+<td>Evenement (markt, kermis, ...)?</td>
+</tr>
+<tr>
+<td><code>isUnderConstruction</code></td>
+<td>boolean</td>
+<td>no</td>
+<td>Werkzaamheden?</td>
+</tr>
+<tr>
+<td><code>remark</code></td>
+<td>string</td>
+<td>no</td>
+<td>Vrij tekstveld</td>
+</tr>
+
+</tbody></table></div><p>Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk zijn. Lijstjes die eindigen met ... zijn voor uitbreiding vatbaar.</p></section><section id="spacetypeids"><h3 id="x2-10-spacetypeids"><bdi class="secno">2.10 </bdi>spaceTypeIDs<a class="self-link" aria-label="§" href="#spacetypeids"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>ID</th>
+<th>spaceType</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>x</code></td>
+<td>buiten voorziening</td>
+</tr>
+<tr>
+<td><code>r</code></td>
+<td>rek</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>nietjes</td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td>vak</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>voor fietsenwinkel</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>anders</td>
+</tr>
+
+</tbody></table></div></section><section id="vehicle-accessoire-typen"><h3 id="x2-11-vehicle-accessoire-typen"><bdi class="secno">2.11 </bdi>vehicle.accessoire.typen<a class="self-link" aria-label="§" href="#vehicle-accessoire-typen"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>ID</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>z</code></td>
+<td>zitje</td>
+</tr>
+<tr>
+<td><code>t</code></td>
+<td>fietstas</td>
+</tr>
+<tr>
+<td><code>r</code></td>
+<td>rek</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>bak / mand</td>
+</tr>
+
+</tbody></table></div></section><section id="vehicle-accessoire-positions"><h3 id="x2-12-vehicle-accessoire-positions"><bdi class="secno">2.12 </bdi>vehicle.accessoire.positions<a class="self-link" aria-label="§" href="#vehicle-accessoire-positions"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>ID</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>v</code></td>
+<td>voor</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>achter</td>
+</tr>
+
+</tbody></table></div></section><section id="vehicle-state-type"><h3 id="x2-13-vehicle-state-type"><bdi class="secno">2.13 </bdi>vehicle.state.type<a class="self-link" aria-label="§" href="#vehicle-state-type"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>ID</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>w</code></td>
+<td>wrak</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>lekke band</td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td>zonder zadel</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+
+</tbody></table></div></section><section id="vehicle-state-position"><h3 id="x2-14-vehicle-state-position"><bdi class="secno">2.14 </bdi>vehicle.state.position<a class="self-link" aria-label="§" href="#vehicle-state-position"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>ID</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>v</code></td>
+<td>voor</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>achter</td>
+</tr>
+
+</tbody></table></div></section><section id="vehicle-parkstate"><h3 id="x2-15-vehicle-parkstate"><bdi class="secno">2.15 </bdi>vehicle.parkState<a class="self-link" aria-label="§" href="#vehicle-parkstate"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>ID</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>n</code></td>
+<td>naast voorziening</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>dubbel</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+
+</tbody></table></div></section><section id="vehicle-type"><h3 id="x2-16-vehicle-type"><bdi class="secno">2.16 </bdi>vehicle.type<a class="self-link" aria-label="§" href="#vehicle-type"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>ID</th>
+<th>Voertuigtype</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>f</code></td>
+<td>fiets</td>
+<td>Geen kenteken en geen verzekeringsplaatje</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>bakfiets</td>
+<td>Fiets met bak</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>snorfiets</td>
+<td>kentekenplaat is blauw, met een wit kader, wit opschrift en een hologram</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>bromfiets</td>
+<td>kentekenplaat is geel, met een zwart kader, zwart opschrift en een hologram</td>
+</tr>
+<tr>
+<td><code>m</code></td>
+<td>motorfiets</td>
+<td>NL geel of blauw, internationaal anders</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>gehandicaptenvoertuig</td>
+<td>driewieler, scootmobiel, rolstoel, etc</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>anders</td>
+<td></td>
+</tr>
+
+</tbody></table></div></section><section id="vehicle-propulsion"><h3 id="x2-17-vehicle-propulsion"><bdi class="secno">2.17 </bdi>vehicle.propulsion<a class="self-link" aria-label="§" href="#vehicle-propulsion"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>ID</th>
+<th>Aandrijving</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>s</code></td>
+<td>Spierkracht</td>
+<td>bv traditionele fiets of voetganger</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>Elektrisch</td>
+<td>bv e-bike</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>Brandstof</td>
+<td>bv traditionele bromfiets, motorfiets</td>
+</tr>
+
+</tbody></table></div></section><section id="vehicle-owner"><h3 id="x2-18-vehicle-owner"><bdi class="secno">2.18 </bdi>vehicle.owner<a class="self-link" aria-label="§" href="#vehicle-owner"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>ID</th>
+<th>Eigenaar</th>
+<th>Omschrijving</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>p</code></td>
+<td>Privé</td>
+<td>Privéfiets</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>Lease</td>
+<td>Leasefiets, zoals Swap Bikes</td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td>Huur</td>
+<td>Huurfiets, zoals OV-fiets</td>
+</tr>
+
+</tbody></table></div><p>De velden <code>parkingCapacity</code>, <code>vacantSpaces</code> en <code>occupiedSpaces</code> en <code>count</code> zijn verplicht in de bladeren van de sectieboom  </p><p>Indien ze in de takken niet gegeven zijn, kunnen <code>vacantSpaces</code>, <code>occupiedSpaces</code> en <code>occupation</code> berekend worden door alle <code>vacantSpaces</code>, etc. van onderliggende sections op te tellen</p></section></section>
+<section data-format="markdown" id="api-requests"><h2 id="x3-api-requests"><bdi class="secno">3. </bdi>API- requests<a class="self-link" aria-label="§" href="#api-requests"></a></h2><section id="algemene-regels"><h3 id="x3-1-algemene-regels"><bdi class="secno">3.1 </bdi>algemene regels<a class="self-link" aria-label="§" href="#algemene-regels"></a></h3><p>Alle GET-requests moeten in een wrapper-object gestoken worden met het resultaat in een property 'result'.<br>Dus <code>GET /staticdata</code>:<br>Respons:  </p><pre><code class="json hljs" aria-busy="false">{  
+  <span class="hljs-attr">"result"</span>: [  
+    StaticSection,  
+    ...  
+  ]  
+}  </code></pre><p>Dit is bedoeld om de API de mogelijkheid te geven metadata over de zoekresultaten mee te geven, bijvoorbeeld data over paginering, zoekfilters, errors, etc.<br>Uitgezonderd van deze regel zijn responses die expliciet om 1 object vragen, zoals:<br><code>/organiations/defietsentellers</code><br>Respons:  </p><pre><code class="json hljs" aria-busy="false">{  
+  "id": "defietsentellers,  
+  "name: "De Fietsentellers BV"  
+}  </code></pre></section><section id="api-3-data-van-stallingsexploitant-of-fietsteller-opslaan-in-dataportal"><h3 id="x3-2-api-3-data-van-stallingsexploitant-of-fietsteller-opslaan-in-dataportal"><bdi class="secno">3.2 </bdi>API 3 - data van stallingsexploitant of fietsteller opslaan in dataportal<a class="self-link" aria-label="§" href="#api-3-data-van-stallingsexploitant-of-fietsteller-opslaan-in-dataportal"></a></h3><p>API 3 is de ontvangde zijde van de dataportal API. Straattellers of stallingssoftware kunnen met POST-requests hun data opsturen naar het dataportal.
+In de body's van deze POST-requests dienen ze gebruik te maken van boven beschreven objecten.  </p><p>De datastandaard schrijft voor dat data in elk geval in afzonderlijke blokken Survey, Static Data en Dynamic Data opgeslagen dient te worden. Er zijn dus tenminste 3 POSTs nodig om een volledige Survey, inclusief data op te slaan.</p><p>Alle genoemde requests beginnen met een /. Voor deze schuine streep komt uiteraard de base-url van de API. In het geval van de pilot in VeiligStallen is de base-url <a href="https://remote.veiligstallen2.nl/rest/api">https://remote.veiligstallen2.nl/rest/api</a></p></section><section id="metingen-groeperen-in-1-onderzoek-survey"><h3 id="x3-3-metingen-groeperen-in-1-onderzoek-survey"><bdi class="secno">3.3 </bdi>Metingen groeperen in 1 onderzoek (= 'survey')<a class="self-link" aria-label="§" href="#metingen-groeperen-in-1-onderzoek-survey"></a></h3><section id="stap-1-zorg-dat-alle-betrokken-partijen-opdrachtgevers-authorities-tellers-contractors-bekend-zijn-bij-de-dataportal"><h4 id="x3-3-1-stap-1-zorg-dat-alle-betrokken-partijen-opdrachtgevers-authorities-tellers-contractors-bekend-zijn-bij-de-dataportal"><bdi class="secno">3.3.1 </bdi>Stap 1: zorg dat alle betrokken partijen (opdrachtgevers/authorities, tellers/contractors) bekend zijn bij de dataportal<a class="self-link" aria-label="§" href="#stap-1-zorg-dat-alle-betrokken-partijen-opdrachtgevers-authorities-tellers-contractors-bekend-zijn-bij-de-dataportal"></a></h4><p>Check met 
+<code>GET /organisations</code> welke instanties er al bekend zijn.<br><a href="./examples/API3/responses/GET_organisations.json">Response</a>  </p><div class="example" id="example-1">
+        <div class="marker">
+    <a class="self-link" href="#example-1">Voorbeeld<bdi> 1</bdi></a>
+  </div> <pre class="json" aria-busy="false"><code class="hljs">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8"&gt;
+    &lt;meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"&gt;
+    &lt;title&gt;Page not found · GitHub Pages&lt;/title&gt;
+    &lt;style type="text/css" media="screen"&gt;
+      body {
+        background-color: #f1f1f1;
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
+
+      a { color: #4183c4; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      h1 { width: 800px; position:relative; left: -100px; letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px 0 50px 0; text-shadow: 0 1px 0 #fff; }
+      p { color: rgba(0, 0, 0, 0.5); margin: 20px 0; line-height: 1.6; }
+
+      ul { list-style: none; margin: 25px 0; padding: 0; }
+      li { display: table-cell; font-weight: bold; width: 1%; }
+
+      .logo { display: inline-block; margin-top: 35px; }
+      .logo-img-2x { display: none; }
+      @media
+      only screen and (-webkit-min-device-pixel-ratio: 2),
+      only screen and (   min--moz-device-pixel-ratio: 2),
+      only screen and (     -o-min-device-pixel-ratio: 2/1),
+      only screen and (        min-device-pixel-ratio: 2),
+      only screen and (                min-resolution: 192dpi),
+      only screen and (                min-resolution: 2dppx) {
+        .logo-img-1x { display: none; }
+        .logo-img-2x { display: inline-block; }
+      }
+
+      #suggestions {
+        margin-top: 35px;
+        color: #ccc;
+      }
+      #suggestions a {
+        color: #666666;
+        font-weight: 200;
+        font-size: 14px;
+        margin: 0 10px;
+      }
+
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;div class="container"&gt;
+
+      &lt;h1&gt;404&lt;/h1&gt;
+      &lt;p&gt;&lt;strong&gt;File not found&lt;/strong&gt;&lt;/p&gt;
+
+      &lt;p&gt;
+        The site configured at this address does not
+        contain the requested file.
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        If this is your site, make sure that the filename case matches the URL.&lt;br&gt;
+        For root URLs (like &lt;code&gt;http://example.com/&lt;/code&gt;) you must provide an
+        &lt;code&gt;index.html&lt;/code&gt; file.
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;a href="https://help.github.com/pages/"&gt;Read the full documentation&lt;/a&gt;
+        for more information about using &lt;strong&gt;GitHub Pages&lt;/strong&gt;.
+      &lt;/p&gt;
+
+      &lt;div id="suggestions"&gt;
+        &lt;a href="https://githubstatus.com"&gt;GitHub Status&lt;/a&gt; —
+        &lt;a href="https://twitter.com/githubstatus"&gt;@githubstatus&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;a href="/" class="logo logo-img-1x"&gt;
+        &lt;img width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMTZCRDY3REIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMTZCRDY3RUIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdCQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjdDQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SM9MCAAAA+5JREFUeNrEV11Ik1EY3s4+ddOp29Q5b0opCgKFsoKoi5Kg6CIhuwi6zLJLoYLopq4qsKKgi4i6CYIoU/q5iDAKs6syoS76IRWtyJ+p7cdt7sf1PGOD+e0c3dygAx/67ZzzPM95/877GYdHRg3ZjMXFxepQKNS6sLCwJxqNNuFpiMfjVs4ZjUa/pmmjeD6VlJS8NpvNT4QQ7mxwjSsJiEQim/1+/9lgMHgIr5ohuxG1WCw9Vqv1clFR0dCqBODElV6v90ogEDjGdYbVjXhpaendioqK07CIR7ZAqE49PT09BPL2PMgTByQGsYiZlQD4uMXtdr+JxWINhgINYhGT2MsKgMrm2dnZXgRXhaHAg5jEJodUAHxux4LudHJE9RdEdA+i3Juz7bGHe4mhE9FNrgwBCLirMFV9Okh5eflFh8PR5nK5nDabrR2BNJlKO0T35+Li4n4+/J+/JQCxhmu5h3uJoXNHPbmWZAHMshWB8l5/ipqammaAf0zPDDx1ONV3vurdidqwAQL+pEc8sLcAe1CCvQ3YHxIW8Pl85xSWNC1hADDIv0rIE/o4J0k3kww4xSlwIhcq3EFFOm7KN/hUGOQkt0CFa5WpNJlMvxBEz/IVQAxg/ZRZl9wiHA63yDYieM7DnLP5CiAGsC7I5sgtYKJGWe2A8seFqgFJrJjEPY1Cn3pJ8/9W1e5VWsFDTEmFrBcoDhZJEQkXuhICMyKpjhahqN21hRYATKfUOlDmkygrR4o4C0VOLGJKrOITKB4jijzdXygBKixyC5TDQdnk/Pz8qRw6oOWGlsTKGOQW6OH6FBWsyePxdOXLTgxiyebILZCjz+GLgMIKnXNzc49YMlcRdHXcSwxFVgTInQhC9G33UhNoJLuqq6t345p9y3eUy8OTk5PjAHuI9uo4b07FBaOhsu0A4Unc+T1TU1Nj3KsSSE5yJ65jqF2DDd8QqWYmAZrIM2VlZTdnZmb6AbpdV9V6ec9znf5Q7HjYumdRE0JOp3MjitO4SFa+cZz8Umqe3TCbSLvdfkR/kWDdNQl5InuTcysOcpFT35ZrbBxx4p3JAHlZVVW1D/634VRt+FvLBgK/v5LV9WS+10xMTEwtRw7XvqOL+e2Q8V3AYIOIAXQ26/heWVnZCVfcyKHg2CBgTpmPmjYM8l24GyaUHyaIh7XwfR9ErE8qHoDfn2LTNAVC0HX6MFcBIP8Bi+6F6cdW/DICkANRfx99fEYFQ7Nph5i/uQiA214gno7K+guhaiKg9gC62+M8eR7XsBsYJ4ilam60Fb7r7uAj8wFyuwM1oIOWgfmDy6RXEEQzJMPe23DXrVS7rtyD3Df8z/FPgAEAzWU5Ku59ZAUAAAAASUVORK5CYII="&gt;
+      &lt;/a&gt;
+
+      &lt;a href="/" class="logo logo-img-2x"&gt;
+        &lt;img width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQUM1QkUxRUI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQUM1QkUxRkI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdGQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjgwQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hfPRaQAAB6lJREFUeNrsW2mME2UYbodtt+2222u35QheoCCYGBQligIJgkZJNPzgigoaTEj8AdFEMfADfyABkgWiiWcieK4S+QOiHAYUj2hMNKgYlEujpNttu9vttbvdw+chU1K6M535pt3ubHCSyezR+b73eb73+t7vrfXsufOW4bz6+vom9/b23ovnNNw34b5xYGAgODg46Mbt4mesVmsWd1qSpHhdXd2fuP/Afcput5/A88xwymcdBgLqenp6FuRyuWV4zu/v759QyWBjxoz5t76+/gun09mK5xFyakoCAPSaTCazNpvNPoYVbh6O1YKGRF0u13sNDQ27QMzfpiAAKj0lnU6/gBVfAZW2WWpwwVzy0IgP3G73FpjI6REhAGA9qVRqA1b9mVoBVyIC2tDi8Xg24+dUzQiAbS/s7Ox8G2o/3mKCC+Zw0efzPQEfcVjYrARX3dbV1bUtHo8fMgt42f+Mp0yUTVQbdWsAHVsikdiHkHaPxcQXQufXgUBgMRxme9U0AAxfH4vFvjM7eF6UkbJS5qoQwEQGA57Ac5JllFyUVZZ5ckUEgMVxsK2jlSYzI+QXJsiyjzNEAJyJAzb/KQa41jJKL8pODMQiTEAymXw5n8/P0IjD3bh7Rgog59aanxiIRTVvV/oj0tnHca/WMrVwODwB3raTGxzkBg/gnZVapFV62Wy2n5AO70HM/5wbJ0QnXyQSaVPDIuNZzY0V3ntHMwxiwHA0Gj2Np7ecIBDgaDAYXKCQJM1DhrgJ3nhulcPbl8j4NmHe46X/g60fwbz3aewjkqFQaAqebWU1AOqyQwt8Id6qEHMc97zu7u7FGGsn7HAiVuosVw7P35C1nccdgSCxop1dHeZswmfHMnxBo6ZTk+jN8dl/vF7vWofDsa+MLN9oEUBMxOb3+1eoEsBVw6Zmua49r8YmhAKDiEPcMwBsxMiqQ+ixzPFxZyqRpXARG/YOr1ObFJ0gUskXBbamcR1OKmMUvDxHRAu8/LmY3jFLMUpFqz9HxG65smYJdyKyECOxDiEAe/p1gjF2oonivZAsxVgl2daa4EQWCW6J55qFAFFZiJWYLxNQy2qOSUzGRsyXCUDIeliwAHEO4WSlWQBRFoZakXcKmCXmyXAKs0Ve9vl8q42WoIYpJU4hV3hKcNs8m9gl7p/xQ73eF5kB4j5mNrWmTJRNwAzqiV1CxjVTZCIkEq+Z1bZFZSN2CenmVAFVy4Plz8xKAGWjjAKFk6lCBMDR/MJjLLMSQNm43xAiQKTaA+9/wewhDjL+JVI1kkTSSOTcKbMTwPqESAot6dn6Fr1gHwVJju6IRuyiByPuUUBAg5DGkAgBmxlvdgIEK9gDkohdY/BJo4CAG0R8miRSsGABkgVQs4KXu098IgUXSSRsFAoKZiVAVDY2WUiiPTjYRi41KwGisrGsLtlsth8Fiwnz2fBkQvWfRtlE3iF2yW63/yCacXZ1dW02GwGyTFaRd4idJnCKHRaCxYRHoG5LTKT6SyiToP1fJHbmAYPYRR0UnZQtMnA6s0zg+GZBlt0Gdo7EPHgpE3Q6nZ8YyLhc8Xj8MJh/aKTAY+5FPAKHLE7RdwuYJZmNwzyCMkBCYyKROJBMJl9B/PXXCjjmCmDOVzH3fiPpObEWGqoKe4EBl8v1hlqsdLvd23mkxHM9pc9kMpmno9HoeTii7ewbHEZPPx1ztLS1tV3AnGuMjiNjvbQFuHw6zDo5By7dTPAQNBgMLrRarTkSls1mnwT7uwp9virx9QzbW/HuV/j5d/b+6jniKlllP8lkeONJDk+dq9GsQTnC4fB1heO0K47Hwe7WdDr9nAKgXwOBwHI+C45Htj1d6sd429TUNEcmUdc+PRaLHcvn87dXW4ugzdsaGxufL94NFv9zi1J7GVbhlvb2dnaJ3SVrxfc+n2+NTsZ7/H7/Mr3g5XdSIHyJSH1PZ+7fToyl2+ErqilgZ4NaLYB9goVGaHjR93Hv1ZrU4XDsFT20kH3PObzbWk0CgG1jacVIUnAQb9F+VexyLMzkpcLv0IJV7AHQIOCAUYHx7v5qgScmYHtTqSAyZLEJTK22Bie4iq3xsqpm4SAf9Hq9a2DnJ4uLK3SEULcdRvp3i3zHySqpficxEdsQc1NrlYXXvR+O7qASSezXB+h1SuUomgg9LL8BUoV4749EIolKh+EiqWmqVEZlDgHks2pxHw7xTqUQw9J5NcAXOK10AGIoZ6Zli6JY6Z1Q461KoZ4NiKLHarW+KDsxlDUPHZ5zPQZqUVDPJsTqb5n9malbpAh8C2XXDLl62+WZIDFRUlNVOiwencnNU3aQEkL+cDMSoLvZo2fQB7AJssNAuFuvorlDVVkkg2I87+jo2K2QAVphDrfyViK5VqtO34OkaxXCp+7drdDBCAdubm6eidX+2WwqT5komwh4YQLk+H4aE93h8Xg2gvHekQZOGSgLZTLyDTLJ4Lx9/KZWKBSainT4Iy3FqQBfnUZR42PKQFksBr9QKVXCPusD3OiA/RkQ5kP8qV/Jl1WywAp/6+dcmPM2zL1UrUahe4JqfnWWKXIul3uUbfP8njAFLW1OFr3gdFtZ72cNH+PtQT7/brW+NXqJAHh0y9V8/U/A1U7AfwIMAD7mS3pCbuWJAAAAAElFTkSuQmCC"&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div><p>Mis je instanties, voeg ze toe met:<br><code>POST /organisations</code> <a href="./examples/API3/requests/POST_new_organisation.json">Body zonder surveyId</a><br><a href="./examples/API3/responses/POST_new_organisation.json">Response</a>  </p><div class="example" id="example-2-body-zonder-surveyid">
+        <div class="marker">
+    <a class="self-link" href="#example-2-body-zonder-surveyid">Voorbeeld<bdi> 2</bdi></a><span class="example-title">: Body (zonder surveyId)</span>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"0202"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Gemeente Arnhem"</span>
+}</code></pre>
+      </div><div class="example" id="example-3-response">
+        <div class="marker">
+    <a class="self-link" href="#example-3-response">Voorbeeld<bdi> 3</bdi></a><span class="example-title">: Response</span>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"0202"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Gemeente Arnhem"</span>
+}</code></pre>
+      </div></section><section id="stap-2-meld-je-onderzoek-survey-aan"><h4 id="x3-3-2-stap-2-meld-je-onderzoek-survey-aan"><bdi class="secno">3.3.2 </bdi>Stap 2: meld je onderzoek (survey) aan<a class="self-link" aria-label="§" href="#stap-2-meld-je-onderzoek-survey-aan"></a></h4><p><code>POST /surveys</code> <a href="./examples/API3/requests/POST_new_survey_with_id.json">Body met surveyId</a><br>Een id van de survey mag door exploitant zelf gekozen worden. Suggestie gebruik <a href="https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2020">CBS codes</a> en unieke gegevens uit het onderzoek, bijv. &lt; CBS_nr_gemeente &gt;_&lt; jaartal &gt; =&gt; 0202_2020.  </p><p><code>POST /surveys</code> <a href="./examples/API3/requests/POST_new_survey_without_id.json">Body zonder surveyId</a>  </p><div class="example" id="example-4-body-zonder-surveyid">
+        <div class="marker">
+    <a class="self-link" href="#example-4-body-zonder-surveyid">Voorbeeld<bdi> 4</bdi></a><span class="example-title">: Body zonder surveyId</span>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"authorityId"</span>: <span class="hljs-string">"0202"</span>,
+    <span class="hljs-attr">"contractorIds"</span>: [<span class="hljs-string">"defietsenstellers"</span>],
+    <span class="hljs-attr">"geoLocation"</span>: {
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"MultiPolygon"</span>, 
+        <span class="hljs-attr">"coordinates"</span>:  [
+            [
+                [
+                    [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>],
+                    [<span class="hljs-number">5.90808</span>,<span class="hljs-number">51.98171</span>],
+                    [<span class="hljs-number">5.90924</span>,<span class="hljs-number">51.98199</span>],
+                    [<span class="hljs-number">5.90921</span>,<span class="hljs-number">51.98202</span>],
+                    [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>]
+                ]
+            ],
+            [
+                [
+                    [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>],
+                    [<span class="hljs-number">5.90808</span>,<span class="hljs-number">51.98171</span>],
+                    [<span class="hljs-number">5.90924</span>,<span class="hljs-number">51.98199</span>],
+                    [<span class="hljs-number">5.90921</span>,<span class="hljs-number">51.98202</span>],
+                    [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>]
+                ]
+            ]
+        ]
+    }
+}</code></pre>
+      </div><p>De instantie die de survey instuurt, wordt 'eigenaar' van dit onderzoek. </p><p>Een Survey met een <code>surveyId</code> dat al bestaat, zal resulteren in een 400-error. Behalve als deze POST wordt gedaan door de eigenaar van het onderzoek. In dat geval wordt er een update van het onderzoek uitgevoerd.</p><p>Indien geen <code>surveyId</code> is gegeven, maakt de server zelf een id en geeft deze terug in de response.  </p><p><a href="./examples/API3/responses/POST_new_survey.json">Response</a>  </p><div class="example" id="example-5-response">
+        <div class="marker">
+    <a class="self-link" href="#example-5-response">Voorbeeld<bdi> 5</bdi></a><span class="example-title">: Response</span>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"0202_2020"</span>
+}</code></pre>
+      </div></section><section id="stap-3-koppel-statische-data-aan-bestaand-onderzoek"><h4 id="x3-3-3-stap-3-koppel-statische-data-aan-bestaand-onderzoek"><bdi class="secno">3.3.3 </bdi>Stap 3: koppel statische data aan bestaand onderzoek<a class="self-link" aria-label="§" href="#stap-3-koppel-statische-data-aan-bestaand-onderzoek"></a></h4><p><code>POST /staticdata</code> <a href="./examples/API3/requests/POST_static_data.json">Body</a>  </p><div class="example" id="example-6-body">
+        <div class="marker">
+    <a class="self-link" href="#example-6-body">Voorbeeld<bdi> 6</bdi></a><span class="example-title">: Body</span>
+  </div> <pre aria-busy="false"><code class="hljs json">[
+    {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+        <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Arnhem Ketelstraat oneven zijde"</span>,
+        <span class="hljs-attr">"geoLocation"</span>: {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Polygon"</span>, 
+            <span class="hljs-attr">"coordinates"</span>:  [
+                [
+                    [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>],
+                    [<span class="hljs-number">5.90808</span>,<span class="hljs-number">51.98171</span>],
+                    [<span class="hljs-number">5.90924</span>,<span class="hljs-number">51.98199</span>],
+                    [<span class="hljs-number">5.90921</span>,<span class="hljs-number">51.98202</span>],
+                    [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>]
+                ]
+            ]
+        },
+        <span class="hljs-attr">"sections"</span>: [
+            {
+                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"trottoir"</span>,
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Stoep"</span>,
+                <span class="hljs-attr">"geoLocation"</span>: {
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Polygon"</span>, 
+                    <span class="hljs-attr">"coordinates"</span>:  [
+                        [
+                            [<span class="hljs-number">5.107</span>,<span class="hljs-number">52.08926</span>],
+                            [<span class="hljs-number">5.10728</span>,<span class="hljs-number">52.08925</span>],
+                            [<span class="hljs-number">5.10739</span>,<span class="hljs-number">52.08906</span>],
+                            [<span class="hljs-number">5.10755</span>,<span class="hljs-number">52.08898</span>],
+                            [<span class="hljs-number">5.10764</span>,<span class="hljs-number">52.08882</span>],
+                            [<span class="hljs-number">5.10741</span>,<span class="hljs-number">52.08874</span>],
+                            [<span class="hljs-number">5.10732</span>,<span class="hljs-number">52.08889</span>],
+                            [<span class="hljs-number">5.10717</span>,<span class="hljs-number">52.08898</span>],
+                            [<span class="hljs-number">5.107</span>,<span class="hljs-number">52.08926</span>]
+                        ]
+                    ]
+                },
+                <span class="hljs-attr">"sections"</span>: [
+                    {
+                        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_1"</span>,
+                        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Rek"</span>,
+                        <span class="hljs-attr">"geoLocation"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Polygon"</span>, 
+                            <span class="hljs-attr">"coordinates"</span>: [
+                                [
+                                    [<span class="hljs-number">5.90912</span>,<span class="hljs-number">51.98199</span>],
+                                    [<span class="hljs-number">5.90913</span>,<span class="hljs-number">51.98199</span>],
+                                    [<span class="hljs-number">5.90918</span>,<span class="hljs-number">51.982</span>],
+                                    [<span class="hljs-number">5.90912</span>,<span class="hljs-number">51.98199</span>]
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_2"</span>,
+                        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Rek"</span>,
+                        <span class="hljs-attr">"geoLocation"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Polygon"</span>, 
+                            <span class="hljs-attr">"coordinates"</span>: [
+                                [
+                                    [<span class="hljs-number">5.90851</span>,<span class="hljs-number">51.98183</span>],
+                                    [<span class="hljs-number">5.9085</span>,<span class="hljs-number">51.98184</span>],
+                                    [<span class="hljs-number">5.90855</span>,<span class="hljs-number">51.98185</span>],
+                                    [<span class="hljs-number">5.90855</span>,<span class="hljs-number">51.98184</span>],
+                                    [<span class="hljs-number">5.90851</span>,<span class="hljs-number">51.98183</span>]
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_3"</span>,
+                        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Rek"</span>,
+                        <span class="hljs-attr">"geoLocation"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"LineString"</span>, 
+                            <span class="hljs-attr">"coordinates"</span>: [
+                                [<span class="hljs-number">5.90806</span>,<span class="hljs-number">51.98173</span>],
+                                [<span class="hljs-number">5.90817</span>,<span class="hljs-number">51.98176</span>]
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]</code></pre>
+      </div><p>Door het veld <code>surveyId</code> mee te geven aan de secties, worden de secties gekoppeld aan een onderzoek.<br>Zonder het veld <code>surveyId</code> worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een <code>surveyId</code>.</p><p>Het Id van een statische sectie is, net als het <code>surveyID</code>, door de opsturende instantie zelf samen te stellen. Suggestie: prefix het sectionId met het surveyId om een unieke id te garanderen, bijvoorbeeld: <code>&amp;lt; surveyId &gt;_&amp;lt; straatnaam &gt;</code></p></section></section><section id="stap-3-sla-losse-metingen-op"><h3 id="x3-4-stap-3-sla-losse-metingen-op"><bdi class="secno">3.4 </bdi>Stap 3: Sla losse metingen op<a class="self-link" aria-label="§" href="#stap-3-sla-losse-metingen-op"></a></h3><p><code>POST /dynamicdata</code> <a href="./examples/API3/requests/POST_dynamic_data.json">Body</a></p><div class="example" id="example-7-body">
+        <div class="marker">
+    <a class="self-link" href="#example-7-body">Voorbeeld<bdi> 7</bdi></a><span class="example-title">: Body</span>
+  </div> <pre aria-busy="false"><code class="hljs json">[
+    {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+        <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+        <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T11:45:00"</span>,
+        <span class="hljs-attr">"sections"</span>: [
+            {
+                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"trottoir"</span>,
+                <span class="hljs-attr">"sections"</span>: [
+                    {
+                        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_1"</span>,
+                        <span class="hljs-attr">"parkingCapacityTimestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+                        <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">5</span>,
+                        <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">4</span>,
+                        <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">1</span>,
+                        <span class="hljs-attr">"space"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"v"</span>,
+                            <span class="hljs-attr">"vehicles"</span>: [
+                                {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                },
+                                {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"s"</span>
+                                }
+                            ]
+                        },
+                        <span class="hljs-attr">"count"</span>: [
+                            {
+                                <span class="hljs-attr">"vehicle"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                },
+                                <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">1</span>
+                            }
+                        ]
+                    },
+                    {
+                        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_2"</span>,
+                        <span class="hljs-attr">"parkingCapacityTimestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+                        <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">80</span>,
+                        <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">10</span>,
+                        <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">70</span>,
+                        <span class="hljs-attr">"space"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-number">2</span>,
+                            <span class="hljs-attr">"vehicles"</span>: [
+                                {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                }
+                            ]
+                        },
+                        <span class="hljs-attr">"count"</span>: [
+                            {
+                                <span class="hljs-attr">"vehicle"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                                    <span class="hljs-attr">"propulsion"</span>: <span class="hljs-number">2</span>
+                                },
+                                <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                            },
+                            {
+                                <span class="hljs-attr">"vehicle"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                },
+                                <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">65</span>
+                            }
+                        ]
+                    },
+                    {
+                        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_3"</span>,
+                        <span class="hljs-attr">"parkingCapacityTimestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+                        <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">60</span>,
+                        <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">40</span>,
+                        <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">20</span>,
+                        <span class="hljs-attr">"space"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-number">1</span>,
+                            <span class="hljs-attr">"vehicles"</span>: [
+                                {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                }
+                            ]
+                        },
+                        <span class="hljs-attr">"count"</span>: [
+                            {
+                                <span class="hljs-attr">"vehicle"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                },
+                                <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">19</span>
+                            },
+                            {
+                                <span class="hljs-attr">"vehicle"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                },
+                                <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">1</span>
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+        <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+        <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+        <span class="hljs-attr">"sections"</span>: [
+            {
+                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"trottoir"</span>,
+                <span class="hljs-attr">"sections"</span>: [
+                    {
+                        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_1"</span>,
+                        <span class="hljs-attr">"parkingCapacityTimestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+                        <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">5</span>,
+                        <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">4</span>,
+                        <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">1</span>,
+                        <span class="hljs-attr">"space"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"r"</span>,
+                            <span class="hljs-attr">"vehicles"</span>: [
+                                {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                },
+                                {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"s"</span>
+                                }
+                            ]
+                        },
+                        <span class="hljs-attr">"count"</span>: [
+                            {
+                                <span class="hljs-attr">"vehicle"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                },
+                                <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">1</span>
+                            }
+                        ]
+                    },
+                    {
+                        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_2"</span>,
+                        <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">80</span>,
+                        <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">10</span>,
+                        <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">70</span>,
+                        <span class="hljs-attr">"space"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"r"</span>,
+                            <span class="hljs-attr">"vehicles"</span>: [
+                                {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                }
+                            ]
+                        },
+                        <span class="hljs-attr">"count"</span>: [
+                            {
+                                <span class="hljs-attr">"vehicle"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                                    <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                                },
+                                <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                            },
+                            {
+                                <span class="hljs-attr">"vehicle"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                },
+                                <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">65</span>
+                            }
+                        ]
+                    },
+                    {
+                        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_3"</span>,
+                        <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">60</span>,
+                        <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">40</span>,
+                        <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">20</span>,
+                        <span class="hljs-attr">"space"</span>: {
+                            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"r"</span>,
+                            <span class="hljs-attr">"vehicles"</span>: [
+                                {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                }
+                            ]
+                        },
+                        <span class="hljs-attr">"count"</span>: [
+                            {
+                                <span class="hljs-attr">"vehicle"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                },
+                                <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">19</span>
+                            },
+                            {
+                                <span class="hljs-attr">"vehicle"</span>: {
+                                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                },
+                                <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">1</span>
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]</code></pre>
+      </div><p>Door het veld surveyId mee te geven aan de secties, worden de metingen gekoppeld aan een onderzoek.<br>Zonder het veld surveyId worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een surveyId.</p><p>Je kunt dus zowel dynamische als statische data afzonderlijk koppelen aan een onderzoek.   </p><p>Dynamische data kan sterk gecomprimeerd worden door alleen de totalen op te slaan. Dit zal in de praktijk vaak voorkomen.<br><code>POST /dynamicdata</code> <a href="./examples/API3/requests/POST_compressed_dynamic_section.json">Body met een alleen totalen</a>  </p><div class="example" id="example-8-body-met-een-alleen-totalen">
+        <div class="marker">
+    <a class="self-link" href="#example-8-body-met-een-alleen-totalen">Voorbeeld<bdi> 8</bdi></a><span class="example-title">: Body met een alleen totalen</span>
+  </div> <pre class="json" aria-busy="false"><code class="hljs">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8"&gt;
+    &lt;meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'"&gt;
+    &lt;title&gt;Page not found · GitHub Pages&lt;/title&gt;
+    &lt;style type="text/css" media="screen"&gt;
+      body {
+        background-color: #f1f1f1;
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
+
+      a { color: #4183c4; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      h1 { width: 800px; position:relative; left: -100px; letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px 0 50px 0; text-shadow: 0 1px 0 #fff; }
+      p { color: rgba(0, 0, 0, 0.5); margin: 20px 0; line-height: 1.6; }
+
+      ul { list-style: none; margin: 25px 0; padding: 0; }
+      li { display: table-cell; font-weight: bold; width: 1%; }
+
+      .logo { display: inline-block; margin-top: 35px; }
+      .logo-img-2x { display: none; }
+      @media
+      only screen and (-webkit-min-device-pixel-ratio: 2),
+      only screen and (   min--moz-device-pixel-ratio: 2),
+      only screen and (     -o-min-device-pixel-ratio: 2/1),
+      only screen and (        min-device-pixel-ratio: 2),
+      only screen and (                min-resolution: 192dpi),
+      only screen and (                min-resolution: 2dppx) {
+        .logo-img-1x { display: none; }
+        .logo-img-2x { display: inline-block; }
+      }
+
+      #suggestions {
+        margin-top: 35px;
+        color: #ccc;
+      }
+      #suggestions a {
+        color: #666666;
+        font-weight: 200;
+        font-size: 14px;
+        margin: 0 10px;
+      }
+
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;div class="container"&gt;
+
+      &lt;h1&gt;404&lt;/h1&gt;
+      &lt;p&gt;&lt;strong&gt;File not found&lt;/strong&gt;&lt;/p&gt;
+
+      &lt;p&gt;
+        The site configured at this address does not
+        contain the requested file.
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        If this is your site, make sure that the filename case matches the URL.&lt;br&gt;
+        For root URLs (like &lt;code&gt;http://example.com/&lt;/code&gt;) you must provide an
+        &lt;code&gt;index.html&lt;/code&gt; file.
+      &lt;/p&gt;
+
+      &lt;p&gt;
+        &lt;a href="https://help.github.com/pages/"&gt;Read the full documentation&lt;/a&gt;
+        for more information about using &lt;strong&gt;GitHub Pages&lt;/strong&gt;.
+      &lt;/p&gt;
+
+      &lt;div id="suggestions"&gt;
+        &lt;a href="https://githubstatus.com"&gt;GitHub Status&lt;/a&gt; —
+        &lt;a href="https://twitter.com/githubstatus"&gt;@githubstatus&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;a href="/" class="logo logo-img-1x"&gt;
+        &lt;img width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMTZCRDY3REIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMTZCRDY3RUIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdCQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjdDQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SM9MCAAAA+5JREFUeNrEV11Ik1EY3s4+ddOp29Q5b0opCgKFsoKoi5Kg6CIhuwi6zLJLoYLopq4qsKKgi4i6CYIoU/q5iDAKs6syoS76IRWtyJ+p7cdt7sf1PGOD+e0c3dygAx/67ZzzPM95/877GYdHRg3ZjMXFxepQKNS6sLCwJxqNNuFpiMfjVs4ZjUa/pmmjeD6VlJS8NpvNT4QQ7mxwjSsJiEQim/1+/9lgMHgIr5ohuxG1WCw9Vqv1clFR0dCqBODElV6v90ogEDjGdYbVjXhpaendioqK07CIR7ZAqE49PT09BPL2PMgTByQGsYiZlQD4uMXtdr+JxWINhgINYhGT2MsKgMrm2dnZXgRXhaHAg5jEJodUAHxux4LudHJE9RdEdA+i3Juz7bGHe4mhE9FNrgwBCLirMFV9Okh5eflFh8PR5nK5nDabrR2BNJlKO0T35+Li4n4+/J+/JQCxhmu5h3uJoXNHPbmWZAHMshWB8l5/ipqammaAf0zPDDx1ONV3vurdidqwAQL+pEc8sLcAe1CCvQ3YHxIW8Pl85xSWNC1hADDIv0rIE/o4J0k3kww4xSlwIhcq3EFFOm7KN/hUGOQkt0CFa5WpNJlMvxBEz/IVQAxg/ZRZl9wiHA63yDYieM7DnLP5CiAGsC7I5sgtYKJGWe2A8seFqgFJrJjEPY1Cn3pJ8/9W1e5VWsFDTEmFrBcoDhZJEQkXuhICMyKpjhahqN21hRYATKfUOlDmkygrR4o4C0VOLGJKrOITKB4jijzdXygBKixyC5TDQdnk/Pz8qRw6oOWGlsTKGOQW6OH6FBWsyePxdOXLTgxiyebILZCjz+GLgMIKnXNzc49YMlcRdHXcSwxFVgTInQhC9G33UhNoJLuqq6t345p9y3eUy8OTk5PjAHuI9uo4b07FBaOhsu0A4Unc+T1TU1Nj3KsSSE5yJ65jqF2DDd8QqWYmAZrIM2VlZTdnZmb6AbpdV9V6ec9znf5Q7HjYumdRE0JOp3MjitO4SFa+cZz8Umqe3TCbSLvdfkR/kWDdNQl5InuTcysOcpFT35ZrbBxx4p3JAHlZVVW1D/634VRt+FvLBgK/v5LV9WS+10xMTEwtRw7XvqOL+e2Q8V3AYIOIAXQ26/heWVnZCVfcyKHg2CBgTpmPmjYM8l24GyaUHyaIh7XwfR9ErE8qHoDfn2LTNAVC0HX6MFcBIP8Bi+6F6cdW/DICkANRfx99fEYFQ7Nph5i/uQiA214gno7K+guhaiKg9gC62+M8eR7XsBsYJ4ilam60Fb7r7uAj8wFyuwM1oIOWgfmDy6RXEEQzJMPe23DXrVS7rtyD3Df8z/FPgAEAzWU5Ku59ZAUAAAAASUVORK5CYII="&gt;
+      &lt;/a&gt;
+
+      &lt;a href="/" class="logo logo-img-2x"&gt;
+        &lt;img width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQUM1QkUxRUI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQUM1QkUxRkI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdGQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjgwQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hfPRaQAAB6lJREFUeNrsW2mME2UYbodtt+2222u35QheoCCYGBQligIJgkZJNPzgigoaTEj8AdFEMfADfyABkgWiiWcieK4S+QOiHAYUj2hMNKgYlEujpNttu9vttbvdw+chU1K6M535pt3ubHCSyezR+b73eb73+t7vrfXsufOW4bz6+vom9/b23ovnNNw34b5xYGAgODg46Mbt4mesVmsWd1qSpHhdXd2fuP/Afcput5/A88xwymcdBgLqenp6FuRyuWV4zu/v759QyWBjxoz5t76+/gun09mK5xFyakoCAPSaTCazNpvNPoYVbh6O1YKGRF0u13sNDQ27QMzfpiAAKj0lnU6/gBVfAZW2WWpwwVzy0IgP3G73FpjI6REhAGA9qVRqA1b9mVoBVyIC2tDi8Xg24+dUzQiAbS/s7Ox8G2o/3mKCC+Zw0efzPQEfcVjYrARX3dbV1bUtHo8fMgt42f+Mp0yUTVQbdWsAHVsikdiHkHaPxcQXQufXgUBgMRxme9U0AAxfH4vFvjM7eF6UkbJS5qoQwEQGA57Ac5JllFyUVZZ5ckUEgMVxsK2jlSYzI+QXJsiyjzNEAJyJAzb/KQa41jJKL8pODMQiTEAymXw5n8/P0IjD3bh7Rgog59aanxiIRTVvV/oj0tnHca/WMrVwODwB3raTGxzkBg/gnZVapFV62Wy2n5AO70HM/5wbJ0QnXyQSaVPDIuNZzY0V3ntHMwxiwHA0Gj2Np7ecIBDgaDAYXKCQJM1DhrgJ3nhulcPbl8j4NmHe46X/g60fwbz3aewjkqFQaAqebWU1AOqyQwt8Id6qEHMc97zu7u7FGGsn7HAiVuosVw7P35C1nccdgSCxop1dHeZswmfHMnxBo6ZTk+jN8dl/vF7vWofDsa+MLN9oEUBMxOb3+1eoEsBVw6Zmua49r8YmhAKDiEPcMwBsxMiqQ+ixzPFxZyqRpXARG/YOr1ObFJ0gUskXBbamcR1OKmMUvDxHRAu8/LmY3jFLMUpFqz9HxG65smYJdyKyECOxDiEAe/p1gjF2oonivZAsxVgl2daa4EQWCW6J55qFAFFZiJWYLxNQy2qOSUzGRsyXCUDIeliwAHEO4WSlWQBRFoZakXcKmCXmyXAKs0Ve9vl8q42WoIYpJU4hV3hKcNs8m9gl7p/xQ73eF5kB4j5mNrWmTJRNwAzqiV1CxjVTZCIkEq+Z1bZFZSN2CenmVAFVy4Plz8xKAGWjjAKFk6lCBMDR/MJjLLMSQNm43xAiQKTaA+9/wewhDjL+JVI1kkTSSOTcKbMTwPqESAot6dn6Fr1gHwVJju6IRuyiByPuUUBAg5DGkAgBmxlvdgIEK9gDkohdY/BJo4CAG0R8miRSsGABkgVQs4KXu098IgUXSSRsFAoKZiVAVDY2WUiiPTjYRi41KwGisrGsLtlsth8Fiwnz2fBkQvWfRtlE3iF2yW63/yCacXZ1dW02GwGyTFaRd4idJnCKHRaCxYRHoG5LTKT6SyiToP1fJHbmAYPYRR0UnZQtMnA6s0zg+GZBlt0Gdo7EPHgpE3Q6nZ8YyLhc8Xj8MJh/aKTAY+5FPAKHLE7RdwuYJZmNwzyCMkBCYyKROJBMJl9B/PXXCjjmCmDOVzH3fiPpObEWGqoKe4EBl8v1hlqsdLvd23mkxHM9pc9kMpmno9HoeTii7ewbHEZPPx1ztLS1tV3AnGuMjiNjvbQFuHw6zDo5By7dTPAQNBgMLrRarTkSls1mnwT7uwp9virx9QzbW/HuV/j5d/b+6jniKlllP8lkeONJDk+dq9GsQTnC4fB1heO0K47Hwe7WdDr9nAKgXwOBwHI+C45Htj1d6sd429TUNEcmUdc+PRaLHcvn87dXW4ugzdsaGxufL94NFv9zi1J7GVbhlvb2dnaJ3SVrxfc+n2+NTsZ7/H7/Mr3g5XdSIHyJSH1PZ+7fToyl2+ErqilgZ4NaLYB9goVGaHjR93Hv1ZrU4XDsFT20kH3PObzbWk0CgG1jacVIUnAQb9F+VexyLMzkpcLv0IJV7AHQIOCAUYHx7v5qgScmYHtTqSAyZLEJTK22Bie4iq3xsqpm4SAf9Hq9a2DnJ4uLK3SEULcdRvp3i3zHySqpficxEdsQc1NrlYXXvR+O7qASSezXB+h1SuUomgg9LL8BUoV4749EIolKh+EiqWmqVEZlDgHks2pxHw7xTqUQw9J5NcAXOK10AGIoZ6Zli6JY6Z1Q461KoZ4NiKLHarW+KDsxlDUPHZ5zPQZqUVDPJsTqb5n9malbpAh8C2XXDLl62+WZIDFRUlNVOiwencnNU3aQEkL+cDMSoLvZo2fQB7AJssNAuFuvorlDVVkkg2I87+jo2K2QAVphDrfyViK5VqtO34OkaxXCp+7drdDBCAdubm6eidX+2WwqT5komwh4YQLk+H4aE93h8Xg2gvHekQZOGSgLZTLyDTLJ4Lx9/KZWKBSainT4Iy3FqQBfnUZR42PKQFksBr9QKVXCPusD3OiA/RkQ5kP8qV/Jl1WywAp/6+dcmPM2zL1UrUahe4JqfnWWKXIul3uUbfP8njAFLW1OFr3gdFtZ72cNH+PtQT7/brW+NXqJAHh0y9V8/U/A1U7AfwIMAD7mS3pCbuWJAAAAAElFTkSuQmCC"&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div></section><section id="api-4-data-opvragen"><h3 id="x3-5-api-4-data-opvragen"><bdi class="secno">3.5 </bdi>API 4 - data opvragen<a class="self-link" aria-label="§" href="#api-4-data-opvragen"></a></h3><p>Op dezelfde manier het insturen van data kan de data ook weer worden opgevraad. De POST-requests veranderen in GET-requests:<br><code>GET /surveys?query_params</code>
+<code>GET /staticdata?query_params</code>
+<code>GET /dynamicdata?query_params</code></p><p>De <code>query_params</code> dienen als zoekopdrachten, zodat heel specifiek naar data gezocht kan worden. Dat kan op diverse manieren. De datastandaard stelt een minimaal aantal zoekopties verplicht:</p><p><strong>Filter op diepte</strong><br>Gedetailleerde informatie over de bezetting geeft behoorlijk grote bomen, die niet voor iedere analist van deze data even interessant is. Als deze analist de waarnemingen van een stationsstalling door de tijd opvraagt, kunnen de responsen enorm groot worden. Als 90% van de data voor de analist niet relevant is, is dit natuurlijk onzinnig.
+Daarom stelt de datastandaard een beperkt aantal zoekfunctionaliteiten verplicht. De belangrijkste van deze is dat je de mate van detail, de diepte (depth), bij een zoekopdracht kunt  aangeven aan de API. 
+Stel dat in het dataportal de meest gedetailleerde boom is opgeslagen:  </p><p>Als een analist alleen geïnteresseerd is in de bezetting van de totale stalling, vraagt hij data op op diepte 1. De API geeft hem dan dit resultaat:  </p><p>Als een stalling iedere 2 minuten data opslaat en een analist vraagt de data op van een hele maand, scheelt dat uiteraard enorm in de datastroom en daarmee in de performance van de API.  </p><p><strong>Filter op inhoud</strong><br>Om data-analisten te helpen hun weg te vinden in de gestaag groeiende data van een dataportal, stelt de datastandaard een aantal zoekfunctionaliteiten verplicht. Zo moet een er minimaal gefilterd kunnen worden op:  </p><ul>
+<li>Data binnen een bepaalde tijdspanne (startDate, endDate)</li>
+<li>Data van een bepaalde secties (sectionId)</li>
+<li>Data van een bepaald onderzoek (surveyId)</li>
+<li>Data van een bepaalde opdrachtgever (authorityId)</li>
+<li>Data van een bepaalde dataleverancier (contractorId)</li>
+<li>Data binnen een bepaalde geo-polygoon of geo-punt + radius</li>
+</ul><p>Deze filters moeten met elkaar gecombineerd kunnen worden.  </p><p>De praktijk moet uitwijzen of deze lijst voldoende is om aan alle wensen van de data-analisten te voldoen. Indien nodig zullen er meer zoekfuncties aan deze lijst worden toegevoegd.  </p><p><strong>Filter op tijdspanne</strong><br>Gebruik bij het zoeken de url-parameters startDate en endData. Tijdstippen worden altijd doorgegeven in [<cite><a class="bibref" data-link-type="biblio" href="#bib-iso8601" title="Representation of dates and times. ISO 8601:2004.">ISO8601</a></cite>] timestamp formaat.<br>Dus:<br><code>?startDate=2020-01-01T0:00:00&amp;endDate=2020-02-01T0:00:00</code>  </p><p><strong>Filter op sectie</strong><br>Als een analist alleen data wil van een bepaald fietstype, bijvoorbeeld gewone fietsen:<br><code>?sectionID=:sectionID</code><br>Of meerdere secties:<br><code>?sectionID=sectionID1,sectionID2,sectionID3</code>  </p><p><strong>Filter op onderzoek</strong><br>Data die ingestuurd wordt door een dataleverancier kan worden voorzien van een onderzoeksID (surveyID). Als deze ID gegeven is, is het uiteraard mogelijk hierop te filteren:<br><code>?surveyID=:surveyID</code>  </p><p><strong>Filter op opdrachtgever</strong><br>Hetzelfde idee al filteren op onderzoek: als de data voorzien is van de ID van een opdrachtgever, kan hierop gefilterd worden:<br><code>?authorityID=:authorityID</code>  </p><p><strong>Filter op dataleverancier</strong><br>De dataportal kan de data die wordt ingestuurd voorzien van de ID van de leverancier van deze data. Als dat gebeurt, kan er uiteraard gezocht worden op dit ID:<br><code>?contractorID=:contractorId</code>  </p><p><strong>Geo zoekopdrachten</strong>
+Als de statische data van secties is voorzien van exacte geo-coördinaten, moeten deze secties gevonden kunnen worden aan de van een geo-zoekopdracht.  </p><p><strong>Filter op geo-data: polygoon</strong><br>Geef een polygoon mee in de query, aan de hand waarvan de corresponderende secties worden gezocht.<br>Er zijn twee manieren voor deze query:  </p><ul>
+<li>zoek secties die de gegeven polygoon overlappen: relation=intersects. Dit is de default.<br><code>?geopolygon=4.895168,52.370216,4.895168,53.370216,5.895168,53.370216,4.895168,52.370216&amp;relation=intersects</code>  </li>
+<li>zoek secties die geheel binnen de gegeven polygoon vallen: relation=within.<br><code>?geopolygon=4.895168,52.370216,4.895168,53.370216,5.895168,53.370216,4.895168,52.370216&amp;relation=within</code>  </li>
+</ul><p><strong>Sorteren</strong>
+Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de parameters <code>orderBy</code> en <code>orderDirection</code>:<br><code>dynamicdata?orderBy=timestamp&amp;orderDirection=ASC</code> - sorteert op timestamp van oudste naar nieuwste<br><code>dynamicdata?orderBy=count.numberOfVehicles&amp;orderDirection=DESC</code> - sorteert op aantal voertuigen van hoog naar laag  </p></section><section id="een-overzicht-van-alle-query-parameters"><h3 id="x3-6-een-overzicht-van-alle-query-parameters"><bdi class="secno">3.6 </bdi>Een overzicht van alle query parameters<a class="self-link" aria-label="§" href="#een-overzicht-van-alle-query-parameters"></a></h3><div class="overlarge"><table class="data">
+<thead>
+<tr>
+<th>param</th>
+<th>type</th>
+<th>values</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>surveyid</code></td>
+<td>string</td>
+<td>Alleen data van dit onderzoek</td>
+</tr>
+<tr>
+<td><code>authorityid</code></td>
+<td>string</td>
+<td>Alleen data van deze opdrachtgever</td>
+</tr>
+<tr>
+<td><code>contarctorid</code></td>
+<td>string</td>
+<td>Alleen data van deze dataleverancier</td>
+</tr>
+<tr>
+<td><code>depth</code></td>
+<td>number</td>
+<td>Aantal te bevragen sectie-lagen vanaf gegeven pad  default = 1</td>
+</tr>
+<tr>
+<td><code>startdate</code></td>
+<td>UTC timestamp</td>
+<td>Selectie op timestamp. Section.timestamp &gt;= startDate</td>
+</tr>
+<tr>
+<td><code>enddate</code></td>
+<td>UTC timestamp</td>
+<td>Selectie op timestamp. Section.timestamp &lt;= endDate</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>geopolygon</code></td>
+<td>list met coördinaten</td>
+<td>lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1</td>
+</tr>
+<tr>
+<td><code>georelation</code></td>
+<td>string</td>
+<td>'intersects' (default) of 'within'</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>orderBy</code></td>
+<td>string</td>
+<td>veldnaam waarop gesorteerd wordt</td>
+</tr>
+<tr>
+<td><code>orderDirection</code></td>
+<td>string</td>
+<td>ASC (default) of DESC, in combinatie met orderBy</td>
+</tr>
+
+</tbody></table></div><p>Query-params dienen hoofdletterongevoelig te zijn, dus authorityid=abc is hetzelfde als authorityID=abc</p></section><section id="api-5-realtime-data-lezen-vanuit-dataportal-voor-t-b-v-webapplicaties"><h3 id="x3-7-api-5-realtime-data-lezen-vanuit-dataportal-voor-t-b-v-webapplicaties"><bdi class="secno">3.7 </bdi>API 5 - realtime data lezen vanuit dataportal voor t.b.v. webapplicaties<a class="self-link" aria-label="§" href="#api-5-realtime-data-lezen-vanuit-dataportal-voor-t-b-v-webapplicaties"></a></h3><p>Gebruikers van API 5 - de datastroom tussen het dataportal en de webapplicaties - zijn vooral geïnteresseerd in realtime data. Per secties dus slechts één resultaat. Door <em>latest</em> op te nemen in de url weet de API dat het om een dergelijk request gaat.<br>Het gaat in de <em>latest</em>-requests altijd om dynamicdata, dus die kan worden weggelaten uit het pad</p></section></section>
+<section class="informative" data-format="markdown" id="voorbeelden"><h2 id="x4-voorbeelden"><bdi class="secno">4. </bdi>Voorbeelden<a class="self-link" aria-label="§" href="#voorbeelden"></a></h2><p><em>Dit onderdeel is niet normatief.</em></p><section id="ophalen-van-alle-data-van-een-bepaald-onderzoek"><h3 id="x4-1-ophalen-van-alle-data-van-een-bepaald-onderzoek"><bdi class="secno">4.1 </bdi>Ophalen van alle data van een bepaald onderzoek<a class="self-link" aria-label="§" href="#ophalen-van-alle-data-van-een-bepaald-onderzoek"></a></h3><p><code>GET /surveys?surveyId=0202_2020</code><br><a href="./examples/API4/GET_survey.json">Response</a>  </p><div class="example" id="example-9">
+        <div class="marker">
+    <a class="self-link" href="#example-9">Voorbeeld<bdi> 9</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"result"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"authority"</span>: {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Gemeente Arnhem"</span>
+            },
+            <span class="hljs-attr">"contractors"</span>: [
+                {
+                    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"defietsenstellers"</span>,
+                    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"De Fietstellers BV"</span>
+                }
+            ],
+            <span class="hljs-attr">"geoLocation"</span>: {
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"multipolygon"</span>, 
+                <span class="hljs-attr">"coordinates"</span>:  [
+                    [
+                        [
+                            [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>],
+                            [<span class="hljs-number">5.90808</span>,<span class="hljs-number">51.98171</span>],
+                            [<span class="hljs-number">5.90924</span>,<span class="hljs-number">51.98199</span>],
+                            [<span class="hljs-number">5.90921</span>,<span class="hljs-number">51.98202</span>],
+                            [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>]
+                        ]
+                    ],
+                    [
+                        [
+                            [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>],
+                            [<span class="hljs-number">5.90808</span>,<span class="hljs-number">51.98171</span>],
+                            [<span class="hljs-number">5.90924</span>,<span class="hljs-number">51.98199</span>],
+                            [<span class="hljs-number">5.90921</span>,<span class="hljs-number">51.98202</span>],
+                            [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>]
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}</code></pre>
+      </div></section><section id="ophalen-van-de-statische-data-van-een-bepaald-onderzoek"><h3 id="x4-2-ophalen-van-de-statische-data-van-een-bepaald-onderzoek"><bdi class="secno">4.2 </bdi>Ophalen van de statische data van een bepaald onderzoek<a class="self-link" aria-label="§" href="#ophalen-van-de-statische-data-van-een-bepaald-onderzoek"></a></h3><p><code>GET /staticdata?surveyId=0202_2020</code><br><a href="./examples/API4/GET_static.json">Response</a>    </p><div class="example" id="example-10">
+        <div class="marker">
+    <a class="self-link" href="#example-10">Voorbeeld<bdi> 10</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"result"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Arnhem Ketelstraat oneven zijde"</span>,
+            <span class="hljs-attr">"geoLocation"</span>: {
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Polygon"</span>, 
+                <span class="hljs-attr">"coordinates"</span>:  [
+                    [
+                        [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>],
+                        [<span class="hljs-number">5.90808</span>,<span class="hljs-number">51.98171</span>],
+                        [<span class="hljs-number">5.90924</span>,<span class="hljs-number">51.98199</span>],
+                        [<span class="hljs-number">5.90921</span>,<span class="hljs-number">51.98202</span>],
+                        [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>]
+                    ]
+                ]
+            }
+        }
+    ]
+}</code></pre>
+      </div></section><section id="ophalen-van-de-volledige-dynamische-data-van-een-bepaald-onderzoek"><h3 id="x4-3-ophalen-van-de-volledige-dynamische-data-van-een-bepaald-onderzoek"><bdi class="secno">4.3 </bdi>Ophalen van de volledige dynamische data van een bepaald onderzoek<a class="self-link" aria-label="§" href="#ophalen-van-de-volledige-dynamische-data-van-een-bepaald-onderzoek"></a></h3><p><code>GET /dynamicdata?surveyId=0202_2020&amp;depth=4</code><br><a href="./examples/API4/GET_dynamic_depth4.json">Response</a>  </p><div class="example" id="example-11">
+        <div class="marker">
+    <a class="self-link" href="#example-11">Voorbeeld<bdi> 11</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"result"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T11:45:00"</span>,
+            <span class="hljs-attr">"sections"</span>: [
+                {
+                    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"trottoir"</span>,
+                    <span class="hljs-attr">"sections"</span>: [
+                        {
+                            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_1"</span>,
+                            <span class="hljs-attr">"parkingCapacityTimestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+                            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">5</span>,
+                            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">4</span>,
+                            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">1</span>,
+                            <span class="hljs-attr">"space"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"v"</span>,
+                                <span class="hljs-attr">"vehicles"</span>: [
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                    },
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"s"</span>
+                                    }
+                                ]
+                            },
+                            <span class="hljs-attr">"count"</span>: [
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">1</span>
+                                }
+                            ]
+                        },
+                        {
+                            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_2"</span>,
+                            <span class="hljs-attr">"parkingCapacityTimestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+                            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">80</span>,
+                            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">10</span>,
+                            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">70</span>,
+                            <span class="hljs-attr">"space"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-number">2</span>,
+                                <span class="hljs-attr">"vehicles"</span>: [
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    }
+                                ]
+                            },
+                            <span class="hljs-attr">"count"</span>: [
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-number">2</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                                },
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">65</span>
+                                }
+                            ]
+                        },
+                        {
+                            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_3"</span>,
+                            <span class="hljs-attr">"parkingCapacityTimestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+                            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">60</span>,
+                            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">40</span>,
+                            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">20</span>,
+                            <span class="hljs-attr">"space"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-number">1</span>,
+                                <span class="hljs-attr">"vehicles"</span>: [
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    }
+                                ]
+                            },
+                            <span class="hljs-attr">"count"</span>: [
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">19</span>
+                                },
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">1</span>
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"sections"</span>: [
+                {
+                    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"trottoir"</span>,
+                    <span class="hljs-attr">"sections"</span>: [
+                        {
+                            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_1"</span>,
+                            <span class="hljs-attr">"parkingCapacityTimestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+                            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">5</span>,
+                            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">4</span>,
+                            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">1</span>,
+                            <span class="hljs-attr">"space"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"r"</span>,
+                                <span class="hljs-attr">"vehicles"</span>: [
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                    },
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"s"</span>
+                                    }
+                                ]
+                            },
+                            <span class="hljs-attr">"count"</span>: [
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">1</span>
+                                }
+                            ]
+                        },
+                        {
+                            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_2"</span>,
+                            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">80</span>,
+                            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">10</span>,
+                            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">70</span>,
+                            <span class="hljs-attr">"space"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"r"</span>,
+                                <span class="hljs-attr">"vehicles"</span>: [
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    }
+                                ]
+                            },
+                            <span class="hljs-attr">"count"</span>: [
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                                },
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">65</span>
+                                }
+                            ]
+                        },
+                        {
+                            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_3"</span>,
+                            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">60</span>,
+                            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">40</span>,
+                            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">20</span>,
+                            <span class="hljs-attr">"space"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"r"</span>,
+                                <span class="hljs-attr">"vehicles"</span>: [
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    }
+                                ]
+                            },
+                            <span class="hljs-attr">"count"</span>: [
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">19</span>
+                                },
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">1</span>
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}</code></pre>
+      </div></section><section id="ophalen-van-de-beknopte-dynamische-data-van-een-bepaald-onderzoek"><h3 id="x4-4-ophalen-van-de-beknopte-dynamische-data-van-een-bepaald-onderzoek"><bdi class="secno">4.4 </bdi>Ophalen van de beknopte dynamische data van een bepaald onderzoek<a class="self-link" aria-label="§" href="#ophalen-van-de-beknopte-dynamische-data-van-een-bepaald-onderzoek"></a></h3><p><code>GET /dynamicdata?surveyId=0202_2020</code>  </p><div class="example" id="example-12">
+        <div class="marker">
+    <a class="self-link" href="#example-12">Voorbeeld<bdi> 12</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"result"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">145</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">54</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">91</span>,
+            <span class="hljs-attr">"count"</span>: [
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">2</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">84</span>
+                }
+            ]
+        },
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">145</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">54</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">91</span>,
+            <span class="hljs-attr">"count"</span>: [
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">2</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">84</span>
+                }
+            ]
+        },
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_even"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">5</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">4</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">1</span>
+        }
+    ]
+}</code></pre>
+      </div><p>De default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op de wortel van de sectieboom.<br>Alleen dynamische data, want de parameter <em>data</em> is niet gegeven en de defaultwaarde is 'dynamic'.  </p></section><section id="opvragen-van-data-van-een-bepaalde-sectie-in-een-gegeven-periode"><h3 id="x4-5-opvragen-van-data-van-een-bepaalde-sectie-in-een-gegeven-periode"><bdi class="secno">4.5 </bdi>Opvragen van data van een bepaalde sectie in een gegeven periode<a class="self-link" aria-label="§" href="#opvragen-van-data-van-een-bepaalde-sectie-in-een-gegeven-periode"></a></h3><p><code>GET /dynamicdata?sectionId=arnhem_ketelstraat_oneven&amp;startDate=2020-11-23T0:00:00&amp;endDate=2020-11-24T0:00:00</code><br><a href="./examples/API4/GET_dynamic_depth1_single_section.json">Response</a>  </p><div class="example" id="example-13">
+        <div class="marker">
+    <a class="self-link" href="#example-13">Voorbeeld<bdi> 13</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"result"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">145</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">54</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">91</span>,
+            <span class="hljs-attr">"count"</span>: [
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">2</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">84</span>
+                }
+            ]
+        },
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">145</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">54</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">91</span>,
+            <span class="hljs-attr">"count"</span>: [
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">2</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">84</span>
+                }
+            ]
+        }
+    ]
+}</code></pre>
+      </div></section><section id="opvragen-van-statische-data-in-een-bepaald-gebied-in-een-cirkel-met-straat-1km-vanaf-een-gegeven-punt"><h3 id="x4-6-opvragen-van-statische-data-in-een-bepaald-gebied-in-een-cirkel-met-straat-1km-vanaf-een-gegeven-punt"><bdi class="secno">4.6 </bdi>Opvragen van statische data in een bepaald gebied, in een cirkel met straat 1km vanaf een gegeven punt<a class="self-link" aria-label="§" href="#opvragen-van-statische-data-in-een-bepaald-gebied-in-een-cirkel-met-straat-1km-vanaf-een-gegeven-punt"></a></h3><p><code>GET /dynamicdata?geoPoint=5.90802,51.98173,1000</code><br><a href="./examples/API4/GET_static.json">Response</a>  </p><div class="example" id="example-14">
+        <div class="marker">
+    <a class="self-link" href="#example-14">Voorbeeld<bdi> 14</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"result"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Arnhem Ketelstraat oneven zijde"</span>,
+            <span class="hljs-attr">"geoLocation"</span>: {
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Polygon"</span>, 
+                <span class="hljs-attr">"coordinates"</span>:  [
+                    [
+                        [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>],
+                        [<span class="hljs-number">5.90808</span>,<span class="hljs-number">51.98171</span>],
+                        [<span class="hljs-number">5.90924</span>,<span class="hljs-number">51.98199</span>],
+                        [<span class="hljs-number">5.90921</span>,<span class="hljs-number">51.98202</span>],
+                        [<span class="hljs-number">5.90802</span>,<span class="hljs-number">51.98173</span>]
+                    ]
+                ]
+            }
+        }
+    ]
+}</code></pre>
+      </div></section><section id="opvragen-van-statische-data-in-een-bepaald-gebied"><h3 id="x4-7-opvragen-van-statische-data-in-een-bepaald-gebied"><bdi class="secno">4.7 </bdi>Opvragen van statische data in een bepaald gebied<a class="self-link" aria-label="§" href="#opvragen-van-statische-data-in-een-bepaald-gebied"></a></h3><p><code>GET /dynamicdata?geoPolygon=52.370216,4.895168,53.370216,4.895168,53.370216,5.895168,52.370216,4.895168&amp;relation=within</code><br><a href="./examples/API4/GET_dynamic_depth1.json">Response</a>  </p><div class="example" id="example-15">
+        <div class="marker">
+    <a class="self-link" href="#example-15">Voorbeeld<bdi> 15</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"result"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">145</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">54</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">91</span>,
+            <span class="hljs-attr">"count"</span>: [
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">2</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">84</span>
+                }
+            ]
+        },
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">145</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">54</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">91</span>,
+            <span class="hljs-attr">"count"</span>: [
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">2</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">84</span>
+                }
+            ]
+        },
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_even"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">5</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">4</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">1</span>
+        }
+    ]
+}</code></pre>
+      </div><p><em>relation=within</em> geeft aan dat de gevonden secties zich volledig in de polygoon moeten bevinden  </p></section><section id="api-5-realtime-data-lezen-vanuit-dataportal-voor-t-b-v-webapplicaties-0"><h3 id="x4-8-api-5-realtime-data-lezen-vanuit-dataportal-voor-t-b-v-webapplicaties"><bdi class="secno">4.8 </bdi>API 5 - realtime data lezen vanuit dataportal voor t.b.v. webapplicaties<a class="self-link" aria-label="§" href="#api-5-realtime-data-lezen-vanuit-dataportal-voor-t-b-v-webapplicaties-0"></a></h3><p>Gebruikers van API 5 - de datastroom tussen het dataportal en de webapplicaties - zijn vooral geïnteresseerd in realtime data. Per secties dus slechts één resultaat. Door <em>latest</em> op te nemen in de url weet de API dat het om een dergelijk request gaat.<br>Het gaat in de <em>latest</em>-requests altijd om dynamicdata, dus die kan worden weggelaten uit het pad</p><section id="ophalen-van-de-huidige-bezetting-van-een-bepaalde-sectie-tot-op-voorzieningsnivea"><h4 id="x4-8-1-ophalen-van-de-huidige-bezetting-van-een-bepaalde-sectie-tot-op-voorzieningsnivea"><bdi class="secno">4.8.1 </bdi>Ophalen van de huidige bezetting van een bepaalde sectie tot op voorzieningsnivea<a class="self-link" aria-label="§" href="#ophalen-van-de-huidige-bezetting-van-een-bepaalde-sectie-tot-op-voorzieningsnivea"></a></h4><p><code>GET /latest?sectionId=arnhem_ketelstraat_oneven&amp;depth=4</code><br><a href="./examples/API5/GET_dynamic_depth4.json">Response</a>  </p><div class="example" id="example-16">
+        <div class="marker">
+    <a class="self-link" href="#example-16">Voorbeeld<bdi> 16</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"result"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"sections"</span>: [
+                {
+                    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"trottoir"</span>,
+                    <span class="hljs-attr">"sections"</span>: [
+                        {
+                            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_1"</span>,
+                            <span class="hljs-attr">"parkingCapacityTimestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+                            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">5</span>,
+                            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">4</span>,
+                            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">1</span>,
+                            <span class="hljs-attr">"space"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"r"</span>,
+                                <span class="hljs-attr">"vehicles"</span>: [
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                    },
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"s"</span>
+                                    }
+                                ]
+                            },
+                            <span class="hljs-attr">"count"</span>: [
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">1</span>
+                                }
+                            ]
+                        },
+                        {
+                            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_2"</span>,
+                            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">80</span>,
+                            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">10</span>,
+                            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">70</span>,
+                            <span class="hljs-attr">"space"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"r"</span>,
+                                <span class="hljs-attr">"vehicles"</span>: [
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    }
+                                ]
+                            },
+                            <span class="hljs-attr">"count"</span>: [
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                                },
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">65</span>
+                                }
+                            ]
+                        },
+                        {
+                            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rek_3"</span>,
+                            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">60</span>,
+                            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">40</span>,
+                            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">20</span>,
+                            <span class="hljs-attr">"space"</span>: {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"r"</span>,
+                                <span class="hljs-attr">"vehicles"</span>: [
+                                    {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    }
+                                ]
+                            },
+                            <span class="hljs-attr">"count"</span>: [
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">19</span>
+                                },
+                                {
+                                    <span class="hljs-attr">"vehicle"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                                    },
+                                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">1</span>
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}</code></pre>
+      </div></section><section id="opvragen-van-beknopte-data-depth-1-van-een-bepaalde-sectie"><h4 id="x4-8-2-opvragen-van-beknopte-data-depth-1-van-een-bepaalde-sectie"><bdi class="secno">4.8.2 </bdi>Opvragen van beknopte data (depth=1) van een bepaalde sectie<a class="self-link" aria-label="§" href="#opvragen-van-beknopte-data-depth-1-van-een-bepaalde-sectie"></a></h4><p><code>GET /latest?sectionId=arnhem_ketelstraat_oneven</code><br><a href="./examples/API5/GET_dynamic_depth1_single_section.json">Response</a>  </p><div class="example" id="example-17">
+        <div class="marker">
+    <a class="self-link" href="#example-17">Voorbeeld<bdi> 17</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"result"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">145</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">54</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">91</span>,
+            <span class="hljs-attr">"count"</span>: [
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">2</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">84</span>
+                }
+            ]
+        },
+        {
+            <span class="hljs-attr">"sectionId"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">145</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">54</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">91</span>,
+            <span class="hljs-attr">"count"</span>: [
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">2</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">84</span>
+                }
+            ]
+        }
+    ]
+}</code></pre>
+      </div></section><section id="opvragen-van-data-in-een-bepaald-gebied-in-een-cirkel-met-straal-200m-vanaf-een-gegeven-punt"><h4 id="x4-8-3-opvragen-van-data-in-een-bepaald-gebied-in-een-cirkel-met-straal-200m-vanaf-een-gegeven-punt"><bdi class="secno">4.8.3 </bdi>Opvragen van data in een bepaald gebied, in een cirkel met straal 200m vanaf een gegeven punt<a class="self-link" aria-label="§" href="#opvragen-van-data-in-een-bepaald-gebied-in-een-cirkel-met-straal-200m-vanaf-een-gegeven-punt"></a></h4><p><code>GET /latest?geopoint=5.90802,51.98173,200</code><br><a href="./examples/API5/GET_dynamic_depth1.json">Response</a>  </p><div class="example" id="example-18">
+        <div class="marker">
+    <a class="self-link" href="#example-18">Voorbeeld<bdi> 18</bdi></a>
+  </div> <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"result"</span>: [
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">145</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">54</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">91</span>,
+            <span class="hljs-attr">"count"</span>: [
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">2</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">84</span>
+                }
+            ]
+        },
+        {
+            <span class="hljs-attr">"sectionId"</span>: <span class="hljs-string">"arnhem_ketelstraat_oneven"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">145</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">54</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">91</span>,
+            <span class="hljs-attr">"count"</span>: [
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"b"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">2</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>,
+                        <span class="hljs-attr">"propulsion"</span>: <span class="hljs-string">"e"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">5</span>
+                },
+                {
+                    <span class="hljs-attr">"vehicle"</span>: {
+                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"f"</span>
+                    },
+                    <span class="hljs-attr">"numberOfVehicles"</span>: <span class="hljs-number">84</span>
+                }
+            ]
+        },
+        {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"arnhem_ketelstraat_even"</span>,
+            <span class="hljs-attr">"surveyId"</span>: <span class="hljs-string">"0202_2020"</span>,
+            <span class="hljs-attr">"contractorId"</span>: <span class="hljs-string">"DeFietstellers"</span>,
+            <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2020-11-23T12:00:00"</span>,
+            <span class="hljs-attr">"parkingCapacity"</span>: <span class="hljs-number">5</span>,
+            <span class="hljs-attr">"vacantSpaces"</span>: <span class="hljs-number">4</span>,
+            <span class="hljs-attr">"occupiedSpaces"</span>: <span class="hljs-number">1</span>
+        }
+    ]
+}</code></pre>
+      </div><p><strong>Enige algemene endpoints ten behoeve van ontwikkeling GUI's</strong>
+Een overzicht van alle organisaties<br><code>GET /organisations</code></p><p>Eén organisatie<br><code>GET /organisations/defietsentellers</code></p><p>Een overzicht van alle organisaties die tellingen hebben laten uitvoeren<br><code>GET /authorities</code></p><p>Een overzicht van alle organisaties die tellingen hebben uitgevoerd<br><code>GET /contractors</code></p></section></section><section id="praktijkvoorbeelden-van-dynamische-data"><h3 id="x4-9-praktijkvoorbeelden-van-dynamische-data"><bdi class="secno">4.9 </bdi>Praktijkvoorbeelden van dynamische data<a class="self-link" aria-label="§" href="#praktijkvoorbeelden-van-dynamische-data"></a></h3><p>Afbeeldingen zeggen vaak meer dan woorden. Daarom een tweetal voorbeelden met afbeeldingen, die de essentie van de datastandaard direct duidelijk maken.</p><section id="straattelling"><h4 id="x4-9-1-straattelling"><bdi class="secno">4.9.1 </bdi>Straattelling<a class="self-link" aria-label="§" href="#straattelling"></a></h4><p>In de <em>Dorpsstraat</em>, te <em>Ons Dorp</em>,  staat een fietsenrek met 8 plekken, waarin 3 fietsen staan. 
+1 fiets staat naast het rek en twee fietsen staan tegen de gevel van een gebouw.  </p><figure id="fig-waarneming-dorpsstraat">
+<img alt="Dorpsstraat" src="../images/dorpsstraat-waarneming.drawio.svg" height="232" width="641">
+<figcaption>Figuur <bdi class="figno">2</bdi> <span class="fig-title">Waarneming Dorpsstraat</span></figcaption>
+</figure><p>De straat is een sectie. 
+Deze exacte locatie daarvan wordt vastgelegd in de statische data, bijvoorbeeld:  </p><pre><code class="json hljs" aria-busy="false">"id": "Dorpsstraat_OnsDorp"
+"naam": "Dorpsstraat"
+"geoLocation": "Polygon[ hier een reeks coördinaten ]  "</code></pre><div class="issue" id="issue-container-number-1"><div role="heading" class="issue-title marker" id="h-issue" aria-level="5"><span>Issue 1</span></div><div class="">
+
+<p>Moet bij <code>geoLocation</code> een volgende JSON-object worden ingevoegd? Want hoe het hierboven staat, lijkt het eerder een WKT-string.</p>
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Feature"</span>,
+  <span class="hljs-attr">"geometry"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Polygon"</span>,
+      <span class="hljs-attr">"coordinates"</span>: [
+          [
+              [<span class="hljs-number">100.0</span>, <span class="hljs-number">0.0</span>],
+              [<span class="hljs-number">101.0</span>, <span class="hljs-number">0.0</span>],
+              [<span class="hljs-number">101.0</span>, <span class="hljs-number">1.0</span>],
+              [<span class="hljs-number">100.0</span>, <span class="hljs-number">1.0</span>],
+              [<span class="hljs-number">100.0</span>, <span class="hljs-number">0.0</span>]
+          ]
+      ]
+  },
+}</code></pre>
+</div></div><p>De dynamische data kan er visueel zo uit zien, als de tellers zeer gedetailleerd te werk gaan. Zo kan bijvoorbeeld zelfs worden aangegeven dat één van de fietsen in het rek een lekke band heeft.</p><figure id="fig-dorpsstraat-volledig">
+<img src="../images/dorpsstraat-volledig.drawio.svg" alt="Dorpsstraat volledig" height="281" width="441">
+<figcaption>Figuur <bdi class="figno">3</bdi> <span class="fig-title">Dorpsstraat volledig</span></figcaption>
+</figure><p>Echter, in de praktijk zal een telling er misschien eerder zo uit zien:</p><figure id="fig-dorpsstraat-telling-op-fietstype">
+<img src="../images/dorpsstraat-zonderfietstype.drawio.svg" alt="Dorpsstraat telling op fietstype" height="281" width="441">
+<figcaption>Figuur <bdi class="figno">4</bdi> <span class="fig-title">Dorpsstraat telling op fietstype</span></figcaption>
+</figure><p>Of zelfs nog eenvoudiger, in geval van een weinig gedetailleerde telling:</p><figure id="fig-dorpsstraat-sectie">
+<img src="../images/dorpsstraat-zondersectie.drawio.svg" alt="Dorpsstraat sectie" height="181" width="441">
+<figcaption>Figuur <bdi class="figno">5</bdi> <span class="fig-title">Dorpsstraat sectie</span></figcaption>
+</figure><p>Voor bepaalde analysedoeleinden is het grijze blokje telling zelfs niet eens zo interessant. Met de juiste zoekopdrachten in de API kan een respons als deze volstaan, zelfs als de meest gedetailleerde telling is opgeslagen:</p><figure id="fig-dorpsstraat-beknopt">
+<img src="../images/dorpsstraat-beknopt.drawio.svg" alt="Dorpsstraat beknopt" height="71" width="441">
+<figcaption>Figuur <bdi class="figno">6</bdi> <span class="fig-title">Dorpsstraat beknopt</span></figcaption>
+</figure></section><section id="stationsstalling"><h4 id="x4-9-2-stationsstalling"><bdi class="secno">4.9.2 </bdi>Stationsstalling<a class="self-link" aria-label="§" href="#stationsstalling"></a></h4><p>Prorail beheert een groot aantal stationsstallingen in Nederland en laat deze automatisch tellen door sensoren in de rekken (HBF). 
+Een typische Prorailstalling is opgedeeld in rijen. 
+Iedere rij heeft een aantal voorzieningen met lage en hoge rekken. 
+In dit voorbeeld heb ik er een sectie met bromfietsvlakken bijgetekend, iets wat Prorail-stallingen ongetwijfeld zullen hebben, maar waarop vooralsnog geen geautomatiseerde tellingen op plaatsvinden.  </p><figure id="fig-stationsstalling">
+<img alt="Stationsstalling" src="../images/stationsstalling-waarneming.drawio.svg" height="602" width="602">
+<figcaption>Figuur <bdi class="figno">7</bdi> <span class="fig-title">Stationsstalling</span></figcaption>
+</figure><p>Dit ziet er in de datastandaard zo uit:  </p><figure id="fig-stationsstalling-volledig">
+<img alt="Stationsstalling volledig" src="../images/stationsstalling-volledig.drawio.svg" height="378" width="800">
+<figcaption>Figuur <bdi class="figno">8</bdi> <span class="fig-title">Stationsstalling volledig</span></figcaption>
+</figure><section id="data-opvragen"><h5 id="x4-9-2-1-data-opvragen"><bdi class="secno">4.9.2.1 </bdi>Data opvragen<a class="self-link" aria-label="§" href="#data-opvragen"></a></h5><p>Je kunt talloze manieren bedenken waarop een analist de data wil doorzoeken. De vraag daarbij is in hoeverre deze functionaliteit de dataportal moet worden ondersteund. De analist kan na opvraag van de complete dataset uiteraard ook zelf de data uitpluizen. 
+Als er in de dataportal metingen tot op het grootste detailniveau zijn opgeslagen, zoals bovenstaande voorbeeld, dan kunnen datasets door de tijd heen en enorm groot worden. Dat is zeker het geval als het gaat om automatische tellingen die meerdere keren per uur worden ingestuurd, Enige filtermogelijkheden in de dataportal is dan geen slechte benadering. 
+Daarom stelt de dataportal enkele zoekfunctionaliteiten verplicht voor de dataportals.</p></section><section id="filter-op-diepte"><h5 id="x4-9-2-2-filter-op-diepte"><bdi class="secno">4.9.2.2 </bdi>Filter op diepte<a class="self-link" aria-label="§" href="#filter-op-diepte"></a></h5><p>Gedetailleerde informatie over de bezetting geeft behoorlijk grote bomen, die niet voor iedere analist van deze data even interessant is. Als deze analist de waarnemingen van een stationsstalling door de tijd opvraagt, kunnen de responsen enorm groot worden. Als 90% van de data voor de analist niet relevant is, is dit natuurlijk onzinnig.
+Daarom stelt de datastandaard een beperkt aantal zoekfunctionaliteiten verplicht. De belangrijkste van deze is dat je de mate van detail, de diepte (depth), bij een zoekopdracht kunt  aangeven aan de API. 
+Stel dat in het dataportal de meest gedetailleerde boom is opgeslagen:</p><figure id="fig-stationsstalling-volledig-0">
+<img alt="Stationsstalling volledig" src="../images/stationsstalling-volledig.drawio.svg" height="378" width="800">
+<figcaption>Figuur <bdi class="figno">9</bdi> <span class="fig-title">Stationsstalling volledig</span></figcaption>
+</figure><p>Als een analist alleen geïnteresseerd is in de bezetting van de totale stalling, vraagt hij data op op diepte 1. De API geeft hem dan dit resultaat:  </p><figure id="fig-stationsstalling-beknopt">
+<img alt="Stationsstalling beknopt" src="../images/stationsstalling-beknopt.drawio.svg" height="63" width="800">
+<figcaption>Figuur <bdi class="figno">10</bdi> <span class="fig-title">Stationsstalling beknopt</span></figcaption>
+</figure><p>Als een stalling iedere 2 minuten data opslaat en een analist vraagt de data op van een hele maand, scheelt dat uiteraard enorm in de datastroom en daarmee in de performance van de API.</p></section></section></section></section>
+<section class="informative" data-format="markdown" id="beveiliging"><h2 id="x5-beveiliging"><bdi class="secno">5. </bdi>Beveiliging<a class="self-link" aria-label="§" href="#beveiliging"></a></h2><p><em>Dit onderdeel is niet normatief.</em></p><p>Waarschijnlijk wil een dataportal het gebruik van de API beveiligen, zeker als het gaat om het insturen van data (de POST-requests van API 3).
+Om discussies over de voor- en nadelen van diverse authenticatie-protocollen te voorkomen, schrijft de datastandaard niet voor op welke manier deze beveiliging uitgevoerd dient te worden.  </p><p>Het is aan te raden om <code>authorityId</code> en <code>contractorId</code> te gebruiken als authenticatie. Deze id's kunnen dan dienen om de ingestuurde data te labellen en daar zoekopdrachten aan te koppelen. Als bijvoorbeelde contractor met id <code>de_fietstellers_bv</code> dynamische data instuurt, kan elke sectie uitgebreid worden met een veld <code>contractorId</code> met de waarde <code>de_fietstellers_bv</code>.</p></section>
+    
+<section class="appendix" id="issue-summary">
+<h2 id="a-gerefereerde-github-issues"><bdi class="secno">A. </bdi>Gerefereerde GitHub issues<a class="self-link" aria-label="§" href="#issue-summary"></a></h2>
+<ul><li><a href="#issue-container-number-1">Issue 1</a></li></ul></section>
+<section id="references" class="appendix"><h2 id="b-referenties"><bdi class="secno">B. </bdi>Referenties<a class="self-link" aria-label="§" href="#references"></a></h2><section id="normatieve-referenties">
+    <h3 id="b-1-normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties<a class="self-link" aria-label="§" href="#normatieve-referenties"></a></h3>
+    <dl class="bibliography"><dt id="bib-iso8601">[ISO8601]</dt><dd><a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874"><cite>Representation of dates and times. ISO 8601:2004.</cite></a>.  International Organization for Standardization (ISO). 2004. ISO 8601:2004. URL: <a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874">http://www.iso.org/iso/catalogue_detail?csnumber=40874</a></dd><dt id="bib-rfc7946">[rfc7946]</dt><dd><a href="https://tools.ietf.org/html/rfc7946"><cite>The GeoJSON Format</cite></a>. H. Butler; M. Daly; A. Doyle; S. Gillies; S. Hagen; T. Schaub.  IETF. August 2016. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc7946">https://tools.ietf.org/html/rfc7946</a></dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(dfnPanel);
+} else {
+  dfnPanel();
+}
+
+function dfnPanel() {
+  /** @type {HTMLElement} */
+  let panel;
+  document.body.addEventListener("click", event => {
+    if (!(event.target instanceof HTMLElement)) return;
+
+    /** @type {HTMLElement} */
+    const el = event.target;
+
+    const action = deriveAction(el);
+    switch (action) {
+      case "show": {
+        if (panel) hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = el.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        displayPanel(dfn, panel, { x: event.clientX, y: event.clientY });
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        break;
+      }
+    }
+  });
+}
+
+/** @param {HTMLElement} clickTarget */
+function deriveAction(clickTarget) {
+  const hitALink = !!clickTarget.closest("a");
+  if (clickTarget.closest("dfn, .index-term")) {
+    return hitALink ? null : "show";
+  }
+  if (clickTarget.closest(".dfn-panel")) {
+    if (hitALink) {
+      const clickedSelfLink = clickTarget.classList.contains("self-link");
+      return clickedSelfLink ? "hide" : "dock";
+    }
+    const panel = clickTarget.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : null;
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return null;
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://stichting-crow.github.io/respec-design/fixup.js"></script></body></html>
