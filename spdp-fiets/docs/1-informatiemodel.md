@@ -181,7 +181,7 @@ Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitg
 | Field               | Type                | Required               | Description                                                  |
 | ------------------- | ------------------- | ---------------------- | ------------------------------------------------------------ |
 |`isOpen`             | boolean             | no                     | is deze area, bijv. een stalling geopend?                    |
-|`isHliday`           | boolean             | no                     | Vakantie?                                                    |
+|`isHoliday`          | boolean             | no                     | Vakantie?                                                    |
 |`isEvent`            | boolean             | no                     | Evenement (markt, kermis, ...)?                              |
 |`isUnderConstruction`| boolean             | no                     | Werkzaamheden?                                               |
 |`remark`             | string              | no                     | Vrij tekstveld                                               |
