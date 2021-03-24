@@ -1,7 +1,7 @@
 {
     "result": [
         {
-            "id": "arnhem_ketelstraat_oneven",
+            "staticSectionId": "arnhem_ketelstraat_oneven",
             "surveyId": "0202_2020",
             "contractorId": "DeFietstellers",
             "timestamp": "2020-11-23T12:00:00",

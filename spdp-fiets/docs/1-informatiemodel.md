@@ -123,7 +123,7 @@ Bijvoorbeeld: Count[] betekent dat er meerdere telblokken in dit veld kunnen zit
 | `count`                   | Count[]             | no          | Verzameling van Count-objecten                      |
 | `space`                        | Space                   | no          | Alleen toegestaan in de bladeren van de sectieboom  |
 | `sections`                | DynamicSection[]    | no          | Verzameling van subsecties. Er zitten dus subsections in een subsection. Dit mag maximaal 3 lagen diep                          |
-| `notes`                   | Note                | no          | Notities over de meting in deze sectie                   |
+| `note`                   | Note                | no          | Notities over de meting in deze sectie                   |
 |{.data}
 
 De velden surveyId, authorityId en contractorId kunnen gebruikt worden bij het filteren van data bij de zoekopdrachten van de API's 4 en 5.
