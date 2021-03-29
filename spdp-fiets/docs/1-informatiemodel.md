@@ -159,6 +159,7 @@ Definiëring van een plek aan de hand van properties
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
 | `type`               | string             | no                     | Zie tabel vehicle.type                                       |
 | `propulsion`         | string[]           | no                     | Zie tabel vehicle.propulsion                                 |
+| `appearance`         | string             | no                     | Zie tabel vehicle.appearance                                 |
 | `state`              | VehicleState[]     | no                     | Zie tabel VehicleState                                      |
 | `parkState`          | string[]           | no                     | Zie tabel vehicle.parkState                                  |
 | `accessoires`        | Accessoire[]       | no                     | Zie tabel Accessoire                                |
@@ -249,6 +250,20 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | `s`  | Spierkracht     | bv traditionele fiets of voetganger                                            |
 | `e`  | Elektrisch      | bv e-bike                                                                      |
 | `b`  | Brandstof       | bv traditionele bromfiets, motorfiets                                          | 
+|{.data}
+
+#### vehicle.appearance
+| ID | Verschijningsvorm |
+| -- | --------------- |
+| `k`  | Kinderfiets    |
+| `r`  | Racefiets      | 
+| `l`  | Ligfiets       | 
+| `b`  | Bakfiets / Transportfiets       | 
+| `f`  | Fietskar       | 
+| `v`  | Vouwfiets       | 
+| `m`  | Mountainbike    | 
+| `d`  | Driewieler       | 
+| `t`  | Tandem       | 
 |{.data}
 
 #### vehicle.owner
