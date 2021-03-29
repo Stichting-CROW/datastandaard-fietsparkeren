@@ -106,34 +106,13 @@ In de *Dorpsstraat*, te *Ons Dorp*,  staat een fietsenrek met 8 plekken, waarin 
 De straat is een sectie. 
 Deze exacte locatie daarvan wordt vastgelegd in de statische data, bijvoorbeeld:  
 
+<div class='example'>
+
 ```json
 "id": "Dorpsstraat_OnsDorp"
 "naam": "Dorpsstraat"
-"geoLocation": "Polygon[ hier een reeks coördinaten ]  "
+"geoLocation": ...
 ```
-
-<div class='issue'>
-
-Moet bij `geoLocation` een volgende JSON-object worden ingevoegd? Want hoe het hierboven staat, lijkt het eerder een WKT-string.
-
-```json
-{
-  "type": "Feature",
-  "geometry": {
-      "type": "Polygon",
-      "coordinates": [
-          [
-              [100.0, 0.0],
-              [101.0, 0.0],
-              [101.0, 1.0],
-              [100.0, 1.0],
-              [100.0, 0.0]
-          ]
-      ]
-  },
-}
-```
-
 </div>
 
 De dynamische data kan er visueel zo uit zien, als de tellers zeer gedetailleerd te werk gaan. Zo kan bijvoorbeeld zelfs worden aangegeven dat één van de fietsen in het rek een lekke band heeft.

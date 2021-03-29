@@ -1,5 +1,5 @@
 ## API- requests
-### algemene regels
+### Algemeen
 Alle GET-requests moeten in een wrapper-object gestoken worden met het resultaat in een property 'result'.  
 Dus `GET /staticdata`:  
 Respons:  
@@ -31,8 +31,8 @@ De datastandaard schrijft voor dat data in elk geval in afzonderlijke blokken Su
 
 Alle genoemde requests beginnen met een /. Voor deze schuine streep komt uiteraard de base-url van de API. In het geval van de pilot in VeiligStallen is de base-url https://remote.veiligstallen2.nl/rest/api
 
-### Metingen groeperen in 1 onderzoek (= 'survey')  
-#### Stap 1: zorg dat alle betrokken partijen (opdrachtgevers/authorities, tellers/contractors) bekend zijn bij de dataportal
+#### Metingen groeperen in 1 onderzoek (= 'survey')  
+##### Stap 1: zorg dat alle betrokken partijen (opdrachtgevers/authorities, tellers/contractors) bekend zijn bij de dataportal
 Check met 
 `GET /organisations` welke instanties er al bekend zijn.  
 [Response](./examples/API3/responses/GET_organisations.json)  
@@ -46,7 +46,7 @@ Mis je instanties, voeg ze toe met:
 <pre class='example json' title="Body (zonder surveyId)" data-include='../examples/API3/requests/POST_new_organisation.json' data-include-format='text'></pre>
 <pre class='example json' title="Response" data-include='../examples/API3/responses/POST_new_organisation.json' data-include-format='text'></pre>
 
-#### Stap 2: meld je onderzoek (survey) aan
+##### Stap 2: meld je onderzoek (survey) aan
 `POST /surveys` [Body met surveyId](./examples/API3/requests/POST_new_survey_with_id.json)  
 Een id van de survey mag door exploitant zelf gekozen worden. Suggestie gebruik [CBS codes](https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2020) en unieke gegevens uit het onderzoek, bijv. < CBS_nr_gemeente >_< jaartal > => 0202_2020.  
 
@@ -65,7 +65,7 @@ Indien geen `surveyId` is gegeven, maakt de server zelf een id en geeft deze ter
 <pre class='example json' title="Response" data-include='../examples/API3/responses/POST_new_survey.json' data-include-format='text'></pre>
 
 
-#### Stap 3: koppel statische data aan bestaand onderzoek
+##### Stap 3: koppel statische data aan bestaand onderzoek
 `POST /staticdata` [Body](./examples/API3/requests/POST_static_data.json)  
 
 <pre class='example json' title="Body" data-include='../examples/API3/requests/POST_static_data.json' data-include-format='text'></pre>
@@ -76,7 +76,7 @@ Zonder het veld `surveyId` worden de statische secties niet gekoppeld aan een on
 
 Het Id van een statische sectie is, net als het `surveyID`, door de opsturende instantie zelf samen te stellen. Suggestie: prefix het sectionId met het surveyId om een unieke id te garanderen, bijvoorbeeld: `< surveyId >_< straatnaam >`
 
-### Stap 3: Sla losse metingen op
+##### Stap 3: Sla losse metingen op
 `POST /dynamicdata` [Body](./examples/API3/requests/POST_dynamic_data.json)
 
 <pre class='example json' title="Body" data-include='../examples/API3/requests/POST_dynamic_data.json' data-include-format='text'></pre>
@@ -161,7 +161,7 @@ Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de paramet
 `dynamicdata?orderBy=timestamp&orderDirection=ASC` - sorteert op timestamp van oudste naar nieuwste  
 `dynamicdata?orderBy=count.numberOfVehicles&orderDirection=DESC` - sorteert op aantal voertuigen van hoog naar laag  
 
-### Een overzicht van alle query parameters
+#### Een overzicht van alle query parameters
 | param             | type        | values                                                 |
 | ----------------- |---------- | ----------------------------------------------------- |
 | `surveyid`            | string    | Alleen data van dit onderzoek                            |
