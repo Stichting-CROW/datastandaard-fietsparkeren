@@ -28,7 +28,8 @@ Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te
 
 | Field                  | Type                    | Required| Description                                                                              |
 | --------------| --------------- | --------| ------------------------------------------------------------- |
-| `id`                    | string                | no          | Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
+| `id`                    | string                | yes          | Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
+| `name`        | string                | yes          | Naam van het onderzoek |
 | `geoLocation`        | GeoJSON                | no          | Geografische afbakening van het gehele onderzoeksgebied, [[rfc7946]] |
 | `authorityId`        | string              | no          | Id van de Opdrachtgever - Alleen te gebruiken voor insturen van data                                                    |
 | `contractorIds`    | string[]          | no          | Id's van de contractors - Alleen te gebruiken voor insturen van data                         |
