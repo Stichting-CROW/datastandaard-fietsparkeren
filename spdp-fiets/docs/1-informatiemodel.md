@@ -28,7 +28,8 @@ Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te
 
 | Field                  | Type                    | Required| Description                                                                              |
 | --------------| --------------- | --------| ------------------------------------------------------------- |
-| `id`                    | string                | no          | Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
+| `id`                    | string                | yes          | Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
+| `name`        | string                | yes          | Naam van het onderzoek |
 | `geoLocation`        | GeoJSON                | no          | Geografische afbakening van het gehele onderzoeksgebied, [[rfc7946]] |
 | `authorityId`        | string              | no          | Id van de Opdrachtgever - Alleen te gebruiken voor insturen van data                                                    |
 | `contractorIds`    | string[]          | no          | Id's van de contractors - Alleen te gebruiken voor insturen van data                         |
@@ -130,13 +131,27 @@ De velden surveyId, authorityId en contractorId kunnen gebruikt worden bij het f
 Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitgevoerd door een bepaalde contractor kunnen opvragen. Zie *API Requests* voor meer details over zoekopdrachten.
 
 
-### Space - definiëring van een plek aan de hand van properties
+### Space
+
+Definiëring van een plek aan de hand van properties
 
 | Field                | Type               | Required                | Description                                                 |
 | -------------------- | ------------------ | ----------------------- | ------------------------------------------------------------|
 | `type`               | string             | no                      | SpaceTypeID; tenminste 1 veld dient gegeven te zijn            |
 | `level`              | number             | no                      | 0=onder, 1=boven                                            |
 | `vehicles`           | Vehicle[]          | no                      | Deze space is uitsluitend geschikt voor genoemde voertuigen |
+|{.data}
+
+#### spaceTypeIDs
+
+| ID | spaceType             |
+| -- | --------------------- |
+| `x`  | buiten voorziening    |
+| `r`  | rek                   |
+| `n`  | nietjes               |
+| `v`  | vak                   |
+| `w`  | voor fietsenwinkel    |
+| `a`  | anders                |
 |{.data}
 
 ### Vehicle
@@ -152,7 +167,7 @@ Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitg
 | `owner`              | string             | no                     | Zie tabel vehicle.owner                                      |
 |{.data}
 
-### Accessoire
+#### Accessoire
 
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
@@ -160,14 +175,110 @@ Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitg
 | `position`           | string             | no                     | Zie tabel vehicle.accessoire.positions                      |
 |{.data}
 
+##### vehicle.accessoire.typen 
 
-### VehicleState
+| ID | Omschrijving          |
+| -- | --------------------- |
+| `z`  | zitje                 |
+| `t`  | fietstas              |
+| `r`  | rek                   |
+| `b`  | bak / mand            |
+|{.data}
+
+##### vehicle.accessoire.positions 
+
+| ID | Omschrijving          |
+| -- | --------------------- |
+| `v`  | voor                  |
+| `a`  | achter                |
+|{.data}
+
+
+#### VehicleState
 
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
-|`type`                | string             | no                     | Zie tabel vehicle.state.typen                          |
-|`position`            | string             | no                     | Zie tabel vehicle.state.positions                      |
+|`type`                | string             | no                     | Zie tabel vehicle.state.type                          |
+|`position`            | string             | no                     | Zie tabel vehicle.state.position                      |
 |{.data}
+
+##### vehicle.state.type 
+
+| ID | Omschrijving          |
+| -- | --------------------- |
+| `w`  | wrak                  |
+| `l`  | lekke band            |
+| `z`  | zonder zadel          |
+| ...| ...                   |
+|{.data}
+
+##### vehicle.state.position
+
+| ID | Omschrijving          |
+| -- | --------------------- |
+| `v`  | voor                  |
+| `a`  | achter                |
+|{.data}
+
+Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk zijn. Lijstjes die eindigen met ... zijn voor uitbreiding vatbaar.
+
+#### vehicle.parkState
+
+| ID | Omschrijving          |
+| -- | --------------------- |
+| `n`  | naast voorziening     |
+| `d`  | dubbel                |
+| ...| ...                   |
+|{.data}
+
+#### vehicle.type
+
+| ID | Voertuigtype          | Omschrijving                                                                   |
+| -- | --------------------- | ------------------------------------------------------------------------------ |
+| `f`  | fiets                 | Geen kenteken en geen verzekeringsplaatje                                      |
+| `c`  | bakfiets              | Fiets met bak                                                                  |
+| `s`  | snorfiets             | kentekenplaat is blauw, met een wit kader, wit opschrift en een hologram       |
+| `b`  | bromfiets             | kentekenplaat is geel, met een zwart kader, zwart opschrift en een hologram    |
+| `m`  | motorfiets            | NL geel of blauw, internationaal anders                                        |
+| `g`  | gehandicaptenvoertuig | driewieler, scootmobiel, rolstoel, etc                                         |
+| `a`  | anders                |                                                                                |
+|{.data}
+
+#### vehicle.propulsion
+
+| ID | Aandrijving     | Omschrijving                                                                   |
+| -- | --------------- | ------------------------------------------------------------------------------ |
+| `s`  | Spierkracht     | bv traditionele fiets of voetganger                                            |
+| `e`  | Elektrisch      | bv e-bike                                                                      |
+| `b`  | Brandstof       | bv traditionele bromfiets, motorfiets                                          | 
+|{.data}
+
+#### vehicle.appearance
+| ID | Verschijningsvorm |
+| -- | --------------- |
+| `k`  | Kinderfiets    |
+| `r`  | Racefiets      | 
+| `l`  | Ligfiets       | 
+| `b`  | Bakfiets / Transportfiets       | 
+| `f`  | Fietskar       | 
+| `v`  | Vouwfiets       | 
+| `m`  | Mountainbike    | 
+| `d`  | Driewieler       | 
+| `t`  | Tandem       | 
+|{.data}
+
+#### vehicle.owner
+
+| ID | Eigenaar              | Omschrijving                                                                   |
+| -- | --------------------- | ------------------------------------------------------------------------------ |
+| `p`  | Privé                 | Privéfiets                                                                     |
+| `l`  | Lease                 | Leasefiets, zoals Swap Bikes                                                   |
+| `h`  | Huur                  | Huurfiets, zoals OV-fiets                                                      |
+|{.data}
+
+De velden `parkingCapacity`, `vacantSpaces` en `occupiedSpaces` en `count` zijn verplicht in de bladeren van de sectieboom  
+
+Indien ze in de takken niet gegeven zijn, kunnen `vacantSpaces`, `occupiedSpaces` en `occupation` berekend worden door alle `vacantSpaces`, etc. van onderliggende sections op te tellen
 
 ### Count
 
@@ -187,111 +298,3 @@ Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitg
 |`isUnderConstruction`| boolean             | no                     | Werkzaamheden?                                               |
 |`remark`             | string              | no                     | Vrij tekstveld                                               |
 |{.data}
-
-Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk zijn. Lijstjes die eindigen met ... zijn voor uitbreiding vatbaar.
-
-### spaceTypeIDs
-
-| ID | spaceType             |
-| -- | --------------------- |
-| `x`  | buiten voorziening    |
-| `r`  | rek                   |
-| `n`  | nietjes               |
-| `v`  | vak                   |
-| `w`  | voor fietsenwinkel    |
-| `a`  | anders                |
-|{.data}
-
-### vehicle.accessoire.typen 
-
-| ID | Omschrijving          |
-| -- | --------------------- |
-| `z`  | zitje                 |
-| `t`  | fietstas              |
-| `r`  | rek                   |
-| `b`  | bak / mand            |
-|{.data}
-
-### vehicle.accessoire.positions 
-
-| ID | Omschrijving          |
-| -- | --------------------- |
-| `v`  | voor                  |
-| `a`  | achter                |
-|{.data}
-
-### vehicle.state.type 
-
-| ID | Omschrijving          |
-| -- | --------------------- |
-| `w`  | wrak                  |
-| `l`  | lekke band            |
-| `z`  | zonder zadel          |
-| ...| ...                   |
-|{.data}
-
-### vehicle.state.position
-
-| ID | Omschrijving          |
-| -- | --------------------- |
-| `v`  | voor                  |
-| `a`  | achter                |
-|{.data}
-
-### vehicle.parkState
-
-| ID | Omschrijving          |
-| -- | --------------------- |
-| `n`  | naast voorziening     |
-| `d`  | dubbel                |
-| ...| ...                   |
-|{.data}
-
-### vehicle.type
-
-| ID | Voertuigtype          | Omschrijving                                                                   |
-| -- | --------------------- | ------------------------------------------------------------------------------ |
-| `f`  | fiets                 | Geen kenteken en geen verzekeringsplaatje                                      |
-| `c`  | bakfiets              | Fiets met bak                                                                  |
-| `s`  | snorfiets             | kentekenplaat is blauw, met een wit kader, wit opschrift en een hologram       |
-| `b`  | bromfiets             | kentekenplaat is geel, met een zwart kader, zwart opschrift en een hologram    |
-| `m`  | motorfiets            | NL geel of blauw, internationaal anders                                        |
-| `g`  | gehandicaptenvoertuig | driewieler, scootmobiel, rolstoel, etc                                         |
-| `a`  | anders                |                                                                                |
-|{.data}
-
-### vehicle.propulsion
-
-| ID | Aandrijving     | Omschrijving                                                                   |
-| -- | --------------- | ------------------------------------------------------------------------------ |
-| `s`  | Spierkracht     | bv traditionele fiets of voetganger                                            |
-| `e`  | Elektrisch      | bv e-bike                                                                      |
-| `b`  | Brandstof       | bv traditionele bromfiets, motorfiets                                          | 
-|{.data}
-
-### vehicle.appearance
-| ID | Verschijningsvorm |
-| -- | --------------- |
-| `k`  | Kinderfiets    |
-| `r`  | Racefiets      | 
-| `l`  | Ligfiets       | 
-| `b`  | Bakfiets / Transportfiets       | 
-| `f`  | Fietskar       | 
-| `v`  | Vouwfiets       | 
-| `m`  | Mountainbike    | 
-| `d`  | Driewieler       | 
-| `t`  | Tandem       | 
-|{.data}
-
-### vehicle.owner
-
-| ID | Eigenaar              | Omschrijving                                                                   |
-| -- | --------------------- | ------------------------------------------------------------------------------ |
-| `p`  | Privé                 | Privéfiets                                                                     |
-| `l`  | Lease                 | Leasefiets, zoals Swap Bikes                                                   |
-| `h`  | Huur                  | Huurfiets, zoals OV-fiets                                                      |
-|{.data}
-
-De velden `parkingCapacity`, `vacantSpaces` en `occupiedSpaces` en `count` zijn verplicht in de bladeren van de sectieboom  
-
-Indien ze in de takken niet gegeven zijn, kunnen `vacantSpaces`, `occupiedSpaces` en `occupation` berekend worden door alle `vacantSpaces`, etc. van onderliggende sections op te tellen
