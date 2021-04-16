@@ -164,15 +164,15 @@ Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de paramet
 ### Een overzicht van alle query parameters
 | param             | type        | values                                                 |
 | ----------------- |---------- | ----------------------------------------------------- |
-| `surveyid`            | string    | Alleen data van dit onderzoek                            |
-| `authorityid`   | string    | Alleen data van deze opdrachtgever                     |
-| `contarctorid`  | string    | Alleen data van deze dataleverancier                  |
+| `surveyId`            | string    | Alleen data van dit onderzoek                            |
+| `authorityId`   | string    | Alleen data van deze opdrachtgever                     |
+| `contarctorId`  | string    | Alleen data van deze dataleverancier                  |
 | `depth`             | number    | Aantal te bevragen sectie-lagen vanaf gegeven pad  default = 1                                           |
-| `startdate`            | UTC timestamp    | Selectie op timestamp. Section.timestamp >= startDate     |
-| `enddate`              | UTC timestamp    | Selectie op timestamp. Section.timestamp <= endDate        |
+| `startDate`            | UTC timestamp    | Selectie op timestamp. Section.timestamp >= startDate     |
+| `endDate`              | UTC timestamp    | Selectie op timestamp. Section.timestamp <= endDate        |
 |                          |                  |                                                                |
-| `geopolygon`        | list met coördinaten | lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1    |
-| `georelation`      | string    | 'intersects' (default) of 'within'    |
+| `geoPolygon`        | list met coördinaten | lat1,lng1,lat2,lng2,lat3,lng3,...,...,lat1,lng1    |
+| `geoRelation`      | string    | 'intersects' (default) of 'within'    |
 |                          |                  |                                                                |
 | `orderBy`         | string    | veldnaam waarop gesorteerd wordt    |
 | `orderDirection`        | string    | ASC (default) of DESC, in combinatie met orderBy    |
