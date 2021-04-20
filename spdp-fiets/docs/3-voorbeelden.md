@@ -1,25 +1,86 @@
 ### Voorbeelden
 
-#### Ophalen van alle data van een bepaald onderzoek
+#### API 3 – Metingen groeperen in 1 onderzoek (= 'survey')  
+##### Stap 1: zorg dat alle betrokken partijen (opdrachtgevers/authorities, tellers/contractors) bekend zijn bij de dataportal
+Check met 
+`GET /organisations` welke instanties er al bekend zijn.  
+[Response](./examples/API3/responses/GET_organisations.json)  
+  
+<pre class='example json' data-include='../examples/API3/responses/GET_organisations.json' data-include-format='text'></pre>
+
+Mis je instanties, voeg ze toe met:  
+`POST /organisations` [Body zonder surveyId](./examples/API3/requests/POST_new_organisation.json)  
+[Response](./examples/API3/responses/POST_new_organisation.json)  
+
+<pre class='example json' title="Body (zonder surveyId)" data-include='../examples/API3/requests/POST_new_organisation.json' data-include-format='text'></pre>
+<pre class='example json' title="Response" data-include='../examples/API3/responses/POST_new_organisation.json' data-include-format='text'></pre>
+
+##### Stap 2: meld je onderzoek (survey) aan
+`POST /surveys` [Body met surveyId](./examples/API3/requests/POST_new_survey_with_id.json)  
+Een id van de survey mag door exploitant zelf gekozen worden. Suggestie gebruik [CBS codes](https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2020) en unieke gegevens uit het onderzoek, bijv. < CBS_nr_gemeente >_< jaartal > => 0202_2020.  
+
+`POST /surveys` [Body zonder surveyId](./examples/API3/requests/POST_new_survey_without_id.json)  
+
+<pre class='example json' title='Body zonder surveyId' data-include='../examples/API3/requests/POST_new_survey_without_id.json' data-include-format='text'></pre>
+
+De instantie die de survey instuurt, wordt 'eigenaar' van dit onderzoek. 
+
+Een Survey met een `surveyId` dat al bestaat, zal resulteren in een 400-error. Behalve als deze POST wordt gedaan door de eigenaar van het onderzoek. In dat geval wordt er een update van het onderzoek uitgevoerd.
+
+Indien geen `surveyId` is gegeven, maakt de server zelf een id en geeft deze terug in de response.  
+
+[Response](./examples/API3/responses/POST_new_survey.json)  
+
+<pre class='example json' title="Response" data-include='../examples/API3/responses/POST_new_survey.json' data-include-format='text'></pre>
+
+
+##### Stap 3: koppel statische data aan bestaand onderzoek
+`POST /staticdata` [Body](./examples/API3/requests/POST_static_data.json)  
+
+<pre class='example json' title="Body" data-include='../examples/API3/requests/POST_static_data.json' data-include-format='text'></pre>
+
+
+Door het veld `surveyId` mee te geven aan de secties, worden de secties gekoppeld aan een onderzoek.  
+Zonder het veld `surveyId` worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een `surveyId`.
+
+Het Id van een statische sectie is, net als het `surveyID`, door de opsturende instantie zelf samen te stellen. Suggestie: prefix het sectionId met het surveyId om een unieke id te garanderen, bijvoorbeeld: `< surveyId >_< straatnaam >`
+
+##### Stap 3: Sla losse metingen op
+`POST /dynamicdata` [Body](./examples/API3/requests/POST_dynamic_data.json)
+
+<pre class='example json' title="Body" data-include='../examples/API3/requests/POST_dynamic_data.json' data-include-format='text'></pre>
+
+Door het veld surveyId mee te geven aan de secties, worden de metingen gekoppeld aan een onderzoek.  
+Zonder het veld surveyId worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een surveyId.
+
+Je kunt dus zowel dynamische als statische data afzonderlijk koppelen aan een onderzoek.   
+   
+Dynamische data kan sterk gecomprimeerd worden door alleen de totalen op te slaan. Dit zal in de praktijk vaak voorkomen.  
+`POST /dynamicdata` [Body met een alleen totalen](./examples/API3/requests/POST_compressed_dynamic_section.json)  
+
+<pre class='example json' title="Body met een alleen totalen" data-include='../examples/API3/requests/POST_compressed_dynamic_section.json' data-include-format='text'></pre>
+
+#### API 4 — data opvragen
+##### Ophalen van alle data van een bepaald onderzoek
 `GET /surveys?surveyId=0202_2020`  
 [Response](./examples/API4/GET_survey.json)  
 <pre class='example json' data-include='../examples/API4/GET_survey.json' data-include-format='text'></pre>
 
-#### Ophalen van de statische data van een bepaald onderzoek
+##### Ophalen van de statische data van een bepaald onderzoek
 `GET /staticdata?surveyId=0202_2020`  
 [Response](./examples/API4/GET_static.json)    
 
 <pre class='example json' data-include='../examples/API4/GET_static.json' data-include-format='text'></pre>
 
 
-#### Ophalen van de volledige dynamische data van een bepaald onderzoek
+##### Ophalen van de volledige dynamische data van een bepaald onderzoek
 `GET /dynamicdata?surveyId=0202_2020&depth=4`  
 [Response](./examples/API4/GET_dynamic_depth4.json)  
 
 <pre class='example json' data-include='../examples/API4/GET_dynamic_depth4.json' data-include-format='text'></pre>
 
 
-#### Ophalen van de beknopte dynamische data van een bepaald onderzoek
+##### Ophalen van de beknopte dynamische data van een bepaald onderzoek
 `GET /dynamicdata?surveyId=0202_2020`  
 <pre class='example json' data-include='../examples/API4/GET_dynamic_depth1.json' data-include-format='text'></pre>
 
@@ -27,21 +88,21 @@
 De default-waarde voor depth = 1, dus daarom wordt alle data platgeslagen op de wortel van de sectieboom.  
 Alleen dynamische data, want de parameter *data* is niet gegeven en de defaultwaarde is 'dynamic'.  
 
-#### Opvragen van data van een bepaalde sectie in een gegeven periode
+##### Opvragen van data van een bepaalde sectie in een gegeven periode
 `GET /dynamicdata?sectionId=arnhem_ketelstraat_oneven&startDate=2020-11-23T0:00:00&endDate=2020-11-24T0:00:00`   
 [Response](./examples/API4/GET_dynamic_depth1_single_section.json)  
 
 <pre class='example json' data-include='../examples/API4/GET_dynamic_depth1_single_section.json' data-include-format='text'></pre>
 
 
-#### Opvragen van statische data in een bepaald gebied, in een cirkel met straat 1km vanaf een gegeven punt
+##### Opvragen van statische data in een bepaald gebied, in een cirkel met straat 1km vanaf een gegeven punt
 `GET /dynamicdata?geoPoint=5.90802,51.98173,1000`  
 [Response](./examples/API4/GET_static.json)  
 
 <pre class='example json' data-include='../examples/API4/GET_static.json' data-include-format='text'></pre>
 
 
-#### Opvragen van statische data in een bepaald gebied
+##### Opvragen van statische data in een bepaald gebied
 `GET /dynamicdata?geoPolygon=52.370216,4.895168,53.370216,4.895168,53.370216,5.895168,52.370216,4.895168&relation=within`  
 [Response](./examples/API4/GET_dynamic_depth1.json)  
 

@@ -1,6 +1,6 @@
 ## Overzicht
 
-In het fietsparkeerlandschap kunnen we globaal 6 datastromen onderscheiden:
+In het fietsparkeerlandschap kunnen we globaal 6 datastromen onderscheiden, tussen de systemen van de stalling, de exploitant, MaaS-providers, straattellers naar dataportals en gebruikers van die data, zoals analisten en webapplicaties.
 
 <figure>
 
