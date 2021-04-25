@@ -95,7 +95,7 @@ __Belangrijk: Er mag alleen gedetailleerde teldata, verpakt in zogenaamde 'Count
 
 </div>
 
-Zie document [Dynamische data in de fietsparkeerstandaard](https://github.com/Stichting-CROW/datastandaard-fietsparkeren/blob/master/Dynamische_data_in_de_fietsparkeerstandaard.pdf) voor een beknopte a-technische uitleg van het telprincipes in de datastandaard  
+Zie document [Dynamische data in de fietsparkeerstandaard](https://github.com/Stichting-CROW/datastandaard-fietsparkeren/blob/gh-pages/docs/20190924-dataformaat-fietstellingen-v2-10.pdf) voor een beknopte a-technische uitleg van het telprincipe in de datastandaard  
 
 Hieronder volgt een opsomming van de te gebruiken datablokken. Voor de niet technici: een setje dubbele haken [ ] betekent dat het gaat om een verzameling van meerdere objecten.
 Bijvoorbeeld: Count[] betekent dat er meerdere telblokken in dit veld kunnen zitten.
