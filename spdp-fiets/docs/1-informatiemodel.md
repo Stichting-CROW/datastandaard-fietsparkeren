@@ -68,7 +68,7 @@ De parkeercapaciteit van een sectie lijkt op het eerste gezicht statisch. Toch i
 | `id`                | string              | yes      | Een uuid, random of eventueel samengesteld                 |
 | `geoLocation`                | GeoJSON                  | no           | Geografische afbakening van deze sectie. Kan gebruikt worden voor geo-zoekopdrachten. [[rfc7946]] |
 | `validFrom`         | [[ISO8601]] timestamp   | no       | Vanaf dit tijdstip mag er dynamische data in deze sectie worden geschreven |
-| `validUntil`        | [[ISO8601]] timestamp   | no       | Tot dit tijdstip mag er dynamische data in deze sectie worden geschreven |
+| `validThrough`      | [[ISO8601]] timestamp   | no       | Tot dit tijdstip mag er dynamische data in deze sectie worden geschreven |
 | `owner`             | string              | no       | organisationId: Eigenaar van deze sectie. Alleen deze organistatie mag wijzigingen aanbrengen aan deze sectie |
 |{.data}
   
@@ -232,6 +232,7 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 |{.data}
 
 #### vehicle.type
+(classificatie naar wettelijke voertuigcategorie)
 
 | ID | Voertuigtype          | Omschrijving                                                                   |
 | -- | --------------------- | ------------------------------------------------------------------------------ |
