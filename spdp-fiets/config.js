@@ -11,7 +11,15 @@ var respecConfig = {
     editors: [
         {
             name: "Hans Versluis",
+            company: "Haverweb",
+        },
+        {
+            name: "Redmer Kronemeijer",
             company: "CROW",
+        },
+        {
+            name: "Ruben Bino",
+            company: "Trajan",
         },
     ],
 };

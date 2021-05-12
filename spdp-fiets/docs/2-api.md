@@ -50,9 +50,18 @@ In het geval van de pilot in VeiligStallen is de base-url `https://remote.veilig
 
 
 ### API 4 - data opvragen
+
 Op dezelfde manier het insturen van data kan de data ook weer worden opgevraad. De POST-requests veranderen in GET-requests.
 
 <aside class='example' title='GET-requests om data op te vragen'>
+
+Je kunt dus zowel dynamische als statische data afzonderlijk koppelen aan een onderzoek.
+
+Dynamische data kan sterk gecomprimeerd worden door alleen de totalen op te slaan. Dit zal in de praktijk vaak voorkomen.
+
+`POST /dynamicdata`
+
+<aside class='example json' title="Body met alleen totalen" data-include='../examples/API3/requests/POST_compressed_dynamic_sections.json' data-include-format='text'></aside>
 
 ```
 GET /surveys?query_params

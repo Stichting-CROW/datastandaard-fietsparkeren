@@ -73,7 +73,7 @@ De parkeercapaciteit van een sectie lijkt op het eerste gezicht statisch. Toch i
 | `id`                | string              | yes      | Een uuid, random of eventueel samengesteld                 |
 | `geoLocation`                | GeoJSON                  | no           | Geografische afbakening van deze sectie volgens [[rfc7946]]. Kan gebruikt worden voor geo-zoekopdrachten. |
 | `validFrom`         | [[ISO8601]] timestamp   | no       | Vanaf dit tijdstip mag er dynamische data in deze sectie worden geschreven |
-| `validUntil`        | [[ISO8601]] timestamp   | no       | Tot dit tijdstip mag er dynamische data in deze sectie worden geschreven |
+| `validThrough`      | [[ISO8601]] timestamp   | no       | Tot dit tijdstip mag er dynamische data in deze sectie worden geschreven |
 | `owner`             | string              | no       | organisationId: Eigenaar van deze sectie. Alleen deze organistatie mag wijzigingen aanbrengen aan deze sectie |
 |{.data}
 
@@ -106,7 +106,7 @@ In de bladeren van de sectieboom MOET gedetailleerde teldata worden doorgegeven,
 
 </aside>
 
-Zie document [Dynamische data in de fietsparkeerstandaard](https://github.com/Stichting-CROW/datastandaard-fietsparkeren/blob/master/Dynamische_data_in_de_fietsparkeerstandaard.pdf) voor een beknopte a-technische uitleg van het telprincipes in de datastandaard.
+Zie document [Dynamische data in de fietsparkeerstandaard](../docs/20190924-dataformaat-fietstellingen-v2-10.pdf) voor een beknopte a-technische uitleg van het telprincipe in de datastandaard  
 
 <div class='issue' data-number='5'></div>
 
@@ -245,6 +245,8 @@ Definiëring van een plek aan de hand van properties
 |{.data}
 
 #### `Vehicle.type`
+
+Classificatie naar wettelijke voertuigcategorie.
 
 | ID | Voertuigtype          | Omschrijving                                                                   |
 | -- | --------------------- | ------------------------------------------------------------------------------ |
