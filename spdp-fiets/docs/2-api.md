@@ -1,102 +1,75 @@
-## API- requests
-### Algemeen
-Alle GET-requests moeten in een wrapper-object gestoken worden met het resultaat in een property 'result'.  
-Dus `GET /staticdata`:  
-Respons:  
-```json
-{  
-  "result": [  
-    StaticSection,  
-    ...  
-  ]  
-}  
-```
-Dit is bedoeld om de API de mogelijkheid te geven metadata over de zoekresultaten mee te geven, bijvoorbeeld data over paginering, zoekfilters, errors, etc.  
-Uitgezonderd van deze regel zijn responses die expliciet om 1 object vragen, zoals:  
-`/organiations/defietsentellers`  
-Respons:  
+## API
 
-```json
-{  
-  "id": "defietsentellers,  
-  "name: "De Fietsentellers BV"  
-}  
+### Algemeen - wrapping
+
+Alle responses van GET-requests met meer dan één resultaat zijn gestoken in een wrapper-object `result`. 
+Implementaties kunnen zo metadata over de resultaten, zoals paginering, gebruikte filters etc. meegeven.
+
+Responses van GET-requests die expliciet om één object vragen, wrappen dit resultaat niet.
+
+<aside class='example' title="Gewrapped resultaat meervoudige bevraging">
+
+```
+GET /staticdata
+{
+  "result": [
+    { "id": ..., ... },
+    { "id": ..., ... }
+  ]
+}
 ```
 
-### API 3 - data van stallingsexploitant of fietsteller opslaan in dataportal
-API 3 is de ontvangde zijde van de dataportal API. Straattellers of stallingssoftware kunnen met POST-requests hun data opsturen naar het dataportal.
-In de body's van deze POST-requests dienen ze gebruik te maken van boven beschreven objecten.  
+</aside>
+<aside class='example' title="Niet-gewrapped resultaat enkelvoudige bevraging">
 
-De datastandaard schrijft voor dat data in elk geval in afzonderlijke blokken Survey, Static Data en Dynamic Data opgeslagen dient te worden. Er zijn dus tenminste 3 POSTs nodig om een volledige Survey, inclusief data op te slaan.
+```
+GET /organiations/defietsentellers
+{
+  "id": "defietsentellers,
+  "name: "De Fietsentellers BV"
+}
+```
 
-Alle genoemde requests beginnen met een /. Voor deze schuine streep komt uiteraard de base-url van de API. In het geval van de pilot in VeiligStallen is de base-url https://remote.veiligstallen2.nl/rest/api
+</aside>
 
-#### Metingen groeperen in 1 onderzoek (= 'survey')  
-##### Stap 1: zorg dat alle betrokken partijen (opdrachtgevers/authorities, tellers/contractors) bekend zijn bij de dataportal
-Check met 
-`GET /organisations` welke instanties er al bekend zijn.  
-[Response](./examples/API3/responses/GET_organisations.json)  
-  
-<pre class='example json' data-include='../examples/API3/responses/GET_organisations.json' data-include-format='text'></pre>
+### API 3 — data opslaan
 
-Mis je instanties, voeg ze toe met:  
-`POST /organisations` [Body zonder surveyId](./examples/API3/requests/POST_new_organisation.json)  
-[Response](./examples/API3/responses/POST_new_organisation.json)  
+API 3 is de ontvangende zijde van de dataportal API.
+Straattellers of stallingssoftware kunnen met POST-requests hun data opsturen naar het dataportal.
+In de body's van deze POST-requests dienen ze gebruik te maken van in [](#dataschema-s) beschreven objecten.
 
-<pre class='example json' title="Body (zonder surveyId)" data-include='../examples/API3/requests/POST_new_organisation.json' data-include-format='text'></pre>
-<pre class='example json' title="Response" data-include='../examples/API3/responses/POST_new_organisation.json' data-include-format='text'></pre>
+De [Survey](#surveys), [statische data](#statische-data) en [dynamische data](#dynamische-data) MOETEN afzonderelijk worden ingediend middels een POST-request.
 
-##### Stap 2: meld je onderzoek (survey) aan
-`POST /surveys` [Body met surveyId](./examples/API3/requests/POST_new_survey_with_id.json)  
-Een id van de survey mag door exploitant zelf gekozen worden. Suggestie gebruik [CBS codes](https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2020) en unieke gegevens uit het onderzoek, bijv. < CBS_nr_gemeente >_< jaartal > => 0202_2020.  
+Alle genoemde requests beginnen met een /. Voor deze schuine streep komt uiteraard de base-url van de API. 
 
-`POST /surveys` [Body zonder surveyId](./examples/API3/requests/POST_new_survey_without_id.json)  
+<aside class='note'>
 
-<pre class='example json' title='Body zonder surveyId' data-include='../examples/API3/requests/POST_new_survey_without_id.json' data-include-format='text'></pre>
+In het geval van de pilot in VeiligStallen is de base-url `https://remote.veiligstallen2.nl/rest/api`.
 
-De instantie die de survey instuurt, wordt 'eigenaar' van dit onderzoek. 
-
-Een Survey met een `surveyId` dat al bestaat, zal resulteren in een 400-error. Behalve als deze POST wordt gedaan door de eigenaar van het onderzoek. In dat geval wordt er een update van het onderzoek uitgevoerd.
-
-Indien geen `surveyId` is gegeven, maakt de server zelf een id en geeft deze terug in de response.  
-
-[Response](./examples/API3/responses/POST_new_survey.json)  
-
-<pre class='example json' title="Response" data-include='../examples/API3/responses/POST_new_survey.json' data-include-format='text'></pre>
-
-
-##### Stap 3: koppel statische data aan bestaand onderzoek
-`POST /staticdata` [Body](./examples/API3/requests/POST_static_data.json)  
-
-<pre class='example json' title="Body" data-include='../examples/API3/requests/POST_static_data.json' data-include-format='text'></pre>
-
-
-Door het veld `surveyId` mee te geven aan de secties, worden de secties gekoppeld aan een onderzoek.  
-Zonder het veld `surveyId` worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een `surveyId`.
-
-Het Id van een statische sectie is, net als het `surveyID`, door de opsturende instantie zelf samen te stellen. Suggestie: prefix het sectionId met het surveyId om een unieke id te garanderen, bijvoorbeeld: `< surveyId >_< straatnaam >`
-
-##### Stap 3: Sla losse metingen op
-`POST /dynamicdata` [Body](./examples/API3/requests/POST_dynamic_data.json)
-
-<pre class='example json' title="Body" data-include='../examples/API3/requests/POST_dynamic_data.json' data-include-format='text'></pre>
-
-Door het veld surveyId mee te geven aan de secties, worden de metingen gekoppeld aan een onderzoek.  
-Zonder het veld surveyId worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een surveyId.
-
-Je kunt dus zowel dynamische als statische data afzonderlijk koppelen aan een onderzoek.   
-   
-Dynamische data kan sterk gecomprimeerd worden door alleen de totalen op te slaan. Dit zal in de praktijk vaak voorkomen.  
-`POST /dynamicdata` [Body met alleen totalen](./examples/API3/requests/POST_compressed_dynamic_sections.json)  
-
-<pre class='example json' title="Body met alleen totalen" data-include='../examples/API3/requests/POST_compressed_dynamic_sections.json' data-include-format='text'></pre>
+</aside>
 
 
 ### API 4 - data opvragen
-Op dezelfde manier het insturen van data kan de data ook weer worden opgevraad. De POST-requests veranderen in GET-requests:  
-`GET /surveys?query_params`
-`GET /staticdata?query_params`
-`GET /dynamicdata?query_params`
+
+Op dezelfde manier het insturen van data kan de data ook weer worden opgevraad. De POST-requests veranderen in GET-requests.
+
+<aside class='example' title='GET-requests om data op te vragen'>
+
+Je kunt dus zowel dynamische als statische data afzonderlijk koppelen aan een onderzoek.
+
+Dynamische data kan sterk gecomprimeerd worden door alleen de totalen op te slaan. Dit zal in de praktijk vaak voorkomen.
+
+`POST /dynamicdata`
+
+<aside class='example json' title="Body met alleen totalen" data-include='../examples/API3/requests/POST_compressed_dynamic_sections.json' data-include-format='text'></aside>
+
+```
+GET /surveys?query_params
+GET /staticdata?query_params
+GET /dynamicdata?query_params
+```
+
+</aside>
 
 De `query_params` dienen als zoekopdrachten, zodat heel specifiek naar data gezocht kan worden. Dat kan op diverse manieren. De datastandaard stelt een minimaal aantal zoekopties verplicht:
 
@@ -156,7 +129,7 @@ Er zijn twee manieren voor deze query:
 * zoek secties die geheel binnen de gegeven polygoon vallen: relation=within.  
 `?geopolygon=4.895168,52.370216,4.895168,53.370216,5.895168,53.370216,4.895168,52.370216&relation=within`  
 
-__Sorteren__
+__Sorteren__  
 Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de parameters `orderBy` en `orderDirection`:  
 `dynamicdata?orderBy=timestamp&orderDirection=ASC` - sorteert op timestamp van oudste naar nieuwste  
 `dynamicdata?orderBy=count.numberOfVehicles&orderDirection=DESC` - sorteert op aantal voertuigen van hoog naar laag  
@@ -181,6 +154,10 @@ Dynamische data moet gesorteerd kunnen worden opgevraagd. Dat kan met de paramet
 Query-params dienen hoofdletterongevoelig te zijn, dus authorityid=abc is hetzelfde als authorityID=abc
 
 ### API 5 - realtime data lezen vanuit dataportal voor t.b.v. webapplicaties
-Gebruikers van API 5 - de datastroom tussen het dataportal en de webapplicaties - zijn vooral geïnteresseerd in realtime data. Per secties dus slechts één resultaat. Door *latest* op te nemen in de url weet de API dat het om een dergelijk request gaat.  
-Het gaat in de *latest*-requests altijd om dynamicdata, dus die kan worden weggelaten uit het pad
+Gebruikers van API 5 - de datastroom tussen het dataportal en de webapplicaties - zijn vooral geïnteresseerd in realtime data. Per secties dus slechts één resultaat. 
+Het endpoint voor API 5 is `/latest`.
+
+Het gaat in de `/latest`-requests altijd om dynamische data, dus `dynamicData` kan worden weggelaten uit het pad.
+
+
 

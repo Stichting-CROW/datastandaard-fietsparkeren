@@ -1,12 +1,12 @@
-## Beschrijving datastandaard
+## Dataschema’s
 
 De data in de datastandaard valt uiteen in drie hoofdblokken:
 
-1. data over het onderzoek (survey)
+1. data over het onderzoek (*survey*)
 2. statische data (static data): gegevens over de meetgebieden (sections): id, naam en geografische afbakening. Deze data verandert zelden of nooit. 
-3. dynamische data (dynamische data): tellingen en metingen in de meetgebieden
+3. dynamische data (*dynamische data*): tellingen en metingen in de meetgebieden
 
-De velden en zoekfuncties die in deze datastandaard zijn opgenomen, __moeten__ worden ondersteund door de dataportal. Het staat de dataportals vrij om zelf extra datavelden en extra functionaliteit te bieden.
+De velden en zoekfuncties die in deze datastandaard zijn opgenomen, MOETEN worden ondersteund door de dataportal. Het staat de dataportals vrij om zelf extra datavelden en extra functionaliteit te bieden.
 
 
 | Field         | Type              | Required  | Description                                                   |
@@ -20,23 +20,28 @@ De velden en zoekfuncties die in deze datastandaard zijn opgenomen, __moeten__ w
 
 Het datablok Survey bevat data over het onderzoek. Geïnitieerd door wie? Uitgevoerd door wie? Wanneer? Waar? Al deze informatie kan worden ingestuurd, maar is niet verplicht.
 
-Bij het insturen van een Survey kan de dataportal ervoor kiezen de gebruiker zijn eigen surveyId te laten kiezen. Inzender van de nieuwe Survey wordt eigenaar van deze inzending. Als dat het geval is, dient er een 400-error (Bad request) gegenereerd te worden als er een surveyId worden gekozen dat al bestaat. In geval de inzender de eigenaar is van de bestaande survey, vindt er een update plaats. Ondersteuning van deze functionalitet is door het dataportal zelf in te bepalen.
+Bij het insturen van een Survey kan de dataportal ervoor kiezen de gebruiker zijn eigen `Survey.id` te laten kiezen. Inzender van de nieuwe Survey wordt eigenaar van deze inzending. Als dat het geval is, dient er een 400-error (Bad request) gegenereerd te worden als er een `Survey.id` worden gekozen dat al bestaat. In geval de inzender de eigenaar is van de bestaande survey, vindt er een update plaats. Ondersteuning van deze functionalitet is door het dataportal zelf in te bepalen.
 
-Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te groeperen door dynamische data te labelen met het veld surveyId. Zie voor meer details het kopje Dynamic Data
+Het `Survey.id` kan gebruikt worden om data van verschillende secties en bronnen te groeperen door dynamische data te labelen met het veld `Survey.id`. Zie voor meer details [Dynamic Data](#dynamische-data).
 
-#### Survey - gegevens over een onderzoek
+#### `Survey`
 
-| Field                  | Type                    | Required| Description                                                                              |
-| --------------| --------------- | --------| ------------------------------------------------------------- |
-| `id`                    | string                | yes          | Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
-| `name`        | string                | yes          | Naam van het onderzoek |
-| `geoLocation`        | GeoJSON                | no          | Geografische afbakening van het gehele onderzoeksgebied, [[rfc7946]] |
-| `authorityId`        | string              | no          | Id van de Opdrachtgever - Alleen te gebruiken voor insturen van data                                                    |
-| `contractorIds`    | string[]          | no          | Id's van de contractors - Alleen te gebruiken voor insturen van data                         |
-| `license`           | String            | no          | Licentie van het gebruik van de data                                                                |
+Een survey bevat vaste gegevens over een onderzoek.
+
+| Field           | Type     | Required | Description |
+| --------------- | ---------| -------- | ----------- |
+| `id`            | string   | yes      | Een uuid, random of eventueel samengesteld. Indien bij een POST-request niet gegeven, dan maakt de dataportal zelf een ID en geeft deze terug in de respons |
+| `name`          | string   | yes      | Naam van het onderzoek |
+| `geoLocation`   | GeoJSON  | no       | Geografische afbakening van het gehele onderzoeksgebied volgens [[rfc7946]]. |
+| `authorityId`   | string   | no       | `Organisation.id` van de Opdrachtgever - Alleen te gebruiken voor insturen van data |
+| `contractorIds` | string[] | no       | `Organisation.id` van de contractors - Alleen te gebruiken voor insturen van data |
+| `license`       | string   | no       | Licentie van het gebruik van de data |
 |{.data}
 
-#### Organization - gegevens over een opdrachtgever of een uitvoerende instantie
+#### `Organisation`
+
+De gegevens over een opdrachtgever of een uitvoerende instantie.
+
 
 | Field                | Type                | Required    | Description                                                    |
 | ----------- | ----------- | --------- | ------------------------------------------------------------- |
@@ -46,68 +51,73 @@ Het SurveyID kan gebruikt worden om data van verschillende secties en bronnen te
 
 (Hier zijn optioneel extra velden op te nemen, maar deze zijn geen onderdeel van de datastandaard)
 
-### Statische Data
+### Statische data
 
 Statische data is die data van secties die niet of nauwelijks aan verandering onderhevig zijn. Dat is bijvoorbeeld het geval bij de geografische afbakening. 
-Mocht het zo zijn dat de geografische afbakening wijzigt, dan verdient het aanbeveling een nieuwe statische sectie aan te maken. Aanpassingen van bestaande secties gelden namelijk ook voor reeds inegstuurde data, wat kan leiden tot verwarring bij de interpretatie van historische data.
+Mocht het zo zijn dat de geografische afbakening wijzigt, dan verdient het aanbeveling een nieuwe statische sectie aan te maken. Aanpassingen van bestaande secties gelden namelijk ook voor reeds ingestuurde data, wat kan leiden tot verwarring bij de interpretatie van historische data.
 Of en hoe een statische sectie gewijzigd kan worden, valt buiten het bestek van deze standaard en wordt overgelaten aan de dataportals.
   
 De parkeercapaciteit van een sectie lijkt op het eerste gezicht statisch. Toch is deze op advies van telinstanties niet opgenomen in de statische data. Wegwerkzaamheden en  herindelingen van straten hebben te vaak invloed op de parkeercapaceit van straatsecties. In bewaakte stallingen kan het voorkomen dat bepaalde secties gedurende bepaalde periodes gereserveerd zijn.
 
-#### StaticData
+#### `StaticData`
 
 | Field                | Type                      | Required    | Description                                                            |
 | ----------- | ----------------- | --------- | ------------------------------------------- |
 | `result`          | StaticSection[]   | yes            | Verzameling van statische secties           |
 |{.data}
 
-#### StaticSection
+#### `StaticSection`
 
 | Field             | Type                | Required | Description                                                |
 | ----------------- | ------------------- | -------- | ---------------------------------------------------------- |
 | `id`                | string              | yes      | Een uuid, random of eventueel samengesteld                 |
-| `geoLocation`                | GeoJSON                  | no           | Geografische afbakening van deze sectie. Kan gebruikt worden voor geo-zoekopdrachten. [[rfc7946]] |
+| `geoLocation`                | GeoJSON                  | no           | Geografische afbakening van deze sectie volgens [[rfc7946]]. Kan gebruikt worden voor geo-zoekopdrachten. |
 | `validFrom`         | [[ISO8601]] timestamp   | no       | Vanaf dit tijdstip mag er dynamische data in deze sectie worden geschreven |
 | `validThrough`      | [[ISO8601]] timestamp   | no       | Tot dit tijdstip mag er dynamische data in deze sectie worden geschreven |
 | `owner`             | string              | no       | organisationId: Eigenaar van deze sectie. Alleen deze organistatie mag wijzigingen aanbrengen aan deze sectie |
 |{.data}
+
+<div class='issue' data-number="4"></div>
   
 ### Dynamische data
 
-Dynamische data, oftewel: de tellingen, daar is uiteraard waar het in deze datastandaard om te doen is. Dynamische data is een verzameling secties/meetgebieden. In een meetgebied kunnen weer subsecties worden ondergebracht en in de subsecties weer nieuwe subsecties. Zo ontstaat er een boom aan secties, die in de onderstaande tabellen 'sectieboom' wordt genoemd. Secties zonder subsecties, dus de uiteinden van de sectieboom, hetem 'bladeren'. Zo kunnen een straat worden opgedeeld in linker- en rechterzijde met aan elke kant diverse parkeervoorzieningen. 
+Dynamische data, oftewel: de tellingen, daar is uiteraard waar het in deze datastandaard om te doen is. Dynamische data is een verzameling secties/meetgebieden. In een meetgebied kunnen weer subsecties worden ondergebracht en in de subsecties weer nieuwe subsecties. Zo ontstaat er een boom aan secties, die in de onderstaande tabellen 'sectieboom' wordt genoemd. 
+Secties zonder subsecties, dus de uiteinden van de sectieboom, heten 'bladeren'. 
+Zo kunnen een straat worden opgedeeld in linker- en rechterzijde met aan elke kant diverse parkeervoorzieningen. 
+
+<aside class="example" title="Boom- en bladeren">
 
 Een sectieboom kan er als volgt uit zien:  
 
-```
-Sectie (Dorpsstraat)  
-  Subsectie (Even zijde)  
-    Subsubsectie (Rek) => dit is een blad  
-    Subsubsectie (Verzameling nietjes) => dit is een blad  
-  Subsectie (Oneven zijde)  
-    Subsubsectie (gevel) => dit is een blad  
-```
+- Sectie (Dorpsstraat)  
+  - Subsectie (Even zijde)  
+    - Subsubsectie (Rek) → dit is een blad  
+    - Subsubsectie (Verzameling nietjes) → dit is een blad  
+  - Subsectie (Oneven zijde)  
+    - Subsubsectie (gevel) → dit is een blad  
+
+</aside>
 
 Om de ontwikkeling van een dataportal niet te complex te maken, is het aantal secties in secties voorlopig begrensd op 3 lagen.  
 
-<div class='note'>
+<aside class='def'>
 
-__Belangrijk: Er mag alleen gedetailleerde teldata, verpakt in zogenaamde 'Count'-objecten, worden doorgegeven in de bladeren van de sectieboom!!!__ 
+In de bladeren van de sectieboom MOET gedetailleerde teldata worden doorgegeven, verpakt in `Count`-objecten.
 
-</div>
+</aside>
 
-Zie document [Dynamische data in de fietsparkeerstandaard](https://github.com/Stichting-CROW/datastandaard-fietsparkeren/blob/gh-pages/docs/20190924-dataformaat-fietstellingen-v2-10.pdf) voor een beknopte a-technische uitleg van het telprincipe in de datastandaard  
+Zie document [Dynamische data in de fietsparkeerstandaard](../docs/20190924-dataformaat-fietstellingen-v2-10.pdf) voor een beknopte a-technische uitleg van het telprincipe in de datastandaard  
 
-Hieronder volgt een opsomming van de te gebruiken datablokken. Voor de niet technici: een setje dubbele haken [ ] betekent dat het gaat om een verzameling van meerdere objecten.
-Bijvoorbeeld: Count[] betekent dat er meerdere telblokken in dit veld kunnen zitten.
+<div class='issue' data-number='5'></div>
 
-#### DynamicData
+#### `DynamicData`
 
 | Field                | Type                      | Required    | Description                                                    |
 | ----------- | ----------------- | --------- | ------------------------------------------------------------- |
 | `result`          | DynamicSection[]  | yes        | Verzameling secties met stallingsdata                         |
 |{.data}
 
-#### DynamicSection
+#### `DynamicSection`
 
 | Field                     | Type                | Required    | Description                                                |
 | ------------------------- | ------------------- | ----------- | ---------------------------------------------------------- |
@@ -130,8 +140,11 @@ Bijvoorbeeld: Count[] betekent dat er meerdere telblokken in dit veld kunnen zit
 De velden surveyId, authorityId en contractorId kunnen gebruikt worden bij het filteren van data bij de zoekopdrachten van de API's 4 en 5.
 Je zou bijvoorbeeld kunnen alle metingen van een bepaald onderzoek die zijn uitgevoerd door een bepaalde contractor kunnen opvragen. Zie *API Requests* voor meer details over zoekopdrachten.
 
+De velden `parkingCapacity`, `vacantSpaces` en `occupiedSpaces` en `count` zijn VEREIST in de bladeren van de sectieboom.
 
-### Space
+Indien ze in de takken niet gegeven zijn, kunnen `vacantSpaces`, `occupiedSpaces` en `occupation` berekend worden door alle `vacantSpaces`, etc. van onderliggende sections op te tellen.
+
+### `Space`
 
 Definiëring van een plek aan de hand van properties
 
@@ -142,7 +155,7 @@ Definiëring van een plek aan de hand van properties
 | `vehicles`           | Vehicle[]          | no                      | Deze space is uitsluitend geschikt voor genoemde voertuigen |
 |{.data}
 
-#### spaceTypeIDs
+#### `Space.type`
 
 | ID | spaceType             |
 | -- | --------------------- |
@@ -154,28 +167,30 @@ Definiëring van een plek aan de hand van properties
 | `a`  | anders                |
 |{.data}
 
-### Vehicle
+<div class='issue' data-number='6'></div>
+
+### `Vehicle`
 
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
-| `type`               | string             | no                     | Zie tabel vehicle.type                                       |
-| `propulsion`         | string[]           | no                     | Zie tabel vehicle.propulsion                                 |
-| `appearance`         | string             | no                     | Zie tabel vehicle.appearance                                 |
+| `type`               | string             | no                     | Zie tabel Vehicle.type                                       |
+| `propulsion`         | string[]           | no                     | Zie tabel Vehicle.propulsion                                 |
+| `appearance`         | string             | no                     | Zie tabel Vehicle.appearance                                 |
 | `state`              | VehicleState[]     | no                     | Zie tabel VehicleState                                      |
-| `parkState`          | string[]           | no                     | Zie tabel vehicle.parkState                                  |
+| `parkState`          | string[]           | no                     | Zie tabel Vehicle.parkState                                  |
 | `accessoires`        | Accessoire[]       | no                     | Zie tabel Accessoire                                |
-| `owner`              | string             | no                     | Zie tabel vehicle.owner                                      |
+| `owner`              | string             | no                     | Zie tabel Vehicle.owner                                      |
 |{.data}
 
-#### Accessoire
+#### `Accessoire`
 
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
-| `type`               | string             | no                     | Zie tabel vehicle.accessoire.typen                          |
-| `position`           | string             | no                     | Zie tabel vehicle.accessoire.positions                      |
+| `type`               | string             | no                     | Zie tabel Vehicle.accessoire.typen                          |
+| `position`           | string             | no                     | Zie tabel Vehicle.accessoire.positions                      |
 |{.data}
 
-##### vehicle.accessoire.typen 
+##### `Vehicle.accessoire.typen` 
 
 | ID | Omschrijving          |
 | -- | --------------------- |
@@ -185,7 +200,7 @@ Definiëring van een plek aan de hand van properties
 | `b`  | bak / mand            |
 |{.data}
 
-##### vehicle.accessoire.positions 
+##### `Vehicle.accessoire.positions` 
 
 | ID | Omschrijving          |
 | -- | --------------------- |
@@ -194,15 +209,15 @@ Definiëring van een plek aan de hand van properties
 |{.data}
 
 
-#### VehicleState
+#### `VehicleState`
 
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
-|`type`                | string             | no                     | Zie tabel vehicle.state.type                          |
-|`position`            | string             | no                     | Zie tabel vehicle.state.position                      |
+|`type`                | string             | no                     | Zie tabel Vehicle.state.type                          |
+|`position`            | string             | no                     | Zie tabel Vehicle.state.position                      |
 |{.data}
 
-##### vehicle.state.type 
+##### `Vehicle.state.type` 
 
 | ID | Omschrijving          |
 | -- | --------------------- |
@@ -212,7 +227,7 @@ Definiëring van een plek aan de hand van properties
 | ...| ...                   |
 |{.data}
 
-##### vehicle.state.position
+##### `Vehicle.state.position`
 
 | ID | Omschrijving          |
 | -- | --------------------- |
@@ -220,9 +235,7 @@ Definiëring van een plek aan de hand van properties
 | `a`  | achter                |
 |{.data}
 
-Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk zijn. Lijstjes die eindigen met ... zijn voor uitbreiding vatbaar.
-
-#### vehicle.parkState
+#### `Vehicle.parkState`
 
 | ID | Omschrijving          |
 | -- | --------------------- |
@@ -231,8 +244,9 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | ...| ...                   |
 |{.data}
 
-#### vehicle.type
-(classificatie naar wettelijke voertuigcategorie)
+#### `Vehicle.type`
+
+Classificatie naar wettelijke voertuigcategorie.
 
 | ID | Voertuigtype          | Omschrijving                                                                   |
 | -- | --------------------- | ------------------------------------------------------------------------------ |
@@ -245,7 +259,7 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | `a`  | anders                |                                                                                |
 |{.data}
 
-#### vehicle.propulsion
+#### `Vehicle.propulsion`
 
 | ID | Aandrijving     | Omschrijving                                                                   |
 | -- | --------------- | ------------------------------------------------------------------------------ |
@@ -254,7 +268,8 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | `b`  | Brandstof       | bv traditionele bromfiets, motorfiets                                          | 
 |{.data}
 
-#### vehicle.appearance
+#### `Vehicle.appearance`
+
 | ID | Verschijningsvorm |
 | -- | --------------- |
 | `k`  | Kinderfiets    |
@@ -268,7 +283,7 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | `t`  | Tandem       | 
 |{.data}
 
-#### vehicle.owner
+#### `Vehicle.owner`
 
 | ID | Eigenaar              | Omschrijving                                                                   |
 | -- | --------------------- | ------------------------------------------------------------------------------ |
@@ -277,11 +292,7 @@ Onderstaande lijstjes geven de mogelijk waarden die voor diverse velden mogelijk
 | `h`  | Huur                  | Huurfiets, zoals OV-fiets                                                      |
 |{.data}
 
-De velden `parkingCapacity`, `vacantSpaces` en `occupiedSpaces` en `count` zijn verplicht in de bladeren van de sectieboom  
-
-Indien ze in de takken niet gegeven zijn, kunnen `vacantSpaces`, `occupiedSpaces` en `occupation` berekend worden door alle `vacantSpaces`, etc. van onderliggende sections op te tellen
-
-### Count
+### `Count`
 
 | Field                | Type               | Required               | Description                                                  |
 | -------------------- | ------------------ | ---------------------- | ------------------------------------------------------------ |
@@ -289,7 +300,7 @@ Indien ze in de takken niet gegeven zijn, kunnen `vacantSpaces`, `occupiedSpaces
 |`numberOfVehicles`    | number             | yes                    | Aantal gestalde voertuigen                                   |
 |{.data}
 
-### Note
+### `Note`
 
 | Field               | Type                | Required               | Description                                                  |
 | ------------------- | ------------------- | ---------------------- | ------------------------------------------------------------ |
