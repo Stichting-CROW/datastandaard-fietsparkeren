@@ -87,7 +87,7 @@ Zonder het veld surveyId worden de statische secties niet gekoppeld aan een onde
 Je kunt dus zowel dynamische als statische data afzonderlijk koppelen aan een onderzoek.   
    
 Dynamische data kan sterk gecomprimeerd worden door alleen de totalen op te slaan. Dit zal in de praktijk vaak voorkomen.  
-`POST /dynamicdata` [Body met alleen totalen](./examples/API3/requests/POST_compressed_dynamic_section.json)  
+`POST /dynamicdata` [Body met alleen totalen](./examples/API3/requests/POST_compressed_dynamic_sections.json)  
 
 <pre class='example json' title="Body met alleen totalen" data-include='../examples/API3/requests/POST_compressed_dynamic_sections.json' data-include-format='text'></pre>
 
