@@ -72,7 +72,7 @@ Indien geen `surveyId` is gegeven, maakt de server zelf een id en geeft deze ter
 Statische secties worden per stuk gepost. De body bevat dus slechts één sectie. Dit om eventuele schrijffouten te kunnen retourneren in de response, bijvoorbeeld als de `id` van de sectie reeds in gebruik is.  
 
 <pre class='example json' title="Body" data-include='../examples/API3/requests/POST_static_section.json' data-include-format='text'></pre>  
-[Response](./examples/API4/POST_static_section.json)  - In geval van een succesvolle opslag, bevat de response het opgeslagen object.  
+[Response](./examples/API4/POST_static_section.json)  - In geval van een succesvolle opslag, bevat de response het opgeslagen object in property `section`.  
 
 Het `id` van een statische sectie is, net als het `surveyID`, door de opsturende instantie zelf samen te stellen. Suggestie: prefix het sectionId met het `surveyId` om een unieke id te garanderen, bijvoorbeeld: `< surveyId >_< straatnaam >`
 
