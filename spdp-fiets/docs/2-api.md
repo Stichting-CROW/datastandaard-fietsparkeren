@@ -48,6 +48,45 @@ In het geval van de pilot in VeiligStallen is de base-url `https://remote.veilig
 
 </aside>
 
+Een organisatie opslaan:  
+`POST /organisations` [Body zonder surveyId](./examples/API3/requests/POST_new_organisation.json)  
+[Response](./examples/API3/responses/POST_new_organisation.json)  
+
+Een survey opslaan:  
+`POST /surveys` [Body met surveyId](./examples/API3/requests/POST_new_survey_with_id.json)  
+Een id van de survey mag door exploitant zelf gekozen worden. Suggestie gebruik [CBS codes](https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar/indeling-per-jaar/gemeentelijke-indeling-op-1-januari-2020) en unieke gegevens uit het onderzoek, bijv. < CBS_nr_gemeente >_< jaartal > => 0202_2020.  
+
+<pre class='example json' title='Body zonder surveyId' data-include='../examples/API3/requests/POST_new_survey_without_id.json' data-include-format='text'></pre>
+
+De instantie die de survey instuurt, wordt 'eigenaar' van dit onderzoek. 
+
+Een Survey met een `surveyId` dat al bestaat, zal resulteren in een 409-error (Conflict). Behalve als deze POST wordt gedaan door de eigenaar van het onderzoek. In dat geval wordt de bestaande survey overschreven.
+
+Indien geen `surveyId` is gegeven, maakt de server zelf een id en geeft deze terug in de response.  
+
+[Response](./examples/API3/responses/POST_new_survey.json)  
+
+<pre class='example json' title="Response" data-include='../examples/API3/responses/POST_new_survey.json' data-include-format='text'></pre>
+
+`POST /staticsection` [Body](./examples/API3/requests/POST_static_section.json)  
+Statische secties worden per stuk gepost. De body bevat dus slechts één sectie. Dit om eventuele schrijffouten te kunnen retourneren in de response, bijvoorbeeld als de `id` van de sectie reeds in gebruik is.  
+
+<pre class='example json' title="Body" data-include='../examples/API3/requests/POST_static_section.json' data-include-format='text'></pre>  
+[Response](./examples/API4/POST_static_section.json)  - In geval van een succesvolle opslag, bevat de response het opgeslagen object.  
+
+Het `id` van een statische sectie is, net als het `surveyID`, door de opsturende instantie zelf samen te stellen. Suggestie: prefix het sectionId met het `surveyId` om een unieke id te garanderen, bijvoorbeeld: `< surveyId >_< straatnaam >`
+
+Als er al een sectie met hetzelfde `id` bestaat, krijgt de response code 409 (Conflict). Tenzij de POST wordt gedaan door de owner van de sectie. In dat geval wordt de bestaande sectie overschreven.
+
+Het is niet verplicht veld `id` mee te geven in de request. Als er geen `id` gegeven is, wordt deze door de API gegenereerd en is deze zichtbaar in de respons, dat immers het volledig opgeslagen object bevat.
+
+`POST /dynamicdata` [Body](./examples/API3/requests/POST_dynamic_data.json)  
+Dynamische data, dus de daadwerkelijke metingen, worden in bulk opgeslagen. De body bevat dus een array aan metingen.  
+
+<pre class='example json' title="Body" data-include='../examples/API3/requests/POST_dynamic_data.json' data-include-format='text'></pre>
+
+Door het veld surveyId mee te geven aan de meting, worden deze gekoppeld aan een onderzoek.  
+Zonder het veld surveyId worden de data niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een surveyId!
 
 ### API 4 - data opvragen
 

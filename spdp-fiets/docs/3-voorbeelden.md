@@ -35,23 +35,23 @@ Indien geen `surveyId` is gegeven, maakt de server zelf een id en geeft deze ter
 
 
 ##### Stap 3: koppel statische data aan bestaand onderzoek
-`POST /staticdata` [Body](./examples/API3/requests/POST_static_data.json)  
+`POST /staticsection` [Body](./examples/API3/requests/POST_static_section.json)  
+<pre class='example json' title="Body" data-include='../examples/API3/requests/POST_static_section.json' data-include-format='text'></pre>  
+[Response](./examples/API4/POST_static_section.json)  - In geval van een succesvolle opslag, bevat de response het opgeslagen object.  
 
-<pre class='example json' title="Body" data-include='../examples/API3/requests/POST_static_data.json' data-include-format='text'></pre>
+Het `id` van een statische sectie is, net als het `surveyID`, door de opsturende instantie zelf samen te stellen. Suggestie: prefix het sectionId met het `surveyId` om een unieke id te garanderen, bijvoorbeeld: `< surveyId >_< straatnaam >`
 
+Als er al een sectie met hetzelfde `id` bestaat, krijgt de response code 409 (Conflict). Tenzij de POST wordt gedaan door de owner van de sectie. In dat geval wordt de oude sectie overschreven.
 
-Door het veld `surveyId` mee te geven aan de secties, worden de secties gekoppeld aan een onderzoek.  
-Zonder het veld `surveyId` worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een `surveyId`.
-
-Het Id van een statische sectie is, net als het `surveyID`, door de opsturende instantie zelf samen te stellen. Suggestie: prefix het sectionId met het surveyId om een unieke id te garanderen, bijvoorbeeld: `< surveyId >_< straatnaam >`
+Het is niet verplicht veld `id` mee te geven in de request. Als er geen `id` gegeven is, wordt deze door de API gegenereerd en is deze zichtbaar in de respons, dat immers het volledig opgeslagen object bevat.
 
 ##### Stap 3: Sla losse metingen op
 `POST /dynamicdata` [Body](./examples/API3/requests/POST_dynamic_data.json)
 
 <pre class='example json' title="Body" data-include='../examples/API3/requests/POST_dynamic_data.json' data-include-format='text'></pre>
 
-Door het veld surveyId mee te geven aan de secties, worden de metingen gekoppeld aan een onderzoek.  
-Zonder het veld surveyId worden de statische secties niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een surveyId.
+Door het veld surveyId mee te geven aan de meting, worden deze gekoppeld aan een onderzoek.  
+Zonder het veld surveyId worden de data niet gekoppeld aan een onderzoek en zullen ze dus ook niet gevonden worden bij een zoekopdracht naar een surveyId!
 
 Je kunt dus zowel dynamische als statische data afzonderlijk koppelen aan een onderzoek.   
    
