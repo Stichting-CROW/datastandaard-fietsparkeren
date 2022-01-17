@@ -131,7 +131,7 @@ Voor historische vergelijkingen kan op basis van de geometrie en/of `altId` bepa
 | <dfn data-dfn-for="ParkingFacility">geoLocation     | GeoJSON                          | 1..1          | Geografische afbakening volgens [[rfc7946]].                             |
 | <dfn data-dfn-for="ParkingFacility">name            | `string`                         | 0..1          | Namen voor de voorziening.                                               |
 | <dfn data-dfn-for="ParkingFacility">altId           | `string[]`                       | 0..N          | Alternatieve IDs van de eigenaar of inwinner.                            |
-| <dfn data-dfn-for="ParkingFacility">securityFeature | {{SecurityFeature}}`[]`          | 0..N          | Beveiligingskenmerken                                                    |
+| <dfn data-dfn-for="ParkingFacility">securityFeatures | {{SecurityFeature}}`[]`          | 0..N          | Beveiligingskenmerken                                                    |
 | <dfn data-dfn-for="ParkingFacility">allows          | {{Vehicle}}`[]`                  | 1..N          | Toegestane voertuigtypen voor deze parkeerlocatie.                       |
 | <dfn data-dfn-for="ParkingFacility">validFrom       | [[rfc3339]] date-time (`string`) | 0..1          | Zie <a href='#geldigheid-door-de-tijd'></a>.                             |
 | <dfn data-dfn-for="ParkingFacility">validThrough    | [[rfc3339]] date-time (`string`) | 0..1          | Zie <a href='#geldigheid-door-de-tijd'></a>.                             |
