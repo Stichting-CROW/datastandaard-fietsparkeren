@@ -135,7 +135,7 @@ Voor historische vergelijkingen kan op basis van de geometrie en/of `altId` bepa
 | <dfn data-dfn-for="ParkingFacility">allows          | {{Vehicle}}`[]`                  | 1..N          | Toegestane voertuigtypen voor deze parkeerlocatie.                       |
 | <dfn data-dfn-for="ParkingFacility">validFrom       | [[rfc3339]] date-time (`string`) | 0..1          | Zie <a href='#geldigheid-door-de-tijd'></a>.                             |
 | <dfn data-dfn-for="ParkingFacility">validThrough    | [[rfc3339]] date-time (`string`) | 0..1          | Zie <a href='#geldigheid-door-de-tijd'></a>.                             |
-| ~~<dfn data-dfn-for="ParkingFacility">authority~~   | {{Organisation.id}}              | 0..1          | Alleen deze eigenaar mag wijzigingen aanbrengen aan deze parkeerlocatie. |
+| <dfn data-dfn-for="ParkingFacility">owner           | {{Organisation.id}}              | 0..1          | Alleen deze eigenaar mag wijzigingen aanbrengen aan deze parkeerlocatie. |
 | {.data def}                                         |
 
 #### Enum <dfn>`SecurityFeature`
@@ -174,7 +174,7 @@ Voor bijvoorbeeld handmatige tellers kan dat wel handig zijn.
 | <dfn data-dfn-for='Section'>level           | `number`                          | 0..1          | De etage in de ParkingFacility waar deze sectie zich bevindt. -1 = onder maaiveld, 0 = maaiveld (default), 1 = verdieping. |
 | <dfn data-dfn-for='Section'>validFrom       | [[rfc3339]] date-time (`string`)  | 0..1          | Begin geldigheid. Zie <a href='#geldigheid-door-de-tijd'></a>.                                                             |
 | <dfn data-dfn-for='Section'>validThrough    | [[rfc3339]] date-time (`string`)  | 0..1          | Einde geldigheid. Zie <a href='#geldigheid-door-de-tijd'></a>.                                                             |
-| <dfn data-dfn-for='Section'>authority       | {{Organisation.id}} (`string`)    | 0..1          | Eigenaar van deze sectie.                                                                                                  |
+| <dfn data-dfn-for='Section'>owner           | {{Organisation.id}} (`string`)    | 0..1          | Eigenaar van deze sectie.                                                                                                  |
 | {.data def}                                 |
 
 Een sectie kan een kortere `validThrough` hebben dan de parkeerlocatie waartoe het behoort:
