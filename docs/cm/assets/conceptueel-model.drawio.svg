@@ -1,0 +1,1206 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="2086px" height="1162px" viewBox="-0.5 -0.5 2086 1162" content="&lt;mxfile&gt;&lt;diagram id=&quot;ajeufbVXeuQnB9VUT9g7&quot; name=&quot;conceptueel-model&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs>
+        <clipPath id="mx-clip-969-700-132-30-0">
+            <rect x="969" y="700" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-969-730-132-30-0">
+            <rect x="969" y="730" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-969-760-132-30-0">
+            <rect x="969" y="760" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-969-790-132-30-0">
+            <rect x="969" y="790" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-969-820-132-30-0">
+            <rect x="969" y="820" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-969-850-132-30-0">
+            <rect x="969" y="850" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-969-880-132-30-0">
+            <rect x="969" y="880" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-729-700-132-30-0">
+            <rect x="729" y="700" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-729-730-132-30-0">
+            <rect x="729" y="730" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-729-760-132-30-0">
+            <rect x="729" y="760" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-729-790-132-30-0">
+            <rect x="729" y="790" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-729-820-132-30-0">
+            <rect x="729" y="820" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-729-850-132-30-0">
+            <rect x="729" y="850" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-729-950-132-30-0">
+            <rect x="729" y="950" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-729-980-132-30-0">
+            <rect x="729" y="980" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-729-1010-132-30-0">
+            <rect x="729" y="1010" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-729-1040-132-30-0">
+            <rect x="729" y="1040" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-700-132-30-0">
+            <rect x="1179" y="700" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-730-132-30-0">
+            <rect x="1179" y="730" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-760-132-30-0">
+            <rect x="1179" y="760" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-790-132-30-0">
+            <rect x="1179" y="790" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-820-132-30-0">
+            <rect x="1179" y="820" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-850-132-30-0">
+            <rect x="1179" y="850" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1519-370-132-30-0">
+            <rect x="1519" y="370" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1519-400-132-30-0">
+            <rect x="1519" y="400" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1519-430-132-30-0">
+            <rect x="1519" y="430" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1519-460-132-30-0">
+            <rect x="1519" y="460" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1519-490-132-30-0">
+            <rect x="1519" y="490" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1519-520-132-30-0">
+            <rect x="1519" y="520" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-70-132-30-0">
+            <rect x="1899" y="70" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-100-132-30-0">
+            <rect x="1899" y="100" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-130-132-30-0">
+            <rect x="1899" y="130" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-160-132-30-0">
+            <rect x="1899" y="160" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-190-132-30-0">
+            <rect x="1899" y="190" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1739-230-132-30-0">
+            <rect x="1739" y="230" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1739-260-132-30-0">
+            <rect x="1739" y="260" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1739-290-132-30-0">
+            <rect x="1739" y="290" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1739-320-132-30-0">
+            <rect x="1739" y="320" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1739-350-132-30-0">
+            <rect x="1739" y="350" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-260-132-30-0">
+            <rect x="1899" y="260" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-290-132-30-0">
+            <rect x="1899" y="290" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-320-132-30-0">
+            <rect x="1899" y="320" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-350-132-30-0">
+            <rect x="1899" y="350" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-380-132-30-0">
+            <rect x="1899" y="380" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-410-132-30-0">
+            <rect x="1899" y="410" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-440-132-30-0">
+            <rect x="1899" y="440" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-470-132-30-0">
+            <rect x="1899" y="470" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-500-132-30-0">
+            <rect x="1899" y="500" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-530-132-30-0">
+            <rect x="1899" y="530" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-560-132-30-0">
+            <rect x="1899" y="560" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1899-590-132-30-0">
+            <rect x="1899" y="590" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1744-460-132-30-0">
+            <rect x="1744" y="460" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1744-490-132-30-0">
+            <rect x="1744" y="490" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1744-520-132-30-0">
+            <rect x="1744" y="520" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1744-600-132-30-0">
+            <rect x="1744" y="600" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1744-630-132-30-0">
+            <rect x="1744" y="630" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1744-660-132-30-0">
+            <rect x="1744" y="660" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1744-740-132-30-0">
+            <rect x="1744" y="740" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1744-770-132-30-0">
+            <rect x="1744" y="770" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1929-670-132-30-0">
+            <rect x="1929" y="670" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1929-700-132-30-0">
+            <rect x="1929" y="700" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1929-790-132-30-0">
+            <rect x="1929" y="790" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1929-820-132-30-0">
+            <rect x="1929" y="820" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-944-390-182-30-0">
+            <rect x="944" y="390" width="182" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-969-80-132-30-0">
+            <rect x="969" y="80" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-969-110-132-30-0">
+            <rect x="969" y="110" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-759-130-162-30-0">
+            <rect x="759" y="130" width="162" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-759-160-162-30-0">
+            <rect x="759" y="160" width="162" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-759-190-162-30-0">
+            <rect x="759" y="190" width="162" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-759-220-162-30-0">
+            <rect x="759" y="220" width="162" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-759-250-162-30-0">
+            <rect x="759" y="250" width="162" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1149-170-132-30-0">
+            <rect x="1149" y="170" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1149-200-132-30-0">
+            <rect x="1149" y="200" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1149-230-132-30-0">
+            <rect x="1149" y="230" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1149-260-132-30-0">
+            <rect x="1149" y="260" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-474-350-132-30-0">
+            <rect x="474" y="350" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-54-338-132-30-0">
+            <rect x="54" y="338" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-54-368-132-30-0">
+            <rect x="54" y="368" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-54-398-132-30-0">
+            <rect x="54" y="398" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-54-428-132-30-0">
+            <rect x="54" y="428" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-54-458-132-30-0">
+            <rect x="54" y="458" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-54-488-132-30-0">
+            <rect x="54" y="488" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-474-610-132-30-0">
+            <rect x="474" y="610" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-474-640-132-30-0">
+            <rect x="474" y="640" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-474-670-132-30-0">
+            <rect x="474" y="670" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-474-700-132-30-0">
+            <rect x="474" y="700" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-474-730-132-30-0">
+            <rect x="474" y="730" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-314-578-132-30-0">
+            <rect x="314" y="578" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-124-573-132-30-0">
+            <rect x="124" y="573" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-124-603-132-30-0">
+            <rect x="124" y="603" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-261-690-132-30-0">
+            <rect x="261" y="690" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-261-720-132-30-0">
+            <rect x="261" y="720" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-261-750-132-30-0">
+            <rect x="261" y="750" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-950-132-30-0">
+            <rect x="1179" y="950" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-980-132-30-0">
+            <rect x="1179" y="980" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-1010-132-30-0">
+            <rect x="1179" y="1010" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-1040-132-30-0">
+            <rect x="1179" y="1040" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-1070-132-30-0">
+            <rect x="1179" y="1070" width="132" height="30"/>
+        </clipPath>
+        <clipPath id="mx-clip-1179-1100-132-30-0">
+            <rect x="1179" y="1100" width="132" height="30"/>
+        </clipPath>
+    </defs>
+    <g>
+        <path d="M 722 865 L 705 865 Q 695 865 687.76 858.1 L 227.24 419.4 Q 220 412.5 210 412.5 L 196.37 412.5" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="stroke"/>
+        <ellipse cx="725" cy="865" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="all"/>
+        <path d="M 191.12 412.5 L 198.12 409 L 196.37 412.5 L 198.12 416 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 962 895 L 945 895 Q 935 895 926.71 889.41 L 228.29 418.09 Q 220 412.5 210 412.5 L 196.37 412.5" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="stroke"/>
+        <ellipse cx="965" cy="895" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="all"/>
+        <path d="M 191.12 412.5 L 198.12 409 L 196.37 412.5 L 198.12 416 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 1172 865 L 1155 865 Q 1145 865 1136.02 860.61 L 228.98 416.89 Q 220 412.5 210 412.5 L 196.37 412.5" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="stroke"/>
+        <ellipse cx="1175" cy="865" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="all"/>
+        <path d="M 191.12 412.5 L 198.12 409 L 196.37 412.5 L 198.12 416 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 722 835 L 705 835 Q 695 835 693.87 825.06 L 682.82 727.57 M 682.14 721.61 M 682.14 721.61 L 672.51 636.68 M 671.83 630.72 M 671.83 630.72 L 641.13 359.94 Q 640 350 630 350 L 616.37 350" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="stroke"/>
+        <ellipse cx="725" cy="835" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="all"/>
+        <path d="M 611.12 350 L 618.12 346.5 L 616.37 350 L 618.12 353.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 962 865 L 945 865 Q 935 865 930.03 856.32 L 854.74 724.88 M 851.76 719.67 M 851.76 719.67 L 644.97 358.68 Q 640 350 630 350 L 616.37 350" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="stroke"/>
+        <ellipse cx="965" cy="865" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="all"/>
+        <path d="M 611.12 350 L 618.12 346.5 L 616.37 350 L 618.12 353.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 1318 835 L 1335 835 Q 1345 835 1348.38 825.59 L 1481.62 454.41 Q 1485 445 1495 445 L 1508.63 445" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="stroke"/>
+        <ellipse cx="1315" cy="835" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="all"/>
+        <path d="M 1513.88 445 L 1506.88 448.5 L 1508.63 445 L 1506.88 441.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 193 502.43 L 311.4 502.43 M 317.4 502.43 M 317.4 502.43 L 350.26 502.43 M 356.26 502.43 M 356.26 502.43 L 400.83 502.43 M 406.83 502.43 M 406.83 502.43 L 654.29 502.43 M 660.29 502.43 M 660.29 502.43 L 724.31 502.43 M 730.31 502.43 M 730.31 502.43 L 1461.38 502.43 M 1467.38 502.43 M 1467.38 502.43 L 1508.63 502.43" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="stroke"/>
+        <ellipse cx="190" cy="502.43" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="all"/>
+        <path d="M 1513.88 502.43 L 1506.88 505.93 L 1508.63 502.43 L 1506.88 498.93 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 752 145 L 130 145 Q 120 145 120 155 L 120 301.13" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="stroke"/>
+        <ellipse cx="755" cy="145" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="all"/>
+        <path d="M 120 306.38 L 116.5 299.38 L 120 301.13 L 123.5 299.38 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 1108 95 L 1575 95 Q 1585 95 1585 105 L 1585 333.63" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="stroke"/>
+        <ellipse cx="1105" cy="95" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="all"/>
+        <path d="M 1585 338.88 L 1581.5 331.88 L 1585 333.63 L 1588.5 331.88 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 685 623 L 685 600 L 1360 600 L 1360 623" fill="#f8cecc" stroke="#b85450" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 685 623 L 685 1160 L 1360 1160 L 1360 623" fill="none" stroke="#b85450" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 685 623 L 1360 623" fill="none" stroke="#b85450" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1022" y="616">
+                Stalling en parkeervoorziening
+            </text>
+        </g>
+        <path d="M 965 700 L 965 670 L 1105 670 L 1105 700" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 965 700 L 965 910 L 1105 910 L 1105 700" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 965 700 L 1105 700" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1034.5" y="689.5">
+                Sectie
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-969-700-132-30-0)" font-size="12px">
+            <text x="970.5" y="719.5">
+                Stalling
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-969-730-132-30-0)" font-size="12px">
+            <text x="970.5" y="749.5">
+                Naam
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-969-760-132-30-0)" font-size="12px">
+            <text x="970.5" y="779.5">
+                Locatie (geo)
+            </text>
+        </g>
+        <path d="M 1108 805 L 1125 805 Q 1135 805 1135 797.5 L 1135 793.75 Q 1135 790 1125 790 L 1111.37 790" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1105" cy="805" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1106.12 790 L 1113.12 786.5 L 1111.37 790 L 1113.12 793.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-969-790-132-30-0)" font-size="12px">
+            <text x="970.5" y="809.5">
+                Maakt deel uit van
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-969-820-132-30-0)" font-size="12px">
+            <text x="970.5" y="839.5">
+                Geldig van / tot
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-969-850-132-30-0)" font-size="12px">
+            <text x="970.5" y="869.5">
+                Eigenaar
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-969-880-132-30-0)" font-size="12px">
+            <text x="970.5" y="899.5">
+                Bron
+            </text>
+        </g>
+        <path d="M 725 700 L 725 670 L 865 670 L 865 700" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 725 700 L 725 880 L 865 880 L 865 700" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 725 700 L 865 700" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="794.5" y="689.5">
+                Parkeerlocatie
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-729-700-132-30-0)" font-size="12px">
+            <text x="730.5" y="719.5">
+                Naam
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-729-730-132-30-0)" font-size="12px">
+            <text x="730.5" y="749.5">
+                Locatie (geo)
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-729-760-132-30-0)" font-size="12px">
+            <text x="730.5" y="779.5">
+                Faciliteiten
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-729-790-132-30-0)" font-size="12px">
+            <text x="730.5" y="809.5">
+                Inpandig / maaiveld
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-729-820-132-30-0)" font-size="12px">
+            <text x="730.5" y="839.5">
+                Eigenaar
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-729-850-132-30-0)" font-size="12px">
+            <text x="730.5" y="869.5">
+                Bron
+            </text>
+        </g>
+        <path d="M 962 715 L 945 715 Q 935 715 929.45 723.32 L 912.9 748.15 M 909.57 753.14 M 909.57 753.14 L 900.55 766.68 Q 895 775 890.72 775 L 886.45 775 M 880.45 775 M 880.45 775 L 871.37 775" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="965" cy="715" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 866.12 775 L 873.12 771.5 L 871.37 775 L 873.12 778.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 725 950 L 725 920 L 865 920 L 865 950" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 725 950 L 725 1070 L 865 1070 L 865 950" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 725 950 L 865 950" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000000" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="794.5" y="939.5">
+                Stallingsfaciliteiten
+            </text>
+        </g>
+        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-729-950-132-30-0)" font-size="12px">
+            <text x="730.5" y="969.5">
+                Camerabewaking
+            </text>
+        </g>
+        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-729-980-132-30-0)" font-size="12px">
+            <text x="730.5" y="999.5">
+                Fietskluizen aanwezig
+            </text>
+        </g>
+        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-729-1010-132-30-0)" font-size="12px">
+            <text x="730.5" y="1029.5">
+                Bemenst
+            </text>
+        </g>
+        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-729-1040-132-30-0)" font-size="12px">
+            <text x="730.5" y="1059.5">
+                Toegangsssysteem
+            </text>
+        </g>
+        <path d="M 868 775 L 880.45 775 M 886.45 775 M 886.45 775 L 890.72 775 Q 895 775 895 783.58 L 895 792.17 M 895 798.17 M 895 798.17 L 895 865.01 M 895 871.01 M 895 871.01 L 895 985 Q 895 995 885 995 L 871.37 995" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="865" cy="775" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 866.12 995 L 873.12 991.5 L 871.37 995 L 873.12 998.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1175 700 L 1175 670 L 1315 670 L 1315 700" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1175 700 L 1175 880 L 1315 880 L 1315 700" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1175 700 L 1315 700" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1244.5" y="689.5">
+                Plek
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-700-132-30-0)" font-size="12px">
+            <text x="1180.5" y="719.5">
+                Maakt deel uit van
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-730-132-30-0)" font-size="12px">
+            <text x="1180.5" y="749.5">
+                Locatie (geo)
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-760-132-30-0)" font-size="12px">
+            <text x="1180.5" y="779.5">
+                Naam
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-790-132-30-0)" font-size="12px">
+            <text x="1180.5" y="809.5">
+                Type parkeersysteem
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-820-132-30-0)" font-size="12px">
+            <text x="1180.5" y="839.5">
+                Voor voertuigtype
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-850-132-30-0)" font-size="12px">
+            <text x="1180.5" y="869.5">
+                Bron
+            </text>
+        </g>
+        <path d="M 1172 715 L 1155 715 Q 1145 715 1143.68 724.91 L 1136.32 780.09 Q 1135 790 1125 790 L 1111.37 790" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1175" cy="715" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1106.12 790 L 1113.12 786.5 L 1111.37 790 L 1113.12 793.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 945 1050 L 1025 1050 L 1045 1070 L 1045 1150 L 945 1150 L 945 1050 Z" fill="#fff2cc" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1025 1050 L 1025 1070 L 1045 1070" fill="none" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 1100px; margin-left: 946px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; font-style: italic; white-space: normal; overflow-wrap: normal;">
+                                Complete, arbitraire hiërarchie van stalling tot individuele plek
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="995" y="1104" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle" font-style="italic">
+                    Complete, arbitra...
+                </text>
+            </switch>
+        </g>
+        <path d="M 1435 23 L 1435 0 L 2085 0 L 2085 23" fill="#dae8fc" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1435 23 L 1435 920 L 2085 920 L 2085 23" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1435 23 L 2085 23" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1759.5" y="16">
+                Voertuig en voertuigstaat
+            </text>
+        </g>
+        <path d="M 1515 370 L 1515 340 L 1655 340 L 1655 370" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1515 370 L 1515 550 L 1655 550 L 1655 370" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1515 370 L 1655 370" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1584.5" y="359.5">
+                Voertuig
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1519-370-132-30-0)" font-size="12px">
+            <text x="1520.5" y="389.5">
+                Wettelijk type
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1519-400-132-30-0)" font-size="12px">
+            <text x="1520.5" y="419.5">
+                Aandrijving
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1519-430-132-30-0)" font-size="12px">
+            <text x="1520.5" y="449.5">
+                Voorkomen
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1519-460-132-30-0)" font-size="12px">
+            <text x="1520.5" y="479.5">
+                Onderhoudsstaat
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1519-490-132-30-0)" font-size="12px">
+            <text x="1520.5" y="509.5">
+                Eigenaarschap
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1519-520-132-30-0)" font-size="12px">
+            <text x="1520.5" y="539.5">
+                Accessoires
+            </text>
+        </g>
+        <path d="M 1895 70 L 1895 40 L 2035 40 L 2035 70" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1895 70 L 1895 220 L 2035 220 L 2035 70" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1895 70 L 2035 70" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1964.5" y="59.5">
+                Wettelijk voertuigtype
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-70-132-30-0)" font-size="12px">
+            <text x="1900.5" y="89.5">
+                Fiets
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-100-132-30-0)" font-size="12px">
+            <text x="1900.5" y="119.5">
+                Brommer
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-130-132-30-0)" font-size="12px">
+            <text x="1900.5" y="149.5">
+                Snorfiets
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-160-132-30-0)" font-size="12px">
+            <text x="1900.5" y="179.5">
+                Motorfiets
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-190-132-30-0)" font-size="12px">
+            <text x="1900.5" y="209.5">
+                Gehandicaptenvoertuig
+            </text>
+        </g>
+        <path d="M 1658 385 L 1675 385 Q 1685 385 1690.77 376.83 L 1859.23 138.17 Q 1865 130 1875 130 L 1888.63 130" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1655" cy="385" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1893.88 130 L 1886.88 133.5 L 1888.63 130 L 1886.88 126.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1735 230 L 1735 200 L 1875 200 L 1875 230" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1735 230 L 1735 380 L 1875 380 L 1875 230" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1735 230 L 1875 230" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1804.5" y="219.5">
+                Type aandrijving
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1739-230-132-30-0)" font-size="12px">
+            <text x="1740.5" y="249.5">
+                Spierkracht
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1739-260-132-30-0)" font-size="12px">
+            <text x="1740.5" y="279.5">
+                Elektrisch
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1739-290-132-30-0)" font-size="12px">
+            <text x="1740.5" y="309.5">
+                Elektrisch ondersteund
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1739-320-132-30-0)" font-size="12px">
+            <text x="1740.5" y="339.5">
+                Verbrandinsmotor
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1739-350-132-30-0)" font-size="12px">
+            <text x="1740.5" y="369.5">
+                Verbrandingsmotor ondersteund
+            </text>
+        </g>
+        <path d="M 1658 415 L 1675 415 Q 1685 415 1686.58 405.13 L 1690.73 379.17 M 1691.68 373.24 M 1691.68 373.24 L 1703.42 299.87 Q 1705 290 1715 290 L 1728.63 290" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1655" cy="415" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1733.88 290 L 1726.88 293.5 L 1728.63 290 L 1726.88 286.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1895 260 L 1895 230 L 2035 230 L 2035 260" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1895 260 L 1895 620 L 2035 620 L 2035 260" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1895 260 L 2035 260" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1964.5" y="249.5">
+                Type voorkomen
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-260-132-30-0)" font-size="12px">
+            <text x="1900.5" y="279.5">
+                Stadsfiets
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-290-132-30-0)" font-size="12px">
+            <text x="1900.5" y="309.5">
+                Tourfiets
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-320-132-30-0)" font-size="12px">
+            <text x="1900.5" y="339.5">
+                Racefiets
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-350-132-30-0)" font-size="12px">
+            <text x="1900.5" y="369.5">
+                Ligfiets
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-380-132-30-0)" font-size="12px">
+            <text x="1900.5" y="399.5">
+                Kinderfiets
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-410-132-30-0)" font-size="12px">
+            <text x="1900.5" y="429.5">
+                Bakfiets
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-440-132-30-0)" font-size="12px">
+            <text x="1900.5" y="459.5">
+                Fietskar
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-470-132-30-0)" font-size="12px">
+            <text x="1900.5" y="489.5">
+                Vouwfiets
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-500-132-30-0)" font-size="12px">
+            <text x="1900.5" y="519.5">
+                Driewieler
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-530-132-30-0)" font-size="12px">
+            <text x="1900.5" y="549.5">
+                Tandem
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-560-132-30-0)" font-size="12px">
+            <text x="1900.5" y="579.5">
+                Mountainbike
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1899-590-132-30-0)" font-size="12px">
+            <text x="1900.5" y="609.5">
+                Gehandicaptenvoertuig
+            </text>
+        </g>
+        <path d="M 1658 445 L 1675 445 Q 1685 445 1694.94 443.9 L 1855.06 426.1 Q 1865 425 1875 425 L 1888.63 425" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1655" cy="445" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1893.88 425 L 1886.88 428.5 L 1888.63 425 L 1886.88 421.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1740 460 L 1740 430 L 1880 430 L 1880 460" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1740 460 L 1740 550 L 1880 550 L 1880 460" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1740 460 L 1880 460" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1809.5" y="449.5">
+                Onderhoudsstaat
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1744-460-132-30-0)" font-size="12px">
+            <text x="1745.5" y="479.5">
+                Wrak
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1744-490-132-30-0)" font-size="12px">
+            <text x="1745.5" y="509.5">
+                Lekke band
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1744-520-132-30-0)" font-size="12px">
+            <text x="1745.5" y="539.5">
+                Zonder zadel
+            </text>
+        </g>
+        <path d="M 1658 475 L 1675 475 Q 1685 475 1693.57 480.14 L 1701.79 485.07 Q 1710 490 1720 490 L 1733.63 490" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1655" cy="475" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1738.88 490 L 1731.88 493.5 L 1733.63 490 L 1731.88 486.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1740 600 L 1740 570 L 1880 570 L 1880 600" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1740 600 L 1740 690 L 1880 690 L 1880 600" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1740 600 L 1880 600" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1809.5" y="589.5">
+                Eigenaarschap
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1744-600-132-30-0)" font-size="12px">
+            <text x="1745.5" y="619.5">
+                Prive
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1744-630-132-30-0)" font-size="12px">
+            <text x="1745.5" y="649.5">
+                Lease
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1744-660-132-30-0)" font-size="12px">
+            <text x="1745.5" y="679.5">
+                Huur
+            </text>
+        </g>
+        <path d="M 1658 505 L 1675 505 Q 1685 505 1686.96 514.81 L 1708.04 620.19 Q 1710 630 1720 630 L 1733.63 630" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1655" cy="505" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1738.88 630 L 1731.88 633.5 L 1733.63 630 L 1731.88 626.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1740 740 L 1740 710 L 1880 710 L 1880 740" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1740 740 L 1740 800 L 1880 800 L 1880 740" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1740 740 L 1880 740" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1809.5" y="729.5">
+                Accessoire
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1744-740-132-30-0)" font-size="12px">
+            <text x="1745.5" y="759.5">
+                Type
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1744-770-132-30-0)" font-size="12px">
+            <text x="1745.5" y="789.5">
+                Positie
+            </text>
+        </g>
+        <path d="M 1925 670 L 1925 640 L 2065 640 L 2065 670" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1925 670 L 1925 730 L 2065 730 L 2065 670" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1925 670 L 2065 670" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1994.5" y="659.5">
+                Accessoiretype
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1929-670-132-30-0)" font-size="12px">
+            <text x="1930.5" y="689.5">
+                Fietstas
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1929-700-132-30-0)" font-size="12px">
+            <text x="1930.5" y="719.5">
+                Krat
+            </text>
+        </g>
+        <path d="M 1925 790 L 1925 760 L 2065 760 L 2065 790" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1925 790 L 1925 850 L 2065 850 L 2065 790" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1925 790 L 2065 790" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1994.5" y="779.5">
+                Accessoirepositie
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1929-790-132-30-0)" font-size="12px">
+            <text x="1930.5" y="809.5">
+                Voor
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1929-820-132-30-0)" font-size="12px">
+            <text x="1930.5" y="839.5">
+                Achter
+            </text>
+        </g>
+        <path d="M 1883 755 L 1900 755 Q 1910 755 1910 745 L 1910 730 Q 1910 720 1902.5 720 L 1898.75 720 Q 1895 720 1895 710 L 1895 695 Q 1895 685 1905 685 L 1918.63 685" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1880" cy="755" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1923.88 685 L 1916.88 688.5 L 1918.63 685 L 1916.88 681.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1883 785 L 1900 785 Q 1910 785 1910 790 L 1910 792.5 Q 1910 795 1902.5 795 L 1898.75 795 Q 1895 795 1895 800 L 1895 802.5 Q 1895 805 1905 805 L 1918.63 805" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1880" cy="785" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1923.88 805 L 1916.88 808.5 L 1918.63 805 L 1916.88 801.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1658 535 L 1675 535 Q 1685 535 1686.13 544.94 L 1708.87 745.06 Q 1710 755 1720 755 L 1733.63 755" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1655" cy="535" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1738.88 755 L 1731.88 758.5 L 1733.63 755 L 1731.88 751.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1445 810 L 1525 810 L 1545 830 L 1545 910 L 1445 910 L 1445 810 Z" fill="#fff2cc" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1525 810 L 1525 830 L 1545 830" fill="none" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 860px; margin-left: 1446px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; font-style: italic; white-space: normal; overflow-wrap: normal;">
+                                Voertuig-beschrijving
+                                <br/>
+                                <br/>
+                                als klasse of als instantie
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="1495" y="864" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle" font-style="italic">
+                    Voertuig-beschrij...
+                </text>
+            </switch>
+        </g>
+        <path d="M 715 23 L 715 0 L 1335 0 L 1335 23" fill="#d5e8d4" stroke="#82b366" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 715 23 L 715 440 L 1335 440 L 1335 23" fill="none" stroke="#82b366" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 715 23 L 1335 23" fill="none" stroke="#82b366" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1024.5" y="16">
+                Observatie en meting
+            </text>
+        </g>
+        <path d="M 940 390 L 940 360 L 1130 360 L 1130 390" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 940 390 L 940 420 L 1130 420 L 1130 390" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 940 390 L 1130 390" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1034.5" y="379.5">
+                Capaciteitsmeting
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-944-390-182-30-0)" font-size="12px">
+            <text x="945.5" y="409.5">
+                Nominale parkeercapaciteit
+            </text>
+        </g>
+        <path d="M 965 80 L 965 50 L 1105 50 L 1105 80" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 965 80 L 965 140 L 1105 140 L 1105 80" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 965 80 L 1105 80" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1034.5" y="69.5">
+                Bezettingsmeting
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-969-80-132-30-0)" font-size="12px">
+            <text x="970.5" y="99.5">
+                Voertuigen
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-969-110-132-30-0)" font-size="12px">
+            <text x="970.5" y="129.5">
+                Juist geparkeerd
+            </text>
+        </g>
+        <path d="M 755 130 L 755 100 L 925 100 L 925 130" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 755 130 L 755 280 L 925 280 L 925 130" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 755 130 L 925 130" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="839.5" y="119.5">
+                Observatie
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-759-130-162-30-0)" font-size="12px">
+            <text x="760.5" y="149.5">
+                Onderzoek
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-759-160-162-30-0)" font-size="12px">
+            <text x="760.5" y="179.5">
+                Tijdsspanne observatie
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-759-190-162-30-0)" font-size="12px">
+            <text x="760.5" y="209.5">
+                Opmerkingen
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-759-220-162-30-0)" font-size="12px">
+            <text x="760.5" y="239.5">
+                Resultaat
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-759-250-162-30-0)" font-size="12px">
+            <text x="760.5" y="269.5">
+                Onderzochte plek / sectie
+            </text>
+        </g>
+        <path d="M 928 235 L 1025 235 Q 1035 235 1035 225 L 1035 146.37" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="925" cy="235" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1035 141.12 L 1038.5 148.12 L 1035 146.37 L 1031.5 148.12 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 928 235 L 1025 235 Q 1035 235 1035 245 L 1035 353.63" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="925" cy="235" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1035 358.88 L 1031.5 351.88 L 1035 353.63 L 1038.5 351.88 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1145 170 L 1145 140 L 1285 140 L 1285 170" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1145 170 L 1145 290 L 1285 290 L 1285 170" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1145 170 L 1285 170" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1214.5" y="159.5">
+                Juist geparkeerd
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1149-170-132-30-0)" font-size="12px">
+            <text x="1150.5" y="189.5">
+                In voorziening, juist
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1149-200-132-30-0)" font-size="12px">
+            <text x="1150.5" y="219.5">
+                In voorziening, onjuist
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1149-230-132-30-0)" font-size="12px">
+            <text x="1150.5" y="249.5">
+                Nabij voorziening
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1149-260-132-30-0)" font-size="12px">
+            <text x="1150.5" y="279.5">
+                Buiten voorziening
+            </text>
+        </g>
+        <path d="M 1108 125 L 1116.5 125 Q 1125 125 1125 135 L 1125 205 Q 1125 215 1131.82 215 L 1138.63 215" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1105" cy="125" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1143.88 215 L 1136.88 218.5 L 1138.63 215 L 1136.88 211.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 725 330 L 805 330 L 825 350 L 825 430 L 725 430 L 725 330 Z" fill="#fff2cc" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 805 330 L 805 350 L 825 350" fill="none" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 380px; margin-left: 726px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; font-style: italic; white-space: normal; overflow-wrap: normal;">
+                                Observatie op het niveau van een individuele parkeerplek
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="775" y="384" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle" font-style="italic">
+                    Observatie op het...
+                </text>
+            </switch>
+        </g>
+        <path d="M 0 265.5 L 0 242.5 L 655 242.5 L 655 265.5" fill="#fff2cc" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 265.5 L 0 870 L 655 870 L 655 265.5" fill="none" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 265.5 L 655 265.5" fill="none" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="327" y="258.5">
+                Metadata onderzoek
+            </text>
+        </g>
+        <path d="M 470 350 L 470 320 L 610 320 L 610 350" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 470 350 L 470 380 L 610 380 L 610 350" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 470 350 L 610 350" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="539.5" y="339.5">
+                Partij
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-474-350-132-30-0)" font-size="12px">
+            <text x="475.5" y="369.5">
+                Naam
+            </text>
+        </g>
+        <path d="M 193 412.5 L 210 412.5 Q 220 412.5 229.62 409.77 L 430.38 352.73 Q 440 350 450 350 L 463.63 350" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="190" cy="412.5" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 468.88 350 L 461.88 353.5 L 463.63 350 L 461.88 346.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 193 442.5 L 210 442.5 Q 220 442.5 229.22 438.62 L 239.08 434.48 M 244.61 432.15 M 244.61 432.15 L 244.62 432.15 M 250.16 429.82 M 250.16 429.82 L 250.21 429.8 M 255.75 427.47 M 255.75 427.47 L 430.78 353.88 Q 440 350 450 350 L 463.63 350" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="190" cy="442.5" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 468.88 350 L 461.88 353.5 L 463.63 350 L 461.88 346.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 50 337.5 L 50 307.5 L 190 307.5 L 190 337.5" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 50 337.5 L 50 517.5 L 190 517.5 L 190 337.5" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 50 337.5 L 190 337.5" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="119.5" y="327">
+                Parkeeronderzoek
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-54-338-132-30-0)" font-size="12px">
+            <text x="55.5" y="357">
+                Naam
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-54-368-132-30-0)" font-size="12px">
+            <text x="55.5" y="387">
+                Type
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-54-398-132-30-0)" font-size="12px">
+            <text x="55.5" y="417">
+                Opdrachtgever
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-54-428-132-30-0)" font-size="12px">
+            <text x="55.5" y="447">
+                Onderzoekers
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-54-458-132-30-0)" font-size="12px">
+            <text x="55.5" y="477">
+                Meetprotocol secties
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-54-488-132-30-0)" font-size="12px">
+            <text x="55.5" y="507">
+                Meetprotocol voertuigen
+            </text>
+        </g>
+        <path d="M 470 610 L 470 580 L 610 580 L 610 610" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 470 610 L 470 760 L 610 760 L 610 610" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 470 610 L 610 610" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="539.5" y="599.5">
+                Onderzoeksgebied
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-474-610-132-30-0)" font-size="12px">
+            <text x="475.5" y="629.5">
+                Locatie (geo)
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-474-640-132-30-0)" font-size="12px">
+            <text x="475.5" y="659.5">
+                Naam
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-474-670-132-30-0)" font-size="12px">
+            <text x="475.5" y="689.5">
+                Geldig van / tot
+            </text>
+        </g>
+        <g fill="#808080" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-474-700-132-30-0)" font-size="12px">
+            <text x="475.5" y="719.5">
+                Onderzoeken
+            </text>
+        </g>
+        <g fill="#808080" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-474-730-132-30-0)" font-size="12px">
+            <text x="475.5" y="749.5">
+                Eigenaar
+            </text>
+        </g>
+        <path d="M 467 715 L 450 715 Q 440 715 434.12 706.91 L 287.17 504.85 M 283.64 500 M 283.64 500 L 238.47 437.9 M 234.94 433.05 M 234.94 433.05 L 225.88 420.59 Q 220 412.5 210 412.5 L 196.37 412.5" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="470" cy="715" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 191.12 412.5 L 198.12 409 L 196.37 412.5 L 198.12 416 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 613 745 L 630 745 Q 640 745 640 735 L 640 698.93 M 640 692.93 M 640 692.93 L 640 620.96 M 640 614.96 M 640 614.96 L 640 505.43 M 640 499.43 M 640 499.43 L 640 360 Q 640 350 630 350 L 616.37 350" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="610" cy="745" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 611.12 350 L 618.12 346.5 L 616.37 350 L 618.12 353.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 310 577.5 L 310 547.5 L 450 547.5 L 450 577.5" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 310 577.5 L 310 607.5 L 450 607.5 L 450 577.5" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 310 577.5 L 450 577.5" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000000" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="379.5" y="567">
+                Document
+            </text>
+        </g>
+        <g fill="#000000" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-314-578-132-30-0)" font-size="12px">
+            <text x="315.5" y="597">
+                URL
+            </text>
+        </g>
+        <path d="M 193 472.57 L 260.69 472.57 M 266.69 472.57 M 266.69 472.57 L 280.06 472.57 M 286.06 472.57 M 286.06 472.57 L 306.02 472.57 M 312.02 472.57 M 312.02 472.57 L 339.8 472.57 M 345.8 472.57 M 345.8 472.57 L 370 472.57 Q 380 472.57 380 480.17 L 380 487.77 M 380 493.77 M 380 493.77 L 380 499.43 M 380 505.43 M 380 505.43 L 380 517.47 M 380 523.47 M 380 523.47 L 380 541.13" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="190" cy="472.57" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 380 546.38 L 376.5 539.38 L 380 541.13 L 383.5 539.38 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 10 572.5 L 90 572.5 L 110 592.5 L 110 672.5 L 10 672.5 L 10 572.5 Z" fill="#fff2cc" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 90 572.5 L 90 592.5 L 110 592.5" fill="none" stroke="#d6b656" stroke-miterlimit="10" pointer-events="none"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow: visible; text-align: left;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 623px; margin-left: 11px;">
+                        <div data-drawio-colors="color: rgb(0, 0, 0); " style="box-sizing: border-box; font-size: 0px; text-align: center;">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: none; font-style: italic; white-space: normal; overflow-wrap: normal;">
+                                Wie onderzocht waar wat op welke wijze voor welke partij
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="60" y="626" fill="rgb(0, 0, 0)" font-family="Helvetica" font-size="12px" text-anchor="middle" font-style="italic">
+                    Wie onderzocht wa...
+                </text>
+            </switch>
+        </g>
+        <path d="M 120 572.5 L 120 542.5 L 260 542.5 L 260 572.5" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 120 572.5 L 120 632.5 L 260 632.5 L 260 572.5" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 120 572.5 L 260 572.5" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="189.5" y="562">
+                Onderzoekstypen
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-124-573-132-30-0)" font-size="12px">
+            <text x="125.5" y="592">
+                Parkeerdruk
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-124-603-132-30-0)" font-size="12px">
+            <text x="125.5" y="622">
+                Parkeerduur
+            </text>
+        </g>
+        <path d="M 193 382.5 L 280 382.5 Q 290 382.5 290 392.5 L 290 577.5 Q 290 587.5 280 587.5 L 266.37 587.5" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="190" cy="382.5" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 261.12 587.5 L 268.12 584 L 266.37 587.5 L 268.12 591 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 257.5 690 L 257.5 660 L 397.5 660 L 397.5 690" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 257.5 690 L 257.5 780 L 397.5 780 L 397.5 690" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 257.5 690 L 397.5 690" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="327" y="679.5">
+                Tellingssectie
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-261-690-132-30-0)" font-size="12px">
+            <text x="263" y="709.5">
+                Locatie (geo)
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-261-720-132-30-0)" font-size="12px">
+            <text x="263" y="739.5">
+                Naam
+            </text>
+        </g>
+        <g fill="#808080" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-261-750-132-30-0)" font-size="12px">
+            <text x="263" y="769.5">
+                Onderzoeksgebied
+            </text>
+        </g>
+        <path d="M 397.5 765 L 417.5 765 Q 427.5 765 428.8 755.09 L 438.7 679.91 Q 440 670 450 670 L 463.63 670" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 468.88 670 L 461.88 673.5 L 463.63 670 L 461.88 666.5 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 928 265 L 1032 265 M 1038 265 M 1038 265 L 1235 265 Q 1245 265 1245 275 L 1245 499.43 M 1245 505.43 M 1245 505.43 L 1245 663.63" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="925" cy="265" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1245 668.88 L 1241.5 661.88 L 1245 663.63 L 1248.5 661.88 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1175 950 L 1175 920 L 1315 920 L 1315 950" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1175 950 L 1175 1130 L 1315 1130 L 1315 950" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1175 950 L 1315 950" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" font-style="italic" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="1244.5" y="939.5">
+                Type parkeersysteem
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-950-132-30-0)" font-size="12px">
+            <text x="1180.5" y="969.5">
+                Rek
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-980-132-30-0)" font-size="12px">
+            <text x="1180.5" y="999.5">
+                Etagerek
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-1010-132-30-0)" font-size="12px">
+            <text x="1180.5" y="1029.5">
+                Kluis
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-1040-132-30-0)" font-size="12px">
+            <text x="1180.5" y="1059.5">
+                Nietjes
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-1070-132-30-0)" font-size="12px">
+            <text x="1180.5" y="1089.5">
+                Vak
+            </text>
+        </g>
+        <g fill="rgb(0, 0, 0)" font-family="Helvetica" pointer-events="none" clip-path="url(#mx-clip-1179-1100-132-30-0)" font-size="12px">
+            <text x="1180.5" y="1119.5">
+                (Geen voorziening)
+            </text>
+        </g>
+        <path d="M 1318 805 L 1335 805 Q 1345 805 1345 815 L 1345 1015 Q 1345 1025 1335 1025 L 1321.37 1025" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="1315" cy="805" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 1316.12 1025 L 1323.12 1021.5 L 1321.37 1025 L 1323.12 1028.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 928 265 L 945 265 Q 955 265 955 275 L 955 517.5 Q 955 527.5 945 527.5 L 940 527.5 Q 935 527.5 935 537.5 L 935 780 Q 935 790 945 790 L 958.63 790" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="925" cy="265" rx="3" ry="3" fill="#666666" stroke="#666666" pointer-events="none"/>
+        <path d="M 963.88 790 L 956.88 793.5 L 958.63 790 L 956.88 786.5 Z" fill="#666666" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>
