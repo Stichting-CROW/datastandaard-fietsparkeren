@@ -7,6 +7,8 @@ Het beschrijft hoe gebieden ingemeten moeten worden, welke typen voertuigen word
 
 ## Indeling ParkingFacility en Section
 
+- Secties aggregeren per ( _Type parkeersysteem_ , _Voor voertuigtype_)
+
 ## Naamgeving ParkingFacility
 
 De naam (`s:name`) gegeven aan een voorziening (`fp:ParkingFacility`) bestaat uit:

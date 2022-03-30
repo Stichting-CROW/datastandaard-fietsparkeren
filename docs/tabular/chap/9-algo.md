@@ -19,5 +19,5 @@ Where multiple Transformations are described for the same ( Sheets, Column ) com
 
 | Sheet          | Column | Target                                | Note |
 | -------------- | ------ | ------------------------------------- | ---- |
-| DynamicSection | ID     | if `new`: Assign a new, unused `@id`. |
+| DynamicSection | ID     | if empty: Assign a new, unused `@id`. |
 | DynamicSection | ID     | else: `@id`.                          |

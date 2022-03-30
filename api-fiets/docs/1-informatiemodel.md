@@ -40,14 +40,15 @@ Een onderzoek of inwinning die incidenteel of doorlopend in opdracht van een bep
 
 Een Survey
 
-| Eigenschap                                                | Type                     | Kardinaliteit | Beschrijving                                                               |
-| --------------------------------------------------------- | ------------------------ | ------------- | -------------------------------------------------------------------------- |
-| <dfn data-dfn-for="Survey">id                             | `string`                 | 0..1          | Een [[=ResourceIdentifier=]].                                              |
-| <dfn data-dfn-for="Survey">name                           | `string`                 | 1             | Naam van het onderzoek.                                                    |
-| <dfn data-dfn-for="Survey">authority                      | `string`                 | 1             | {{Organisation.id}} van de opdrachtgever.                                  |
-| <dfn data-dfn-for="Survey">contractors                    | `string[]`               | 1..N          | {{Organisation.id}} van de uitvoerder.                                     |
-| <dfn data-dfn-for="Survey">license                        | `string`                 | 0..1          | Licentie voor het gebruik van de data (vormvrij).                          |
-| <dfn data-dfn-for="Survey">distinguishesVehicleCategories | {{CanonicalVehicle}}`[]` | 0..N          | De voertuigtypes die voor dit onderzoek worden onderscheiden in tellingen. |
+| Eigenschap                                                | Type                     | Kardinaliteit | Beschrijving                                                                |
+| --------------------------------------------------------- | ------------------------ | ------------- | --------------------------------------------------------------------------- |
+| <dfn data-dfn-for="Survey">id                             | `string`                 | 0..1          | Een [[=ResourceIdentifier=]].                                               |
+| <dfn data-dfn-for="Survey">name                           | `string`                 | 1             | Naam van het onderzoek.                                                     |
+| <dfn data-dfn-for="Survey">authority                      | `string`                 | 1             | {{Organisation.id}} van de opdrachtgever.                                   |
+| <dfn data-dfn-for="Survey">contractors                    | `string[]`               | 1..N          | {{Organisation.id}} van de uitvoerder.                                      |
+| <dfn data-dfn-for="Survey">license                        | `string`                 | 0..1          | Licentie voor het gebruik van de data (vormvrij).                           |
+| <dfn data-dfn-for="Survey">distinguishesVehicleCategories | {{CanonicalVehicle}}`[]` | 0..N          | De voertuigtypes die voor dit onderzoek worden onderscheiden in tellingen.  |
+| <dfn data-dfn-for="Survey">surveyAreas                    | `string[]`               | 0..N          | De {{Survey.id}} van de onderzoeken die dit data aanleveren voor dit gebied |
 | {.data def }                                              |
 
 Opdrachtgever en uitvoerder zijn constant over de levensduur van de Survey.
@@ -87,7 +88,6 @@ Er is geen geadminstreerde relatie tussen onderzoeksgebieden en stallingsvoorzie
 | <dfn data-dfn-for="SurveyArea">authority    | {{Organisation.id}} (`string`)   | 1..1          | Eigenaar van dit onderzoeksgebied. Alleen deze organisatie mag wijzigingen aanbrengen aan deze sectie. |
 | <dfn data-dfn-for="SurveyArea">name         | `string[]`                       | 0..N          | Naam die de eigenaar of inwinner aan dit onderzoeksgebied geeft.                                       |
 | <dfn data-dfn-for="SurveyArea">localId      | `string[]`                       | 0..N          | Alternatieve IDs die de eigenaar of inwinner aan dit onderzoeksgebied geeft.                           |
-| <dfn data-dfn-for="Survey">surveys          | `string[]`                       | 0..N          | De {{Survey.id}} van de onderzoeken die dit data aanleveren voor dit gebied                            |
 | {.data def}                                 |                                  |               |
 
 ## Stallingen, parkeervoorzieningen

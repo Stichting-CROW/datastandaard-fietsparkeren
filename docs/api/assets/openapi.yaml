@@ -1,0 +1,546 @@
+openapi: 3.0.2
+info:
+  title: FastAPI
+  version: 0.1.0
+paths:
+  "/organisations":
+    get:
+      description: Haal alle opgeslagen organisaties op.
+      tags:
+      - organisations
+      summary: All Organisations
+      operationId: all_organisations_organisations_get
+      parameters:
+      - required: false
+        schema:
+          title: Orderby
+          type: string
+        name: orderBy
+        description: HELP
+        in: query
+      - required: false
+        schema:
+          allOf:
+          - "$ref": "#/components/schemas/SortingDirection"
+          default: ASC
+        name: orderDirection
+        in: query
+      - required: false
+        schema:
+          title: Limit
+          type: integer
+          default: 0
+        name: limit
+        in: query
+      - required: false
+        schema:
+          title: Offset
+          type: integer
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response All Organisations Organisations Get
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Organisation"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+    post:
+      tags:
+      - organisations
+      summary: Add Organisation
+      operationId: add_organisation_organisations_post
+      parameters:
+      - required: true
+        schema:
+          title: Payload
+        name: payload
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Organisation"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+  "/organisations/{organisation_id}":
+    get:
+      tags:
+      - organisations
+      summary: Get Organisation
+      operationId: get_organisation_organisations__organisation_id__get
+      parameters:
+      - required: true
+        schema:
+          title: Organisation Id
+          type: string
+        name: organisation_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Organisation"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+    put:
+      tags:
+      - organisations
+      summary: Update Organisation
+      operationId: update_organisation_organisations__organisation_id__put
+      parameters:
+      - required: true
+        schema:
+          title: Organisation Id
+          type: string
+        name: organisation_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Organisation"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+  "/surveys":
+    get:
+      tags:
+      - surveys
+      summary: All Surveys
+      operationId: all_surveys_surveys_get
+      parameters:
+      - required: false
+        schema:
+          title: Orderby
+          type: string
+        name: orderBy
+        in: query
+      - required: false
+        schema:
+          allOf:
+          - "$ref": "#/components/schemas/SortingDirection"
+          default: ASC
+        name: orderDirection
+        in: query
+      - required: false
+        schema:
+          title: Limit
+          type: integer
+          default: 0
+        name: limit
+        in: query
+      - required: false
+        schema:
+          title: Offset
+          type: integer
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response All Surveys Surveys Get
+                type: array
+                items:
+                  "$ref": "#/components/schemas/Survey"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+    post:
+      tags:
+      - surveys
+      summary: Add Survey
+      operationId: add_survey_surveys_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Survey"
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Survey"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+  "/surveys/{survey_id}":
+    get:
+      tags:
+      - surveys
+      summary: Get Survey
+      operationId: get_survey_surveys__survey_id__get
+      parameters:
+      - required: true
+        schema:
+          title: Survey Id
+          type: string
+        name: survey_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Survey"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+    put:
+      tags:
+      - surveys
+      summary: Update Survey
+      operationId: update_survey_surveys__survey_id__put
+      parameters:
+      - required: true
+        schema:
+          title: Survey Id
+          type: string
+        name: survey_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Survey"
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Survey"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+  "/survey-areas":
+    get:
+      tags:
+      - survey areas
+      summary: All Surveyareas
+      operationId: all_surveyAreas_survey_areas_get
+      parameters:
+      - required: false
+        schema:
+          title: Orderby
+          type: string
+        name: orderBy
+        in: query
+      - required: false
+        schema:
+          allOf:
+          - "$ref": "#/components/schemas/SortingDirection"
+          default: ASC
+        name: orderDirection
+        in: query
+      - required: false
+        schema:
+          title: Limit
+          type: integer
+          default: 0
+        name: limit
+        in: query
+      - required: false
+        schema:
+          title: Offset
+          type: integer
+          default: 0
+        name: offset
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response All Surveyareas Survey Areas Get
+                type: array
+                items:
+                  "$ref": "#/components/schemas/SurveyArea"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+    post:
+      tags:
+      - survey areas
+      summary: Add Surveyarea
+      operationId: add_surveyArea_survey_areas_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SurveyArea"
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/SurveyArea"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+  "/survey-areas/{surveyArea_id}":
+    get:
+      tags:
+      - survey areas
+      summary: Get Surveyarea
+      operationId: get_surveyArea_survey_areas__surveyArea_id__get
+      parameters:
+      - required: true
+        schema:
+          title: Surveyarea Id
+          type: string
+        name: surveyArea_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/SurveyArea"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+    put:
+      tags:
+      - survey areas
+      summary: Update Surveyarea
+      operationId: update_surveyArea_survey_areas__surveyArea_id__put
+      parameters:
+      - required: true
+        schema:
+          title: Surveyarea Id
+          type: string
+        name: surveyArea_id
+        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SurveyArea"
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/SurveyArea"
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/HTTPValidationError"
+components:
+  schemas:
+    CanonicalVehicle:
+      title: CanonicalVehicle
+      type: object
+      properties: {}
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            "$ref": "#/components/schemas/ValidationError"
+    Organisation:
+      title: Organisation
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        name:
+          title: Name
+          type: string
+    SortingDirection:
+      title: SortingDirection
+      enum:
+      - ASC
+      - DESC
+      type: string
+      description: An enumeration.
+    Survey:
+      title: Survey
+      required:
+      - name
+      - authority
+      - license
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          description: Identifier van het object.
+        name:
+          title: Name
+          type: string
+        authority:
+          title: Authority
+          type: string
+        contractors:
+          title: Contractors
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+          default: []
+        license:
+          title: License
+          type: string
+        distinguishesVehicleCategories:
+          title: Distinguishesvehiclecategories
+          type: array
+          items:
+            "$ref": "#/components/schemas/CanonicalVehicle"
+          default: []
+    SurveyArea:
+      title: SurveyArea
+      required:
+      - parent
+      - authority
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        geoLocation:
+          title: Geolocation
+        parent:
+          title: Parent
+          type: string
+        validFrom:
+          title: Validfrom
+          type: string
+          format: date-time
+        validThrough:
+          title: Validthrough
+          type: string
+          format: date-time
+        authority:
+          title: Authority
+          type: string
+        name:
+          title: Name
+          type: string
+        altId:
+          title: Altid
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+        surveys:
+          title: Surveys
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+    ValidationError:
+      title: ValidationError
+      required:
+      - loc
+      - msg
+      - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            type: string
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string

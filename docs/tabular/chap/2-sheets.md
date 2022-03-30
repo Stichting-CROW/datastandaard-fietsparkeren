@@ -37,7 +37,7 @@ cannot be indicated in the tabular exchange format.
 
 | Column                              | Relates to | Description |
 | ----------------------------------- | ---------- | ----------- |
-| parkingfacility.id                  |
+| parkingfacility.id                  | ...        | Identifier  |
 | parkingfacility.localId             |
 | parkingfacility.owner               |
 | parkingfacility.geolocation         |
