@@ -1,22 +1,26 @@
 # Onderzoeken en inwinningen
 
-## Onderzoeksgebied
+## <dfn>Parkeeronderzoek
 
-- https://kennisbank.crow.nl/kennismodule/detail/16605
+Een inmeting van het aantal geparkeerde voertuigen.
+[[crow-291]] definieert twee typen parkeeronderzoeken: parkeerdruk en parkeerduur.
+Zo'n onderzoek wordt volgens een bepaald protocol ([=Document=]) uitgevoerd door een onderzoeker ([=Partij=]) in opdracht van een [=Partij=].
 
-Onderzoeksgebied zou binnen een uur geteld moeten zijn.
+## <dfn>Onderzoeksgebied
 
-## Parkeeronderzoek
+Een [=Parkeeronderzoek=] wordt geografisch afgebakend met een onderzoeksgebied.
+[[crow-291]] schrijft voor dat zo'n gebied binnen een uur geteld moet kunnen zijn.
+Dat is natuurlijk alleen van toepassing op veldonderzoeken.
 
-Leidraad Fietsparkeren definieert verschillende typen parkeeronderzoeken:
+## <dfn>Tellingssectie
 
-- parkeerdruk
-- parkeerduur
+Een Tellingssectie is een gebied waarin de getelde fietsen geaggregeerd worden volgens [[crow-291]].
+Zo'n sectie komt niet noodzakelijk overeen met een [=Sectie=].
 
-## Partij
+## <dfn>Partij
 
 Een Partij vervult de rol van opdrachtgever, opdrachtnemer of van eigenaar (of een combinatie van die rollen).
 
-## Tellingssectie
+## <dfn>Document
 
-Een Tellingssectie is een gebied waarin de getelde fietsen geaggregeerd worden volgens de Leidraad Fietsparkeren.
+Het inmeetprotocol voor [=Voertuig=]en alsook voor [=Parkeerlocatie=]s, [=Sectie=]s en [=Plek=]ken zijn Documenten.
