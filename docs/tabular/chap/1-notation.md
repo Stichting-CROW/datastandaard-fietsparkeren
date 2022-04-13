@@ -7,7 +7,7 @@ An implementation SHOULD follow the specification in how that information should
 ## Sheets, Layers, Files
 
 In a XLSX-file, different column layouts MUST be in different Sheets (not in-sheet Tables).
-In a Shapefile of Geopackage, different column layouts MUST be in different Layers.
+In a Shapefile or Geopackage, different column layouts MUST be in different Layers.
 When using CSV files, each column layouts MUST belong in a different file.
 
 ## Datatypes

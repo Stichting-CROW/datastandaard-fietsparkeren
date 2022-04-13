@@ -1,11 +1,6 @@
 # Usage and conventional conversion
 
-<aside class='note'>
-Deze sectie beschrijft hoe het XLSX-uitwisselformaat zich vertaalt naar het RDF-uitwisselingsformaat.
-Ten behoeve van implementeerders is deze sectie voor de rest in het Engels.
-</aside>
-
-This section describes how the XSLX exchange format SHOULD be programmatically transformed into the canonical RDF exchange format.
+This section describes how the tabular exchange format SHOULD be programmatically transformed into the canonical RDF exchange format.
 An implementation MAY also transform it into other formats, provided it follows the conversions of this section.
 
 ## Notation
