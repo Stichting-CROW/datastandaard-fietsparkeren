@@ -1,6 +1,7 @@
 {
   "openapi": "3.0.2",
   "info": { "title": "FastAPI", "version": "0.1.0" },
+  "servers": [{"url": "https://remote.veiligstallenontwikkel.nl/rest/api/v2"}],
   "paths": {
     "/organisations": {
       "get": {
@@ -62,7 +63,7 @@
       },
       "post": {
         "tags": ["organisations"],
-        "summary": "Add Organisation",
+        "summary": "Niet geimplementeerd",
         "operationId": "add_organisation_organisations_post",
         "parameters": [
           { "required": true, "schema": { "title": "Payload" }, "name": "payload", "in": "query" }
@@ -457,6 +458,350 @@
           }
         }
       }
+    },
+    "/parking-facilities": {
+      "post": {
+        "tags": ["parking facilities"],
+        "summary": "Add Parking facility",
+        "operationId": "add_parking_facility_areas_post",
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ParkingFacility" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/SurveyArea" } }
+            }
+          },
+          "404": { "description": "Not found" },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["parking facilities"],
+        "summary": "All Parking Facilities",
+        "operationId": "all_parking-facilities_get",
+        "parameters": [
+          {
+            "required": false,
+            "schema": { "title": "Orderby", "type": "string" },
+            "name": "orderBy",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": {
+              "allOf": [{ "$ref": "#/components/schemas/SortingDirection" }],
+              "default": "ASC"
+            },
+            "name": "orderDirection",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": { "title": "Limit", "type": "integer", "default": 0 },
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": { "title": "Offset", "type": "integer", "default": 0 },
+            "name": "offset",
+            "in": "query"
+          },
+          {
+            "description": "List of lat lng coordinates, the last point must equal the first to close the shape: lat1,lng1,lat2,lng2,lat3,lng3,lat1,lng1",
+            "required": false,
+            "schema": { "title": "Geopolygon", "type": "string", "default": null },
+            "name": "geopolygon",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": {
+              "allOf": [{ "$ref": "#/components/schemas/GeoRelation" }],
+              "default": "intersects"
+            },
+            "name": "georelation",
+            "in": "query"
+          }
+                    
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response All Organisations Organisations Get",
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Organisation" }
+                }
+              }
+            }
+          },
+          "404": { "description": "Not found" },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/parking-facilities/{parkingFacility_id}": {
+      "get": {
+        "tags": ["parking facilities"],
+        "summary": "Get Parking Facility",
+        "operationId": "get_parkingFacility_parking_facilities__parkingFacility_id__get",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Surveyarea Id", "type": "string" },
+            "name": "parkingFacility_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ParkingFacility" } }
+            }
+          },
+          "404": { "description": "Not found" },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["parking facilities"],
+        "summary": "Update Parking Facility",
+        "operationId": "update_parkingFacility_parking_facilities__parkingFacility_id__put",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Parkingfacility Id", "type": "string" },
+            "name": "parkingFacility_id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ParkingFacility" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ParkingFacility" } }
+            }
+          },
+          "404": { "description": "Not found" },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sections": {
+      "post": {
+        "tags": ["sections"],
+        "summary": "Add Section",
+        "operationId": "add_section_post",
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ParkingFacility" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/SurveyArea" } }
+            }
+          },
+          "404": { "description": "Not found" },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["sections"],
+        "summary": "All Sections",
+        "operationId": "all_sections_get",
+        "parameters": [
+          {
+            "required": false,
+            "schema": { "title": "Orderby", "type": "string" },
+            "name": "orderBy",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": {
+              "allOf": [{ "$ref": "#/components/schemas/SortingDirection" }],
+              "default": "ASC"
+            },
+            "name": "orderDirection",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": { "title": "Limit", "type": "integer", "default": 0 },
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": { "title": "Offset", "type": "integer", "default": 0 },
+            "name": "offset",
+            "in": "query"
+          },
+          {
+            "description": "List of lat lng coordinates, the last point must equal the first to close the shape: lat1,lng1,lat2,lng2,lat3,lng3,lat1,lng1",
+            "required": false,
+            "schema": { "title": "Geopolygon", "type": "string", "default": null },
+            "name": "geopolygon",
+            "in": "query"
+          },
+          {
+            "required": false,
+            "schema": {
+              "allOf": [{ "$ref": "#/components/schemas/GeoRelation" }],
+              "default": "intersects"
+            },
+            "name": "georelation",
+            "in": "query"
+          }
+                    
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response All Organisations Organisations Get",
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Organisation" }
+                }
+              }
+            }
+          },
+          "404": { "description": "Not found" },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sections/{section_id}": {
+      "get": {
+        "tags": ["sections"],
+        "summary": "Get Section",
+        "operationId": "get_section_post",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Surveyarea Id", "type": "string" },
+            "name": "Section_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Section" } }
+            }
+          },
+          "404": { "description": "Not found" },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["sections"],
+        "summary": "Update Section",
+        "operationId": "update_Section__Section_id__put",
+        "parameters": [
+          {
+            "required": true,
+            "schema": { "title": "Section Id", "type": "string" },
+            "name": "Section_id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/Section" } }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Section" } }
+            }
+          },
+          "404": { "description": "Not found" },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -481,6 +826,12 @@
           "id": { "title": "Id", "type": "string" },
           "name": { "title": "Name", "type": "string" }
         }
+      },
+      "GeoRelation": {
+        "title": "GeoRelation",
+        "enum": ["intersects", "within"],
+        "type": "string",
+        "description": "An enumeration."
       },
       "SortingDirection": {
         "title": "SortingDirection",
@@ -514,28 +865,71 @@
       },
       "SurveyArea": {
         "title": "SurveyArea",
-        "required": ["parent", "authority"],
+        "required": ["authority"],
         "type": "object",
         "properties": {
           "id": { "title": "Id", "type": "string" },
+          "localId": { "title": "LocalId", "type": "string" },
+          "name": { "title": "Name", "type": "string" },
           "geoLocation": { "title": "Geolocation" },
           "parent": { "title": "Parent", "type": "string" },
           "validFrom": { "title": "Validfrom", "type": "string", "format": "date-time" },
           "validThrough": { "title": "Validthrough", "type": "string", "format": "date-time" },
           "authority": { "title": "Authority", "type": "string" },
+          "xtraInfo": { "title": "XtraInfo", "type": "string" }
+        }
+      },
+      "ParkingFacility": {
+        "title": "ParkingFacility",
+        "required": ["parent", "authority"],
+        "type": "object",
+        "properties": {
+          "id": { "title": "Id", "type": "string" },
+          "geoLocation": { "title": "Geolocation" },
+          "surveyArea": { "title": "SurveyArea", "type": "string" },
+          "validFrom": { "title": "Validfrom", "type": "string", "format": "date-time" },
+          "validThrough": { "title": "Validthrough", "type": "string", "format": "date-time" },
+          "authority": { "title": "Authority", "type": "string" },
           "name": { "title": "Name", "type": "string" },
-          "altId": {
-            "title": "Altid",
-            "uniqueItems": true,
-            "type": "array",
-            "items": { "type": "string" }
-          },
+          "localId": { "title": "LocalId", "type": "string" },
           "surveys": {
             "title": "Surveys",
             "uniqueItems": true,
             "type": "array",
             "items": { "type": "string" }
+          },
+          "features": { 
+            "title": "SurveyAreaType", 
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "enum": [
+                "cameraSurveillance",
+                "lockerService",
+                "personnelSupervision",
+                "electronicAccess",
+                "personnelSupervision",
+                "indoor",
+                "surfaceParking"                
+              ]
+            },
+            "default": []
           }
+        }
+      },
+      "Section": {
+        "title": "Section",
+        "required": ["parent", "authority"],
+        "type": "object",
+        "properties": {
+          "id": { "title": "Id", "type": "string" },
+          "geoLocation": { "title": "Geolocation" },
+          "parkingFacility": { "title": "ParkingFacility", "type": "string" },
+          "validFrom": { "title": "Validfrom", "type": "string", "format": "date-time" },
+          "validThrough": { "title": "Validthrough", "type": "string", "format": "date-time" },
+          "authority": { "title": "Authority", "type": "string" },
+          "name": { "title": "Name", "type": "string" },
+          "localId": { "title": "LocalId", "type": "string" }
         }
       },
       "ValidationError": {
