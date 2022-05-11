@@ -1,11 +1,15 @@
 var respecConfig = {
-  specType: "DOC",
+  specType: "conceptueel model",
   specStatus: "WD",
+  imprint: "crow-fietsberaad",
+  hypothesisComments: true,
+  license: "cc-by",
   github: "https://github.com/Stichting-CROW/datastandaard-fietsparkeren",
   pubDomain: "datastandaard-fietsparkeren",
-  shortName: "cm",
+  shortName: "datastd-fietspark/cm",
   lint: {
     "no-http-props": false,
+    "no-unused-dfns": false,
   },
   editors: [
     {
@@ -19,13 +23,13 @@ var respecConfig = {
       href: "https://www.ogc.org/standards/om",
       date: "2011",
       status: "IS",
-      publisher: "OGC"
+      publisher: "OGC",
     },
     "crow-291": {
       title: "Leidraad fietsparkeren",
       date: "2010",
       href: "https://kennisbank.crow.nl/kennismodule/detail/16606",
-      publisher: "CROW"
-    }
-  }
+      publisher: "CROW",
+    },
+  },
 };
