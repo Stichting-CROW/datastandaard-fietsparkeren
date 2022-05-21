@@ -740,7 +740,7 @@
       "get": {
         "tags": ["sections"],
         "summary": "Get Section",
-        "operationId": "get_section_post",
+        "operationId": "get_section__section_id__get",
         "parameters": [
           {
             "required": true,
@@ -775,7 +775,7 @@
           {
             "required": true,
             "schema": { "title": "Section Id", "type": "string" },
-            "name": "Section_id",
+            "name": "section_id",
             "in": "path"
           }
         ],
