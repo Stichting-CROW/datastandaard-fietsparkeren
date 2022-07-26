@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
-  title: FastAPI
-  version: 0.1.0
+  title: API CROW Datastandaard
+  version: 0.0.0
 servers:
   - url: https://remote.veiligstallenontwikkel.nl/rest/api/v2
 paths:
@@ -245,6 +245,126 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /surveys/{survey_id}/survey-areas:
+    get:
+      tags:
+        - surveys
+      summary: Get Survey areas for given survey
+      operationId: get_survey_surveys__survey_id__survey_areas_get
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Survey'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+        - surveys
+      summary: Connect Survey areas to survey. Any existing survey areas will be overwritten.
+      operationId: add_survey_survey-areas_post
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      requestBody:
+          content:
+            application/json:
+              schema:
+                title: Array of survey area ids
+                type: array
+                items:
+                  type: string
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+        - surveys
+      summary: Add Survey areas to survey. They will be added to the existing survey areas.
+      operationId: put_survey_survey-areas
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      requestBody:
+          content:
+            application/json:
+              schema:
+                title: Array of survey area ids
+                type: array
+                items:
+                  type: string
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /surveys/{survey_id}/survey-areas/{survey_area_id}:
+    delete:
+      tags:
+        - surveys
+      summary: Disconnects a Survey areas from a survey.
+      operationId: delete_survey_survey-areas
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+        - required: true
+          schema:
+            title: Survey Area Id
+            type: string
+          name: survey_area_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /survey-areas:
     get:
       tags:
@@ -384,17 +504,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /parking-facilities:
+  /parking-locations:
     post:
       tags:
-        - parking facilities
-      summary: Add Parking facility
-      operationId: add_parking_facility_areas_post
+        - parking locations
+      summary: Add Parking location
+      operationId: add_parking_location_post
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ParkingFacility'
+              $ref: '#/components/schemas/ParkingLocation'
         required: true
       responses:
         '200':
@@ -402,7 +522,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SurveyArea'
+                $ref: '#/components/schemas/ParkingLocation'
         '404':
           description: Not found
         '422':
@@ -413,9 +533,9 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     get:
       tags:
-        - parking facilities
-      summary: All Parking Facilities
-      operationId: all_parking-facilities_get
+        - parking locations
+      summary: All Parking locations
+      operationId: all_parking-locations_get
       parameters:
         - required: false
           schema:
@@ -477,18 +597,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /parking-facilities/{parkingFacility_id}:
+  /parking-locations/{parkingLocation_id}:
     get:
       tags:
-        - parking facilities
-      summary: Get Parking Facility
-      operationId: get_parkingFacility_parking_facilities__parkingFacility_id__get
+        - parking locations
+      summary: Get Parking Locatio
+      operationId: get_parkingLocation_parking_locations__parkingLocation_id__get
       parameters:
         - required: true
           schema:
-            title: Parking Facility Id
+            title: Parking location Id
             type: string
-          name: parkingFacility_id
+          name: parkingLocation_id
           in: path
       responses:
         '200':
@@ -496,7 +616,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ParkingFacility'
+                $ref: '#/components/schemas/ParkingLocation'
         '404':
           description: Not found
         '422':
@@ -507,21 +627,21 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     put:
       tags:
-        - parking facilities
-      summary: Update Parking Facility
-      operationId: update_parkingFacility_parking_facilities__parkingFacility_id__put
+        - parking locations
+      summary: Update Parking Location
+      operationId: update_parkingLocation_parking_locations__parkingLocation_id__put
       parameters:
         - required: true
           schema:
-            title: Parkingfacility Id
+            title: ParkingLocation Id
             type: string
-          name: parkingFacility_id
+          name: parkingLocation_id
           in: path
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ParkingFacility'
+              $ref: '#/components/schemas/ParkingLocation'
         required: true
       responses:
         '200':
@@ -529,7 +649,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ParkingFacility'
+                $ref: '#/components/schemas/ParkingLocation'
         '404':
           description: Not found
         '422':
@@ -631,18 +751,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /parking-facilities/{parkingFacility_id}/sections:
+  /parking-locations/{parkingLocation_id}/sections:
     get:
       tags:
         - sections
-      summary: Get Sections for Parking facility
-      operationId: get_section_post_for_parking_facility
+      summary: Get Sections for Parking Location
+      operationId: get_section_post_for_parking_location
       parameters:
         - required: true
           schema:
-            title: Parking Facility Id
+            title: Parking Location Id
             type: string
-          name: parkingFacility_id
+          name: parkingLocation_id
           in: path
       responses:
         '200':
@@ -678,7 +798,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ParkingFacility'
+                $ref: '#/components/schemas/Section'
         '404':
           description: Not found
         '422':
@@ -841,11 +961,11 @@ components:
         xtraInfo:
           title: XtraInfo
           type: string
-    ParkingFacility:
-      title: ParkingFacility
+    ParkingLocation:
+      title: ParkingLocation
       required:
-        - parent
         - authority
+        - name
       type: object
       properties:
         id:
@@ -853,9 +973,6 @@ components:
           type: string
         geoLocation:
           $ref: '#/components/schemas/GeoShape'
-        surveyArea:
-          title: SurveyArea
-          type: string
         validFrom:
           title: Validfrom
           type: string
@@ -873,6 +990,8 @@ components:
         localId:
           title: LocalId
           type: string
+        allows:
+          $ref: '#/components/schemas/Vehicle'
         features:
           title: SurveyAreaType
           uniqueItems: true
@@ -883,14 +1002,13 @@ components:
               - lockerService
               - personnelSupervision
               - electronicAccess
-              - personnelSupervision
               - indoor
               - surfaceParking
           default: []
     Section:
       title: Section
       required:
-        - parent
+        - parkingLocation
         - authority
       type: object
       properties:
@@ -899,8 +1017,8 @@ components:
           type: string
         geoLocation:
           $ref: '#/components/schemas/GeoShape'
-        parkingFacility:
-          title: ParkingFacility
+        parkingLocation:
+          title: ParkingLocation
           type: string
         validFrom:
           title: Validfrom
@@ -919,6 +1037,28 @@ components:
         localId:
           title: LocalId
           type: string
+        level:
+          title: Level
+          type: integer
+        parkingSystemType:
+          title: ParkingSystemType
+          type: string
+          description: r = rek, o = etagerek onder, b = etagerek boven, n = nietje, x = geen voorziening
+    Vehicle:
+      title: Vehicle
+      properties:
+        type:
+          title: Type
+          type: string
+          enum:
+            - f
+            - c
+            - s
+            - b
+            - m
+            - g
+            - a
+          description: Vehicle definition (f = fiets, c = bakfiets, s = snorfiets, b = bromfiets, m = motorfiets, g = gehandicaptenvoertuig, a = anders)
     GeoShape:
       title: GeoShape
       properties:
@@ -935,9 +1075,9 @@ components:
           type: array
           items:
             type: array
-            items: 
+            items:
               type: array
-              items: 
+              items:
                 type: number
       example:
         coordinates:
