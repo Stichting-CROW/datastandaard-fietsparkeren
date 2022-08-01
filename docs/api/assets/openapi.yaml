@@ -339,7 +339,7 @@ paths:
     delete:
       tags:
         - surveys
-      summary: Disconnects a Survey areas from a survey.
+      summary: Disconnects a Survey area from a survey.
       operationId: delete_survey_survey-areas
       parameters:
         - required: true
@@ -845,7 +845,25 @@ components:
     CanonicalVehicle:
       title: CanonicalVehicle
       type: object
-      properties: {}
+      properties:
+        label: 
+          title: Label
+          type: string
+        canonicalIdentifier:
+          title: CanonicalIdentifier
+          type: string
+        type:
+          title: Type
+          type: string
+          enum:
+            - f
+            - c
+            - s
+            - b
+            - m
+            - g
+            - a
+          description: Vehicle definition (f = fiets, c = bakfiets, s = snorfiets, b = bromfiets, m = motorfiets, g = gehandicaptenvoertuig, a = anders)    
     User:
       title: User
       required:
@@ -911,13 +929,9 @@ components:
         authority:
           title: Authority
           type: string
-        contractors:
-          title: Contractors
-          uniqueItems: true
-          type: array
-          items:
-            type: string
-          default: []
+        contractor:
+          title: Contractor
+          type: string
         license:
           title: License
           type: string
