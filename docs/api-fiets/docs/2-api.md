@@ -81,7 +81,7 @@ Deze regels zorgen ervoor dat de datastandaard flexibel genoeg is voor toekomsti
 
 Verschillende objecttypen hebben de eigenschap `id` (namelijk:
 {{Organisation.id}},
-{{ParkingFacility.id}},
+{{ParkingLocation.id}},
 {{Section.id}},
 {{Survey.id}},
 {{SurveyArea.id}}).
@@ -112,15 +112,15 @@ De implementatie van VeiligStallen genereert {{Survey.id}}s op basis van CBS-gem
 ### Geldigheid door de tijd
 
 Verschillende objecttypen hebben het eigenschap-paar `validFrom` (geldig vanaf) en `validThrough` (geldig tot en met):
-{{SurveyArea.validFrom}}, {{ParkingFacility.validFrom}}, {{Section.validFrom}},
-{{SurveyArea.validThrough}}, {{ParkingFacility.validThrough}}, {{Section.validThrough}}.
+{{SurveyArea.validFrom}}, {{ParkingLocation.validFrom}}, {{Section.validFrom}},
+{{SurveyArea.validThrough}}, {{ParkingLocation.validThrough}}, {{Section.validThrough}}.
 
 Hierbij geldt steeds het volgende:
 
-- Een implementatie MOET een {{Observation}} afwijzen als de waarde van `phenomenonTime.hasBeginning` voortijdig is aan de waarde van `validFrom` van de {{Observation.featureOfInterest}} (dus {{ParkingFacility.validFrom}} of {{Section.validFrom}}).
-- Een implementatie MOET een {{Observation}} afwijzen als de waarde van `phenomenonTime.hasEnd` natijdig is aan de waarde van `validThrough` van de {{Observation.featureOfInterest}} (dus {{ParkingFacility.validThrough}} of {{Section.validThrough}}).
+- Een implementatie MOET een {{Observation}} afwijzen als de waarde van `phenomenonTime.hasBeginning` voortijdig is aan de waarde van `validFrom` van de {{Observation.featureOfInterest}} (dus {{ParkingLocation.validFrom}} of {{Section.validFrom}}).
+- Een implementatie MOET een {{Observation}} afwijzen als de waarde van `phenomenonTime.hasEnd` natijdig is aan de waarde van `validThrough` van de {{Observation.featureOfInterest}} (dus {{ParkingLocation.validThrough}} of {{Section.validThrough}}).
 
-- De wijziging van een kenmerk van een {{SurveyArea}}, {{ParkingFacility}} of {{Section}} maakt een nieuwe instantie noodzakelijk:
+- De wijziging van een kenmerk van een {{SurveyArea}}, {{ParkingLocation}} of {{Section}} maakt een nieuwe instantie noodzakelijk:
   - Het tijdstip van de wijziging minus één is de `validThrough` van de oude instantie.
     - Vanwege de “tot en met”-betekenis, MOET er één eenheid van de meetresolutie worden afgetrokken.
     - Bijvoorbeeld: bij een seconderesolutie: - 1 seconde.
@@ -132,7 +132,7 @@ Hierbij geldt steeds het volgende:
 ### Geldigheid van geo-kenmerken
 
 - Een implementatie ZOU een update MOETEN afwijzen als
-  de waarde van {{ParkingFacility.geoLocation}} (1) overlapt met de {{ParkingFacility.geoLocation}} (2)
+  de waarde van {{ParkingLocation.geoLocation}} (1) overlapt met de {{ParkingLocation.geoLocation}} (2)
   waarbij ook de <a href='#geldigheid-door-de-tijd'></a> elkaar overlappen,
   behorende bij eenzelfde {{Survey}}.
 
@@ -152,12 +152,12 @@ Een implementatie kan op verschillende wijzes eigenaarschap van een [[=Resource=
 Verschillende objecttypen hebben de eigenschap `authority` of `owner` (namelijk:
 {{Survey.authority}},
 {{SurveyArea.authority}},
-{{ParkingFacility.owner}},
+{{ParkingLocation.owner}},
 {{Section.owner}}).
 
 Steeds geldt bij een resource met een `authority` of `owner` het volgende:
 
-- Een implementatie MAG updateverzoeken accepteren als er een geldige {{Survey}} bestaat, waarvan de {{Survey.authority}} overeenkomt met de {{ParkingFacility.owner}} of {{Section.owner}}.
+- Een implementatie MAG updateverzoeken accepteren als er een geldige {{Survey}} bestaat, waarvan de {{Survey.authority}} overeenkomt met de {{ParkingLocation.owner}} of {{Section.owner}}.
 
 _De rest van deze sectie is niet normatief._
 
@@ -422,12 +422,12 @@ Registreer en beheer ParkingFacilities en bijbehorende Sections.
 
 | HTTP-methode                                        | Type                                       | Beschrijving                                                                                            |
 | --------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
-| <dfn>GET `/parkingfacilities`                       | {{ResultWrapper}}`<`{{ParkingFacility}}`>` | Toon bestaande ParkingFacilities.                                                                       |
-| <dfn>POST `/parkingfacilities`                      | {{ParkingFacility}}                        | Voeg een ParkingFacility toe.                                                                           |
-| <dfn>GET `/parkingfacilities/{id}`                  | {{ParkingFacility}}                        | Toon de ParkingFacility waar {{ParkingFacility.id}} = <var>id</var>.                                    |
-| <dfn>GET `/parkingfacilities/{id}/sections`         | {{ResultWrapper}}`<`{{Section}}`>`         | Toon alle Sections, waar {{Section.parkingFacility}} = <var>id</var>.                                   |
-| <dfn>POST `/parkingfacilities/{id}/sections`        | {{Section}}                                | Voeg een Section toe, waar {{Section.parkingFacility}} = <var>id</var>.                                 |
-| <dfn>GET `/parkingfacilities/{pfid}/sections/{sid}` | {{Section}}                                | Toon de Section, waar {{Section.parkingFacility}} = <var>pfid</var> en {{Section.id}} = <var>sid</var>. |
+| <dfn>GET `/parkingfacilities`                       | {{ResultWrapper}}`<`{{ParkingLocation}}`>` | Toon bestaande ParkingFacilities.                                                                       |
+| <dfn>POST `/parkingfacilities`                      | {{ParkingLocation}}                        | Voeg een ParkingLocation toe.                                                                           |
+| <dfn>GET `/parkingfacilities/{id}`                  | {{ParkingLocation}}                        | Toon de ParkingLocation waar {{ParkingLocation.id}} = <var>id</var>.                                    |
+| <dfn>GET `/parkingfacilities/{id}/sections`         | {{ResultWrapper}}`<`{{Section}}`>`         | Toon alle Sections, waar {{Section.parkingLocation}} = <var>id</var>.                                   |
+| <dfn>POST `/parkingfacilities/{id}/sections`        | {{Section}}                                | Voeg een Section toe, waar {{Section.parkingLocation}} = <var>id</var>.                                 |
+| <dfn>GET `/parkingfacilities/{pfid}/sections/{sid}` | {{Section}}                                | Toon de Section, waar {{Section.parkingLocation}} = <var>pfid</var> en {{Section.id}} = <var>sid</var>. |
 | {.data def }                                        |
 
 <pre class='example json' title='POST /parkingfacilities' data-include='examples/parkingfacilities-post.json' data-include-format='text'></pre>
@@ -450,7 +450,7 @@ Verkrijg gemeten aantallen fietsen in {{ParkingFacilities}} en bijbehorende {{Se
 | {.data def }                                                            |
 
 Gebruikers van API 5 — de datastroom tussen het dataportal en de webapplicaties — zijn vooral geïnteresseerd in realtime data.
-Per {{ParkingFacility}} of {{Section}} dus slechts één resultaat, het meest recente.
+Per {{ParkingLocation}} of {{Section}} dus slechts één resultaat, het meest recente.
 Voor deze gebruikers zijn de `/latest` endpoints gemaakt.
 
 Merk op dat, ook al onderscheidt een {{Survey}} slechts bepaalde {{CanonicalVehicle}}s, bij het insturen van metingen wordt altijd een uitgevuld {{Vehicle}}-object meegegeven.
@@ -458,11 +458,11 @@ Merk op dat, ook al onderscheidt een {{Survey}} slechts bepaalde {{CanonicalVehi
 <pre class='example json' title='GET /parkingfacilities/{id}/count' data-include='examples/parkingfacilities-id-count-get.json' data-include-format='text'></pre>
 <pre class='example json' title='GET /parkingfacilities/{id}/sections/{id}/count' data-include='examples/parkingfacilities-id-sections-id-count.json' data-include-format='text'></pre>
 
-### De capaciteit of bezetting berekenen van een `ParkingFacility` o.b.v. diens `Section`s
+### De capaciteit of bezetting berekenen van een `ParkingLocation` o.b.v. diens `Section`s
 
-{{Observation}}s op {{ParkingFacility}}-niveau kunnen berekend worden aan de hand van {{Observation}}s van bijbehorende {{Section}}s.
+{{Observation}}s op {{ParkingLocation}}-niveau kunnen berekend worden aan de hand van {{Observation}}s van bijbehorende {{Section}}s.
 
-1. Verzamel alle {{Observation}}s waarvan de {{Observation.featureOfInterest}} een {{Section}} is waarvan de {{Section.parkingFacility}} is die berekend wordt.
+1. Verzamel alle {{Observation}}s waarvan de {{Observation.featureOfInterest}} een {{Section}} is waarvan de {{Section.parkingLocation}} is die berekend wordt.
 1. Agregeer die per tijdstip en verdeel die per soort van de meting.
    Een implementatie MAG ook alleen de meest recente Observation synthetiseren.
 

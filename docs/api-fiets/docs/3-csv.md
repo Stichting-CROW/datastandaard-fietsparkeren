@@ -3,7 +3,7 @@
 Happy flow.
 
 1. Aanmaken project en telbureaus.
-1. Uploaden gebieden ({{ParkingFacility}}) en secties ({{Section}}).
+1. Uploaden gebieden ({{ParkingLocation}}) en secties ({{Section}}).
 
    Met een Shapefile
 

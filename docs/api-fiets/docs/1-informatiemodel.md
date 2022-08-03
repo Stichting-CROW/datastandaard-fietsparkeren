@@ -4,7 +4,7 @@ Deze datastandaard definieert een aantal objecttypen die betrekking hebben op fi
 Het omvat definities, gebruik en API’s voor:
 
 1. Uitgebreide beschrijvingen van fietstypen ({{Vehicle}}).
-2. Fietsenstallingen en fietsparkeervoorzieningen ({{ParkingFacility}}), ook op detailniveau ({{Section}});
+2. Fietsenstallingen en fietsparkeervoorzieningen ({{ParkingLocation}}), ook op detailniveau ({{Section}});
 3. Tellingen binnen die (deel)voorzieningen ({{Observation}}s, met {{CapacityMeasurement}}s en {{OccupationMeasurement}}s);
 4. Vastgestelde onderzoeks(deel)gebieden ({{SurveyArea}}s) en tellingen ({{Survey}});
 
@@ -92,7 +92,7 @@ Er is geen geadminstreerde relatie tussen onderzoeksgebieden en stallingsvoorzie
 
 ## Stallingen, parkeervoorzieningen
 
-Statische data is die data van `SurveyAreas`, `ParkingFacility`s en `Section`s die niet of nauwelijks aan verandering onderhevig zijn.
+Statische data is die data van `SurveyAreas`, `ParkingLocation`s en `Section`s die niet of nauwelijks aan verandering onderhevig zijn.
 Het gaat vooral om de geografische afbakening.
 Mocht het zo zijn dat de geografische afbakening wijzigt, dan verdient het aanbeveling nieuwe statische items aan te maken.
 Aanpassingen van bestaande items gelden namelijk ook voor reeds ingestuurde data, wat kan leiden tot verwarring bij de interpretatie van historische data.
@@ -102,22 +102,22 @@ Of en hoe een statische items gewijzigd kan worden, valt buiten het bestek van d
 
 Voor ProRail:
 Je definieert een `Survey` en je koppelt er `SurveyArea`s aan.
-Vervolgens upload je alle `ParkingFacility`s en `Section`s in de betreffende `SurveyArea`s.
+Vervolgens upload je alle `ParkingLocation`s en `Section`s in de betreffende `SurveyArea`s.
 Daarna upload je dynamische data.
 
 **Caveat**:  
-bij nieuwe `ParkingFacility`s en `Section`s moet de eigenaar het bestaan ervan goedkeuren.
+bij nieuwe `ParkingLocation`s en `Section`s moet de eigenaar het bestaan ervan goedkeuren.
 
 **Caveat**:  
-Controleert het portal `Survey.ID` en `ParkingFacility.ID`.
+Controleert het portal `Survey.ID` en `ParkingLocation.ID`.
 
 </aside>
 
-### <dfn>`ParkingFacility`
+### <dfn>`ParkingLocation`
 
-Een ParkingFacility is elke plek waar voertuigen geparkeerd kunnen worden, bedoeld of onbedoeld: zoals een fietsenstalling, op het maaiveld, op een plein of een trottoir.
-Een ParkingFacility MAG onderverdeeld worden in één of meerdere {{Sections}}.
-Een ParkingFacility MOET een geometrie hebben, minimaal een punt op de kaart, maar bij voorkeur een vlakcontour.
+Een ParkingLocation is elke plek waar voertuigen geparkeerd kunnen worden, bedoeld of onbedoeld: zoals een fietsenstalling, op het maaiveld, op een plein of een trottoir.
+Een ParkingLocation MAG onderverdeeld worden in één of meerdere {{Sections}}.
+Een ParkingLocation MOET een geometrie hebben, minimaal een punt op de kaart, maar bij voorkeur een vlakcontour.
 
 Verdere kenmerken van de locatie, zoals openingstijden of bewaakt/onbewaakt worden op dit niveau geregistreerd en worden later verder uitgewerkt.
 
@@ -128,15 +128,15 @@ Voor historische vergelijkingen kan op basis van de geometrie en/of `localId` be
 
 | Eigenschap                                       | Type                             | Kardinaliteit | Beschrijving                                                             |
 | ------------------------------------------------ | -------------------------------- | ------------- | ------------------------------------------------------------------------ |
-| <dfn data-dfn-for="ParkingFacility">id           | `string`                         | 1             | Een [[=ResourceIdentifier=]].                                            |
-| <dfn data-dfn-for="ParkingFacility">geoLocation  | GeoJSON                          | 1..1          | Geografische afbakening volgens [[rfc7946]].                             |
-| <dfn data-dfn-for="ParkingFacility">name         | `string`                         | 0..1          | Namen voor de voorziening.                                               |
-| <dfn data-dfn-for="ParkingFacility">localId      | `string[]`                       | 0..N          | Alternatieve IDs van de eigenaar of inwinner.                            |
-| <dfn data-dfn-for="ParkingFacility">features     | {{LocationFeatureType}}`[]`      | 0..N          | Beveiligingskenmerken                                                    |
-| <dfn data-dfn-for="ParkingFacility">allows       | {{Vehicle}}`[]`                  | 1..N          | Toegestane voertuigtypen voor deze parkeerlocatie.                       |
-| <dfn data-dfn-for="ParkingFacility">validFrom    | [[rfc3339]] date-time (`string`) | 0..1          | Zie <a href='#geldigheid-door-de-tijd'></a>.                             |
-| <dfn data-dfn-for="ParkingFacility">validThrough | [[rfc3339]] date-time (`string`) | 0..1          | Zie <a href='#geldigheid-door-de-tijd'></a>.                             |
-| <dfn data-dfn-for="ParkingFacility">owner        | {{Organisation.id}}              | 0..1          | Alleen deze eigenaar mag wijzigingen aanbrengen aan deze parkeerlocatie. |
+| <dfn data-dfn-for="ParkingLocation">id           | `string`                         | 1             | Een [[=ResourceIdentifier=]].                                            |
+| <dfn data-dfn-for="ParkingLocation">geoLocation  | GeoJSON                          | 1..1          | Geografische afbakening volgens [[rfc7946]].                             |
+| <dfn data-dfn-for="ParkingLocation">name         | `string`                         | 0..1          | Namen voor de voorziening.                                               |
+| <dfn data-dfn-for="ParkingLocation">localId      | `string[]`                       | 0..N          | Alternatieve IDs van de eigenaar of inwinner.                            |
+| <dfn data-dfn-for="ParkingLocation">features     | {{LocationFeatureType}}`[]`      | 0..N          | Beveiligingskenmerken                                                    |
+| <dfn data-dfn-for="ParkingLocation">allows       | {{Vehicle}}`[]`                  | 1..N          | Toegestane voertuigtypen voor deze parkeerlocatie.                       |
+| <dfn data-dfn-for="ParkingLocation">validFrom    | [[rfc3339]] date-time (`string`) | 0..1          | Zie <a href='#geldigheid-door-de-tijd'></a>.                             |
+| <dfn data-dfn-for="ParkingLocation">validThrough | [[rfc3339]] date-time (`string`) | 0..1          | Zie <a href='#geldigheid-door-de-tijd'></a>.                             |
+| <dfn data-dfn-for="ParkingLocation">owner        | {{Organisation.id}}              | 0..1          | Alleen deze eigenaar mag wijzigingen aanbrengen aan deze parkeerlocatie. |
 | {.data def}                                      |
 
 #### Enum <dfn>`LocationFeatureType`
@@ -154,28 +154,28 @@ Voor historische vergelijkingen kan op basis van de geometrie en/of `localId` be
 
 ### <dfn>`Section`
 
-Een {{ParkingFacility}} bestaat uit 1 of meerdere Sections.
+Een {{ParkingLocation}} bestaat uit 1 of meerdere Sections.
 Binnen een sectie komt bij voorkeur één type parkeervoorziening voor: bijv. alleen etagerekken of alleen plekken voor buitenmodelfietsen.
 Voordeel hiervan is dat de bezetting (zie <a href='#tellingen-metingen-en-capaciteit'></a>) herleid kan worden tot een bepaald type parkeervoorziening.
 
-Er is een grote vrijheid in het indelen in secties van een ParkingFacility.
+Er is een grote vrijheid in het indelen in secties van een ParkingLocation.
 Bij digitale systemen kan de onderverdeling die in het systeem gemaakt wordt, leidend zijn.
 Bijvoorbeeld: wordt in een parkeerverwijssysteem onderscheid gemaakt tussen boven- en onderlaag in een etagerek,
 dan bevelen we aan hiervoor aparte secties aan te maken.
 
-Er is een vaste administratieve koppeling tussen Section en de ParkingFacility waar het deel van uitmaakt.
+Er is een vaste administratieve koppeling tussen Section en de ParkingLocation waar het deel van uitmaakt.
 Daarom is ook een geometrie van een sectie niet noodzakelijk om aan te leveren.
 Voor bijvoorbeeld handmatige tellers kan dat wel handig zijn.
 
 | Eigenschap                                  | Type                              | Kardinaliteit | Beschrijving                                                                                                               | ProRail |
 | ------------------------------------------- | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------- | ------- |
 | <dfn data-dfn-for='Section'>id              | `string`                          | 0..1          | Een [[=ResourceIdentifier=]].                                                                                              |
-| <dfn data-dfn-for='Section'>parkingFacility | {{ParkingFacility.id}} (`string`) | 1             | Koppeling naar de ParkingFacility waar de sectie deel van uitmaakt.                                                        |
+| <dfn data-dfn-for='Section'>parkingLocation | {{ParkingLocation.id}} (`string`) | 1             | Koppeling naar de ParkingLocation waar de sectie deel van uitmaakt.                                                        |
 | <dfn data-dfn-for="Section">name            | `string`                          | 0..1          | Namen voor de voorziening.                                                                                                 |
 | <dfn data-dfn-for="Section">localId         | `string[]`                        | 0..N          | Alternatieve IDs van de eigenaar of inwinner.                                                                              |
 | <dfn data-dfn-for='Section'>geoLocation     | GeoJSON                           | 0..1          | Geografische afbakening volgens [[rfc7946]].                                                                               |
 | <dfn data-dfn-for='Section'>parkingSpaceOf  | {{ParkingSpaceType}}`[]`          | 1..N          | De types parkeervoorziening.                                                                                               |
-| <dfn data-dfn-for='Section'>level           | `number`                          | 0..1          | De etage in de ParkingFacility waar deze sectie zich bevindt. -1 = onder maaiveld, 0 = maaiveld (default), 1 = verdieping. |
+| <dfn data-dfn-for='Section'>level           | `number`                          | 0..1          | De etage in de ParkingLocation waar deze sectie zich bevindt. -1 = onder maaiveld, 0 = maaiveld (default), 1 = verdieping. |
 | <dfn data-dfn-for='Section'>validFrom       | [[rfc3339]] date-time (`string`)  | 0..1          | Begin geldigheid. Zie <a href='#geldigheid-door-de-tijd'></a>.                                                             |
 | <dfn data-dfn-for='Section'>validThrough    | [[rfc3339]] date-time (`string`)  | 0..1          | Einde geldigheid. Zie <a href='#geldigheid-door-de-tijd'></a>.                                                             |
 | <dfn data-dfn-for='Section'>owner           | {{Organisation.id}} (`string`)    | 0..1          | Eigenaar van deze sectie.                                                                                                  |
@@ -238,7 +238,7 @@ In bewaakte stallingen kan het voorkomen dat bepaalde secties gedurende bepaalde
 <aside class='issue'>
 
 De naamgeving van de DynamicX-elementen kan anders, aangezien de oppositie dynamisch-statisch elders niet meer voorkomt.
-Tegelijk is het verschil tussen `DynamicParkingFacility`, `DynamicSection` minimaal.
+Tegelijk is het verschil tussen `DynamicParkingLocation`, `DynamicSection` minimaal.
 Volstaat wellicht een algemeen `Measurement`?
 
 </aside>
@@ -252,7 +252,7 @@ Volstaat wellicht een algemeen `Measurement`?
 | <dfn data-dfn-for='Observation'>survey\*          | `string`                                                   | 1             | {{Survey.id}} waartoe deze meting behoort.                                     |
 | <dfn data-dfn-for='Observation'>note\*            | {{Note}}                                                   | 0..1          | Notities over de meting in deze sectie                                         |
 | <dfn data-dfn-for='Observation'>observedProperty  | `string`                                                   | 1             | `capacity` of `occupation`.                                                    |
-| <dfn data-dfn-for='Observation'>featureOfInterest | `string`                                                   | 1             | {{ParkingFacility.id}} of {{Section.id}} waarop deze telling betrekking heeft. |
+| <dfn data-dfn-for='Observation'>featureOfInterest | `string`                                                   | 1             | {{ParkingLocation.id}} of {{Section.id}} waarop deze telling betrekking heeft. |
 | <dfn data-dfn-for='Observation'>measurement       | {{CapacityMeasurement}} of {{OccupationMeasurement}} (`T`) | 1             | Inline meting.                                                                 |
 | {.data def}                                       |
 
@@ -309,7 +309,7 @@ MOET een geheel getal (integer) zijn.
 | <dfn data-dfn-for='OccupationMeasurement'>basedOffCapacity    | `string`                 | 0..1          | De {{Observation.id}} (die een {{CapacityMeasurement}} vertegenwoordigt) waar de {{OccupationMeasurement.vacantSpaces}} van afgeleid is. |
 | {.data def}                                                   |
 
-Een bezettingsmeting MAG ook het aantal vrije parkeerplekken in de {{Section}} of {{ParkingFacility}} aangeven in het veld {{OccupationMeasurement.vacantSpaces}}.
+Een bezettingsmeting MAG ook het aantal vrije parkeerplekken in de {{Section}} of {{ParkingLocation}} aangeven in het veld {{OccupationMeasurement.vacantSpaces}}.
 Een implementatie MOET dan aangeven op basis van welke capaciteitsmeting die berekening is gebeurd, met het veld {{OccupationMeasurement.basedOffCapacity}}.
 
 De waarde van
