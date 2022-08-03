@@ -6,15 +6,17 @@ Ook andere voertuigtypen kunnen worden geteld.
 
 <details>
 <summary>
-De CROW datastandaard fietsparkeren bestaat uit zes onderdelen:
+De CROW datastandaard fietsparkeren bestaat uit de volgende onderdelen:
 </summary>
 
-1. [Conceptueel informatiemodel][fp-cm], definieert begrippen en relateert concepten.
-1. [Informatiebehoefte en informatiemodel][fp-im], bepaalt hoe voor de datastandaard de concepten gebruikt worden.
-1. [Applicatiemodel en uitwisselingsformaat][fp-rdf], definieert een eenduidig uitwisselformaat en hoe de concepten relateren met andere standaarden.
+<!-- 1. [Conceptueel informatiemodel][fp-cm], definieert begrippen en relateert concepten. -->
+<!-- 1. [Informatiebehoefte en informatiemodel][fp-im], bepaalt hoe voor de datastandaard de concepten gebruikt worden. -->
+<!-- 1. [Applicatiemodel en uitwisselingsformaat][fp-rdf], definieert een eenduidig uitwisselformaat en hoe de concepten relateren met andere standaarden. -->
+
 1. [Uitwisselingsformaat Shapefile of XLSX][fp-tabular], defineert een tabel-gebaseerd uitwisselformaat.
 1. [Gebruiksvriendelijke API][fp-api], definieert een REST-API voor eenvoudige uitwisseling.
-1. [Inmetings- en tellingsprotocol][fp-protocol], defineert een protocol voor inmeten van stallingssecties en de wijze van telling van geparkeerde fietsen.
+1. [REST API-beschrijving][fp-apifiets], beschrijft de REST-API voor eenvoudige uitwisseling.
+<!-- 1. [Inmetings- en tellingsprotocol][fp-protocol], defineert een protocol voor inmeten van stallingssecties en de wijze van telling van geparkeerde fietsen. -->
 
 [fp-cm]: https://docs.crow.nl/datastandaard-fietsparkeren/cm
 [fp-im]: https://docs.crow.nl/datastandaard-fietsparkeren/im
@@ -22,6 +24,7 @@ De CROW datastandaard fietsparkeren bestaat uit zes onderdelen:
 [fp-rdf]: https://docs.crow.nl/datastandaard-fietsparkeren/rdf
 [fp-tabular]: https://docs.crow.nl/datastandaard-fietsparkeren/tabular
 [fp-api]: https://docs.crow.nl/datastandaard-fietsparkeren/rest-api
+[fp-apifiets]: https://docs.crow.nl/datastandaard-fietsparkeren/api-fiets
 
 </details>
 
