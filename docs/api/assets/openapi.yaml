@@ -106,270 +106,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /surveys:
-    get:
-      tags:
-        - surveys
-      summary: All Surveys
-      operationId: all_surveys_surveys_get
-      parameters:
-        - required: false
-          schema:
-            title: Orderby
-            type: string
-          name: orderBy
-          in: query
-        - required: false
-          schema:
-            allOf:
-              - $ref: '#/components/schemas/SortingDirection'
-            default: ASC
-          name: orderDirection
-          in: query
-        - required: false
-          schema:
-            title: Limit
-            type: integer
-            default: 0
-          name: limit
-          in: query
-        - required: false
-          schema:
-            title: Offset
-            type: integer
-            default: 0
-          name: offset
-          in: query
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                title: Response All Surveys Surveys Get
-                type: array
-                items:
-                  $ref: '#/components/schemas/Survey'
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-    post:
-      tags:
-        - surveys
-      summary: Add Survey
-      operationId: add_survey_surveys_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Survey'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Survey'
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /surveys/{survey_id}:
-    get:
-      tags:
-        - surveys
-      summary: Get Survey
-      operationId: get_survey_surveys__survey_id__get
-      parameters:
-        - required: true
-          schema:
-            title: Survey Id
-            type: string
-          name: survey_id
-          in: path
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Survey'
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-    put:
-      tags:
-        - surveys
-      summary: Update Survey
-      operationId: update_survey_surveys__survey_id__put
-      parameters:
-        - required: true
-          schema:
-            title: Survey Id
-            type: string
-          name: survey_id
-          in: path
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Survey'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Survey'
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /surveys/{survey_id}/survey-areas:
-    get:
-      tags:
-        - surveys
-      summary: Get Survey areas for given survey
-      operationId: get_survey_surveys__survey_id__survey_areas_get
-      parameters:
-        - required: true
-          schema:
-            title: Survey Id
-            type: string
-          name: survey_id
-          in: path
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Survey'
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-    post:
-      tags:
-        - surveys
-      summary: Connect Survey areas to survey. Any existing survey areas will be overwritten.
-      operationId: add_survey_survey-areas_post
-      parameters:
-        - required: true
-          schema:
-            title: Survey Id
-            type: string
-          name: survey_id
-          in: path
-      requestBody:
-          content:
-            application/json:
-              schema:
-                title: Array of survey area ids
-                type: array
-                items:
-                  type: string
-      responses:
-        '200':
-          description: Successful Response
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-    put:
-      tags:
-        - surveys
-      summary: Add Survey areas to survey. They will be added to the existing survey areas.
-      operationId: put_survey_survey-areas
-      parameters:
-        - required: true
-          schema:
-            title: Survey Id
-            type: string
-          name: survey_id
-          in: path
-      requestBody:
-          content:
-            application/json:
-              schema:
-                title: Array of survey area ids
-                type: array
-                items:
-                  type: string
-      responses:
-        '200':
-          description: Successful Response
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-  /surveys/{survey_id}/survey-areas/{survey_area_id}:
-    delete:
-      tags:
-        - surveys
-      summary: Disconnects a Survey area from a survey.
-      operationId: delete_survey_survey-areas
-      parameters:
-        - required: true
-          schema:
-            title: Survey Id
-            type: string
-          name: survey_id
-          in: path
-        - required: true
-          schema:
-            title: Survey Area Id
-            type: string
-          name: survey_area_id
-          in: path
-      responses:
-        '200':
-          description: Successful Response
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /survey-areas:
     get:
       tags:
-        - survey areas
-      summary: All Surveyareas
+        - Survey Areas
+      summary: All Survey Areas
       operationId: all_surveyAreas_survey_areas_get
       parameters:
         - required: false
@@ -419,8 +160,8 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     post:
       tags:
-        - survey areas
-      summary: Add Surveyarea
+        - Survey Areas
+      summary: Add Survey Area
       operationId: add_surveyArea_survey_areas_post
       requestBody:
         content:
@@ -446,8 +187,8 @@ paths:
   /survey-areas/{surveyArea_id}:
     get:
       tags:
-        - survey areas
-      summary: Get Surveyarea
+        - Survey Areas
+      summary: Get Survey Area
       operationId: get_surveyArea_survey_areas__surveyArea_id__get
       parameters:
         - required: true
@@ -473,8 +214,8 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     put:
       tags:
-        - survey areas
-      summary: Update Surveyarea
+        - Survey Areas
+      summary: Update Survey Area
       operationId: update_surveyArea_survey_areas__surveyArea_id__put
       parameters:
         - required: true
@@ -504,11 +245,34 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - Survey Areas
+      summary: Delete Survey Area
+      operationId: delete_survey_area
+      parameters:
+        - required: true
+          schema:
+            title: Surveyarea Id
+            type: string
+          name: surveyArea_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /parking-locations:
     post:
       tags:
-        - parking locations
-      summary: Add Parking location
+        - Parking Locations
+      summary: Add Parking Location
       operationId: add_parking_location_post
       requestBody:
         content:
@@ -533,8 +297,8 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     get:
       tags:
-        - parking locations
-      summary: All Parking locations
+        - Parking Locations
+      summary: All Parking Locations
       operationId: all_parking-locations_get
       parameters:
         - required: false
@@ -600,13 +364,13 @@ paths:
   /parking-locations/{parkingLocation_id}:
     get:
       tags:
-        - parking locations
-      summary: Get Parking Locatio
+        - Parking Locations
+      summary: Get Parking Location
       operationId: get_parkingLocation_parking_locations__parkingLocation_id__get
       parameters:
         - required: true
           schema:
-            title: Parking location Id
+            title: Parking Location Id
             type: string
           name: parkingLocation_id
           in: path
@@ -627,13 +391,13 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     put:
       tags:
-        - parking locations
+        - Parking Locations
       summary: Update Parking Location
       operationId: update_parkingLocation_parking_locations__parkingLocation_id__put
       parameters:
         - required: true
           schema:
-            title: ParkingLocation Id
+            title: Parking Location Id
             type: string
           name: parkingLocation_id
           in: path
@@ -658,25 +422,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /sections:
-    post:
+    delete:
       tags:
-        - sections
-      summary: Add Section
-      operationId: add_section_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Section'
-        required: true
+        - Parking Locations
+      summary: Delete Parking Location
+      operationId: delete_parking_location
+      parameters:
+        - required: true
+          schema:
+            title: Parking location Id
+            type: string
+          name: parkingLocation_id
+          in: path
       responses:
         '200':
           description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Section'
         '404':
           description: Not found
         '422':
@@ -685,11 +445,136 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /parking-locations/{parkingLocation_id}/sections:
     get:
       tags:
-        - sections
-      summary: All Sections
-      operationId: all_sections_get
+        - Sections
+      summary: Get Survey areas for given survey
+      operationId: get_parking-location__sections_get
+      parameters:
+        - required: true
+          schema:
+            title: Parking Location Id
+            type: string
+          name: parkingLocation_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Survey'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+        - Sections
+      summary: Connect Survey areas to survey. Any existing survey areas will be overwritten.
+      operationId: add_parking-location__sections_post
+      parameters:
+        - required: true
+          schema:
+            title: Parking Location Id
+            type: string
+          name: parkingLocation_id
+          in: path
+      requestBody:
+          content:
+            application/json:
+              schema:
+                title: Array of survey area ids
+                type: array
+                items:
+                  type: string
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+        - Sections
+      summary: Add Survey areas to survey. They will be added to the existing survey areas.
+      operationId: put_parking-location__sections_put
+      parameters:
+        - required: true
+          schema:
+            title: Parking Location Id
+            type: string
+          name: parkingLocation_id
+          in: path
+      requestBody:
+          content:
+            application/json:
+              schema:
+                title: Array of survey area ids
+                type: array
+                items:
+                  type: string
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /parking-locations/{parkingLocation_id}/sections/{section_id}:
+    delete:
+      tags:
+        - Sections
+      summary: Disconnects a Survey area from a survey.
+      operationId: delete_parking-location__section_delete
+      parameters:
+        - required: true
+          schema:
+            title: Section Id
+            type: string
+          name: section_id
+          in: path
+        - required: true
+          schema:
+            title: Parking Location Id
+            type: string
+          name: parkingLocation_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+
+
+
+
+  /canonical-vehicle-categories:
+    get:
+      tags:
+        - Canonical Vehicles
+      summary: All Cannonical Vehicle Categories
+      operationId: all_canonical-vehicles-categories_get
       parameters:
         - required: false
           schema:
@@ -718,20 +603,88 @@ paths:
             default: 0
           name: offset
           in: query
-        - description: 'List of lat lng coordinates, the last point must equal the first to close the shape: lat1,lng1,lat2,lng2,lat3,lng3,lat1,lng1'
-          required: false
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response All Surveys Surveys Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/CanonicalVehicle'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+        - Canonical Vehicles
+      summary: Add Canonical Vehicle Category
+      operationId: add_canonical-vehicles-category_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CanonicalVehicle'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CanonicalVehicle'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /canonical-vehicle-categories/{canonical_vehicle_category_id}/canonical-vehicles:
+    get:
+      tags:
+        - Canonical Vehicles
+      summary: All Cannonical Vehicles for given Canonical Vehicle Category
+      parameters:
+        - required: true
           schema:
-            title: Geopolygon
+            title: Canonical Vehicle Category Id
             type: string
-            default: null
-          name: geopolygon
+          name: canonical_vehicle_category_id
+          in: path
+        - required: false
+          schema:
+            title: Orderby
+            type: string
+          name: orderBy
           in: query
         - required: false
           schema:
             allOf:
-              - $ref: '#/components/schemas/GeoRelation'
-            default: intersects
-          name: georelation
+              - $ref: '#/components/schemas/SortingDirection'
+            default: ASC
+          name: orderDirection
+          in: query
+        - required: false
+          schema:
+            title: Limit
+            type: integer
+            default: 0
+          name: limit
+          in: query
+        - required: false
+          schema:
+            title: Offset
+            type: integer
+            default: 0
+          name: offset
           in: query
       responses:
         '200':
@@ -739,10 +692,10 @@ paths:
           content:
             application/json:
               schema:
-                title: Response All Organisations Organisations Get
+                title: Response All Canonical Vehicles for Category
                 type: array
                 items:
-                  $ref: '#/components/schemas/Organisation'
+                  $ref: '#/components/schemas/CanonicalVehicle'
         '404':
           description: Not found
         '422':
@@ -751,26 +704,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /parking-locations/{parkingLocation_id}/sections:
-    get:
+    post:
       tags:
-        - sections
-      summary: Get Sections for Parking Location
-      operationId: get_section_post_for_parking_location
+        - Canonical Vehicles
+      summary: Add Canonical Vehicle to given Canonical Vehicle Category
+      operationId: add_canonical-vehicles_post
       parameters:
         - required: true
           schema:
-            title: Parking Location Id
+            title: Canonical Vehicle Category Id
             type: string
-          name: parkingLocation_id
+          name: canonical_vehicle_category_id
           in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CanonicalVehicle'
+        required: true
       responses:
         '200':
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Section'
+                $ref: '#/components/schemas/CanonicalVehicle'
         '404':
           description: Not found
         '422':
@@ -779,26 +737,62 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /sections/{section_id}:
+  /canonical-vehicle-categories/{canonical_vehicle_category_id}/{canonical_vehicle_id}:
     get:
       tags:
-        - sections
-      summary: Get Section
-      operationId: get_section__section_id__get
+        - Canonical Vehicles
+      summary: All Cannonical Vehicles for given Canonical Vehicle Category
+      operationId: canonical-vehicle_get
       parameters:
         - required: true
           schema:
-            title: Section Id
+            title: Canonical Vehicle Category Id
             type: string
-          name: section_id
+          name: canonical_vehicle_category_id
           in: path
+        - required: true
+          schema:
+            title: Canonical Vehicle Id
+            type: string
+          name: canonical_vehicle_id
+          in: path
+        - required: false
+          schema:
+            title: Orderby
+            type: string
+          name: orderBy
+          in: query
+        - required: false
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SortingDirection'
+            default: ASC
+          name: orderDirection
+          in: query
+        - required: false
+          schema:
+            title: Limit
+            type: integer
+            default: 0
+          name: limit
+          in: query
+        - required: false
+          schema:
+            title: Offset
+            type: integer
+            default: 0
+          name: offset
+          in: query
       responses:
         '200':
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Section'
+                title: Response All Surveys Surveys Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/CanonicalVehicle'
         '404':
           description: Not found
         '422':
@@ -809,21 +803,27 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     put:
       tags:
-        - sections
-      summary: Update Section
-      operationId: update_Section__Section_id__put
+        - Canonical Vehicles
+      summary: Update Canonical Vehicle for given Canonical Vehicle Category
+      operationId: update_canonical-vehicles__canonical-vehicle_id__put
       parameters:
         - required: true
           schema:
-            title: Section Id
+            title: Canonical Vehicle Category Id
             type: string
-          name: section_id
+          name: canonical_vehicle_category_id
+          in: path
+        - required: true
+          schema:
+            title: Canonical Vehicle Id
+            type: string
+          name: canonical_vehicle_id
           in: path
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Section'
+              $ref: '#/components/schemas/CanonicalVehicle'
         required: true
       responses:
         '200':
@@ -831,7 +831,291 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Section'
+                $ref: '#/components/schemas/CanonicalVehicle'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - Canonical Vehicles
+      summary: Delete Canonical Vehicle
+      operationId: delete_canonical-vehicle
+      parameters:
+        - required: true
+          schema:
+            title: Canonical Vehicle Category Id
+            type: string
+          name: canonical_vehicle_category_id
+          in: path
+        - required: true
+          schema:
+            title: Canonical Vehicle Id
+            type: string
+          name: canonical_vehicle_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /surveys:
+    get:
+      tags:
+        - Surveys
+      summary: All Surveys
+      operationId: all_surveys_surveys_get
+      parameters:
+        - required: false
+          schema:
+            title: Orderby
+            type: string
+          name: orderBy
+          in: query
+        - required: false
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SortingDirection'
+            default: ASC
+          name: orderDirection
+          in: query
+        - required: false
+          schema:
+            title: Limit
+            type: integer
+            default: 0
+          name: limit
+          in: query
+        - required: false
+          schema:
+            title: Offset
+            type: integer
+            default: 0
+          name: offset
+          in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response All Surveys Surveys Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/Survey'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+        - Surveys
+      summary: Add Survey
+      operationId: add_survey_surveys_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Survey'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Survey'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /surveys/{survey_id}:
+    put:
+      tags:
+        - Surveys
+      summary: Update Survey
+      operationId: update_survey__survey_id__put
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Survey'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CanonicalVehicle'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    delete:
+      tags:
+        - Surveys
+      summary: Delete Survey
+      operationId: delete_survey
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /surveys/{survey_id}/survey-areas:
+    get:
+      tags:
+        - Surveys <-> Survey Areas
+      summary: Get Survey areas for given survey
+      operationId: get_survey_surveys__survey_id__survey_areas_get
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Survey'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      tags:
+        - Surveys <-> Survey Areas
+      summary: Connect Survey areas to survey. Any existing survey areas will be overwritten.
+      operationId: add_survey_survey-areas_post
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      requestBody:
+          content:
+            application/json:
+              schema:
+                title: Array of survey area ids
+                type: array
+                items:
+                  type: string
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+        - Surveys <-> Survey Areas
+      summary: Add Survey areas to survey. They will be added to the existing survey areas.
+      operationId: put_survey_survey-areas
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      requestBody:
+          content:
+            application/json:
+              schema:
+                title: Array of survey area ids
+                type: array
+                items:
+                  type: string
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /surveys/{survey_id}/survey-areas/{survey_area_id}:
+    delete:
+      tags:
+        - Surveys <-> Survey Areas
+      summary: Disconnects a Survey area from a survey.
+      operationId: delete_survey_survey-areas
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+        - required: true
+          schema:
+            title: Survey Area Id
+            type: string
+          name: survey_area_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
         '404':
           description: Not found
         '422':
@@ -937,10 +1221,7 @@ components:
           type: string
         distinguishesVehicleCategories:
           title: Distinguishesvehiclecategories
-          type: array
-          items:
-            $ref: '#/components/schemas/CanonicalVehicle'
-          default: []
+          type: string
     SurveyArea:
       title: SurveyArea
       required:
