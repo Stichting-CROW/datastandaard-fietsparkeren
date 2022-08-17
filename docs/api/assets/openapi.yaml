@@ -737,7 +737,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /canonical-vehicle-categories/{canonical_vehicle_category_id}/{canonical_vehicle_id}:
+  /canonical-vehicle-categories/{canonical_vehicle_category_id}/canonical-vehicles/{canonical_vehicle_code}:
     get:
       tags:
         - Canonical Vehicles
