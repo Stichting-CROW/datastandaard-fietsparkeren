@@ -754,7 +754,7 @@ paths:
           schema:
             title: Canonical Vehicle Id
             type: string
-          name: canonical_vehicle_id
+          name: canonical_vehicle_code
           in: path
         - required: false
           schema:
@@ -817,7 +817,7 @@ paths:
           schema:
             title: Canonical Vehicle Id
             type: string
-          name: canonical_vehicle_id
+          name: canonical_vehicle_code
           in: path
       requestBody:
         content:
@@ -856,7 +856,7 @@ paths:
           schema:
             title: Canonical Vehicle Id
             type: string
-          name: canonical_vehicle_id
+          name: canonical_vehicle_code
           in: path
       responses:
         '200':
@@ -1126,28 +1126,50 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    CanonicalVehicleCategory:
+      title: Canonical Vehicle Category
+      type: object
+      properties:
+        id: 
+          title: id
+          type: string
+        authority:
+          title: authority
+          type: string
     CanonicalVehicle:
       title: CanonicalVehicle
       type: object
       properties:
-        label: 
-          title: Label
+        name: 
+          title: Name
           type: string
-        canonicalIdentifier:
-          title: CanonicalIdentifier
+        description:
+          title: Description
           type: string
-        type:
-          title: Type
+        code:
+          title: Code
+          type: string
+          description: max length = 4
+        json:
+          $ref: '#/components/schemas/CanonicalVehicleDefinition'
+
+    CanonicalVehicleDefinition:
+      title: Canonical Vehicle Definition
+      type: object
+      properties:
+        parkState: 
+          title: parkState
           type: string
           enum:
-            - f
-            - c
-            - s
-            - b
-            - m
-            - g
-            - a
-          description: Vehicle definition (f = fiets, c = bakfiets, s = snorfiets, b = bromfiets, m = motorfiets, g = gehandicaptenvoertuig, a = anders)    
+              - i
+              - p
+              - k
+              - j
+              - x
+          description: State of parked (i = In voorziening, j = j	In voorziening, juist gestald, k = In voorziening, neemt plek in, p = nabij voorziening, x = buiten voorziening). More info at https://docs.crow.nl/datastandaard-fietsparkeren/api-fiets/#enum-vehicleparkstate
+        vehicle:
+          $ref: '#/components/schemas/Vehicle'
+
     User:
       title: User
       required:
