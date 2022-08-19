@@ -801,45 +801,45 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-    put:
-      tags:
-        - Canonical Vehicles
-      summary: Update Canonical Vehicle for given Canonical Vehicle Category
-      operationId: update_canonical-vehicles__canonical-vehicle_id__put
-      parameters:
-        - required: true
-          schema:
-            title: Canonical Vehicle Category Id
-            type: string
-          name: canonical_vehicle_category_id
-          in: path
-        - required: true
-          schema:
-            title: Canonical Vehicle Id
-            type: string
-          name: canonical_vehicle_code
-          in: path
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CanonicalVehicle'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CanonicalVehicle'
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+    # put:
+    #   tags:
+    #     - Canonical Vehicles
+    #   summary: Update Canonical Vehicle for given Canonical Vehicle Category
+    #   operationId: update_canonical-vehicles__canonical-vehicle_id__put
+    #   parameters:
+    #     - required: true
+    #       schema:
+    #         title: Canonical Vehicle Category Id
+    #         type: string
+    #       name: canonical_vehicle_category_id
+    #       in: path
+    #     - required: true
+    #       schema:
+    #         title: Canonical Vehicle Id
+    #         type: string
+    #       name: canonical_vehicle_code
+    #       in: path
+    #   requestBody:
+    #     content:
+    #       application/json:
+    #         schema:
+    #           $ref: '#/components/schemas/CanonicalVehicle'
+    #     required: true
+    #   responses:
+    #     '200':
+    #       description: Successful Response
+    #       content:
+    #         application/json:
+    #           schema:
+    #             $ref: '#/components/schemas/CanonicalVehicle'
+    #     '404':
+    #       description: Not found
+    #     '422':
+    #       description: Validation Error
+    #       content:
+    #         application/json:
+    #           schema:
+    #             $ref: '#/components/schemas/HTTPValidationError'
     delete:
       tags:
         - Canonical Vehicles
