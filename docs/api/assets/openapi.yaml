@@ -445,19 +445,34 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /parking-locations/{parkingLocation_id}/sections:
+  /sections:
+    post:
+      tags:
+        - Sections
+      summary: Add Section
+      operationId: add_parking-location__sections_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Section'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
     get:
       tags:
         - Sections
-      summary: Get Survey areas for given survey
+      summary: Get Sections
       operationId: get_parking-location__sections_get
-      parameters:
-        - required: true
-          schema:
-            title: Parking Location Id
-            type: string
-          name: parkingLocation_id
-          in: path
       responses:
         '200':
           description: Successful Response
@@ -473,29 +488,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-    post:
+  /sections/{section_id}:
+    get:
       tags:
         - Sections
-      summary: Connect Survey areas to survey. Any existing survey areas will be overwritten.
-      operationId: add_parking-location__sections_post
+      summary: Get Section
+      operationId: get_sections_section__section_id__get
       parameters:
         - required: true
           schema:
-            title: Parking Location Id
+            title: Section Id
             type: string
-          name: parkingLocation_id
+          name: section_id
           in: path
-      requestBody:
-          content:
-            application/json:
-              schema:
-                title: Array of survey area ids
-                type: array
-                items:
-                  type: string
       responses:
         '200':
           description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Section'
         '404':
           description: Not found
         '422':
@@ -507,14 +519,14 @@ paths:
     put:
       tags:
         - Sections
-      summary: Add Survey areas to survey. They will be added to the existing survey areas.
-      operationId: put_parking-location__sections_put
+      summary: Update Section
+      operationId: put_sections_section__section_id__put
       parameters:
         - required: true
           schema:
-            title: Parking Location Id
+            title: Section Id
             type: string
-          name: parkingLocation_id
+          name: section_id
           in: path
       requestBody:
           content:
@@ -535,11 +547,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /parking-locations/{parkingLocation_id}/sections/{section_id}:
     delete:
       tags:
         - Sections
-      summary: Disconnects a Survey area from a survey.
+      summary: Delete Section
       operationId: delete_parking-location__section_delete
       parameters:
         - required: true
@@ -547,12 +558,6 @@ paths:
             title: Section Id
             type: string
           name: section_id
-          in: path
-        - required: true
-          schema:
-            title: Parking Location Id
-            type: string
-          name: parkingLocation_id
           in: path
       responses:
         '200':
@@ -565,11 +570,33 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-
-
-
-
   /canonical-vehicle-categories:
+    post:
+      tags:
+        - Canonical Vehicles
+      summary: Add Canonical Vehicle Category
+      operationId: add_canonical-vehicles-category_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CanonicalVehicle'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CanonicalVehicle'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
     get:
       tags:
         - Canonical Vehicles
@@ -621,11 +648,43 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /canonical-vehicle-categories/{canonical_vehicle_category_id}:
+    delete:
+      tags:
+        - Canonical Vehicles
+      summary: Delete Canonical Vehicle Category and all its Canonical Vehicles
+      operationId: delete_canonical-vehicle_category
+      parameters:
+        - required: true
+          schema:
+            title: Canonical Vehicle Category Id
+            type: string
+          name: canonical_vehicle_category_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /canonical-vehicle-categories/{canonical_vehicle_category_id}/canonical-vehicles:
     post:
       tags:
         - Canonical Vehicles
-      summary: Add Canonical Vehicle Category
-      operationId: add_canonical-vehicles-category_post
+      summary: Add Canonical Vehicle to given Canonical Vehicle Category
+      operationId: add_canonical-vehicles_post
+      parameters:
+        - required: true
+          schema:
+            title: Canonical Vehicle Category Id
+            type: string
+          name: canonical_vehicle_category_id
+          in: path
       requestBody:
         content:
           application/json:
@@ -647,7 +706,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /canonical-vehicle-categories/{canonical_vehicle_category_id}/canonical-vehicles:
     get:
       tags:
         - Canonical Vehicles
@@ -696,39 +754,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CanonicalVehicle'
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-    post:
-      tags:
-        - Canonical Vehicles
-      summary: Add Canonical Vehicle to given Canonical Vehicle Category
-      operationId: add_canonical-vehicles_post
-      parameters:
-        - required: true
-          schema:
-            title: Canonical Vehicle Category Id
-            type: string
-          name: canonical_vehicle_category_id
-          in: path
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CanonicalVehicle'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CanonicalVehicle'
         '404':
           description: Not found
         '422':
@@ -1166,7 +1191,7 @@ components:
               - k
               - j
               - x
-          description: State of parked (i = In voorziening, j = j	In voorziening, juist gestald, k = In voorziening, neemt plek in, p = nabij voorziening, x = buiten voorziening). More info at https://docs.crow.nl/datastandaard-fietsparkeren/api-fiets/#enum-vehicleparkstate
+          description: State of parked (i = In voorziening, j = j  In voorziening, juist gestald, k = In voorziening, neemt plek in, p = nabij voorziening, x = buiten voorziening). More info at https://docs.crow.nl/datastandaard-fietsparkeren/api-fiets/#enum-vehicleparkstate
         vehicle:
           $ref: '#/components/schemas/Vehicle'
 
