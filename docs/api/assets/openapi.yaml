@@ -268,12 +268,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /survey-areas/{surveyArea_id}/sections:
+  /survey-areas/{surveyArea_id}/parking-locations:
     get:
       tags:
         - Survey Areas
-      summary: Get Sections within a Survey Area
-      operationId: get_surveyArea_survey_areas_sections__surveyArea_id_section_id__get
+      summary: Get Parking Locations within a Survey Area
+      operationId: get_surveyArea_survey_areas_parking_locations__surveyArea_id__get
       parameters:
         - required: true
           schema:
@@ -287,7 +287,35 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SurveyArea'
+                $ref: '#/components/schemas/ParkingLocation'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /survey-areas/{surveyArea_id}/sections:
+    get:
+      tags:
+        - Survey Areas
+      summary: Get Sections within a Survey Area
+      operationId: get_surveyArea_survey_areas_sections__surveyArea_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Surveyarea Id
+            type: string
+          name: surveyArea_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Section'
         '404':
           description: Not found
         '422':
@@ -1060,7 +1088,7 @@ paths:
   /surveys/{survey_id}/survey-areas:
     get:
       tags:
-        - Surveys <-> Survey Areas
+        - Surveys
       summary: Get Survey areas for given survey
       operationId: get_survey_surveys__survey_id__survey_areas_get
       parameters:
@@ -1087,7 +1115,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     post:
       tags:
-        - Surveys <-> Survey Areas
+        - Surveys
       summary: Connect Survey areas to survey. Any existing survey areas will be overwritten.
       operationId: add_survey_survey-areas_post
       parameters:
@@ -1118,7 +1146,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
     put:
       tags:
-        - Surveys <-> Survey Areas
+        - Surveys
       summary: Add Survey areas to survey. They will be added to the existing survey areas.
       operationId: put_survey_survey-areas
       parameters:
@@ -1150,7 +1178,7 @@ paths:
   /surveys/{survey_id}/survey-areas/{survey_area_id}:
     delete:
       tags:
-        - Surveys <-> Survey Areas
+        - Surveys
       summary: Disconnects a Survey area from a survey.
       operationId: delete_survey_survey-areas
       parameters:
@@ -1177,6 +1205,63 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /surveys/{survey_id}/parking-locations:
+    get:
+      tags:
+        - Surveys
+      summary: Get Parking Locations within a Survey
+      operationId: get_surveyArea_survey_parking_locations__survey_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParkingLocation'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /surveys/{survey_id}/sections:
+    get:
+      tags:
+        - Surveys
+      summary: Get Sections within a Survey
+      operationId: get_surveyArea_survey_sections__survey_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Section'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+                
 components:
   schemas:
     CanonicalVehicleCategory:
