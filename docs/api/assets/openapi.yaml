@@ -107,12 +107,63 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
   /survey-areas:
+    post:
+      tags:
+        - Survey Areas
+      summary: Add Survey Area
+      operationId: add_surveyArea_survey_areas_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SurveyArea'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SurveyArea'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
     get:
       tags:
         - Survey Areas
       summary: All Survey Areas
       operationId: all_surveyAreas_survey_areas_get
       parameters:
+        - required: false
+          schema:
+            title: Authority
+            type: string
+          name: authority
+          in: query
+        - required: false
+          schema:
+            title: Local Id
+            type: string
+          name: localId
+          in: query
+        - required: false
+          schema:
+            title: geo polygon
+            type: string
+          name: geoPolygon
+          in: query
+        - required: false
+          schema:
+            title: Valid At
+            type: string
+            default: current datetime
+          name: validAt
+          in: query
         - required: false
           schema:
             title: Orderby
@@ -150,32 +201,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SurveyArea'
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-    post:
-      tags:
-        - Survey Areas
-      summary: Add Survey Area
-      operationId: add_surveyArea_survey_areas_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SurveyArea'
-        required: true
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SurveyArea'
         '404':
           description: Not found
         '422':
@@ -359,6 +384,31 @@ paths:
       parameters:
         - required: false
           schema:
+            title: Authority
+            type: string
+          name: authority
+          in: query
+        - required: false
+          schema:
+            title: Local Id
+            type: string
+          name: localId
+          in: query
+        - required: false
+          schema:
+            title: geo polygon
+            type: string
+          name: geoPolygon
+          in: query
+        - required: false
+          schema:
+            title: Valid At
+            type: string
+            default: current datetime
+          name: validAt
+          in: query
+        - required: false
+          schema:
             title: Orderby
             type: string
           name: orderBy
@@ -529,6 +579,26 @@ paths:
         - Sections
       summary: Get Sections
       operationId: get_parking-location__sections_get
+      parameters:
+        - required: false
+          schema:
+            title: Authority
+            type: string
+          name: authority
+          in: query
+        - required: false
+          schema:
+            title: Local Id
+            type: string
+          name: localId
+          in: query
+        - required: false
+          schema:
+            title: Valid At
+            type: string
+            default: current datetime
+          name: validAt
+          in: query
       responses:
         '200':
           description: Successful Response
