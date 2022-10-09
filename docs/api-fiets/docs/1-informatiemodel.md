@@ -452,15 +452,30 @@ Fietsen, brommers en andere voertuigen te verwachten in een stalling kunnen met 
 | <dfn data-dfn-for='Vehicle'>owner       | `string`          | 0..1          | Zie enum {{VehicleOwnerType}}      | \*      |
 | {.data def}                             |
 
+### <dfn>`CanonicalVehicleCategory`
+| Eigenschappen                                          | Type            | Kardinaliteit | Beschrijving                                         |
+| ------------------------------------------------------ | --------------- | ------------- | ---------------------------------------------------- |
+| <dfn data-dfn-for='CanonicalVehicleCategory'>id        | `string`        | 1             | Id van de categorie. Mag meegestuurd worden in POST. |
+| <dfn data-dfn-for='CanonicalVehicleCategory'>authority | `string`        | 1             | Id van authority                                     |
+| {.data def}                                            |
+   
 ### <dfn>`CanonicalVehicle`
 
 Alternatief voor expliciete voertuigtyperingen.
 
-| Eigenschappen                                | Type            | Kardinaliteit | Beschrijving                   |
-| -------------------------------------------- | --------------- | ------------- | ------------------------------ |
-| <dfn data-dfn-for='CanonicalVehicle'>label   | `string`        | 0..1          | Leesbare naam van voertuigtype |
-| <dfn data-dfn-for='CanonicalVehicle'>vehicle | {{Vehicle}}`[]` | 1..N          | Zie tabel {{Vehicle}}          |
-| {.data def}                                  |
+| Eigenschappen                                    | Type                     | Kardinaliteit | Beschrijving                        |
+| ------------------------------------------------ | -------------------------| ------------- | ----------------------------------- |
+| <dfn data-dfn-for='CanonicalVehicle'>label       | `string`                 | 1             | Leesbare naam van voertuigtype.     |
+| <dfn data-dfn-for='CanonicalVehicle'>code        | `string`                 | 1             | Code, maxLength = 4.                |
+| <dfn data-dfn-for='CanonicalVehicle'>authority   | `string`                 | 1             | Id van authority.                   |
+| <dfn data-dfn-for='CanonicalVehicle'>description | `string`                 | 0..1          | Omschrijving van het object.        |
+| <dfn data-dfn-for='CanonicalVehicle'>json        | {{CanonicalVehicleJson}} | 1             | Zie tabel {{CanonicalVehicleJson}}. |
+| {.data def}                                      |
+
+### <dfn>`CanonicalVehicleJson`
+| <dfn data-dfn-for="CanonicalVehicleJson">parkState   | `string`        | 0..1          | Zie enum {{VehicleParkState}}. | 
+| <dfn data-dfn-for="CanonicalVehicleJson">vehcile     | {{Vehicle}}     | 0..1          | Zie tabel {{Vehicle}}.         | 
+| {.data def}                                          |
 
 <aside class="example" title="ProRail: Canonieke voertuigen">
 
