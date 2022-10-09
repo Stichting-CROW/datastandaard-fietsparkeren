@@ -303,8 +303,8 @@ MOET een geheel getal (integer) zijn.
 | Eigenschap                                                    | Type                     | Kardinaliteit | Beschrijving                                                                                                                             |
 | ------------------------------------------------------------- | ------------------------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | <dfn data-dfn-for='OccupationMeasurement'>totalParked         | `number`                 | 1             | Aantal getelde voertuigen, verplicht als één of meerdere onderdelen dit gemeten hebben.                                                  |
-| <dfn data-dfn-for='OccupationMeasurement'>occupiedSpaces      | `number`                 | 0..1          | Aantal bezette plekken, berekend o.b.v. `capacityPerParkingSpaceType` en `parkedByVehicleType`                                           |
-| <dfn data-dfn-for='OccupationMeasurement'>parkedByVehicleType | {{VehicleTypeCount}}`[]` | 0..N          | Telling per geparkeerd voertuigtype                                                                                                      |
+| <dfn data-dfn-for='OccupationMeasurement'>occupiedSpaces      | `number`                 | 0..1          | Aantal bezette plekken, berekend o.b.v. `capacityPerParkingSpaceType` en `vehicleTypeCount`                                           |
+| <dfn data-dfn-for='OccupationMeasurement'>vehicleTypeCount    | {{VehicleTypeCount}}`[]` | 0..N          | Telling per geparkeerd voertuigtype                                                                                                      |
 | <dfn data-dfn-for='OccupationMeasurement'>vacantSpaces        | `number`                 | 0..1          | Aantal vrije plekken. Zie hieronder.                                                                                                     |
 | <dfn data-dfn-for='OccupationMeasurement'>basedOffCapacity    | `string`                 | 0..1          | De {{Observation.id}} (die een {{CapacityMeasurement}} vertegenwoordigt) waar de {{OccupationMeasurement.vacantSpaces}} van afgeleid is. |
 | {.data def}                                                   |
@@ -416,10 +416,10 @@ Zoals of het een feestdag was op moment van telling.
 
 | Eigenschap                                    | Type      | Kardinaliteit | Beschrijving                                         |
 | --------------------------------------------- | --------- | ------------- | ---------------------------------------------------- |
-| <dfn data-dfn-for='Note'>wasClosed            | `boolean` | 0..1          | Was deze voorziening niet geopend tijdens de meting. |
-| <dfn data-dfn-for='Note'>wasHoliday           | `boolean` | 0..1          | Was er een vakantie tijdens de meting.               |
-| <dfn data-dfn-for='Note'>wasEvent             | `boolean` | 0..1          | Was er een evenement of feestdag tijdens de meting.  |
-| <dfn data-dfn-for='Note'>wasUnderConstruction | `boolean` | 0..1          | Waren er werkzaamheden tijdens de meting.            |
+| <dfn data-dfn-for='Note'>isClosed             | `boolean` | 0..1          | Was deze voorziening niet geopend tijdens de meting. |
+| <dfn data-dfn-for='Note'>isHoliday            | `boolean` | 0..1          | Was er een vakantie tijdens de meting.               |
+| <dfn data-dfn-for='Note'>isEvent              | `boolean` | 0..1          | Was er een evenement of feestdag tijdens de meting.  |
+| <dfn data-dfn-for='Note'>isUnderConstruction  | `boolean` | 0..1          | Waren er werkzaamheden tijdens de meting.            |
 | <dfn data-dfn-for='Note'>remark               | `string`  | 0..1          | Vrij tekstveld.                                      |
 | {.data def}                                   |
 
