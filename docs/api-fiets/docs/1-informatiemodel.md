@@ -473,8 +473,8 @@ Alternatief voor expliciete voertuigtyperingen.
 | {.data def}                                      |
 
 ### <dfn>`CanonicalVehicleJson`
-| <dfn data-dfn-for="CanonicalVehicleJson">parkState   | `string`        | 0..1          | Zie enum {{VehicleParkState}}. | 
-| <dfn data-dfn-for="CanonicalVehicleJson">vehcile     | {{Vehicle}}     | 0..1          | Zie tabel {{Vehicle}}.         | 
+| <dfn data-dfn-for="CanonicalVehicleJson">parkState   | `string`         | 0..1          | Zie enum {{VehicleParkState}}. | 
+| <dfn data-dfn-for="CanonicalVehicleJson">vehicles    | {{Vehicle}}`[]`  | 0..1          | Zie tabel {{Vehicle}}.         | 
 | {.data def}                                          |
 
 <aside class="example" title="ProRail: Canonieke voertuigen">
@@ -486,37 +486,43 @@ Het was alleen niet een kenmerkend onderscheid binnen de telling waarin de canon
 ```json
 [
   {
-    "canonicalIdentifier": "nl.prorail.fietsparkeren.type.A",
+    "code": "A",
     "label": "Normfiets",
-    "vehicle": [{ "type": "f", "owner": "p" }]
+    "json": {
+       "vehicles": [{ "type": "f", "owner": "p" }] 
+    }
   },
   {
-    "canonicalIdentifier": "nl.prorail.fietsparkeren.type.B",
+    "code": "B",
     "label": "Beperkt afwijkend",
-    "vehicle": [
-      {
-        // kratje voor
-        "type": "f",
-        "accessories": [{ "type": "k", "position": "v" }],
-        "owner": "p"
-      },
-      {
-        // kinderzitje achter
-        "type": "f",
-        "accessories": [{ "type": "z", "position": "a" }],
-        "owner": "p"
-      }
-    ]
+    "json": {
+      "vehicles": [
+        {
+          // kratje voor
+          "type": "f",
+          "accessories": [{ "type": "k", "position": "v" }],
+          "owner": "p"
+        },
+        {
+          // kinderzitje achter
+          "type": "f",
+          "accessories": [{ "type": "z", "position": "a" }],
+          "owner": "p"
+        }
+      ]
+    }
   },
   {
-    "canonicalIdentifier": "nl.prorail.fietsparkeren.type.C",
+    "code": "C",
     "label": "Sterk afwijkend",
-    "vehicle": [{ "type": "f", "appearance": "x" }]
+    "vehicles": [{ "type": "f", "appearance": "x" }]
   },
   {
-    "canonicalIdentifier": "nl.prorail.fietsparkeren.type.D",
+    "code": "D",
     "label": "Snor- of bromfiets",
-    "vehicle": [{ "type": "sb", "owner": "p" }]
+    "json": {
+      "vehicles": [{ "type": "sb", "owner": "p" }]
+    }
   }
 ]
 ```
