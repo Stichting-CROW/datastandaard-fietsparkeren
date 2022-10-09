@@ -455,7 +455,7 @@ Fietsen, brommers en andere voertuigen te verwachten in een stalling kunnen met 
 ### <dfn>`CanonicalVehicleCategory`
 | Eigenschappen                                          | Type            | Kardinaliteit | Beschrijving                                         |
 | ------------------------------------------------------ | --------------- | ------------- | ---------------------------------------------------- |
-| <dfn data-dfn-for='CanonicalVehicleCategory'>id        | `string`        | 1             | Id van de categorie. Mag meegestuurd worden in POST. |
+| <dfn data-dfn-for='CanonicalVehicleCategory'>id        | `string`        | 1             | Id van de categorie. Moet meegestuurd worden in POST. |
 | <dfn data-dfn-for='CanonicalVehicleCategory'>authority | `string`        | 1             | Id van authority                                     |
 | {.data def}                                            |
    
@@ -465,14 +465,15 @@ Alternatief voor expliciete voertuigtyperingen.
 
 | Eigenschappen                                    | Type                     | Kardinaliteit | Beschrijving                        |
 | ------------------------------------------------ | -------------------------| ------------- | ----------------------------------- |
-| <dfn data-dfn-for='CanonicalVehicle'>label       | `string`                 | 1             | Leesbare naam van voertuigtype.     |
+| <dfn data-dfn-for='CanonicalVehicle'>name        | `string`                 | 1             | Leesbare naam van voertuigtype.     |
 | <dfn data-dfn-for='CanonicalVehicle'>code        | `string`                 | 1             | Code, maxLength = 4.                |
-| <dfn data-dfn-for='CanonicalVehicle'>authority   | `string`                 | 1             | Id van authority.                   |
 | <dfn data-dfn-for='CanonicalVehicle'>description | `string`                 | 0..1          | Omschrijving van het object.        |
 | <dfn data-dfn-for='CanonicalVehicle'>json        | {{CanonicalVehicleJson}} | 1             | Zie tabel {{CanonicalVehicleJson}}. |
 | {.data def}                                      |
 
 ### <dfn>`CanonicalVehicleJson`
+| Eigenschappen                                        | Type             | Kardinaliteit | Beschrijving                        |
+| ---------------------------------------------------- | -----------------| ------------- | ----------------------------------- |
 | <dfn data-dfn-for="CanonicalVehicleJson">parkState   | `string`         | 0..1          | Zie enum {{VehicleParkState}}. | 
 | <dfn data-dfn-for="CanonicalVehicleJson">vehicles    | {{Vehicle}}`[]`  | 0..1          | Zie tabel {{Vehicle}}.         | 
 | {.data def}                                          |
@@ -487,14 +488,14 @@ Het was alleen niet een kenmerkend onderscheid binnen de telling waarin de canon
 [
   {
     "code": "A",
-    "label": "Normfiets",
+    "name": "Normfiets",
     "json": {
        "vehicles": [{ "type": "f", "owner": "p" }] 
     }
   },
   {
     "code": "B",
-    "label": "Beperkt afwijkend",
+    "name": "Beperkt afwijkend",
     "json": {
       "vehicles": [
         {
@@ -514,12 +515,12 @@ Het was alleen niet een kenmerkend onderscheid binnen de telling waarin de canon
   },
   {
     "code": "C",
-    "label": "Sterk afwijkend",
+    "name": "Sterk afwijkend",
     "vehicles": [{ "type": "f", "appearance": "x" }]
   },
   {
     "code": "D",
-    "label": "Snor- of bromfiets",
+    "name": "Snor- of bromfiets",
     "json": {
       "vehicles": [{ "type": "sb", "owner": "p" }]
     }
