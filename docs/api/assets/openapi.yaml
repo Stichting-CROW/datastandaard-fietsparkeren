@@ -706,7 +706,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CanonicalVehicle'
+              $ref: '#/components/schemas/CanonicalVehicleCategory'
         required: true
       responses:
         '200':
@@ -714,7 +714,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CanonicalVehicle'
+                $ref: '#/components/schemas/CanonicalVehicleCategory'
         '404':
           description: Not found
         '422':
@@ -1331,11 +1331,166 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /observations:
+    post:
+      tags:
+        - Observations
+      summary: Add Observation
+      operationId: add_observation_obsevations_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Observation'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Observation'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
                 
 components:
   schemas:
+    Observation:
+      type: object
+      required:
+        - timestamp
+        - survey
+        - featureOfInterest
+        - measurment
+      properties:
+        id: 
+          type: string
+        timestamp: 
+          type: string
+        survey: 
+          type: string
+        note:
+          $ref: '#/components/schemas/Note'
+        observedProperty: 
+          type: string
+          enum:
+              - capacity
+              - occupation
+        featureOfInterest: 
+          type: string
+          description: ParkingLocation.id or Section.id
+        measurment:
+          oneOf:
+            - $ref: '#/components/schemas/CapacityMeasurement'
+            - $ref: '#/components/schemas/OccupationMeasurement'
+
+    CapacityMeasurement:
+      type: object
+      properties:
+        parkingCapacity: 
+          type: integer
+        capacityPerParkingSpaceTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CapacityPerParkingSpaceType'
+    
+    CapacityPerParkingSpaceType:
+      type: object
+      properties:
+        parkingSpaceOf:
+            $ref: '#/components/schemas/ParkingSpaceType'
+        numberOfVehicles: 
+          type: integer
+
+    ParkingSpaceType:
+      title: CapacityPerParkingSpaceType
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - x
+            - r
+            - rb
+            - b
+            - bb
+            - o
+            - ob
+            - k
+            - n
+            - v
+            - a
+          description:
+            x =  geen voorziening / r = rek / rb =rek (buitenmodel) / b = etagerek-boven / bb  etagerek-boven (buitenmodel) / o =   etagerek-onder / ob = etagerek-onder (buitenmodel) / k = kluis / n = nietjes / v = vak / a = anders
+        vehicles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vehicle'
+            
+    OccupationMeasurement:
+      type: object
+      properties:
+        totalParked: 
+          type: integer
+        occupiedSpaces:
+          type: integer
+        vacantSpaces:
+          type: integer
+        vehicleTypeCounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/VehicleTypeCount'
+        basedOffCapacity:
+          type: string
+          description: id of Observation that vacantSpaces is based on
+    VehicleTypeCount:
+      type: object
+      required:
+        - vehicle
+        - numberOfVehicles
+      properties:
+        vehicle:
+          type: array
+          items:
+            $ref: '#/components/schemas/VehicleTypeCount'
+        parkState:
+          type: string
+          enum:
+            - i
+            - j
+            - k
+            - p
+            - x
+          description:
+            i =  In voorziening / j = In voorziening, juist gestald / k = In voorziening, neemt plek in / p = nabij voorziening / x = buiten voorziening
+        numberOfVehicles:
+          type: integer
+      example:
+        vehicle:
+          type: f
+          owner: p
+        numberOfVehicles: 6
+        parkState: i
+    Note:
+      type: object
+      properties:
+        isClosed: 
+          type: boolean
+        isHoliday: 
+          type: boolean
+        isEvent: 
+          type: boolean
+        isUnderConstruction: 
+          type: boolean
+        remark: 
+          type: string
     CanonicalVehicleCategory:
-      title: Canonical Vehicle Category
       type: object
       properties:
         id: 
@@ -1345,24 +1500,19 @@ components:
           title: authority
           type: string
     CanonicalVehicle:
-      title: CanonicalVehicle
       type: object
       properties:
-        name: 
-          title: Name
+        label: 
           type: string
         description:
-          title: Description
           type: string
         code:
-          title: Code
           type: string
           description: max length = 4
         json:
-          $ref: '#/components/schemas/CanonicalVehicleDefinition'
+          $ref: '#/components/schemas/CanonicalVehicleJson'
 
-    CanonicalVehicleDefinition:
-      title: Canonical Vehicle Definition
+    CanonicalVehicleJson:
       type: object
       properties:
         parkState: 
@@ -1375,8 +1525,10 @@ components:
               - j
               - x
           description: State of parked (i = In voorziening, j = j  In voorziening, juist gestald, k = In voorziening, neemt plek in, p = nabij voorziening, x = buiten voorziening). More info at https://docs.crow.nl/datastandaard-fietsparkeren/api-fiets/#enum-vehicleparkstate
-        vehicle:
-          $ref: '#/components/schemas/Vehicle'
+        vehicles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vehicle'
 
     User:
       title: User
@@ -1385,49 +1537,39 @@ components:
       type: object
       properties:
         username:
-          title: Username
           type: string
         password:
-          title: Password
           type: string
     UserPermissions:
-      title: User permissions
       type: object
       properties:
         roles:
-          title: username
           type: array
           items:
             description: role
             type: string
     Organisation:
-      title: Organisation
       required:
         - name
       type: object
       properties:
         id:
-          title: Id
           type: string
         name:
-          title: Name
           type: string
     GeoRelation:
-      title: GeoRelation
       enum:
         - intersects
         - within
       type: string
       description: An enumeration.
     SortingDirection:
-      title: SortingDirection
       enum:
         - ASC
         - DESC
       type: string
       description: An enumeration.
     Survey:
-      title: Survey
       required:
         - name
         - authority
@@ -1435,90 +1577,67 @@ components:
       type: object
       properties:
         id:
-          title: Id
           type: string
         name:
-          title: Name
           type: string
         authority:
-          title: Authority
           type: string
         contractor:
-          title: Contractor
           type: string
         license:
-          title: License
           type: string
         distinguishesVehicleCategories:
-          title: Distinguishesvehiclecategories
           type: string
     SurveyArea:
-      title: SurveyArea
       required:
         - authority
       type: object
       properties:
         id:
-          title: Id
           type: string
         localId:
-          title: LocalId
           type: string
         name:
-          title: Name
           type: string
         geoLocation:
           $ref: '#/components/schemas/GeoShape'
         parent:
-          title: Parent
           type: string
         validFrom:
-          title: Validfrom
           type: string
           format: date-time
         validThrough:
-          title: Validthrough
           type: string
           format: date-time
         authority:
-          title: Authority
           type: string
         xtraInfo:
-          title: XtraInfo
           type: string
     ParkingLocation:
-      title: ParkingLocation
       required:
         - authority
         - name
       type: object
       properties:
         id:
-          title: Id
           type: string
         geoLocation:
           $ref: '#/components/schemas/GeoShape'
         validFrom:
-          title: Validfrom
           type: string
           format: date-time
         validThrough:
-          title: Validthrough
           type: string
           format: date-time
         authority:
-          title: Authority
           type: string
         name:
-          title: Name
           type: string
         localId:
-          title: LocalId
           type: string
         allows:
           $ref: '#/components/schemas/Vehicle'
         features:
-          title: SurveyAreaType
           uniqueItems: true
           type: array
           items:
@@ -1531,49 +1650,38 @@ components:
               - surfaceParking
           default: []
     Section:
-      title: Section
       required:
         - parkingLocation
         - authority
       type: object
       properties:
         id:
-          title: Id
           type: string
         geoLocation:
           $ref: '#/components/schemas/GeoShape'
         parkingLocation:
-          title: ParkingLocation
           type: string
         validFrom:
-          title: Validfrom
           type: string
           format: date-time
         validThrough:
-          title: Validthrough
           type: string
           format: date-time
         authority:
-          title: Authority
           type: string
         name:
-          title: Name
           type: string
         localId:
-          title: LocalId
           type: string
         level:
-          title: Level
           type: integer
         parkingSystemType:
-          title: ParkingSystemType
           type: string
           description: r = rek, o = etagerek onder, b = etagerek boven, n = nietje, x = geen voorziening
     Vehicle:
       title: Vehicle
       properties:
         type:
-          title: Type
           type: string
           enum:
             - f
@@ -1584,11 +1692,61 @@ components:
             - g
             - a
           description: Vehicle definition (f = fiets, c = bakfiets, s = snorfiets, b = bromfiets, m = motorfiets, g = gehandicaptenvoertuig, a = anders)
+        propulsion:
+          type: array
+          items:
+            enum:
+              - s
+              - e
+              - s
+              - b
+            description: s = human (Spierkracht) / e = electric (Elektrisch  bv e-scooter) / s electric_assist (Elektrisch ondersteund  bv e-bike) / b = combustion (brandstofmotor)        
+        appearance:
+          type: string
+        state:
+          type: array
+          items:
+            enum:
+              - cameraSurveillance
+              - lockerService
+              - personnelSupervision
+              - electronicAccess
+              - indoor
+              - surfaceParking
+        accessories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Accessory'
+        owner:
+          type: string
+          enum:
+            - p
+            - l
+            - h
+          description: p = Privéfiets / l = Leasefiets, zoals Swapfiets / h = Huurfiets, zoals OV-fiets
+          
+    Accessory:
+      properties:
+        type:
+          type: string
+          enum:
+            - z
+            - t
+            - b
+            - k
+            - p
+          description: z = kinderzitje / t = fietstas / b = bagagedrager / k = krat/mand / p = Beperkt afwijkend, nl. k,z
+        position:
+          type: string
+          enum:
+            - v
+            - a
+          description: v = voor / a = achter
+
     GeoShape:
       title: GeoShape
       properties:
         type:
-          title: Type
           type: string
           enum:
             - MultiPolygon
@@ -1596,7 +1754,6 @@ components:
             - Point
           description: Type of shape
         coordinates:
-          title: Coordinates
           type: array
           items:
             type: array
@@ -1629,7 +1786,6 @@ components:
       type: object
       properties:
         detail:
-          title: Detail
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
