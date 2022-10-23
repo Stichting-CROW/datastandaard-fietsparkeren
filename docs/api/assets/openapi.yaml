@@ -1368,6 +1368,7 @@ components:
         - survey
         - featureOfInterest
         - measurment
+        - observedProperty
       properties:
         id: 
           type: string
