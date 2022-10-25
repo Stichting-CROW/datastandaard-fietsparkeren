@@ -1410,7 +1410,7 @@ components:
           type: integer
 
     ParkingSpaceType:
-      title: CapacityPerParkingSpaceType
+      title: ParkingSpaceType
       type: object
       properties:
         type:
