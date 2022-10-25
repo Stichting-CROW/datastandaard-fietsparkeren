@@ -1587,7 +1587,7 @@ components:
           type: string
         license:
           type: string
-        distinguishesVehicleCategories:
+        canonicalVehicleCategory:
           type: string
     SurveyArea:
       required:
