@@ -1717,12 +1717,10 @@ components:
           type: array
           items:
             enum:
-              - cameraSurveillance
-              - lockerService
-              - personnelSupervision
-              - electronicAccess
-              - indoor
-              - surfaceParking
+              - w
+              - l
+              - z
+            description: w = wrak / l = lekke band / z = zonder zadel
         accessories:
           type: array
           items:
