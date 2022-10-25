@@ -1704,6 +1704,15 @@ components:
             description: s = human (Spierkracht) / e = electric (Elektrisch  bv e-scooter) / s electric_assist (Elektrisch ondersteund  bv e-bike) / b = combustion (brandstofmotor)        
         appearance:
           type: string
+          enum:
+            - f
+            - c
+            - s
+            - b
+            - m
+            - g
+            - a
+          description: Verschijningsvorm (k = Kinderfiets	/ r = Racefiets/ l = Ligfiets / b = Bakfiets / Transportfiets / f= Fietskar / v =	Vouwfiets / m = Mountainbike / d = Driewieler / t = Tandem / g = Gehandicaptenvoertuig / x = Sterk afwijkend nl. b,f,d,t,g          
         state:
           type: array
           items:
