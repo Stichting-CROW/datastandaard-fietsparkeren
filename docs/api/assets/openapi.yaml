@@ -1367,7 +1367,7 @@ components:
         - timestamp
         - survey
         - featureOfInterest
-        - measurment
+        - measurement
         - observedProperty
       properties:
         id: 
@@ -1386,7 +1386,7 @@ components:
         featureOfInterest: 
           type: string
           description: ParkingLocation.id or Section.id
-        measurment:
+        measurement:
           oneOf:
             - $ref: '#/components/schemas/CapacityMeasurement'
             - $ref: '#/components/schemas/OccupationMeasurement'
@@ -1712,7 +1712,7 @@ components:
             - m
             - g
             - a
-          description: Verschijningsvorm (k = Kinderfiets	/ r = Racefiets/ l = Ligfiets / b = Bakfiets / Transportfiets / f= Fietskar / v =	Vouwfiets / m = Mountainbike / d = Driewieler / t = Tandem / g = Gehandicaptenvoertuig / x = Sterk afwijkend nl. b,f,d,t,g          
+          description: Verschijningsvorm (k = Kinderfiets / r = Racefiets/ l = Ligfiets / b = Bakfiets / Transportfiets / f= Fietskar / v = Vouwfiets / m = Mountainbike / d = Driewieler / t = Tandem / g = Gehandicaptenvoertuig / x = Sterk afwijkend nl. b,f,d,t,g          
         state:
           type: array
           items:
