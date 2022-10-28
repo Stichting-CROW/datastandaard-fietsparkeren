@@ -290,13 +290,10 @@ Komt overeen met `sosa:Result`.
 | Eigenschap                                                          | Type                                | Kardinaliteit | Beschrijving                                                                           |
 | ------------------------------------------------------------------- | ----------------------------------- | ------------- | -------------------------------------------------------------------------------------- |
 | <dfn data-dfn-for='CapacityMeasurement'>parkingCapacity             | `number`                            | 1             | Totaal aantal parkeervoorzieningen.                                                    |
-| <dfn data-dfn-for='CapacityMeasurement'>capacityPerParkingSpaceType | {{CapacityPerParkingSpaceType}}`[]` | 1..N          | Capaciteit per type parkeervoorziening, over de hele stalling. Sommering bij indienen. |
+| <dfn data-dfn-for='CapacityMeasurement'>capacityPerParkingSpaceTypes | {{CapacityPerParkingSpaceType}}`[]` | 1..N          | Capaciteit per type parkeervoorziening, over de hele stalling. Sommering bij indienen. |
 | {.data def}                                                         |
 
-De waarde van
-{{CapacityMeasurement.parkingCapacity}},
-{{CapacityMeasurement.capacityPerParkingSpaceType}}
-MOET een geheel getal (integer) zijn.
+De waarde van {{CapacityMeasurement.parkingCapacity}} MOET een geheel getal (integer) zijn.
 
 ### <dfn>`OccupationMeasurement`
 
