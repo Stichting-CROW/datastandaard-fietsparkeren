@@ -87,7 +87,7 @@ Er is geen geadminstreerde relatie tussen onderzoeksgebieden en stallingsvoorzie
 | <dfn data-dfn-for="SurveyArea">validThrough | [[rfc3339]] date-time (`string`) | 0..1          | Einde geldigheid                                                                                       |
 | <dfn data-dfn-for="SurveyArea">authority    | {{Organisation.id}} (`string`)   | 1..1          | Eigenaar van dit onderzoeksgebied. Alleen deze organisatie mag wijzigingen aanbrengen aan deze sectie. |
 | <dfn data-dfn-for="SurveyArea">name         | `string[]`                       | 0..N          | Naam die de eigenaar of inwinner aan dit onderzoeksgebied geeft.                                       |
-| <dfn data-dfn-for="SurveyArea">localId      | `string[]`                       | 0..N          | Alternatieve IDs die de eigenaar of inwinner aan dit onderzoeksgebied geeft.                           |
+| <dfn data-dfn-for="SurveyArea">localId      | `string`                         | 0..N          | Alternatieve ID die de eigenaar of inwinner aan dit onderzoeksgebied geeft.                           |
 | {.data def}                                 |                                  |               |
 
 ## Stallingen, parkeervoorzieningen
@@ -131,7 +131,7 @@ Voor historische vergelijkingen kan op basis van de geometrie en/of `localId` be
 | <dfn data-dfn-for="ParkingLocation">id           | `string`                         | 1             | Een [[=ResourceIdentifier=]].                                            |
 | <dfn data-dfn-for="ParkingLocation">geoLocation  | GeoJSON                          | 1..1          | Geografische afbakening volgens [[rfc7946]].                             |
 | <dfn data-dfn-for="ParkingLocation">name         | `string`                         | 0..1          | Namen voor de voorziening.                                               |
-| <dfn data-dfn-for="ParkingLocation">localId      | `string[]`                       | 0..N          | Alternatieve IDs van de eigenaar of inwinner.                            |
+| <dfn data-dfn-for="ParkingLocation">localId      | `string`                       | 0..N          | Alternatieve ID van de eigenaar of inwinner.                            |
 | <dfn data-dfn-for="ParkingLocation">features     | {{LocationFeatureType}}`[]`      | 0..N          | Beveiligingskenmerken                                                    |
 | <dfn data-dfn-for="ParkingLocation">allows       | {{Vehicle}}`[]`                  | 1..N          | Toegestane voertuigtypen voor deze parkeerlocatie.                       |
 | <dfn data-dfn-for="ParkingLocation">validFrom    | [[rfc3339]] date-time (`string`) | 0..1          | Zie <a href='#geldigheid-door-de-tijd'></a>.                             |
@@ -172,7 +172,7 @@ Voor bijvoorbeeld handmatige tellers kan dat wel handig zijn.
 | <dfn data-dfn-for='Section'>id              | `string`                          | 0..1          | Een [[=ResourceIdentifier=]].                                                                                              |
 | <dfn data-dfn-for='Section'>parkingLocation | {{ParkingLocation.id}} (`string`) | 1             | Koppeling naar de ParkingLocation waar de sectie deel van uitmaakt.                                                        |
 | <dfn data-dfn-for="Section">name            | `string`                          | 0..1          | Namen voor de voorziening.                                                                                                 |
-| <dfn data-dfn-for="Section">localId         | `string[]`                        | 0..N          | Alternatieve IDs van de eigenaar of inwinner.                                                                              |
+| <dfn data-dfn-for="Section">localId         | `string`                        | 0..N          | Alternatieve ID van de eigenaar of inwinner.                                                                              |
 | <dfn data-dfn-for='Section'>geoLocation     | GeoJSON                           | 0..1          | Geografische afbakening volgens [[rfc7946]].                                                                               |
 | <dfn data-dfn-for='Section'>parkingSpaceOf  | {{ParkingSpaceType}}`[]`          | 1..N          | De types parkeervoorziening.                                                                                               |
 | <dfn data-dfn-for='Section'>level           | `number`                          | 0..1          | De etage in de ParkingLocation waar deze sectie zich bevindt. -1 = onder maaiveld, 0 = maaiveld (default), 1 = verdieping. |
