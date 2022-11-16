@@ -1676,9 +1676,10 @@ components:
           type: string
         level:
           type: integer
-        parkingSystemType:
-          type: string
-          description: r = rek, o = etagerek onder, b = etagerek boven, n = nietje, x = geen voorziening
+        parkingSpaceOf:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParkingSpaceType'
     Vehicle:
       title: Vehicle
       properties:
