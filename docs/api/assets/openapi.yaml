@@ -1394,6 +1394,10 @@ components:
     CapacityMeasurement:
       type: object
       properties:
+        timestampStart: 
+          type: string
+        timestampEnd: 
+          type: string
         parkingCapacity: 
           type: integer
         capacityPerParkingSpaceTypes:
@@ -1437,6 +1441,10 @@ components:
     OccupationMeasurement:
       type: object
       properties:
+        timestampStart: 
+          type: string
+        timestampEnd: 
+          type: string
         totalParked: 
           type: integer
         occupiedSpaces:
