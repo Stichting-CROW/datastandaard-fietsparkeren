@@ -1461,13 +1461,14 @@ components:
     VehicleTypeCount:
       type: object
       required:
-        - vehicle
         - numberOfVehicles
       properties:
+        canonicalVehicleCode:
+          type: string
         vehicle:
           type: array
           items:
-            $ref: '#/components/schemas/VehicleTypeCount'
+            $ref: '#/components/schemas/Vehicle'
         parkState:
           type: string
           enum:

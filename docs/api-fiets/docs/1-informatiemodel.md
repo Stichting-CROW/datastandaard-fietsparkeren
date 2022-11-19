@@ -353,11 +353,12 @@ MOET een geheel getal (integer) zijn.
 
 ### <dfn>`VehicleTypeCount`
 
-| Eigenschap                                            | Type        | Kardinaliteit | Beschrijving                             | ProRail |
-| ----------------------------------------------------- | ----------- | ------------- | ---------------------------------------- | ------- |
-| <dfn data-dfn-for="VehicleTypeCount">vehicle          | {{Vehicle}} | 1             | Voertuigtype                             | \*      |
-| <dfn data-dfn-for="VehicleTypeCount">parkState        | `string`    | 0..1          | Zie enum {{VehicleParkState}}.           | \*      |
-| <dfn data-dfn-for="VehicleTypeCount">numberOfVehicles | `number`    | 1             | Aantal gestalde voertuigen van dit type. | \*      |
+| Eigenschap                                                | Type        | Kardinaliteit | Beschrijving                             | ProRail |
+| --------------------------------------------------------- | ----------- | ------------- | ---------------------------------------- | ------- |
+| <dfn data-dfn-for="VehicleTypeCount">canonicalVehicleCode | `string`    | 0..1          | Code van aan deze survey gekoppelde canonical vehicle | \*      |
+| <dfn data-dfn-for="VehicleTypeCount">vehicle              | {{Vehicle}} | 0..1          | Voertuigtype                             | \*      |
+| <dfn data-dfn-for="VehicleTypeCount">parkState            | `string`    | 0..1          | Zie enum {{VehicleParkState}}.           | \*      |
+| <dfn data-dfn-for="VehicleTypeCount">numberOfVehicles     | `number`    | 1             | Aantal gestalde voertuigen van dit type. | \*      |
 | {.data def}                                           |
 
 <aside class='example'>
@@ -389,6 +390,14 @@ MOET een geheel getal (integer) zijn.
      "vehicle": { "type": "f" },
      "numberOfVehicles": 100,
      "parkState": "x"
+   }
+   ```
+4. Vier fietsen vallend in canonical vehicle code A:
+
+   ```json
+   {
+     "canonicalVehicleCode": "A",
+     "numberOfVehicles": 4
    }
    ```
 
