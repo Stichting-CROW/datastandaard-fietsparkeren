@@ -88,6 +88,7 @@ Er is geen geadminstreerde relatie tussen onderzoeksgebieden en stallingsvoorzie
 | <dfn data-dfn-for="SurveyArea">authority    | {{Organisation.id}} (`string`)   | 1..1          | Eigenaar van dit onderzoeksgebied. Alleen deze organisatie mag wijzigingen aanbrengen aan deze sectie. |
 | <dfn data-dfn-for="SurveyArea">name         | `string[]`                       | 0..N          | Naam die de eigenaar of inwinner aan dit onderzoeksgebied geeft.                                       |
 | <dfn data-dfn-for="SurveyArea">localId      | `string`                         | 0..N          | Alternatieve ID die de eigenaar of inwinner aan dit onderzoeksgebied geeft.                           |
+| <dfn data-dfn-for="SurveyArea">surveyAreaType      | `string`                | 0..N          | Type Survey Area, bijvoorbeeld: 'station' of 'windrichting'.                           |
 | {.data def}                                 |                                  |               |
 
 ## Stallingen, parkeervoorzieningen
