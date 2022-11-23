@@ -1364,7 +1364,8 @@ components:
     Observation:
       type: object
       required:
-        - timestamp
+        - timestampStart
+        - timestampEnd
         - survey
         - featureOfInterest
         - measurement
@@ -1372,7 +1373,9 @@ components:
       properties:
         id: 
           type: string
-        timestamp: 
+        timestampStart: 
+          type: string
+        timestampEnd: 
           type: string
         survey: 
           type: string
@@ -1393,11 +1396,9 @@ components:
 
     CapacityMeasurement:
       type: object
+      required:
+        - parkingCapacity
       properties:
-        timestampStart: 
-          type: string
-        timestampEnd: 
-          type: string
         parkingCapacity: 
           type: integer
         capacityPerParkingSpaceTypes:
@@ -1440,11 +1441,9 @@ components:
             
     OccupationMeasurement:
       type: object
+      required:
+        - totalParked
       properties:
-        timestampStart: 
-          type: string
-        timestampEnd: 
-          type: string
         totalParked: 
           type: integer
         occupiedSpaces:

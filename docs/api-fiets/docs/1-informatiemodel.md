@@ -249,7 +249,8 @@ Volstaat wellicht een algemeen `Measurement`?
 | Eigenschap                                        | Type                                                       | Kardinaliteit | Beschrijving                                                                   |
 | ------------------------------------------------- | ---------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------ |
 | <dfn data-dfn-for='Observation'>id                | `string`                                                   | 1             | Een [[=ResourceIdentifier=]].                                                  |
-| <dfn data-dfn-for='Observation'>timestamp\*       | [[rfc3339]] date-time (`string`)                           | 1             | Tijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.           |
+| <dfn data-dfn-for='Observation'>timestampStart\*  | [[rfc3339]] date-time (`string`)                           | 1             | Starttijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.      |
+| <dfn data-dfn-for='Observation'>timestampEnd\*    | [[rfc3339]] date-time (`string`)                           | 1             | Eindtijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.       |
 | <dfn data-dfn-for='Observation'>survey\*          | `string`                                                   | 1             | {{Survey.id}} waartoe deze meting behoort.                                     |
 | <dfn data-dfn-for='Observation'>note\*            | {{Note}}                                                   | 0..1          | Notities over de meting in deze sectie                                         |
 | <dfn data-dfn-for='Observation'>observedProperty  | `string`                                                   | 1             | `capacity` of `occupation`.                                                    |
@@ -290,8 +291,6 @@ Komt overeen met `sosa:Result`.
 
 | Eigenschap                                                          | Type                                | Kardinaliteit | Beschrijving                                                                           |
 | ------------------------------------------------------------------- | ----------------------------------- | ------------- | -------------------------------------------------------------------------------------- |
-| <dfn data-dfn-for='CapacityMeasurement'>timestampStart\*       | [[rfc3339]] date-time (`string`)                           | 1             | Tijdstip start meting, zie <a href='#geldigheid-door-de-tijd'></a>.           |
-| <dfn data-dfn-for='CapacityMeasurement'>timestampEnd\*       | [[rfc3339]] date-time (`string`)                           | 1             | Tijdstip einde meting, zie <a href='#geldigheid-door-de-tijd'></a>.           |
 | <dfn data-dfn-for='CapacityMeasurement'>parkingCapacity             | `number`                            | 1             | Totaal aantal parkeervoorzieningen.                                                    |
 | <dfn data-dfn-for='CapacityMeasurement'>capacityPerParkingSpaceTypes | {{CapacityPerParkingSpaceType}}`[]` | 1..N          | Capaciteit per type parkeervoorziening, over de hele stalling. Sommering bij indienen. |
 | {.data def}                                                         |
@@ -302,8 +301,6 @@ De waarde van {{CapacityMeasurement.parkingCapacity}} MOET een geheel getal (int
 
 | Eigenschap                                                    | Type                     | Kardinaliteit | Beschrijving                                                                                                                             |
 | ------------------------------------------------------------- | ------------------------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| <dfn data-dfn-for='CapacityMeasurement'>timestampStart\*       | [[rfc3339]] date-time (`string`)                           | 1             | Tijdstip start meting, zie <a href='#geldigheid-door-de-tijd'></a>.           |
-| <dfn data-dfn-for='CapacityMeasurement'>timestampEnd\*       | [[rfc3339]] date-time (`string`)                           | 1             | Tijdstip einde meting, zie <a href='#geldigheid-door-de-tijd'></a>.           |
 | <dfn data-dfn-for='OccupationMeasurement'>totalParked         | `number`                 | 1             | Aantal getelde voertuigen, verplicht als één of meerdere onderdelen dit gemeten hebben.                                                  |
 | <dfn data-dfn-for='OccupationMeasurement'>occupiedSpaces      | `number`                 | 0..1          | Aantal bezette plekken, berekend o.b.v. `capacityPerParkingSpaceType` en `vehicleTypeCount`                                           |
 | <dfn data-dfn-for='OccupationMeasurement'>vehicleTypeCounts   | {{VehicleTypeCount}}`[]` | 0..N          | Telling per geparkeerd voertuigtype                                                                                                      |
