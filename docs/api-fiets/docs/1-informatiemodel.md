@@ -247,24 +247,13 @@ Volstaat wellicht een algemeen `Measurement`?
 ### <dfn>`Observation`</dfn>`<T>`
 
 | Eigenschap                                        | Type                                                       | Kardinaliteit | Beschrijving                                                                   |
-| ------------------------------------------------- | ---------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------ |
-| <dfn data-dfn-for='Observation'>id                | `string`                                                   | 1             | Een [[=ResourceIdentifier=]].                                                  |
-| <dfn data-dfn-for='Observation'>timestampStart\*  | [[rfc3339]] date-time (`string`)                           | 1             | Starttijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.      |
-| <dfn data-dfn-for='Observation'>timestampEnd\*    | [[rfc3339]] date-time (`string`)                           | 1             | Eindtijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.       |
-| <dfn data-dfn-for='Observation'>survey\*          | `string`                                                   | 1             | {{Survey.id}} waartoe deze meting behoort.                                     |
-| <dfn data-dfn-for='Observation'>note\*            | {{Note}}                                                   | 0..1          | Notities over de meting in deze sectie                                         |
-| <dfn data-dfn-for='Observation'>observedProperty  | `string`                                                   | 1             | `capacity` of `occupation`.                                                    |
-| <dfn data-dfn-for='Observation'>featureOfInterest | `string`                                                   | 1             | {{ParkingLocation.id}} of {{Section.id}} waarop deze telling betrekking heeft. |
-| <dfn data-dfn-for='Observation'>measurement       | {{CapacityMeasurement}} of {{OccupationMeasurement}} (`T`) | 1             | Inline meting.                                                                 |
+| ------------------------------------------------- | ----------------------------- | -----| ------------------------------------------------------------- |
+| <dfn data-dfn-for='Observation'>id                | `string`                      | 1    | Een [[=ResourceIdentifier=]].                                 |
+| <dfn data-dfn-for='Observation'>survey\*          | `string`                      | 1    | {{Survey.id}} waartoe deze meting behoort.                    |
+| <dfn data-dfn-for='Observation'>featureOfInterest | `string`                      | 1    | {{ParkingLocation.id}} of {{Section.id}} waarop deze telling betrekking heeft. |
+| <dfn data-dfn-for='Observation'>capacityMeasurement | {{CapacityMeasurement}}     | 0..1 | Inline capaciteitsmeting.                                     |
+| <dfn data-dfn-for='Observation'>occupationMeasurement | {{OccupationMeasurement}} | 0..1 | Inline bezettingsmeting.                                      |
 | {.data def}                                       |
-
-<aside class='issue'>
-
-Redmer: Ik heb nu de metingen gesplits in bezettingsmetingen en capaciteitsmetingen,
-om een de verschillende kardinaliteiten te accomoderen
-én om verwijzing mogelijk te maken bij een bezettingstelling ({{OccupationMeasurement.vacantSpaces}}) te verwijzen naar een bep. {{CapacityMeasurement}}.
-
-</aside>
 
 #### <dfn>`PhenomenonTime`
 
@@ -274,15 +263,6 @@ om een de verschillende kardinaliteiten te accomoderen
 | <dfn data-dfn-for='PhenomenonTime'>hasEnd       | [[rfc3339]] date-time (`string`) | 1             | Tijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>. |
 | {.data def}                                     |
 
-#### Enum <dfn>`ObservationType`
-
-Dit type maakt vereenvoudigt filtering op het type
-
-| Enum    | Omschrijving     |
-| ------- | ---------------- |
-| `b`     | Bezettingsmeting |
-| `c`     | Capaciteitmeting |
-| {.data} |
 
 ### <dfn>`CapacityMeasurement`
 
@@ -293,6 +273,9 @@ Komt overeen met `sosa:Result`.
 | ------------------------------------------------------------------- | ----------------------------------- | ------------- | -------------------------------------------------------------------------------------- |
 | <dfn data-dfn-for='CapacityMeasurement'>parkingCapacity             | `number`                            | 1             | Totaal aantal parkeervoorzieningen.                                                    |
 | <dfn data-dfn-for='CapacityMeasurement'>capacityPerParkingSpaceTypes | {{CapacityPerParkingSpaceType}}`[]` | 1..N          | Capaciteit per type parkeervoorziening, over de hele stalling. Sommering bij indienen. |
+| <dfn data-dfn-for='CapacityMeasurement'>timestampStart\*  | [[rfc3339]] date-time (`string`)                           | 1             | Starttijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.      |
+| <dfn data-dfn-for='CapacityMeasurement'>timestampEnd\*    | [[rfc3339]] date-time (`string`)                           | 1             | Eindtijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.       |
+| <dfn data-dfn-for='CapacityMeasurement'>note\*            | {{Note}}                                                   | 0..1          | Notities over de meting in deze sectie                                         |
 | {.data def}                                                         |
 
 De waarde van {{CapacityMeasurement.parkingCapacity}} MOET een geheel getal (integer) zijn.
@@ -302,10 +285,12 @@ De waarde van {{CapacityMeasurement.parkingCapacity}} MOET een geheel getal (int
 | Eigenschap                                                    | Type                     | Kardinaliteit | Beschrijving                                                                                                                             |
 | ------------------------------------------------------------- | ------------------------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | <dfn data-dfn-for='OccupationMeasurement'>totalParked         | `number`                 | 1             | Aantal getelde voertuigen, verplicht als één of meerdere onderdelen dit gemeten hebben.                                                  |
+| <dfn data-dfn-for='OccupationMeasurement'>timestampStart\*  | [[rfc3339]] date-time (`string`)                           | 1             | Starttijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.      |
+| <dfn data-dfn-for='OccupationMeasurement'>timestampEnd\*    | [[rfc3339]] date-time (`string`)                           | 1             | Eindtijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.       |
 | <dfn data-dfn-for='OccupationMeasurement'>occupiedSpaces      | `number`                 | 0..1          | Aantal bezette plekken, berekend o.b.v. `capacityPerParkingSpaceType` en `vehicleTypeCount`                                           |
 | <dfn data-dfn-for='OccupationMeasurement'>vehicleTypeCounts   | {{VehicleTypeCount}}`[]` | 0..N          | Telling per geparkeerd voertuigtype                                                                                                      |
 | <dfn data-dfn-for='OccupationMeasurement'>vacantSpaces        | `number`                 | 0..1          | Aantal vrije plekken. Zie hieronder.                                                                                                     |
-| <dfn data-dfn-for='OccupationMeasurement'>basedOffCapacity    | `string`                 | 0..1          | De {{Observation.id}} (die een {{CapacityMeasurement}} vertegenwoordigt) waar de {{OccupationMeasurement.vacantSpaces}} van afgeleid is. |
+| <dfn data-dfn-for='CapacityMeasurement'>note\*            | {{Note}}                                                   | 0..1          | Notities over de meting in deze sectie                                         |
 | {.data def}                                                   |
 
 Een bezettingsmeting MAG ook het aantal vrije parkeerplekken in de {{Section}} of {{ParkingLocation}} aangeven in het veld {{OccupationMeasurement.vacantSpaces}}.
