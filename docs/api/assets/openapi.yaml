@@ -1373,38 +1373,33 @@ components:
       properties:
         id: 
           type: string
-        timestampStart: 
-          type: string
-        timestampEnd: 
-          type: string
         survey: 
           type: string
-        note:
-          $ref: '#/components/schemas/Note'
-        observedProperty: 
-          type: string
-          enum:
-              - capacity
-              - occupation
         featureOfInterest: 
           type: string
           description: ParkingLocation.id or Section.id
-        measurement:
-          oneOf:
-            - $ref: '#/components/schemas/CapacityMeasurement'
-            - $ref: '#/components/schemas/OccupationMeasurement'
+        capacityMeasurement:
+            $ref: '#/components/schemas/CapacityMeasurement'
+        observationMeasurement:
+            $ref: '#/components/schemas/OccupationMeasurement'
 
     CapacityMeasurement:
       type: object
       required:
         - parkingCapacity
       properties:
+        timestampStart: 
+          type: string
+        timestampEnd: 
+          type: string
         parkingCapacity: 
           type: integer
         capacityPerParkingSpaceTypes:
           type: array
           items:
             $ref: '#/components/schemas/CapacityPerParkingSpaceType'
+        note:
+          $ref: '#/components/schemas/Note'
     
     CapacityPerParkingSpaceType:
       type: object
@@ -1444,6 +1439,10 @@ components:
       required:
         - totalParked
       properties:
+        timestampStart: 
+          type: string
+        timestampEnd: 
+          type: string
         totalParked: 
           type: integer
         occupiedSpaces:
@@ -1454,9 +1453,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VehicleTypeCount'
-        basedOffCapacity:
-          type: string
-          description: id of Observation that vacantSpaces is based on
+        note:
+          $ref: '#/components/schemas/Note'
     VehicleTypeCount:
       type: object
       required:
