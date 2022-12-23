@@ -633,3 +633,13 @@ Classificatie naar wettelijke voertuigcategorie.
 | `l`     | Lease    | Leasefiets, zoals Swapfiets |
 | `h`     | Huur     | Huurfiets, zoals OV-fiets   |
 | {.data} |
+   
+### <dfn>`CombinedObservation`</dfn>` (available for GET requests only)
+
+| Eigenschap                                        | Type                                                       | Kardinaliteit | Beschrijving                                                                   |
+| ------------------------------------------------- | ---------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------ |
+| <dfn data-dfn-for='Observation'>featureOfInterest | `string`                                                   | 1             | {{ParkingLocation.id}} of {{Section.id}} waarop deze tellingen betrekking hebben. |
+| <dfn data-dfn-for='Observation'>capacityObservation       | {{Observation}} | 0..1             | Observation met inline capaciteitsmeting.                                                                 |
+| <dfn data-dfn-for='Observation'>occupationObservation       | {{Observation}} | 0..1             | Observation met inline bezettingsmeting.                                                                  |
+
+
