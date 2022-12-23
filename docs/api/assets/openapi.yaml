@@ -1358,9 +1358,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /combinedobservations:
+    get:
+      tags:
+        - Observations
+      summary: Get Combined Observation
+      operationId: add_combinedobservations_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CombinedObservation'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
                 
 components:
   schemas:
+    CombinedObservation:
+      type: object
+      required:
+        - featureOfInterest
+      properties:
+        featureOfInterest: 
+          type: string
+          description: ParkingLocation.id or Section.id
+        capacityObservation:
+            $ref: '#/components/schemas/Observation'
+        observationObservation:
+            $ref: '#/components/schemas/Observation'
     Observation:
       type: object
       required:
