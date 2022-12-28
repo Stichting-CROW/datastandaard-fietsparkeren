@@ -1456,9 +1456,12 @@ components:
       required:
         - featureOfInterest
       properties:
-        featureOfInterest: 
+        surveyArea: 
           type: string
-          description: ParkingLocation.id or Section.id
+        parkingLocation:
+          type: string
+        section: 
+          type: string
         capacityObservation:
             $ref: '#/components/schemas/Observation'
         observationObservation:
