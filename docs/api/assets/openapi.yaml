@@ -1156,33 +1156,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
   /surveys/{survey_id}/survey-areas:
-    get:
-      tags:
-        - Surveys
-      summary: Get Survey areas for given survey
-      operationId: get_survey_surveys__survey_id__survey_areas_get
-      parameters:
-        - required: true
-          schema:
-            title: Survey Id
-            type: string
-          name: survey_id
-          in: path
-      responses:
-        '200':
-          description: Successful Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Survey'
-        '404':
-          description: Not found
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
     post:
       tags:
         - Surveys
@@ -1245,6 +1218,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+    get:
+      tags:
+        - Surveys
+      summary: Get Survey areas for given survey
+      operationId: get_survey_surveys__survey_id__survey_areas_get
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                title: Response All Surveys Surveys Get
+                type: array
+                items:
+                  $ref: '#/components/schemas/Survey'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /surveys/{survey_id}/survey-areas/{survey_area_id}:
     delete:
       tags:
@@ -1294,7 +1297,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ParkingLocation'
+                type: array
+                items:
+                  $ref: '#/components/schemas/ParkingLocation'
         '404':
           description: Not found
         '422':
@@ -1322,7 +1327,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Section'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Section'
         '404':
           description: Not found
         '422':
@@ -1331,18 +1338,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  /observations:
-    post:
+  /surveys/{survey_id}/observations:
+    get:
       tags:
-        - Observations
-      summary: Add Observation
-      operationId: add_observation_obsevations_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Observation'
-        required: true
+        - Surveys
+      summary: Get Observations within a Survey
+      operationId: get_survey_observations__survey_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
       responses:
         '200':
           description: Successful Response
@@ -1357,10 +1365,107 @@ paths:
           content:
             application/json:
               schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HTTPValidationError'
+  /surveys/{survey_id}/combinedobservations:
+    get:
+      tags:
+        - Surveys
+      summary: Get CombinedObservations within a Survey
+      operationId: get_survey_combinedObservations__survey_id__get
+      parameters:
+        - required: true
+          schema:
+            title: Survey Id
+            type: string
+          name: survey_id
+          in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Observation'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HTTPValidationError'
+  /observations:
+    post:
+      tags:
+        - Observations
+      summary: Add Observation
+      operationId: add_observation_observations_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Observation'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Observation'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-                
+  /combinedobservations:
+    get:
+      tags:
+        - Observations
+      summary: Get Combined Observations
+      operationId: add_combinedobservations_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CombinedObservation'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+
 components:
   schemas:
+    CombinedObservation:
+      type: object
+      required:
+        - featureOfInterest
+      properties:
+        surveyArea: 
+          type: string
+        parkingLocation:
+          type: string
+        section: 
+          type: string
+        capacityObservation:
+            $ref: '#/components/schemas/Observation'
+        observationObservation:
+            $ref: '#/components/schemas/Observation'
     Observation:
       type: object
       required:
