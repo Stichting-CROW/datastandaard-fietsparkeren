@@ -19,7 +19,7 @@ Dit is ook als <a href='openapi.json'>OpenAPI (Swagger) specificatie</a> beschik
 
 Een {{Survey}} groepeert een bron: het representeert een onderzoek of inwinning, incidenteel of doorlopend, in opdracht van een bepaalde {{Organisation}}.
 Daarbij MOGEN één of meerdere onderzoeksgebieden, {{SurveyArea}}s, worden meegegeven: een geografische afbakening van een gebied, dat voor bepaalde rapportages of inzichten nuttig is.
-Daarvoor worden dan overlappende {{ParkingFacilities}} meegenomen: een SurveyArea is niet een telgebied zelf.
+Daarvoor worden dan overlappende {{ParkingLocation}} meegenomen: een SurveyArea is niet een telgebied zelf.
 
 Een implementatie MAG de inzender ‘eigenaar’ laten worden van een Survey:
 dat houdt in dat andere inzenders NIET gegevens aan dat Survey MOGEN koppelen.
@@ -75,7 +75,7 @@ Ook voor historische vergelijkingen kunnen SurveyAreas worden gebruikt.
 Geografische zoekopdrachten zijn ook mogelijk in de <a href='#rest-api'></a>, zonder dat er van SurveyAreas gebruik wordt gemaakt.
 </aside>
 
-Het is een hulpmiddel om {{ParkingFacilities}} in een bepaald gebied te selecteren.
+Het is een hulpmiddel om {{ParkingLocation}}s in een bepaald gebied te selecteren.
 Er is geen geadminstreerde relatie tussen onderzoeksgebieden en stallingsvoorzieningen: dat is puur een geografische relatie.
 
 | Eigenschap                                  | Type                             | Kardinaliteit | Beschrijving                                                                                           |
