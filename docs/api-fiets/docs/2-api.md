@@ -418,36 +418,36 @@ Registreer en beheer Surveys en SurveyAreas en leg de koppeling tussen beide.
 
 ## REST-API: stallingen, parkeervoorzieningen
 
-Registreer en beheer ParkingFacilities en bijbehorende Sections.
+Registreer en beheer {{ParkingLocation}}s en bijbehorende {{Section}}s.
 
-| HTTP-methode                                        | Type                                       | Beschrijving                                                                                            |
-| --------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
-| <dfn>GET `/parkingfacilities`                       | {{ResultWrapper}}`<`{{ParkingLocation}}`>` | Toon bestaande ParkingFacilities.                                                                       |
-| <dfn>POST `/parkingfacilities`                      | {{ParkingLocation}}                        | Voeg een ParkingLocation toe.                                                                           |
-| <dfn>GET `/parkingfacilities/{id}`                  | {{ParkingLocation}}                        | Toon de ParkingLocation waar {{ParkingLocation.id}} = <var>id</var>.                                    |
-| <dfn>GET `/parkingfacilities/{id}/sections`         | {{ResultWrapper}}`<`{{Section}}`>`         | Toon alle Sections, waar {{Section.parkingLocation}} = <var>id</var>.                                   |
-| <dfn>POST `/parkingfacilities/{id}/sections`        | {{Section}}                                | Voeg een Section toe, waar {{Section.parkingLocation}} = <var>id</var>.                                 |
-| <dfn>GET `/parkingfacilities/{pfid}/sections/{sid}` | {{Section}}                                | Toon de Section, waar {{Section.parkingLocation}} = <var>pfid</var> en {{Section.id}} = <var>sid</var>. |
-| {.data def }                                        |
+| HTTP-methode                                       | Type                                       | Beschrijving                                                                                            |
+| -------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| <dfn>GET `/parking-location`                       | {{ResultWrapper}}`<`{{ParkingLocation}}`>` | Toon bestaande ParkingLocations.                                                                        |
+| <dfn>POST `/parking-location`                      | {{ParkingLocation}}                        | Voeg een ParkingLocation toe.                                                                           |
+| <dfn>GET `/parking-location/{id}`                  | {{ParkingLocation}}                        | Toon de ParkingLocation waar {{ParkingLocation.id}} = <var>id</var>.                                    |
+| <dfn>GET `/parking-location/{id}/sections`         | {{ResultWrapper}}`<`{{Section}}`>`         | Toon alle Sections, waar {{Section.parkingLocation}} = <var>id</var>.                                   |
+| <dfn>POST `/parking-location/{id}/sections`        | {{Section}}                                | Voeg een Section toe, waar {{Section.parkingLocation}} = <var>id</var>.                                 |
+| <dfn>GET `/parking-location/{pfid}/sections/{sid}` | {{Section}}                                | Toon de Section, waar {{Section.parkingLocation}} = <var>pfid</var> en {{Section.id}} = <var>sid</var>. |
+| {.data def }                                       |
 
-<pre class='example json' title='POST /parkingfacilities' data-include='examples/parkingfacilities-post.json' data-include-format='text'></pre>
-<pre class='example json' title='POST /parkingfacilities/{id}/sections' data-include='examples/parkingFacilities-id-sections-post.json' data-include-format='text'></pre>
+<pre class='example json' title='POST /parking-location' data-include='examples/parkingfacilities-post.json' data-include-format='text'></pre>
+<pre class='example json' title='POST /parking-location/{id}/sections' data-include='examples/parkingFacilities-id-sections-post.json' data-include-format='text'></pre>
 
 ## REST-API: tellingen, metingen en capaciteit
 
-Verkrijg gemeten aantallen fietsen in {{ParkingFacilities}} en bijbehorende {{Section}}s.
+Verkrijg gemeten aantallen fietsen in {{ParkingLocation}}s en bijbehorende {{Section}}s.
 
-| HTTP-methode                                                            | Type                                           | Beschrijving                                                                                                                              |
-| ----------------------------------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| <dfn>GET `/parkingfacilities/{pf_id}/observations`                      | {{ResultWrapper}}`<`{{Observation}}`>`         | Toon alle tellingen waar {{Observation.featureOfInterest}} = <var>pf_id</var>.                                                            |
-| <dfn>GET `/parkingfacilities/{pf_id}/capacity/latest`                   | {{Observation}}`<`{{CapacityMeasurement}}`>`   | Toon meest actuele capaciteitstelling ({{Observation.observedProperty}} = `c`) waar {{Observation.featureOfInterest}} = <var>pf_id</var>. |
-| <dfn>GET `/parkingfacilities/{pf_id}/occupation/latest`                 | {{Observation}}`<`{{OccupationMeasurement}}`>` | Toon meest actuele bezettingstelling ({{Observation.observedProperty}} = `b`) waar {{Observation.featureOfInterest}} = <var>pf_id</var>.  |
-| <dfn>POST `/parkingfacilities/{pf_id}/observations`                     | {{Observation}}`[]`                            | Voeg tellingen toe waar {{Observation.featureOfInterest}} = <var>pf_id</var>.                                                             |
-| <dfn>GET `/parkingfacilities/{pf_id}/sections/{s_id}/observations`      | {{ResultWrapper}}`<`{{Observation}}`>`         | Toon alle tellingen waar {{Observation.featureOfInterest}} = <var>s_id</var>.                                                             |
-| <dfn>GET `/parkingfacilities/{pf_id}/sections/{s_id}/capacity/latest`   | {{Observation}}`<`{{CapacityMeasurement}}`>`   | Toon meest actuele capaciteitstelling ({{Observation.observedProperty}} = `c`) waar {{Observation.featureOfInterest}} = <var>s_id</var>.  |
-| <dfn>GET `/parkingfacilities/{pf_id}/sections/{s_id}/occupation/latest` | {{Observation}}`<`{{OccupationMeasurement}}`>` | Toon meest actuele bezettingstelling ({{Observation.observedProperty}} = `b`) waar {{Observation.featureOfInterest}} = <var>s_id</var>.   |
-| <dfn>POST `/parkingfacilities/{pf_id}/sections/{s_id}/observations`     | {{Observation}}`[]`                            | Voeg tellingen toe waar {{Observation.featureOfInterest}} = <var>s_id</var>.                                                              |
-| {.data def }                                                            |
+| HTTP-methode                                                           | Type                                           | Beschrijving                                                                                                                              |
+| ---------------------------------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| <dfn>GET `/parking-location/{pf_id}/observations`                      | {{ResultWrapper}}`<`{{Observation}}`>`         | Toon alle tellingen waar {{Observation.featureOfInterest}} = <var>pf_id</var>.                                                            |
+| <dfn>GET `/parking-location/{pf_id}/capacity/latest`                   | {{Observation}}`<`{{CapacityMeasurement}}`>`   | Toon meest actuele capaciteitstelling ({{Observation.observedProperty}} = `c`) waar {{Observation.featureOfInterest}} = <var>pf_id</var>. |
+| <dfn>GET `/parking-location{pf_id}/occupation/latest`                  | {{Observation}}`<`{{OccupationMeasurement}}`>` | Toon meest actuele bezettingstelling ({{Observation.observedProperty}} = `b`) waar {{Observation.featureOfInterest}} = <var>pf_id</var>.  |
+| <dfn>POST `/parking-location/{pf_id}/observations`                     | {{Observation}}`[]`                            | Voeg tellingen toe waar {{Observation.featureOfInterest}} = <var>pf_id</var>.                                                             |
+| <dfn>GET `/parking-location/{pf_id}/sections/{s_id}/observations`      | {{ResultWrapper}}`<`{{Observation}}`>`         | Toon alle tellingen waar {{Observation.featureOfInterest}} = <var>s_id</var>.                                                             |
+| <dfn>GET `/parking-location/{pf_id}/sections/{s_id}/capacity/latest`   | {{Observation}}`<`{{CapacityMeasurement}}`>`   | Toon meest actuele capaciteitstelling ({{Observation.observedProperty}} = `c`) waar {{Observation.featureOfInterest}} = <var>s_id</var>.  |
+| <dfn>GET `/parking-location/{pf_id}/sections/{s_id}/occupation/latest` | {{Observation}}`<`{{OccupationMeasurement}}`>` | Toon meest actuele bezettingstelling ({{Observation.observedProperty}} = `b`) waar {{Observation.featureOfInterest}} = <var>s_id</var>.   |
+| <dfn>POST `/parking-location/{pf_id}/sections/{s_id}/observations`     | {{Observation}}`[]`                            | Voeg tellingen toe waar {{Observation.featureOfInterest}} = <var>s_id</var>.                                                              |
+| {.data def }                                                           |
 
 Gebruikers van API 5 — de datastroom tussen het dataportal en de webapplicaties — zijn vooral geïnteresseerd in realtime data.
 Per {{ParkingLocation}} of {{Section}} dus slechts één resultaat, het meest recente.
@@ -455,8 +455,8 @@ Voor deze gebruikers zijn de `/latest` endpoints gemaakt.
 
 Merk op dat, ook al onderscheidt een {{Survey}} slechts bepaalde {{CanonicalVehicle}}s, bij het insturen van metingen wordt altijd een uitgevuld {{Vehicle}}-object meegegeven.
 
-<pre class='example json' title='GET /parkingfacilities/{id}/count' data-include='examples/parkingfacilities-id-count-get.json' data-include-format='text'></pre>
-<pre class='example json' title='GET /parkingfacilities/{id}/sections/{id}/count' data-include='examples/parkingfacilities-id-sections-id-count.json' data-include-format='text'></pre>
+<pre class='example json' title='GET /parking-location/{id}/count' data-include='examples/parkingfacilities-id-count-get.json' data-include-format='text'></pre>
+<pre class='example json' title='GET /parking-location/{id}/sections/{id}/count' data-include='examples/parkingfacilities-id-sections-id-count.json' data-include-format='text'></pre>
 
 ### De capaciteit of bezetting berekenen van een `ParkingLocation` o.b.v. diens `Section`s
 
@@ -474,7 +474,6 @@ Merk op dat, ook al onderscheidt een {{Survey}} slechts bepaalde {{CanonicalVehi
    1. Voor bezettingsmetingen op een tijdstip:
       1. {{OccupationMeasurement.totalParked}}: waarde van de som over alle voorgenoemde `Observation`s.
       1. {{OccupationMeasurement.occupiedSpaces}}: waarde van de som over alle voorgenoemde `Observation`s.
-      1. {{OccupationMeasurement.parkedByVehicleType}}: waarde van de gesommeerde set over alle voorgenoemde `Observation`s.
       1. {{OccupationMeasurement.vacantSpaces}}: waarde van de som over alle voorgenoemde `Observation`s.
       1. {{OccupationMeasurement.basedOffCapacity}}: verwijst naar een bestaande of gesynthetiseerde capaciteitsmeting.
 
@@ -483,24 +482,3 @@ Hierbij geldt ook het volgende:
 - Een daadwerkelijke meting en een gesynthetiseerde volgens bovenstaande stappenplan, HOEVEN NIET overeen te komen.
   Verschillen kunnen door meettechnieken of tijdsverloop of andere omstandigheden voorkomen.
   De gesynthetiseerde Observation is tenslotte niet daadwerklijk gemeten.
-
-<aside class='issue'>
-TODO:
-Moet er ook een algemene mogelijkheid zijn om statistieken over alle parkingfacilities gevonden met Query Parameters?
-
-Eerder stond dit ook:
-
-> **Filter op inhoud**  
-> Om data-analisten te helpen hun weg te vinden in de gestaag groeiende data van een dataportal, stelt de datastandaard een aantal zoekfunctionaliteiten verplicht. Zo moet een er minimaal gefilterd kunnen worden op:
->
-> - Data van een bepaalde secties (sectionId)
->
-> De praktijk moet uitwijzen of deze lijst voldoende is om aan alle wensen van de data-analisten te voldoen. Indien nodig zullen er meer zoekfuncties aan deze lijst worden toegevoegd.
->
-> **Filter op sectieId**  
-> Als een analist alleen data van bepaalde statische secties:  
-> `?staticSectionId=:staticSectionId`  
-> Of meerdere secties:  
-> `?staticSectionId=staticSectionId1,staticSectionId2,staticSectionId3`
-
-</aside>
