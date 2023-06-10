@@ -1696,8 +1696,10 @@ components:
           type: string
         authority:
           type: string
-        contractor:
-          type: string
+        contractors:
+          type: array
+          items:
+            type: string
         license:
           type: string
         canonicalVehicleCategory:
