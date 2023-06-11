@@ -1456,8 +1456,12 @@ components:
       required:
         - featureOfInterest
       properties:
+        surveyAreaParent: 
+          type: string
+          description: id of parent Survey Area
         surveyArea: 
           type: string
+          description: id of child Survey Area
         parkingLocation:
           type: string
         section: 
