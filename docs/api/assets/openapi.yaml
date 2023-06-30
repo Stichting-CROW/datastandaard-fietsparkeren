@@ -1474,6 +1474,7 @@ components:
       type: object
       required:
         - timestampStart
+        - contractor
         - timestampEnd
         - survey
         - featureOfInterest
@@ -1481,6 +1482,8 @@ components:
         - observedProperty
       properties:
         id: 
+          type: string
+        contractor: 
           type: string
         timestampStart: 
           type: string

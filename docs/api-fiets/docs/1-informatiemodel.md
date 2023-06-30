@@ -249,6 +249,7 @@ Volstaat wellicht een algemeen `Measurement`?
 | Eigenschap                                        | Type                                                       | Kardinaliteit | Beschrijving                                                                   |
 | ------------------------------------------------- | ---------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------ |
 | <dfn data-dfn-for='Observation'>id                | `string`                                                   | 1             | Een [[=ResourceIdentifier=]].                                                  |
+| <dfn data-dfn-for='Observation'>contractor        | `string`                                                   | 1             | id van contractor die deze observatie gedaan heeft.                                                    |
 | <dfn data-dfn-for='Observation'>timestampStart\*  | [[rfc3339]] date-time (`string`)                           | 1             | Starttijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.      |
 | <dfn data-dfn-for='Observation'>timestampEnd\*    | [[rfc3339]] date-time (`string`)                           | 1             | Eindtijdstip van de meting, zie <a href='#geldigheid-door-de-tijd'></a>.       |
 | <dfn data-dfn-for='Observation'>survey\*          | `string`                                                   | 1             | {{Survey.id}} waartoe deze meting behoort.                                     |
@@ -638,6 +639,7 @@ Classificatie naar wettelijke voertuigcategorie.
 
 | Eigenschap                     | Type                 | Kardinaliteit | Beschrijving                                                                   |
 | ------------------------------ | ------------------------------------------ | ------------- | ----------------------------------------------------------- |
+| <dfn data-dfn-for='Observation'>surveyAreaParent      | `string`        | 0..1  | Survey Area op hoogste niveau waarin Parking Location gelegen is. |
 | <dfn data-dfn-for='Observation'>surveyArea            | `string`        | 0..1  | Survey Area waarin Parking Location gelegen is. |
 | <dfn data-dfn-for='Observation'>parkingLocation       | `string`        | 1     | ParkingLocation waarop deze tellingen betrekking heeft of waarin de sectie gelegen is. |
 | <dfn data-dfn-for='Observation'>section               | `string`        | 0..1  | Section  waarop deze tellingen betrekking heeft. |
