@@ -1773,6 +1773,10 @@ components:
               - electronicAccess
               - indoor
               - surfaceParking
+              - building
+              - nobuilding
+              - guarded
+              - unguarded
           default: []
     Section:
       required:
