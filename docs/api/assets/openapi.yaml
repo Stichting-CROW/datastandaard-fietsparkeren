@@ -1778,6 +1778,19 @@ components:
               - guarded
               - unguarded
           default: []
+        surveyAreaParentId:
+          type: string
+          description: Readonly - not to be posted! Only returned in GET /surveys/:id/sections
+        surveyAreaParentLocalId:
+          type: string
+          description: Readonly - not to be posted! Only returned in GET /surveys/:id/sections
+        surveyAreaChildId:
+          type: string
+          description: Readonly - not to be posted! Only returned in GET /surveys/:id/sections
+        surveyAreaChildLocalId:
+          type: string
+          description: Readonly - not to be posted! Only returned in GET /surveys/:id/sections
+
     Section:
       required:
         - parkingLocation
@@ -1808,6 +1821,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ParkingSpaceType'
+        surveyAreaParentId:
+          type: string
+          description: Readonly - not to be posted! Only returned in GET /surveys/:id/sections
+        surveyAreaParentLocalId:
+          type: string
+          description: Readonly - not to be posted! Only returned in GET /surveys/:id/sections
+        surveyAreaChildId:
+          type: string
+          description: Readonly - not to be posted! Only returned in GET /surveys/:id/sections
+        surveyAreaChildLocalId:
+          type: string
+          description: Readonly - not to be posted! Only returned in GET /surveys/:id/sections
     Vehicle:
       title: Vehicle
       properties:
