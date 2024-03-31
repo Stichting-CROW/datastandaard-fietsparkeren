@@ -1817,6 +1817,9 @@ components:
           type: string
         level:
           type: integer
+        levelSub:
+          type: string
+          description: max length = 10
         parkingSpaceOf:
           type: array
           items:

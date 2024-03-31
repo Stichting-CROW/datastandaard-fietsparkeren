@@ -177,6 +177,7 @@ Voor bijvoorbeeld handmatige tellers kan dat wel handig zijn.
 | <dfn data-dfn-for='Section'>geoLocation     | GeoJSON                           | 0..1          | Geografische afbakening volgens [[rfc7946]].                                                                               |
 | <dfn data-dfn-for='Section'>parkingSpaceOf  | {{ParkingSpaceType}}`[]`          | 1..N          | De types parkeervoorziening.                                                                                               |
 | <dfn data-dfn-for='Section'>level           | `number`                          | 0..1          | De etage in de ParkingLocation waar deze sectie zich bevindt. -1 = onder maaiveld, 0 = maaiveld (default), 1 = verdieping. |
+| <dfn data-dfn-for='Section'>levelSub           | `string`                       | 0..1          | Onderverdeling van een level van een section. |
 | <dfn data-dfn-for='Section'>validFrom       | [[rfc3339]] date-time (`string`)  | 0..1          | Begin geldigheid. Zie <a href='#geldigheid-door-de-tijd'></a>.                                                             |
 | <dfn data-dfn-for='Section'>validThrough    | [[rfc3339]] date-time (`string`)  | 0..1          | Einde geldigheid. Zie <a href='#geldigheid-door-de-tijd'></a>.                                                             |
 | <dfn data-dfn-for='Section'>owner           | {{Organisation.id}} (`string`)    | 0..1          | Eigenaar van deze sectie.                                                                                                  |
