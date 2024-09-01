@@ -326,13 +326,13 @@ Als objecttypen voorzien zijn van exacte geo-coördinaten, MOET een implementati
 Alle tellingsgegevens worden in de context van een {{Survey}} ingevoerd (cf. <a href='#relatie-objecttypen'></a>).
 Ook {{SurveyArea}}s hebben een relatie tot een Survey.
 
-Een implementatie MOET kunnen filteren op {{authorityID}}, {{contractorID}} en {{surveyID}}.
+Een implementatie MOET kunnen filteren op {{authority}}, {{contractor}} en {{surveyID}}.
 
 | Parameter         | Type     | Waarde                                                         |
 | ----------------- | -------- | -------------------------------------------------------------- |
 | <dfn>surveyID     | `string` | Alleen data van een onderzoek met deze {{Survey.id}}.          |
-| <dfn>authorityID  | `string` | Alleen data van de opdrachtgever met deze {{Organisation.id}}. |
-| <dfn>contractorID | `string` | Alleen data van de aannemer met deze {{Organisation.id}}.      |
+| <dfn>authority  | `string` | Alleen data van de opdrachtgever met deze {{Organisation.id}}. |
+| <dfn>contractor | `string` | Alleen data van de aannemer met deze {{Organisation.id}}.      |
 | {.data def}       |
 
 ## REST-API: organisaties
@@ -380,10 +380,7 @@ Registreer en beheer Surveys en SurveyAreas en leg de koppeling tussen beide.
 <li>{{geoPolygon}}
 <li>{{geoRelation}}
 <li>{{surveyID}}
-<li>{{authorityID}}
-<li>{{contractorID}}
-<li>{{startDate}}
-<li>{{endDate}}
+<li>{{authority}}
 </ul>
 
 | HTTP-methode                  | Type                                  | Beschrijving                                                                                                 |
@@ -397,17 +394,15 @@ Registreer en beheer Surveys en SurveyAreas en leg de koppeling tussen beide.
 **Standaardfilters voor <a href='#dfn-get-survey-areas-id'>GET `/survey-areas/{id}`</a>**
 
 <ul class='filter-list' data-sort>
-<li>{{orderBy}}
-<li>{{orderDirection}}
-<li>{{limit}}
-<li>{{offset}}
-<li>{{geoPolygon}}
-<li>{{geoRelation}}
-<li>{{surveyID}}
-<li>{{authorityID}}
-<li>{{contractorID}}
-<li>{{startDate}}
-<li>{{endDate}}
+<li>{{orderBy}}</li>
+<li>{{orderDirection}}</li>
+<li>{{limit}}</li>
+<li>{{offset}}</li>
+<li>{{geoPolygon}}</li>
+<li>{{geoRelation}}</li>
+<li>{{surveyID}}</li>
+<li>{{authority}}</li>
+<li>{{validAt}}</li>
 </ul>
 
 <pre class='example json' title='POST /surveys' data-include='examples/surveys-post.json' data-include-format='text'></pre>
@@ -422,16 +417,49 @@ Registreer en beheer {{ParkingLocation}}s en bijbehorende {{Section}}s.
 
 | HTTP-methode                                       | Type                                       | Beschrijving                                                                                            |
 | -------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
-| <dfn>GET `/parking-location`                       | {{ResultWrapper}}`<`{{ParkingLocation}}`>` | Toon bestaande ParkingLocations.                                                                        |
-| <dfn>POST `/parking-location`                      | {{ParkingLocation}}                        | Voeg een ParkingLocation toe.                                                                           |
-| <dfn>GET `/parking-location/{id}`                  | {{ParkingLocation}}                        | Toon de ParkingLocation waar {{ParkingLocation.id}} = <var>id</var>.                                    |
-| <dfn>GET `/parking-location/{id}/sections`         | {{ResultWrapper}}`<`{{Section}}`>`         | Toon alle Sections, waar {{Section.parkingLocation}} = <var>id</var>.                                   |
-| <dfn>POST `/parking-location/{id}/sections`        | {{Section}}                                | Voeg een Section toe, waar {{Section.parkingLocation}} = <var>id</var>.                                 |
-| <dfn>GET `/parking-location/{pfid}/sections/{sid}` | {{Section}}                                | Toon de Section, waar {{Section.parkingLocation}} = <var>pfid</var> en {{Section.id}} = <var>sid</var>. |
+| <dfn>GET `/parking-locations`                       | {{ResultWrapper}}`<`{{ParkingLocation}}`>` | Toon bestaande ParkingLocations.                                                                        |
+| <dfn>POST `/parking-locations`                      | {{ParkingLocation}}                        | Voeg een ParkingLocation toe.                                                                           |
+| <dfn>GET `/parking-locations/{id}`                  | {{ParkingLocation}}                        | Toon de ParkingLocation waar {{ParkingLocation.id}} = <var>id</var>.                                    |
+| <dfn>GET `/parking-locations/{id}/sections`         | {{ResultWrapper}}`<`{{Section}}`>`         | Toon alle Sections, waar {{Section.parkingLocation}} = <var>id</var>.                                   |
+| <dfn>POST `/parking-locations/{id}/sections`        | {{Section}}                                | Voeg een Section toe, waar {{Section.parkingLocation}} = <var>id</var>.                                 |
+| <dfn>GET `/parking-locations/{pfid}/sections/{sid}` | {{Section}}                                | Toon de Section, waar {{Section.parkingLocation}} = <var>pfid</var> en {{Section.id}} = <var>sid</var>. |
 | {.data def }                                       |
 
-<pre class='example json' title='POST /parking-location' data-include='examples/parkingfacilities-post.json' data-include-format='text'></pre>
-<pre class='example json' title='POST /parking-location/{id}/sections' data-include='examples/parkingFacilities-id-sections-post.json' data-include-format='text'></pre>
+<pre class='example json' title='POST /parking-locations' data-include='examples/parkingfacilities-post.json' data-include-format='text'></pre>
+<pre class='example json' title='POST /parking-locations/{id}/sections' data-include='examples/parkingFacilities-id-sections-post.json' data-include-format='text'></pre>
+
+## REST-API: sections
+
+Registreer en beheer {{ParkingLocation}}s en bijbehorende {{Section}}s.
+
+| HTTP-methode                                       | Type                                       | Beschrijving                                                                                            |
+| -------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| <dfn>GET `/sections`                       | {{ResultWrapper}}`<`{{Section}}`>` | Toon bestaande Sections.                                                                        |
+| <dfn>POST `/sections`                      | {{ParkingLoSectioncation}}                        | Voeg een Section toe.                                                                           |
+| <dfn>GET `/sections/{id}`                  | {{Section}}                        | Toon de Section waar {{Section.id}} = <var>id</var>.                                    |
+| {.data def }                                       |
+
+<pre class='example json' title='POST /sections' data-include='examples/section-post.json' data-include-format='text'></pre>
+
+**Standaardfilters voor /sections:
+
+<ul class='filter-list' data-sort>
+<li>{{orderBy}}</li>
+<li>{{orderDirection}}</li>
+<li>{{limit}}</li>
+<li>{{offset}}</li>
+<li>{{geoPolygon}}</li>
+<li>{{geoRelation}}</li>
+<li>{{localId}}</li>
+<li>{{authority}}</li>
+<li>{{name}}</li>
+<li>{{surveyId}}</li>
+<li>{{validAt}}</li>
+<li>{{level}}</li>
+<li>{{levelSub}}</li>
+<li>{{layout}}</li>
+<li>{{parkingLocationLocalId}}</li>
+</ul>
 
 ## REST-API: tellingen, metingen en capaciteit
 
@@ -439,14 +467,14 @@ Verkrijg gemeten aantallen fietsen in {{ParkingLocation}}s en bijbehorende {{Sec
 
 | HTTP-methode                                                           | Type                                           | Beschrijving                                                                                                                              |
 | ---------------------------------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| <dfn>GET `/parking-location/{pf_id}/observations`                      | {{ResultWrapper}}`<`{{Observation}}`>`         | Toon alle tellingen waar {{Observation.featureOfInterest}} = <var>pf_id</var>.                                                            |
-| <dfn>GET `/parking-location/{pf_id}/capacity/latest`                   | {{Observation}}`<`{{CapacityMeasurement}}`>`   | Toon meest actuele capaciteitstelling ({{Observation.observedProperty}} = `c`) waar {{Observation.featureOfInterest}} = <var>pf_id</var>. |
-| <dfn>GET `/parking-location{pf_id}/occupation/latest`                  | {{Observation}}`<`{{OccupationMeasurement}}`>` | Toon meest actuele bezettingstelling ({{Observation.observedProperty}} = `b`) waar {{Observation.featureOfInterest}} = <var>pf_id</var>.  |
-| <dfn>POST `/parking-location/{pf_id}/observations`                     | {{Observation}}`[]`                            | Voeg tellingen toe waar {{Observation.featureOfInterest}} = <var>pf_id</var>.                                                             |
-| <dfn>GET `/parking-location/{pf_id}/sections/{s_id}/observations`      | {{ResultWrapper}}`<`{{Observation}}`>`         | Toon alle tellingen waar {{Observation.featureOfInterest}} = <var>s_id</var>.                                                             |
-| <dfn>GET `/parking-location/{pf_id}/sections/{s_id}/capacity/latest`   | {{Observation}}`<`{{CapacityMeasurement}}`>`   | Toon meest actuele capaciteitstelling ({{Observation.observedProperty}} = `c`) waar {{Observation.featureOfInterest}} = <var>s_id</var>.  |
-| <dfn>GET `/parking-location/{pf_id}/sections/{s_id}/occupation/latest` | {{Observation}}`<`{{OccupationMeasurement}}`>` | Toon meest actuele bezettingstelling ({{Observation.observedProperty}} = `b`) waar {{Observation.featureOfInterest}} = <var>s_id</var>.   |
-| <dfn>POST `/parking-location/{pf_id}/sections/{s_id}/observations`     | {{Observation}}`[]`                            | Voeg tellingen toe waar {{Observation.featureOfInterest}} = <var>s_id</var>.                                                              |
+| <dfn>GET `/parking-locations/{pf_id}/observations`                      | {{ResultWrapper}}`<`{{Observation}}`>`         | Toon alle tellingen waar {{Observation.featureOfInterest}} = <var>pf_id</var>.                                                            |
+| <dfn>GET `/parking-locations/{pf_id}/capacity/latest`                   | {{Observation}}`<`{{CapacityMeasurement}}`>`   | Toon meest actuele capaciteitstelling ({{Observation.observedProperty}} = `c`) waar {{Observation.featureOfInterest}} = <var>pf_id</var>. |
+| <dfn>GET `/parking-locations/{pf_id}/occupation/latest`                  | {{Observation}}`<`{{OccupationMeasurement}}`>` | Toon meest actuele bezettingstelling ({{Observation.observedProperty}} = `b`) waar {{Observation.featureOfInterest}} = <var>pf_id</var>.  |
+| <dfn>POST `/parking-locations/{pf_id}/observations`                     | {{Observation}}`[]`                            | Voeg tellingen toe waar {{Observation.featureOfInterest}} = <var>pf_id</var>.                                                             |
+| <dfn>GET `/parking-locations/{pf_id}/sections/{s_id}/observations`      | {{ResultWrapper}}`<`{{Observation}}`>`         | Toon alle tellingen waar {{Observation.featureOfInterest}} = <var>s_id</var>.                                                             |
+| <dfn>GET `/parking-locations/{pf_id}/sections/{s_id}/capacity/latest`   | {{Observation}}`<`{{CapacityMeasurement}}`>`   | Toon meest actuele capaciteitstelling ({{Observation.observedProperty}} = `c`) waar {{Observation.featureOfInterest}} = <var>s_id</var>.  |
+| <dfn>GET `/parking-locations/{pf_id}/sections/{s_id}/occupation/latest` | {{Observation}}`<`{{OccupationMeasurement}}`>` | Toon meest actuele bezettingstelling ({{Observation.observedProperty}} = `b`) waar {{Observation.featureOfInterest}} = <var>s_id</var>.   |
+| <dfn>POST `/parking-locations/{pf_id}/sections/{s_id}/observations`     | {{Observation}}`[]`                            | Voeg tellingen toe waar {{Observation.featureOfInterest}} = <var>s_id</var>.                                                              |
 | {.data def }                                                           |
 
 Gebruikers van API 5 — de datastroom tussen het dataportal en de webapplicaties — zijn vooral geïnteresseerd in realtime data.
@@ -455,8 +483,8 @@ Voor deze gebruikers zijn de `/latest` endpoints gemaakt.
 
 Merk op dat, ook al onderscheidt een {{Survey}} slechts bepaalde {{CanonicalVehicle}}s, bij het insturen van metingen wordt altijd een uitgevuld {{Vehicle}}-object meegegeven.
 
-<pre class='example json' title='GET /parking-location/{id}/count' data-include='examples/parkingfacilities-id-count-get.json' data-include-format='text'></pre>
-<pre class='example json' title='GET /parking-location/{id}/sections/{id}/count' data-include='examples/parkingfacilities-id-sections-id-count.json' data-include-format='text'></pre>
+<pre class='example json' title='GET /parking-locations/{id}/count' data-include='examples/parkingfacilities-id-count-get.json' data-include-format='text'></pre>
+<pre class='example json' title='GET /parking-locations/{id}/sections/{id}/count' data-include='examples/parkingfacilities-id-sections-id-count.json' data-include-format='text'></pre>
 
 ### De capaciteit of bezetting berekenen van een `ParkingLocation` o.b.v. diens `Section`s
 

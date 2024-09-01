@@ -599,6 +599,46 @@ paths:
             default: current datetime
           name: validAt
           in: query
+
+        - required: false
+          schema:
+            title: name
+            type: string
+          name: name
+          in: query
+        - required: false
+          schema:
+            title: surveyId
+            type: string
+          name: surveyId
+          in: query
+        - required: false
+          schema:
+            title: level
+            type: integer
+          name: level
+          in: query
+        - required: false
+          schema:
+            title: levelSub
+            type: string
+          name: levelSub
+          in: query
+        - required: false
+          schema:
+            title: layout
+            type: string
+          name: layout
+          in: query
+        - required: false
+          schema:
+            title: parkingLocationLocalId
+            type: string
+          name: parkingLocationLocalId
+          in: query
+
+
+
       responses:
         '200':
           description: Successful Response
@@ -1819,7 +1859,6 @@ components:
           type: integer
         levelSub:
           type: string
-          description: max length = 10
         parkingSpaceOf:
           type: array
           items:
